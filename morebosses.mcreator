@@ -1,0 +1,49 @@
+{
+  "mod_elements": [
+    {
+      "name": "JALAMBI",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jalambi",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/jalambi.json",
+          "src/main/java/net/mcreator/morebosses/block/JALAMBIBlock.java",
+          "src/main/resources/assets/morebosses/blockstates/jalambi.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/jalambi.json",
+          "src/main/resources/assets/morebosses/models/item/jalambi.json"
+        ]
+      }
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "tag_elements": {},
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "block.morebosses.jalambi": "JALAMBI"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "morebosses",
+    "modName": "RemoteLMB",
+    "version": "1.0.0",
+    "author": "Luca, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "modElementsPackage": "net.mcreator.morebosses"
+  },
+  "mcreatorVersion": 202400452410
+}
