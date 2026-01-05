@@ -1,0 +1,55 @@
+{
+  "_fv": 73,
+  "_type": "fluid",
+  "definition": {
+    "name": "Raw Magma",
+    "bucketName": "Raw Magma Bucket",
+    "textureStill": "mgm1",
+    "textureFlowing": "minecraft:magma",
+    "textureRenderOverlay": "mgm1",
+    "hasFog": false,
+    "fogStartDistance": {
+      "fixedValue": 0.0
+    },
+    "fogEndDistance": {
+      "fixedValue": 48.0
+    },
+    "tintType": "No tint",
+    "canMultiply": false,
+    "flowRate": 25,
+    "levelDecrease": 2,
+    "slopeFindDistance": 4,
+    "spawnParticles": false,
+    "dripParticle": {
+      "value": "EXPLOSION_NORMAL"
+    },
+    "flowStrength": 1.0,
+    "luminosity": 15,
+    "density": 1500,
+    "viscosity": 2000,
+    "temperature": 1000,
+    "type": "LAVA",
+    "generateBucket": true,
+    "textureBucket": "",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:LMBItens"
+      }
+    ],
+    "emptySound": {
+      "value": "item.bucket.empty_lava"
+    },
+    "rarity": "COMMON",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "resistance": 100.0,
+    "luminance": 15,
+    "lightOpacity": 1,
+    "emissiveRendering": true,
+    "tickRate": 0,
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "colorOnMap": "DEFAULT"
+  }
+}

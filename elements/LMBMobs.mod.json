@@ -4,7 +4,7 @@
   "definition": {
     "name": "LMB Mobs",
     "icon": {
-      "value": "Blocks.DEEPSLATE_COAL_ORE"
+      "value": "Blocks.DRAGON_EGG"
     },
     "showSearch": true
   }

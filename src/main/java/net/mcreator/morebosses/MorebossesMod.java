@@ -19,6 +19,8 @@ import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.morebosses.init.MorebossesModTabs;
 import net.mcreator.morebosses.init.MorebossesModItems;
+import net.mcreator.morebosses.init.MorebossesModFluids;
+import net.mcreator.morebosses.init.MorebossesModFluidTypes;
 import net.mcreator.morebosses.init.MorebossesModBlocks;
 
 import java.util.function.Supplier;
@@ -46,6 +48,9 @@ public class MorebossesMod {
 		MorebossesModItems.REGISTRY.register(bus);
 
 		MorebossesModTabs.REGISTRY.register(bus);
+
+		MorebossesModFluids.REGISTRY.register(bus);
+		MorebossesModFluidTypes.REGISTRY.register(bus);
 
 		// Start of user code block mod init
 		// End of user code block mod init

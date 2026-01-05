@@ -20,4 +20,10 @@ public class MorebossesModTabs {
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_blocks")).icon(() -> new ItemStack(MorebossesModBlocks.GREEN_MAGMA_BLOCK.get())).displayItems((parameters, tabData) -> {
 				tabData.accept(MorebossesModBlocks.GREEN_MAGMA_BLOCK.get().asItem());
 			}).withSearchBar().build());
+	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
+				tabData.accept(MorebossesModItems.GREEN_MAGMA_CREAM.get());
+				tabData.accept(MorebossesModItems.GREEN_MAGMA_BUCKET.get());
+				tabData.accept(MorebossesModItems.RAW_MAGMA_BUCKET.get());
+			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 }

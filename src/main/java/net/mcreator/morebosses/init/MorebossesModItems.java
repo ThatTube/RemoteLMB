@@ -12,11 +12,17 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
 
+import net.mcreator.morebosses.item.RawMagmaItem;
+import net.mcreator.morebosses.item.GreenMagmaItem;
+import net.mcreator.morebosses.item.GreenMagmaCreamItem;
 import net.mcreator.morebosses.MorebossesMod;
 
 public class MorebossesModItems {
 	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, MorebossesMod.MODID);
 	public static final RegistryObject<Item> GREEN_MAGMA_BLOCK = block(MorebossesModBlocks.GREEN_MAGMA_BLOCK);
+	public static final RegistryObject<Item> GREEN_MAGMA_CREAM = REGISTRY.register("green_magma_cream", () -> new GreenMagmaCreamItem());
+	public static final RegistryObject<Item> GREEN_MAGMA_BUCKET = REGISTRY.register("green_magma_bucket", () -> new GreenMagmaItem());
+	public static final RegistryObject<Item> RAW_MAGMA_BUCKET = REGISTRY.register("raw_magma_bucket", () -> new RawMagmaItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

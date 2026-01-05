@@ -45,16 +45,93 @@
       "metadata": {
         "files": []
       }
+    },
+    {
+      "name": "GreenMagmaCream",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "green_magma_cream",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/green_magma_cream.json",
+          "src/main/java/net/mcreator/morebosses/item/GreenMagmaCreamItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "GreenMagmaBlockLoot",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "green_magma_block_loot",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/blocks/green_magma_block.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "GreenMagma",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "green_magma",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/green_magma.json",
+          "src/main/resources/assets/morebosses/blockstates/green_magma.json",
+          "src/main/java/net/mcreator/morebosses/block/GreenMagmaBlock.java",
+          "src/main/java/net/mcreator/morebosses/item/GreenMagmaItem.java",
+          "src/main/java/net/mcreator/morebosses/fluid/GreenMagmaFluid.java",
+          "src/main/resources/assets/morebosses/models/item/green_magma_bucket.json",
+          "src/main/java/net/mcreator/morebosses/fluid/types/GreenMagmaFluidType.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "RawMagma",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "raw_magma",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/fluid/RawMagmaFluid.java",
+          "src/main/java/net/mcreator/morebosses/fluid/types/RawMagmaFluidType.java",
+          "src/main/java/net/mcreator/morebosses/item/RawMagmaItem.java",
+          "src/main/resources/assets/morebosses/models/item/raw_magma_bucket.json",
+          "src/main/java/net/mcreator/morebosses/block/RawMagmaBlock.java",
+          "src/main/resources/assets/morebosses/blockstates/raw_magma.json",
+          "src/main/resources/assets/morebosses/models/block/raw_magma.json"
+        ]
+      },
+      "path": "~/Blocks"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
-  "tag_elements": {},
+  "tag_elements": {
+    "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:RawMagma",
+      "~CUSTOM:GreenMagma"
+    ]
+  },
   "tab_element_order": {},
   "language_map": {
     "en_us": {
+      "item.morebosses.green_magma_cream": "Green Magma Cream",
+      "fluid.morebosses.green_magma": "Green Magma",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
       "item_group.morebosses.lmb_itens": "LMB Itens",
+      "block.morebosses.raw_magma": "Raw Magma",
+      "item.morebosses.green_magma_bucket": "Green Magma Bucket",
+      "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
+      "fluid.morebosses.raw_magma": "Raw Magma",
+      "block.morebosses.green_magma": "Green Magma",
       "block.morebosses.green_magma_block": "Green Magma Block",
       "item_group.morebosses.lmb_mobs": "LMB Mobs"
     }
@@ -88,6 +165,10 @@
       },
       {
         "name": "Conquistas",
+        "children": []
+      },
+      {
+        "name": "Recipes",
         "children": []
       }
     ]
