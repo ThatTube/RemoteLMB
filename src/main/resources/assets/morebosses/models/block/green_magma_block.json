@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "morebosses:block/magma_green_block",
+    "particle": "morebosses:block/magma_green_block"
+  },
+  "render_type": "solid"
+}

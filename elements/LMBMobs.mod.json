@@ -1,0 +1,11 @@
+{
+  "_fv": 73,
+  "_type": "tab",
+  "definition": {
+    "name": "LMB Mobs",
+    "icon": {
+      "value": "Blocks.DEEPSLATE_COAL_ORE"
+    },
+    "showSearch": true
+  }
+}

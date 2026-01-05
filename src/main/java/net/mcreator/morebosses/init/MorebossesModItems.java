@@ -16,7 +16,7 @@ import net.mcreator.morebosses.MorebossesMod;
 
 public class MorebossesModItems {
 	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, MorebossesMod.MODID);
-	public static final RegistryObject<Item> JALAMBI = block(MorebossesModBlocks.JALAMBI);
+	public static final RegistryObject<Item> GREEN_MAGMA_BLOCK = block(MorebossesModBlocks.GREEN_MAGMA_BLOCK);
 
 	// Start of user code block custom items
 	// End of user code block custom items

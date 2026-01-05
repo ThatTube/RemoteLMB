@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "minecraft:block/brewing_stand_base",
-    "particle": "minecraft:block/brewing_stand_base"
-  },
-  "render_type": "solid"
-}

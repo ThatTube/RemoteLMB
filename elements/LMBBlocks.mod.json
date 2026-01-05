@@ -1,0 +1,11 @@
+{
+  "_fv": 73,
+  "_type": "tab",
+  "definition": {
+    "name": "LMB Blocks",
+    "icon": {
+      "value": "CUSTOM:GreenMagmaBlock"
+    },
+    "showSearch": true
+  }
+}

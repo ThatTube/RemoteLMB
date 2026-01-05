@@ -1,0 +1,11 @@
+{
+  "_fv": 73,
+  "_type": "tab",
+  "definition": {
+    "name": "LMB Itens",
+    "icon": {
+      "value": "Blocks.SAPLING#2"
+    },
+    "showSearch": true
+  }
+}

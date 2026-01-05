@@ -1,3 +1,6 @@
 {
-  "block.morebosses.jalambi": "JALAMBI"
+  "item_group.morebosses.lmb_blocks": "LMB Blocks",
+  "item_group.morebosses.lmb_itens": "LMB Itens",
+  "block.morebosses.green_magma_block": "Green Magma Block",
+  "item_group.morebosses.lmb_mobs": "LMB Mobs"
 }

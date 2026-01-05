@@ -17,6 +17,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
+import net.mcreator.morebosses.init.MorebossesModTabs;
 import net.mcreator.morebosses.init.MorebossesModItems;
 import net.mcreator.morebosses.init.MorebossesModBlocks;
 
@@ -43,6 +44,8 @@ public class MorebossesMod {
 		MorebossesModBlocks.REGISTRY.register(bus);
 
 		MorebossesModItems.REGISTRY.register(bus);
+
+		MorebossesModTabs.REGISTRY.register(bus);
 
 		// Start of user code block mod init
 		// End of user code block mod init

@@ -1,19 +1,49 @@
 {
   "mod_elements": [
     {
-      "name": "JALAMBI",
+      "name": "GreenMagmaBlock",
       "type": "block",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "jalambi",
+      "registry_name": "green_magma_block",
       "metadata": {
         "files": [
-          "src/main/resources/assets/morebosses/models/block/jalambi.json",
-          "src/main/java/net/mcreator/morebosses/block/JALAMBIBlock.java",
-          "src/main/resources/assets/morebosses/blockstates/jalambi.json",
-          "src/main/resources/data/morebosses/loot_tables/blocks/jalambi.json",
-          "src/main/resources/assets/morebosses/models/item/jalambi.json"
+          "src/main/java/net/mcreator/morebosses/block/GreenMagmaBlockBlock.java",
+          "src/main/resources/assets/morebosses/models/block/green_magma_block.json",
+          "src/main/resources/assets/morebosses/models/item/green_magma_block.json",
+          "src/main/resources/assets/morebosses/blockstates/green_magma_block.json"
         ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "LMBBlocks",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lmb_blocks",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "LMBMobs",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lmb_mobs",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "LMBItens",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lmb_itens",
+      "metadata": {
+        "files": []
       }
     }
   ],
@@ -23,12 +53,44 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "block.morebosses.jalambi": "JALAMBI"
+      "item_group.morebosses.lmb_blocks": "LMB Blocks",
+      "item_group.morebosses.lmb_itens": "LMB Itens",
+      "block.morebosses.green_magma_block": "Green Magma Block",
+      "item_group.morebosses.lmb_mobs": "LMB Mobs"
     }
   },
   "foldersRoot": {
     "name": "~",
-    "children": []
+    "children": [
+      {
+        "name": "Blocks",
+        "children": []
+      },
+      {
+        "name": "Items",
+        "children": []
+      },
+      {
+        "name": "Mobs",
+        "children": []
+      },
+      {
+        "name": "Procedures",
+        "children": []
+      },
+      {
+        "name": "Estruturas",
+        "children": []
+      },
+      {
+        "name": "Efeitos",
+        "children": []
+      },
+      {
+        "name": "Conquistas",
+        "children": []
+      }
+    ]
   },
   "workspaceSettings": {
     "modid": "morebosses",
@@ -41,8 +103,15 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [],
+    "mcreatorDependencies": [
+      "curios_api",
+      "nexus_compiled_mods",
+      "geckolib",
+      "playeranimator",
+      "jei"
+    ],
     "currentGenerator": "forge-1.20.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.morebosses"
   },
   "mcreatorVersion": 202400452410

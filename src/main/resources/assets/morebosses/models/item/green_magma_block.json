@@ -1,5 +1,5 @@
 {
-  "parent": "morebosses:block/jalambi",
+  "parent": "morebosses:block/green_magma_block",
   "display": {
     "thirdperson": {
       "rotation": [
