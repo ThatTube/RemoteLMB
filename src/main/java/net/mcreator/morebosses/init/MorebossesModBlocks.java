@@ -10,7 +10,6 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 
-import net.mcreator.morebosses.block.WEWEBlock;
 import net.mcreator.morebosses.block.RawMagmaBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlock;
@@ -21,7 +20,6 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> GREEN_MAGMA_BLOCK = REGISTRY.register("green_magma_block", () -> new GreenMagmaBlockBlock());
 	public static final RegistryObject<Block> GREEN_MAGMA = REGISTRY.register("green_magma", () -> new GreenMagmaBlock());
 	public static final RegistryObject<Block> RAW_MAGMA = REGISTRY.register("raw_magma", () -> new RawMagmaBlock());
-	public static final RegistryObject<Block> WEWE = REGISTRY.register("wewe", () -> new WEWEBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

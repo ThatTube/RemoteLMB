@@ -1,14 +1,16 @@
 {
+  "death.attack.magma": "%1$s tried to swim in magma",
   "fluid.morebosses.green_magma": "Green Magma",
   "item_group.morebosses.lmb_blocks": "LMB Blocks",
   "item_group.morebosses.lmb_itens": "LMB Itens",
   "fluid.morebosses.raw_magma": "Raw Magma",
   "block.morebosses.green_magma": "Green Magma",
-  "block.morebosses.wewe": "WEWE",
   "item.morebosses.green_magma_cream": "Green Magma Cream",
+  "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
   "block.morebosses.raw_magma": "Raw Magma",
   "item.morebosses.green_magma_bucket": "Green Magma Bucket",
   "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
+  "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
   "block.morebosses.green_magma_block": "Green Magma Block",
   "item_group.morebosses.lmb_mobs": "LMB Mobs"
 }

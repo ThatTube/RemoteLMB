@@ -135,20 +135,40 @@
       "path": "~/Procedures"
     },
     {
-      "name": "WEWE",
-      "type": "block",
+      "name": "Magma",
+      "type": "damagetype",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "wewe",
+      "registry_name": "magma",
       "metadata": {
         "files": [
-          "src/main/resources/assets/morebosses/models/item/wewe.json",
-          "src/main/resources/data/morebosses/loot_tables/blocks/wewe.json",
-          "src/main/java/net/mcreator/morebosses/block/WEWEBlock.java",
-          "src/main/resources/assets/morebosses/blockstates/wewe.json",
-          "src/main/resources/assets/morebosses/models/block/wewe.json"
+          "src/main/resources/data/morebosses/damage_type/magma.json"
         ]
-      }
+      },
+      "path": "~/Danos"
+    },
+    {
+      "name": "GreenMagmaBlockEntityWalksOnTheBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "green_magma_block_entity_walks_on_the_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/GreenMagmaBlockEntityWalksOnTheBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
     }
   ],
   "variable_elements": [],
@@ -162,16 +182,18 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
+      "death.attack.magma": "%1$s tried to swim in magma",
       "fluid.morebosses.green_magma": "Green Magma",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
       "item_group.morebosses.lmb_itens": "LMB Itens",
       "fluid.morebosses.raw_magma": "Raw Magma",
       "block.morebosses.green_magma": "Green Magma",
-      "block.morebosses.wewe": "WEWE",
       "item.morebosses.green_magma_cream": "Green Magma Cream",
+      "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
       "block.morebosses.raw_magma": "Raw Magma",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
+      "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
       "block.morebosses.green_magma_block": "Green Magma Block",
       "item_group.morebosses.lmb_mobs": "LMB Mobs"
     }
@@ -209,6 +231,10 @@
       },
       {
         "name": "Recipes",
+        "children": []
+      },
+      {
+        "name": "Danos",
         "children": []
       }
     ]

@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "minecraft:block/cherry_leaves",
-    "particle": "minecraft:block/cherry_leaves"
-  },
-  "render_type": "solid"
-}

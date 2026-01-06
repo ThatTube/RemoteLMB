@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "damagetype",
+  "definition": {
+    "exhaustion": 1.0,
+    "scaling": "when_caused_by_living_non_player",
+    "effects": "burning",
+    "normalDeathMessage": "%1$s tried to swim in magma",
+    "itemDeathMessage": "%2$s forced %1$s to swim in magma",
+    "playerDeathMessage": "%1$s tried to swim in magma trying to escape %2$s"
+  }
+}
