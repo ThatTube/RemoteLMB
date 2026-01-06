@@ -133,6 +133,22 @@
         ]
       },
       "path": "~/Procedures"
+    },
+    {
+      "name": "WEWE",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wewe",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/wewe.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/wewe.json",
+          "src/main/java/net/mcreator/morebosses/block/WEWEBlock.java",
+          "src/main/resources/assets/morebosses/blockstates/wewe.json",
+          "src/main/resources/assets/morebosses/models/block/wewe.json"
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -146,15 +162,16 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "item.morebosses.green_magma_cream": "Green Magma Cream",
       "fluid.morebosses.green_magma": "Green Magma",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
       "item_group.morebosses.lmb_itens": "LMB Itens",
+      "fluid.morebosses.raw_magma": "Raw Magma",
+      "block.morebosses.green_magma": "Green Magma",
+      "block.morebosses.wewe": "WEWE",
+      "item.morebosses.green_magma_cream": "Green Magma Cream",
       "block.morebosses.raw_magma": "Raw Magma",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
-      "fluid.morebosses.raw_magma": "Raw Magma",
-      "block.morebosses.green_magma": "Green Magma",
       "block.morebosses.green_magma_block": "Green Magma Block",
       "item_group.morebosses.lmb_mobs": "LMB Mobs"
     }

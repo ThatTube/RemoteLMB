@@ -23,6 +23,7 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> GREEN_MAGMA_CREAM = REGISTRY.register("green_magma_cream", () -> new GreenMagmaCreamItem());
 	public static final RegistryObject<Item> GREEN_MAGMA_BUCKET = REGISTRY.register("green_magma_bucket", () -> new GreenMagmaItem());
 	public static final RegistryObject<Item> RAW_MAGMA_BUCKET = REGISTRY.register("raw_magma_bucket", () -> new RawMagmaItem());
+	public static final RegistryObject<Item> WEWE = block(MorebossesModBlocks.WEWE);
 
 	// Start of user code block custom items
 	// End of user code block custom items
