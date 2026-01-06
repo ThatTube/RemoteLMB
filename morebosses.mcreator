@@ -201,7 +201,6 @@
           "src/main/java/net/mcreator/morebosses/entity/CopperMonstrosityEntity.java",
           "src/main/java/net/mcreator/morebosses/entity/model/CopperMonstrosityModel.java",
           "src/main/java/net/mcreator/morebosses/client/renderer/CopperMonstrosityRenderer.java",
-          "src/main/resources/data/morebosses/forge/biome_modifier/copper_monstrosity_biome_modifier.json",
           "src/main/resources/assets/morebosses/models/item/copper_monstrosity_spawn_egg.json"
         ]
       },
