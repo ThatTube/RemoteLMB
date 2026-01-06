@@ -203,7 +203,7 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
 		builder = builder.add(Attributes.MAX_HEALTH, 1000);
 		builder = builder.add(Attributes.ARMOR, 50);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 20);
-		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
+		builder = builder.add(Attributes.FOLLOW_RANGE, 64);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 100);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1);
 		return builder;

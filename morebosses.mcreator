@@ -269,6 +269,41 @@
         ]
       },
       "path": "~/Procedures"
+    },
+    {
+      "name": "MonstruosidadeQuebraBlocos",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "monstruosidade_quebra_blocos",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/MonstruosidadeQuebraBlocosProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
     }
   ],
   "variable_elements": [],
