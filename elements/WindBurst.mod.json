@@ -1,0 +1,30 @@
+{
+  "_fv": 73,
+  "_type": "projectile",
+  "definition": {
+    "projectileItem": {
+      "value": "Blocks.STRUCTURE_BLOCK"
+    },
+    "showParticles": true,
+    "actionSound": {
+      "value": "entity.generic.wind_burst"
+    },
+    "igniteFire": false,
+    "power": 1.5,
+    "damage": 8.0,
+    "knockback": 0,
+    "entityModel": "ModelCustomModel",
+    "customModelTexture": "wind_burst.png",
+    "modelWidth": 5.0,
+    "modelHeight": 1.0,
+    "onHitsBlock": {
+      "name": "CargaDeVento"
+    },
+    "onHitsPlayer": {
+      "name": "CargaDeVento"
+    },
+    "onHitsEntity": {
+      "name": "CargaDeVento"
+    }
+  }
+}

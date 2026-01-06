@@ -304,11 +304,140 @@
         ]
       },
       "path": "~/Procedures"
+    },
+    {
+      "name": "BossCurar",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boss_curar",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/BossCurarProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "AnimaMonstruosidadeGerar",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "anima_monstruosidade_gerar",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/AnimaMonstruosidadeGerarProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "CargaDeVento",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "carga_de_vento",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/CargaDeVentoProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "WindBurst",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_burst",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/WindBurstEntity.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/WindBurstRenderer.java"
+        ]
+      },
+      "path": "~/Projeteis"
+    },
+    {
+      "name": "CopperMonstrosityOnEntityTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_monstrosity_on_entity_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/CopperMonstrosityOnEntityTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "tag_elements": {
+    "ENTITIES:lmb:boss": [
+      "CUSTOM:CopperMonstrosity"
+    ],
+    "ENTITIES:lmb:immunetoshockwave": [
+      "CUSTOM:ShockWave",
+      "CUSTOM:CopperMonstrosity"
+    ],
     "BLOCKS:minecraft:replaceable": [
       "~CUSTOM:RawMagma",
       "~CUSTOM:GreenMagma"
@@ -373,6 +502,10 @@
       },
       {
         "name": "Danos",
+        "children": []
+      },
+      {
+        "name": "Projeteis",
         "children": []
       }
     ]

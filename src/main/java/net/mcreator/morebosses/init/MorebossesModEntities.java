@@ -16,6 +16,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.morebosses.entity.WindBurstEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
 import net.mcreator.morebosses.MorebossesMod;
@@ -29,6 +30,8 @@ public class MorebossesModEntities {
 					.sized(4.5f, 5.2f));
 	public static final RegistryObject<EntityType<ShockWaveEntity>> SHOCK_WAVE = register("shock_wave",
 			EntityType.Builder.<ShockWaveEntity>of(ShockWaveEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(ShockWaveEntity::new).fireImmune().sized(1f, 2f));
+	public static final RegistryObject<EntityType<WindBurstEntity>> WIND_BURST = register("wind_burst",
+			EntityType.Builder.<WindBurstEntity>of(WindBurstEntity::new, MobCategory.MISC).setCustomClientFactory(WindBurstEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(5f, 1f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
