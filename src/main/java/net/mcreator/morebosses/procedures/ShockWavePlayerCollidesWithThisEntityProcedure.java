@@ -14,35 +14,36 @@ public class ShockWavePlayerCollidesWithThisEntityProcedure {
 	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
-		entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.MOB_ATTACK)), 5);
 		sourceentity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.MOB_ATTACK)), 5);
 		{
-			ItemStack _ist = (entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY);
+			ItemStack _ist = (sourceentity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY);
 			if (_ist.hurt(14, RandomSource.create(), null)) {
 				_ist.shrink(1);
 				_ist.setDamageValue(0);
 			}
 		}
 		{
-			ItemStack _ist = (entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY);
+			ItemStack _ist = (sourceentity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY);
 			if (_ist.hurt(14, RandomSource.create(), null)) {
 				_ist.shrink(1);
 				_ist.setDamageValue(0);
 			}
 		}
 		{
-			ItemStack _ist = (entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY);
+			ItemStack _ist = (sourceentity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY);
 			if (_ist.hurt(14, RandomSource.create(), null)) {
 				_ist.shrink(1);
 				_ist.setDamageValue(0);
 			}
 		}
 		{
-			ItemStack _ist = (entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY);
+			ItemStack _ist = (sourceentity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY);
 			if (_ist.hurt(14, RandomSource.create(), null)) {
 				_ist.shrink(1);
 				_ist.setDamageValue(0);
 			}
 		}
+		if (!entity.level().isClientSide())
+			entity.discard();
 	}
 }
