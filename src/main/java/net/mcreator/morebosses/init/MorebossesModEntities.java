@@ -16,6 +16,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.morebosses.entity.ShockWaveEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
 import net.mcreator.morebosses.MorebossesMod;
 
@@ -26,6 +27,8 @@ public class MorebossesModEntities {
 			EntityType.Builder.<CopperMonstrosityEntity>of(CopperMonstrosityEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CopperMonstrosityEntity::new)
 
 					.sized(5f, 5.2f));
+	public static final RegistryObject<EntityType<ShockWaveEntity>> SHOCK_WAVE = register("shock_wave",
+			EntityType.Builder.<ShockWaveEntity>of(ShockWaveEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(ShockWaveEntity::new).fireImmune().sized(1f, 2f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -37,11 +40,13 @@ public class MorebossesModEntities {
 	public static void init(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			CopperMonstrosityEntity.init();
+			ShockWaveEntity.init();
 		});
 	}
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
 		event.put(COPPER_MONSTROSITY.get(), CopperMonstrosityEntity.createAttributes().build());
+		event.put(SHOCK_WAVE.get(), ShockWaveEntity.createAttributes().build());
 	}
 }

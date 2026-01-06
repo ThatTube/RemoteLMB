@@ -188,7 +188,7 @@
           }
         ]
       },
-      "path": "~/Mobs"
+      "path": "~/Procedures"
     },
     {
       "name": "CopperMonstrosity",
@@ -205,6 +205,70 @@
         ]
       },
       "path": "~/Mobs"
+    },
+    {
+      "name": "ShockWave",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shock_wave",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/ShockWaveEntity.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/ShockWaveRenderer.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "ShockWavePlayerCollidesWithThisEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shock_wave_player_collides_with_this_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/ShockWavePlayerCollidesWithThisEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "ShockWaveOnInitialEntitySpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shock_wave_on_initial_entity_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/ShockWaveOnInitialEntitySpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
     }
   ],
   "variable_elements": [],
@@ -219,6 +283,7 @@
   "language_map": {
     "en_us": {
       "death.attack.magma": "%1$s tried to swim in magma",
+      "entity.morebosses.shock_wave": "Shock Wave",
       "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
       "fluid.morebosses.green_magma": "Green Magma",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
