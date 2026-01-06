@@ -21,6 +21,7 @@ import net.mcreator.morebosses.init.MorebossesModTabs;
 import net.mcreator.morebosses.init.MorebossesModItems;
 import net.mcreator.morebosses.init.MorebossesModFluids;
 import net.mcreator.morebosses.init.MorebossesModFluidTypes;
+import net.mcreator.morebosses.init.MorebossesModEntities;
 import net.mcreator.morebosses.init.MorebossesModBlocks;
 
 import java.util.function.Supplier;
@@ -46,6 +47,7 @@ public class MorebossesMod {
 		MorebossesModBlocks.REGISTRY.register(bus);
 
 		MorebossesModItems.REGISTRY.register(bus);
+		MorebossesModEntities.REGISTRY.register(bus);
 
 		MorebossesModTabs.REGISTRY.register(bus);
 

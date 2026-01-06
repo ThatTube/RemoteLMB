@@ -169,6 +169,43 @@
         ]
       },
       "path": "~/Procedures"
+    },
+    {
+      "name": "CondicaoDeHitboxCopper",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "condicao_de_hitbox_copper",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/CondicaoDeHitboxCopperProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "CopperMonstrosity",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_monstrosity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/CopperMonstrosityEntity.java",
+          "src/main/java/net/mcreator/morebosses/entity/model/CopperMonstrosityModel.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/CopperMonstrosityRenderer.java",
+          "src/main/resources/data/morebosses/forge/biome_modifier/copper_monstrosity_biome_modifier.json",
+          "src/main/resources/assets/morebosses/models/item/copper_monstrosity_spawn_egg.json"
+        ]
+      },
+      "path": "~/Mobs"
     }
   ],
   "variable_elements": [],
@@ -183,6 +220,7 @@
   "language_map": {
     "en_us": {
       "death.attack.magma": "%1$s tried to swim in magma",
+      "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
       "fluid.morebosses.green_magma": "Green Magma",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
       "item_group.morebosses.lmb_itens": "LMB Itens",
@@ -190,6 +228,7 @@
       "block.morebosses.green_magma": "Green Magma",
       "item.morebosses.green_magma_cream": "Green Magma Cream",
       "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
+      "entity.morebosses.copper_monstrosity": "Copper Monstrosity",
       "block.morebosses.raw_magma": "Raw Magma",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
@@ -243,10 +282,12 @@
     "modid": "morebosses",
     "modName": "RemoteLMB",
     "version": "1.0.0",
-    "author": "Luca, MCreator",
+    "description": "U want more bosses? We have more bosses",
+    "author": "That Lucatube, JorginhoAMM",
     "websiteURL": "https://mcreator.net",
-    "license": "Not specified",
+    "license": "All Rights Reserved",
     "serverSideOnly": false,
+    "modPicture": "lmb_logo_400x400",
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],

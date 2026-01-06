@@ -7,6 +7,7 @@ package net.mcreator.morebosses.init;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
@@ -23,6 +24,7 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> GREEN_MAGMA_CREAM = REGISTRY.register("green_magma_cream", () -> new GreenMagmaCreamItem());
 	public static final RegistryObject<Item> GREEN_MAGMA_BUCKET = REGISTRY.register("green_magma_bucket", () -> new GreenMagmaItem());
 	public static final RegistryObject<Item> RAW_MAGMA_BUCKET = REGISTRY.register("raw_magma_bucket", () -> new RawMagmaItem());
+	public static final RegistryObject<Item> COPPER_MONSTROSITY_SPAWN_EGG = REGISTRY.register("copper_monstrosity_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.COPPER_MONSTROSITY, -13421773, -16751002, new Item.Properties()));
 
 	// Start of user code block custom items
 	// End of user code block custom items

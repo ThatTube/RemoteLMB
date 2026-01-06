@@ -7,6 +7,7 @@ package net.mcreator.morebosses.init;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.network.chat.Component;
@@ -26,4 +27,8 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.GREEN_MAGMA_BUCKET.get());
 				tabData.accept(MorebossesModItems.RAW_MAGMA_BUCKET.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
+	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(Blocks.DRAGON_EGG)).displayItems((parameters, tabData) -> {
+				tabData.accept(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get());
+			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 }
