@@ -194,7 +194,7 @@
       "name": "CopperMonstrosity",
       "type": "animatedentity",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "copper_monstrosity",
       "metadata": {
         "files": [
