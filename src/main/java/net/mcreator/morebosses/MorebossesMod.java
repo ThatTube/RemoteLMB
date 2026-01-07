@@ -18,6 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.morebosses.init.MorebossesModTabs;
+import net.mcreator.morebosses.init.MorebossesModMobEffects;
 import net.mcreator.morebosses.init.MorebossesModItems;
 import net.mcreator.morebosses.init.MorebossesModFluids;
 import net.mcreator.morebosses.init.MorebossesModFluidTypes;
@@ -50,6 +51,8 @@ public class MorebossesMod {
 		MorebossesModEntities.REGISTRY.register(bus);
 
 		MorebossesModTabs.REGISTRY.register(bus);
+
+		MorebossesModMobEffects.REGISTRY.register(bus);
 
 		MorebossesModFluids.REGISTRY.register(bus);
 		MorebossesModFluidTypes.REGISTRY.register(bus);

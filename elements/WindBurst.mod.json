@@ -10,7 +10,7 @@
       "value": "entity.generic.wind_burst"
     },
     "igniteFire": false,
-    "power": 1.5,
+    "power": 3.0,
     "damage": 8.0,
     "knockback": 0,
     "entityModel": "ModelCustomModel",

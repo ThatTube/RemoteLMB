@@ -1,8 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "morebosses:item/copper_egg"
+    "layer1": "morebosses:item/copper_egg"
   }
-  "layer1": "morebosses:item/copper_egg"
-  }
+  
 }

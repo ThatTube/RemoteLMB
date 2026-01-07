@@ -380,7 +380,7 @@
       "name": "CopperMonstrosityOnEntityTickUpdate",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "copper_monstrosity_on_entity_tick_update",
       "metadata": {
         "files": [
@@ -426,6 +426,19 @@
         ]
       },
       "path": "~/Mobs"
+    },
+    {
+      "name": "Heavy",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heavy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/HeavyMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
     }
   ],
   "variable_elements": [],
@@ -450,6 +463,7 @@
       "entity.morebosses.shock_wave": "Shock Wave",
       "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
       "fluid.morebosses.green_magma": "Green Magma",
+      "effect.morebosses.heavy": "Heavy",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
       "item_group.morebosses.lmb_itens": "LMB Itens",
       "fluid.morebosses.raw_magma": "Raw Magma",

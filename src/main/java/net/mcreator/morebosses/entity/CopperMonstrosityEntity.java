@@ -49,7 +49,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 
-import net.mcreator.morebosses.procedures.CopperMonstrosityOnEntityTickUpdateProcedure;
+import net.mcreator.morebosses.procedures.MonstruosidadeQuebraBlocosProcedure;
 import net.mcreator.morebosses.procedures.CondicaoDeHitboxCopperProcedure;
 import net.mcreator.morebosses.procedures.AnimaMonstruosidadeGerarProcedure;
 import net.mcreator.morebosses.init.MorebossesModEntities;
@@ -155,6 +155,8 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
 	public boolean hurt(DamageSource source, float amount) {
 		if (source.is(DamageTypes.FALL))
 			return false;
+		if (source.is(DamageTypes.EXPLOSION))
+			return false;
 		return super.hurt(source, amount);
 	}
 
@@ -181,7 +183,7 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
 	@Override
 	public void baseTick() {
 		super.baseTick();
-		CopperMonstrosityOnEntityTickUpdateProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
+		MonstruosidadeQuebraBlocosProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
 		this.refreshDimensions();
 	}
 
