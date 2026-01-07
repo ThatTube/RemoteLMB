@@ -415,7 +415,7 @@
       "name": "Maxolot",
       "type": "animatedentity",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "maxolot",
       "metadata": {
         "files": [

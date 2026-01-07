@@ -5,6 +5,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.animation.AnimationState;
+import net.minecraft.world.entity.Entity;
 import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -20,10 +21,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.Pose;
@@ -35,6 +36,8 @@ import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -52,8 +55,11 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 	private boolean swinging;
 	private boolean lastloop;
+	private int punchCooldown = 0;
+	private boolean usePunchNext = false;
 	private long lastSwing;
 	public String animationprocedure = "empty";
+	private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), ServerBossEvent.BossBarColor.PINK, ServerBossEvent.BossBarOverlay.PROGRESS);
 
 	public MaxolotEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(MorebossesModEntities.MAXOLOT.get(), world);
@@ -61,7 +67,7 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 
 	public MaxolotEntity(EntityType<MaxolotEntity> type, Level world) {
 		super(type, world);
-		xpReward = 0;
+		xpReward = 34;
 		setNoAi(false);
 		setMaxUpStep(0.6f);
 		setPersistenceRequired();
@@ -101,7 +107,7 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1));
 		this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setAlertOthers());
 		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(6, new FloatGoal(this));
+		this.goalSelector.addGoal(6, new RandomSwimmingGoal(this, 1, 40));
 	}
 
 	@Override
@@ -150,13 +156,41 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 
 	@Override
 	public void baseTick() {
-		super.baseTick();
-		this.refreshDimensions();
+	super.baseTick();
+	this.refreshDimensions();
+
+	// cooldown do punch
+	if (!this.level().isClientSide && punchCooldown > 0) {
+		punchCooldown--;
+	}
 	}
 
 	@Override
 	public EntityDimensions getDimensions(Pose p_33597_) {
 		return super.getDimensions(p_33597_).scale((float) 1);
+	}
+
+	@Override
+	public boolean canChangeDimensions() {
+		return false;
+	}
+
+	@Override
+	public void startSeenByPlayer(ServerPlayer player) {
+		super.startSeenByPlayer(player);
+		this.bossInfo.addPlayer(player);
+	}
+
+	@Override
+	public void stopSeenByPlayer(ServerPlayer player) {
+		super.stopSeenByPlayer(player);
+		this.bossInfo.removePlayer(player);
+	}
+
+	@Override
+	public void customServerAiStep() {
+		super.customServerAiStep();
+		this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
 	}
 
 	public static void init() {
@@ -169,6 +203,8 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		builder = builder.add(Attributes.ARMOR, 35);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
+		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 100);
+		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 0.5);
 		return builder;
 	}
 
@@ -247,6 +283,43 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		data.add(new AnimationController<>(this, "attacking", 4, this::attackingPredicate));
 		data.add(new AnimationController<>(this, "procedure", 4, this::procedurePredicate));
 	}
+
+	@Override
+public boolean doHurtTarget(Entity target) {
+	if (!(target instanceof LivingEntity living)) return super.doHurtTarget(target);
+
+	// ================= PUNCH =================
+	if (usePunchNext && punchCooldown <= 0) {
+
+		this.animationprocedure = "punch";
+		this.setAnimation("punch");
+
+		living.hurt(
+			this.damageSources().mobAttack(this),
+			(float) (this.getAttributeValue(Attributes.ATTACK_DAMAGE) * 2.5)
+		);
+
+		// quebra escudo
+		if (living instanceof Player player && player.isBlocking()) {
+			player.disableShield(true);
+		}
+
+		punchCooldown = 80; // 4 segundos
+		usePunchNext = false;
+
+		return true;
+	}
+
+	// ================= ATAQUE NORMAL =================
+	this.animationprocedure = "attack";
+	this.setAnimation("attack");
+
+	boolean hit = super.doHurtTarget(target);
+
+	usePunchNext = true;
+	return hit;
+}
+
 
 	@Override
 	public AnimatableInstanceCache getAnimatableInstanceCache() {
