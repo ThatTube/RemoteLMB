@@ -30,5 +30,6 @@ public class MorebossesModTabs {
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(Blocks.DRAGON_EGG)).displayItems((parameters, tabData) -> {
 				tabData.accept(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.MAXOLOT_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 }

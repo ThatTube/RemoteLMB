@@ -319,22 +319,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -435,7 +419,6 @@
       "registry_name": "maxolot",
       "metadata": {
         "files": [
-          "src/main/resources/data/morebosses/forge/biome_modifier/maxolot_biome_modifier.json",
           "src/main/java/net/mcreator/morebosses/client/renderer/MaxolotRenderer.java",
           "src/main/java/net/mcreator/morebosses/entity/model/MaxolotModel.java",
           "src/main/java/net/mcreator/morebosses/entity/MaxolotEntity.java",
