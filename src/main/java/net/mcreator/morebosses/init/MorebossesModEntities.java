@@ -18,6 +18,7 @@ import net.minecraft.world.entity.Entity;
 
 import net.mcreator.morebosses.entity.WindBurstEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
+import net.mcreator.morebosses.entity.MaxolotEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
 import net.mcreator.morebosses.MorebossesMod;
 
@@ -32,6 +33,10 @@ public class MorebossesModEntities {
 			EntityType.Builder.<ShockWaveEntity>of(ShockWaveEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(ShockWaveEntity::new).fireImmune().sized(1f, 2f));
 	public static final RegistryObject<EntityType<WindBurstEntity>> WIND_BURST = register("wind_burst",
 			EntityType.Builder.<WindBurstEntity>of(WindBurstEntity::new, MobCategory.MISC).setCustomClientFactory(WindBurstEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(5f, 1f));
+	public static final RegistryObject<EntityType<MaxolotEntity>> MAXOLOT = register("maxolot",
+			EntityType.Builder.<MaxolotEntity>of(MaxolotEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MaxolotEntity::new)
+
+					.sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -44,6 +49,7 @@ public class MorebossesModEntities {
 		event.enqueueWork(() -> {
 			CopperMonstrosityEntity.init();
 			ShockWaveEntity.init();
+			MaxolotEntity.init();
 		});
 	}
 
@@ -51,5 +57,6 @@ public class MorebossesModEntities {
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
 		event.put(COPPER_MONSTROSITY.get(), CopperMonstrosityEntity.createAttributes().build());
 		event.put(SHOCK_WAVE.get(), ShockWaveEntity.createAttributes().build());
+		event.put(MAXOLOT.get(), MaxolotEntity.createAttributes().build());
 	}
 }

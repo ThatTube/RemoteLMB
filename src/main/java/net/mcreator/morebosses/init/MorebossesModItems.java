@@ -25,6 +25,7 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> GREEN_MAGMA_BUCKET = REGISTRY.register("green_magma_bucket", () -> new GreenMagmaItem());
 	public static final RegistryObject<Item> RAW_MAGMA_BUCKET = REGISTRY.register("raw_magma_bucket", () -> new RawMagmaItem());
 	public static final RegistryObject<Item> COPPER_MONSTROSITY_SPAWN_EGG = REGISTRY.register("copper_monstrosity_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.COPPER_MONSTROSITY, -13421773, -16751002, new Item.Properties()));
+	public static final RegistryObject<Item> MAXOLOT_SPAWN_EGG = REGISTRY.register("maxolot_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.MAXOLOT, -1, -1, new Item.Properties()));
 
 	// Start of user code block custom items
 	// End of user code block custom items

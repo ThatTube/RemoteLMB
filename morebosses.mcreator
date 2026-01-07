@@ -426,6 +426,23 @@
         ]
       },
       "path": "~/Procedures"
+    },
+    {
+      "name": "Maxolot",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "maxolot",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/forge/biome_modifier/maxolot_biome_modifier.json",
+          "src/main/java/net/mcreator/morebosses/client/renderer/MaxolotRenderer.java",
+          "src/main/java/net/mcreator/morebosses/entity/model/MaxolotModel.java",
+          "src/main/java/net/mcreator/morebosses/entity/MaxolotEntity.java",
+          "src/main/resources/assets/morebosses/models/item/maxolot_spawn_egg.json"
+        ]
+      },
+      "path": "~/Mobs"
     }
   ],
   "variable_elements": [],
@@ -458,11 +475,13 @@
       "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
       "entity.morebosses.copper_monstrosity": "Copper Monstrosity",
       "block.morebosses.raw_magma": "Raw Magma",
+      "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
       "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
       "block.morebosses.green_magma_block": "Green Magma Block",
-      "item_group.morebosses.lmb_mobs": "LMB Mobs"
+      "item_group.morebosses.lmb_mobs": "LMB Mobs",
+      "entity.morebosses.maxolot": "Maxolot"
     }
   },
   "foldersRoot": {

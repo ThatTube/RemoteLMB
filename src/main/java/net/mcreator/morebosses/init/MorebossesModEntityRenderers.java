@@ -11,6 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.mcreator.morebosses.client.renderer.WindBurstRenderer;
 import net.mcreator.morebosses.client.renderer.ShockWaveRenderer;
+import net.mcreator.morebosses.client.renderer.MaxolotRenderer;
 import net.mcreator.morebosses.client.renderer.CopperMonstrosityRenderer;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -20,5 +21,6 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.COPPER_MONSTROSITY.get(), CopperMonstrosityRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.SHOCK_WAVE.get(), ShockWaveRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.WIND_BURST.get(), WindBurstRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.MAXOLOT.get(), MaxolotRenderer::new);
 	}
 }

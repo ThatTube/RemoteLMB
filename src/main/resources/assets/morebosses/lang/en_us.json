@@ -11,9 +11,11 @@
   "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
   "entity.morebosses.copper_monstrosity": "Copper Monstrosity",
   "block.morebosses.raw_magma": "Raw Magma",
+  "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
   "item.morebosses.green_magma_bucket": "Green Magma Bucket",
   "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
   "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
   "block.morebosses.green_magma_block": "Green Magma Block",
-  "item_group.morebosses.lmb_mobs": "LMB Mobs"
+  "item_group.morebosses.lmb_mobs": "LMB Mobs",
+  "entity.morebosses.maxolot": "Maxolot"
 }
