@@ -2,14 +2,14 @@
   "_fv": 73,
   "_type": "block",
   "definition": {
-    "texture": "minecraft:bone_block_top",
-    "textureTop": "minecraft:bone_block_top",
-    "textureLeft": "minecraft:bone_block_side",
-    "textureFront": "carved_bone",
-    "textureRight": "minecraft:bone_block_side",
-    "textureBack": "minecraft:bone_block_side",
-    "renderType": 10,
-    "customModelName": "Normal",
+    "texture": "larrysit",
+    "textureTop": "",
+    "textureLeft": "",
+    "textureFront": "",
+    "textureRight": "",
+    "textureBack": "",
+    "renderType": 2,
+    "customModelName": "seat:default",
     "rotationMode": 1,
     "enablePitch": false,
     "emissiveRendering": false,
@@ -18,7 +18,7 @@
     "particleTexture": "",
     "tintType": "No tint",
     "isItemTinted": false,
-    "hasTransparency": false,
+    "hasTransparency": true,
     "connectedSides": false,
     "transparencyType": "SOLID",
     "disableOffset": false,
@@ -34,7 +34,7 @@
       }
     ],
     "customProperties": [],
-    "name": "Carved Bone Block",
+    "name": "Seat",
     "specialInformation": {
       "fixedValue": []
     },
@@ -47,17 +47,17 @@
         "value": "CUSTOM:LMBBlocks"
       }
     ],
-    "destroyTool": "pickaxe",
+    "destroyTool": "axe",
     "customDrop": {
       "value": ""
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
-    "requiresCorrectTool": true,
+    "requiresCorrectTool": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canRedstoneConnect": false,
-    "lightOpacity": 15,
+    "lightOpacity": 0,
     "material": {
       "value": "NONE"
     },
@@ -84,7 +84,7 @@
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {
-      "value": "BONE"
+      "value": "CLOTH"
     },
     "breakSound": {
       "value": ""
@@ -121,9 +121,6 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onRightClicked": {
-      "name": "BoneCarvedGlow"
-    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

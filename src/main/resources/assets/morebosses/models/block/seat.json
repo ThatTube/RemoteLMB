@@ -1,0 +1,9 @@
+{
+  "parent": "morebosses:custom/seat",
+  "textures": {
+    "all": "morebosses:block/larrysit",
+    "particle": "morebosses:block/larrysit",
+    "1": "morebosses:block/larrysit"
+  },
+  "render_type": "solid"
+}

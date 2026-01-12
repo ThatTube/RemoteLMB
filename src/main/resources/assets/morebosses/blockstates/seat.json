@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "morebosses:block/seat"
+    },
+    "facing=east": {
+      "model": "morebosses:block/seat",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "morebosses:block/seat",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "morebosses:block/seat",
+      "y": 270
+    }
+  }
+}

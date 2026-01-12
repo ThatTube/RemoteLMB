@@ -25,6 +25,7 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.CARVED_WITHERED_BONE_BLOCK.get().asItem());
 				tabData.accept(MorebossesModBlocks.CARVED_BONE_BLOCK.get().asItem());
 				tabData.accept(MorebossesModBlocks.RAW_MAGMA_BLOCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.SEAT.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
