@@ -396,8 +396,6 @@
         ]
       },
       "path": "~/Efeitos"
-<<<<<<< HEAD
-<<<<<<< HEAD
     },
     {
       "name": "MaxolotDeathTimeIsReached",
@@ -1371,6 +1369,7 @@
       "registry_name": "carvedand_jackocarved",
       "metadata": {
         "files": [
+          "src/main/resources/assets/morebosses/models/block/carvedand_jackocarved_blockstate_1.json",
           "src/main/resources/assets/morebosses/models/block/carvedand_jackocarved_blockstate_0.json"
         ]
       },
@@ -1412,14 +1411,45 @@
       "path": "~/Procedures"
     },
     {
-      "name": "Entalhar",
+      "name": "CarvedBoneBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "carved_bone_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/blockstates/carved_bone_block.json",
+          "src/main/resources/assets/morebosses/models/item/carved_bone_block.json",
+          "src/main/java/net/mcreator/morebosses/block/CarvedBoneBlockBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/carved_bone_block.json",
+          "src/main/resources/assets/morebosses/models/block/carved_bone_block.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CarvedBoneBlockk",
+      "type": "blockstates",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "carved_bone_blockk",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/carved_bone_blockk_blockstate_0.json",
+          "src/main/resources/assets/morebosses/models/block/carved_bone_blockk_blockstate_1.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "BoneCarvedGlow",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "entalhar",
+      "registry_name": "bone_carved_glow",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/morebosses/procedures/EntalharProcedure.java"
+          "src/main/java/net/mcreator/morebosses/procedures/BoneCarvedGlowProcedure.java"
         ],
         "dependencies": [
           {
@@ -1480,80 +1510,19 @@
         ]
       },
       "path": "~/Procedures"
-    },
-    {
-      "name": "CarvedBoneBlock",
-      "type": "block",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "carved_bone_block",
-      "metadata": {
-        "files": [
-          "src/main/resources/assets/morebosses/blockstates/carved_bone_block.json",
-          "src/main/resources/assets/morebosses/models/item/carved_bone_block.json",
-          "src/main/java/net/mcreator/morebosses/block/CarvedBoneBlockBlock.java",
-          "src/main/resources/data/morebosses/loot_tables/blocks/carved_bone_block.json",
-          "src/main/resources/assets/morebosses/models/block/carved_bone_block.json"
-        ]
-      },
-      "path": "~/Blocks"
-    },
-    {
-      "name": "OssoEntalhado",
-      "type": "blockstates",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "osso_entalhado",
-      "metadata": {
-        "files": [
-          "src/main/resources/assets/morebosses/models/block/osso_entalhado_blockstate_1.json",
-          "src/main/resources/assets/morebosses/models/block/osso_entalhado_blockstate_0.json"
-        ]
-      },
-      "path": "~/Blocks"
-    },
-    {
-      "name": "CarvedBoneBlockOnBlockRightClicked",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "carved_bone_block_on_block_right_clicked",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/morebosses/procedures/CarvedBoneBlockOnBlockRightClickedProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Procedures"
-=======
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
-=======
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
     }
   ],
   "variable_elements": [],
-  "sound_elements": [],
+  "sound_elements": [
+    {
+      "name": "wind_charge",
+      "files": [
+        "breeze_wind_burst3_je1_be1.ogg"
+      ],
+      "category": "hostile",
+      "subtitle": "Wind Burst"
+    }
+  ],
   "tag_elements": {
     "ENTITIES:lmb:boss": [
       "CUSTOM:CopperMonstrosity",
@@ -1593,20 +1562,9 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-<<<<<<< HEAD
       "subtitles.wind_charge": "Wind Burst",
       "item_group.morebosses.lmb_itens": "LMB Itens",
       "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
-=======
-      "death.attack.magma": "%1$s tried to swim in magma",
-      "entity.morebosses.shock_wave": "Shock Wave",
-      "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
-      "fluid.morebosses.green_magma": "Green Magma",
-      "effect.morebosses.heavy": "Heavy",
-      "item_group.morebosses.lmb_blocks": "LMB Blocks",
-      "item_group.morebosses.lmb_itens": "LMB Itens",
-      "fluid.morebosses.raw_magma": "Raw Magma",
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
       "block.morebosses.green_magma": "Green Magma",
       "block.morebosses.gong": "Gong",
       "entity.morebosses.minilotl": "Minilotl",

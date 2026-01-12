@@ -1,0 +1,11 @@
+{
+  "wind_charge": {
+    "subtitle": "subtitles.wind_charge",
+    "sounds": [
+      {
+        "name": "morebosses:breeze_wind_burst3_je1_be1.ogg",
+        "stream": false
+      }
+    ]
+  }
+}

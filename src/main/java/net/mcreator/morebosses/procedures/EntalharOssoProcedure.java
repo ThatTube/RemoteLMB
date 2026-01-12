@@ -24,21 +24,7 @@ public class EntalharOssoProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (Items.SHEARS == (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() && Blocks.BONE_BLOCK == (world.getBlockState(BlockPos.containing(x, y, z))).getBlock()) {
-			if (world instanceof Level _level) {
-				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.axe.strip")), SoundSource.NEUTRAL, 1, 1);
-				} else {
-					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.axe.strip")), SoundSource.NEUTRAL, 1, 1, false);
-				}
-			}
-			{
-				ItemStack _ist = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-				if (_ist.hurt(1, RandomSource.create(), null)) {
-					_ist.shrink(1);
-					_ist.setDamageValue(0);
-				}
-			}
+		if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.BONE_BLOCK && (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == Items.SHEARS) {
 			{
 				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockState _bs = MorebossesModBlocks.CARVED_BONE_BLOCK.get().defaultBlockState();
@@ -52,6 +38,20 @@ public class EntalharOssoProcedure {
 						}
 				}
 				world.setBlock(_bp, _bs, 3);
+			}
+			if (world instanceof Level _level) {
+				if (!_level.isClientSide()) {
+					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.axe.strip")), SoundSource.NEUTRAL, 1, 1);
+				} else {
+					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.axe.strip")), SoundSource.NEUTRAL, 1, 1, false);
+				}
+			}
+			{
+				ItemStack _ist = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
+				if (_ist.hurt(1, RandomSource.create(), null)) {
+					_ist.shrink(1);
+					_ist.setDamageValue(0);
+				}
 			}
 		}
 	}

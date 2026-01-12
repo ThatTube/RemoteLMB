@@ -4,10 +4,10 @@
       "model": "morebosses:block/carved_bone_block"
     },
     "blockstate=1": {
-      "model": "morebosses:block/osso_entalhado_blockstate_0"
+      "model": "morebosses:block/carved_bone_blockk_blockstate_0"
     },
     "blockstate=2": {
-      "model": "morebosses:block/osso_entalhado_blockstate_1"
+      "model": "morebosses:block/carved_bone_blockk_blockstate_1"
     }
   }
 }

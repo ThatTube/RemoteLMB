@@ -16,7 +16,6 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
-import net.mcreator.morebosses.entity.WindBurstEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
@@ -33,26 +32,16 @@ public class MorebossesModEntities {
 					.sized(4.5f, 5.2f));
 	public static final RegistryObject<EntityType<ShockWaveEntity>> SHOCK_WAVE = register("shock_wave",
 			EntityType.Builder.<ShockWaveEntity>of(ShockWaveEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(ShockWaveEntity::new).fireImmune().sized(1f, 2f));
-	public static final RegistryObject<EntityType<WindBurstEntity>> WIND_BURST = register("wind_burst",
-			EntityType.Builder.<WindBurstEntity>of(WindBurstEntity::new, MobCategory.MISC).setCustomClientFactory(WindBurstEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(1f, 1f));
 	public static final RegistryObject<EntityType<MaxolotEntity>> MAXOLOT = register("maxolot",
 			EntityType.Builder.<MaxolotEntity>of(MaxolotEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MaxolotEntity::new)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-					.sized(1.5f, 3f));
+					.sized(0.6f, 1.8f));
 	public static final RegistryObject<EntityType<DryBonesEntity>> DRY_BONES = register("dry_bones",
 			EntityType.Builder.<DryBonesEntity>of(DryBonesEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(DryBonesEntity::new).fireImmune().sized(1.2f, 4f));
 	public static final RegistryObject<EntityType<MinilotlEntity>> MINILOTL = register("minilotl",
 			EntityType.Builder.<MinilotlEntity>of(MinilotlEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MinilotlEntity::new)
 
 					.sized(0.6f, 1.6f));
-=======
-					.sized(0.6f, 1.8f));
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
-=======
-					.sized(0.6f, 1.8f));
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 
 	// Start of user code block custom entities
 	// End of user code block custom entities

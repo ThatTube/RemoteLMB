@@ -1,18 +1,7 @@
 {
-<<<<<<< HEAD
   "subtitles.wind_charge": "Wind Burst",
   "item_group.morebosses.lmb_itens": "LMB Itens",
   "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
-=======
-  "death.attack.magma": "%1$s tried to swim in magma",
-  "entity.morebosses.shock_wave": "Shock Wave",
-  "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
-  "fluid.morebosses.green_magma": "Green Magma",
-  "effect.morebosses.heavy": "Heavy",
-  "item_group.morebosses.lmb_blocks": "LMB Blocks",
-  "item_group.morebosses.lmb_itens": "LMB Itens",
-  "fluid.morebosses.raw_magma": "Raw Magma",
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
   "block.morebosses.green_magma": "Green Magma",
   "block.morebosses.gong": "Gong",
   "entity.morebosses.minilotl": "Minilotl",
