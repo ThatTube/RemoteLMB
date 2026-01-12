@@ -7,7 +7,15 @@
     },
     "showParticles": true,
     "actionSound": {
+<<<<<<< HEAD
+<<<<<<< HEAD
+      "value": ""
+=======
       "value": "entity.generic.wind_burst"
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
+=======
+      "value": "entity.generic.wind_burst"
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
     },
     "igniteFire": false,
     "power": 3.0,
@@ -15,16 +23,13 @@
     "knockback": 0,
     "entityModel": "ModelCustomModel",
     "customModelTexture": "wind_burst.png",
-    "modelWidth": 5.0,
+    "modelWidth": 1.0,
     "modelHeight": 1.0,
     "onHitsBlock": {
       "name": "CargaDeVento"
     },
-    "onHitsPlayer": {
-      "name": "CargaDeVento"
-    },
     "onHitsEntity": {
-      "name": "CargaDeVento"
+      "name": "Cabuto"
     }
   }
 }

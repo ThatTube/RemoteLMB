@@ -18,12 +18,21 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.morebosses.init.MorebossesModTabs;
+<<<<<<< HEAD
+<<<<<<< HEAD
+import net.mcreator.morebosses.init.MorebossesModSounds;
+import net.mcreator.morebosses.init.MorebossesModPaintings;
+=======
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
+=======
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 import net.mcreator.morebosses.init.MorebossesModMobEffects;
 import net.mcreator.morebosses.init.MorebossesModItems;
 import net.mcreator.morebosses.init.MorebossesModFluids;
 import net.mcreator.morebosses.init.MorebossesModFluidTypes;
 import net.mcreator.morebosses.init.MorebossesModEntities;
 import net.mcreator.morebosses.init.MorebossesModBlocks;
+import net.mcreator.morebosses.init.MorebossesModBlockEntities;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -44,15 +53,22 @@ public class MorebossesMod {
 		// End of user code block mod constructor
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+<<<<<<< HEAD
+=======
 
 		MorebossesModBlocks.REGISTRY.register(bus);
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 
+		MorebossesModBlocks.REGISTRY.register(bus);
+		MorebossesModBlockEntities.REGISTRY.register(bus);
 		MorebossesModItems.REGISTRY.register(bus);
 		MorebossesModEntities.REGISTRY.register(bus);
 
 		MorebossesModTabs.REGISTRY.register(bus);
 
 		MorebossesModMobEffects.REGISTRY.register(bus);
+
+		MorebossesModPaintings.REGISTRY.register(bus);
 
 		MorebossesModFluids.REGISTRY.register(bus);
 		MorebossesModFluidTypes.REGISTRY.register(bus);

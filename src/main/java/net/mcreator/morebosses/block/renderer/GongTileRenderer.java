@@ -1,0 +1,21 @@
+package net.mcreator.morebosses.block.renderer;
+
+import software.bernie.geckolib.renderer.GeoBlockRenderer;
+
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.MultiBufferSource;
+
+import net.mcreator.morebosses.block.model.GongBlockModel;
+import net.mcreator.morebosses.block.entity.GongTileEntity;
+
+public class GongTileRenderer extends GeoBlockRenderer<GongTileEntity> {
+	public GongTileRenderer() {
+		super(new GongBlockModel());
+	}
+
+	@Override
+	public RenderType getRenderType(GongTileEntity animatable, ResourceLocation texture, MultiBufferSource bufferSource, float partialTick) {
+		return RenderType.entityTranslucent(getTextureLocation(animatable));
+	}
+}

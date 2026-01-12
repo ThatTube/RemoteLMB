@@ -1,0 +1,28 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Smithing",
+    "recipeRetstackSize": 1,
+    "group": "stone_cuirlass",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "EQUIPMENT",
+    "recipeShapeless": false,
+    "smithingInputStack": {
+      "value": "Items.NETHERITE_HELMET"
+    },
+    "smithingInputAdditionStack": {
+      "value": "CUSTOM:StoneCuirlass"
+    },
+    "smithingInputTemplateStack": {
+      "value": "CUSTOM:CuirlassSmithingUpgrade"
+    },
+    "smithingReturnStack": {
+      "value": "CUSTOM:CuirlassArmor.helmet"
+    },
+    "name": "cuirlass_armor_helmet_recipe",
+    "namespace": "mod"
+  }
+}

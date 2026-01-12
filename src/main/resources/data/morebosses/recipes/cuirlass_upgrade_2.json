@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "aba",
+    "aca",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:coal"
+    },
+    "b": {
+      "item": "morebosses:cuirlass_smithing_upgrade"
+    },
+    "c": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "result": {
+    "item": "morebosses:cuirlass_smithing_upgrade",
+    "count": 1
+  }
+}

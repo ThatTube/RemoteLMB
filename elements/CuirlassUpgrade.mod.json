@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "EQUIPMENT",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Items.COAL#0"
+      },
+      {
+        "value": "CUSTOM:StoneCuirlass"
+      },
+      {
+        "value": "Items.COAL#0"
+      },
+      {
+        "value": "Items.BONE"
+      },
+      {
+        "value": "Items.NETHERITE_UPGRADE"
+      },
+      {
+        "value": "Items.BONE"
+      },
+      {
+        "value": "Items.COAL#0"
+      },
+      {
+        "value": "Blocks.STONE"
+      },
+      {
+        "value": "Items.COAL#0"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:CuirlassSmithingUpgrade"
+    },
+    "name": "cuirlass_upgrade",
+    "namespace": "mod"
+  }
+}

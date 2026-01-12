@@ -11,6 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.mcreator.morebosses.client.model.Modelshockwave;
 import net.mcreator.morebosses.client.model.ModelCustomModel;
+import net.mcreator.morebosses.client.model.ModelCustomArmor;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class MorebossesModModels {
@@ -18,5 +19,6 @@ public class MorebossesModModels {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ModelCustomModel.LAYER_LOCATION, ModelCustomModel::createBodyLayer);
 		event.registerLayerDefinition(Modelshockwave.LAYER_LOCATION, Modelshockwave::createBodyLayer);
+		event.registerLayerDefinition(ModelCustomArmor.LAYER_LOCATION, ModelCustomArmor::createBodyLayer);
 	}
 }

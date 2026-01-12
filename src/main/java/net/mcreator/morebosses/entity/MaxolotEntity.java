@@ -1,4 +1,3 @@
-
 package net.mcreator.morebosses.entity;
 
 import software.bernie.geckolib.util.GeckoLibUtil;
@@ -14,11 +13,12 @@ import software.bernie.geckolib.animatable.GeoEntity;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.common.ForgeMod;
 
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
@@ -28,11 +28,13 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundEvent;
@@ -45,10 +47,24 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.BlockPos;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+import net.mcreator.morebosses.procedures.MaxoloteQuebraBlocosProcedure;
+import net.mcreator.morebosses.procedures.MaxolotDeathTimeIsReachedProcedure;
+import net.mcreator.morebosses.init.MorebossesModMobEffects;
+=======
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
+=======
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 import net.mcreator.morebosses.init.MorebossesModEntities;
 
-public class MaxolotEntity extends Monster implements GeoEntity {
+import java.util.UUID;
+import java.util.List;
+import java.util.ArrayList;
+
+public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(MaxolotEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(MaxolotEntity.class, EntityDataSerializers.STRING);
 	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(MaxolotEntity.class, EntityDataSerializers.STRING);
@@ -60,6 +76,12 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	private long lastSwing;
 	public String animationprocedure = "empty";
 	private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), ServerBossEvent.BossBarColor.PINK, ServerBossEvent.BossBarOverlay.PROGRESS);
+
+	// Variáveis para controle dos ataques
+	private int attackCounter = 0;
+	private int attackCooldown = 0;
+	private static final int ATTACK_DELAY = 40; // 2 segundos entre ataques especiais
+	private final List<UUID> tamedMinilotls = new ArrayList<>();
 
 	public MaxolotEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(MorebossesModEntities.MAXOLOT.get(), world);
@@ -98,21 +120,141 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, Player.class, true, false));
-		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, true) {
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.5, true) {
 			@Override
 			protected double getAttackReachSqr(LivingEntity entity) {
-				return 2.25;
+				return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth() + 2.0;
+			}
+
+			@Override
+			protected void checkAndPerformAttack(LivingEntity target, double range) {
+				double d0 = this.getAttackReachSqr(target);
+				if (range <= d0 && this.getTicksUntilNextAttack() <= 0) {
+					this.resetAttackCooldown();
+
+					// Causa dano base
+					this.mob.doHurtTarget(target);
+
+					// Sistema de ataques alternados
+					if (attackCooldown <= 0) {
+						performSpecialAttack(target);
+						attackCooldown = ATTACK_DELAY;
+					}
+				}
 			}
 		});
 		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1));
-		this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setAlertOthers());
-		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(6, new RandomSwimmingGoal(this, 1, 40));
+		this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, 1, 40));
+		this.targetSelector.addGoal(5, new HurtByTargetGoal(this).setAlertOthers());
+		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+	}
+
+	// Método para ataques especiais
+	private void performSpecialAttack(LivingEntity target) {
+		// Primeiro ataque: normal (animação attack)
+		if (attackCounter == 0) {
+			triggerAnimation("attack");
+			attackCounter = 1;
+		}
+		// Segundo ataque: soco desarmador (animação punch)
+		else if (attackCounter == 1) {
+			triggerAnimation("punch");
+			performDisarmAttack(target);
+			attackCounter = 2;
+		}
+		// Terceiro ataque: invocação (animação summon)
+		else {
+			triggerAnimation("summon");
+			performSummonAttack();
+			attackCounter = 0;
+		}
+
+		// Marca como atacando para animação
+		this.swinging = true;
+		this.lastSwing = this.level().getGameTime();
+	}
+
+	// Método para ataque desarmador
+	private void performDisarmAttack(LivingEntity target) {
+		if (target instanceof Player player) {
+			if (player.isBlocking()) {
+				// Desarma o escudo por 4 segundos (80 ticks)
+				player.disableShield(true);
+
+				// Aplica efeito panic (5 segundos = 100 ticks)
+				target.addEffect(new MobEffectInstance(MorebossesModMobEffects.PANIC.get(), 100, 0));
+			}
+		}
+	}
+
+	// Método para invocação
+	private void performSummonAttack() {
+		Level world = this.level();
+		if (!world.isClientSide()) {
+			double radius = 3.0;
+			for (int i = 0; i < 4; i++) {
+				double angle = (Math.PI * 2 / 4) * i;
+				double spawnX = this.getX() + Math.cos(angle) * radius;
+				double spawnY = this.getY() + 0.5;
+				double spawnZ = this.getZ() + Math.sin(angle) * radius;
+
+				// Verifica se tem espaço
+				BlockPos spawnPos = new BlockPos((int) spawnX, (int) spawnY, (int) spawnZ);
+				if (world.getBlockState(spawnPos).isAir() || world.getBlockState(spawnPos).canBeReplaced()) {
+					// Cria o Minilotl
+					MinilotlEntity minilotl = MorebossesModEntities.MINILOTL.get().create(world);
+					if (minilotl != null) {
+						minilotl.moveTo(spawnX, spawnY, spawnZ, this.getYRot(), 0);
+
+						// Define o mesmo alvo do Maxolotl
+						LivingEntity target = this.getTarget();
+						if (target != null) {
+							minilotl.setTarget(target);
+						}
+
+						world.addFreshEntity(minilotl);
+
+						// Registra como domado
+						tamedMinilotls.add(minilotl.getUUID());
+					}
+				}
+			}
+		}
+	}
+
+	// Limpa Minilotls mortos da lista
+	private void cleanDeadMinilotls() {
+		if (!this.level().isClientSide()) {
+			List<UUID> toRemove = new ArrayList<>();
+
+			for (UUID minilotlId : tamedMinilotls) {
+				boolean found = false;
+				// Procura o Minilotl no mundo
+				for (MinilotlEntity minilotl : this.level().getEntitiesOfClass(MinilotlEntity.class, this.getBoundingBox().inflate(50))) {
+					if (minilotl.getUUID().equals(minilotlId) && minilotl.isAlive()) {
+						found = true;
+						break;
+					}
+				}
+
+				if (!found) {
+					toRemove.add(minilotlId);
+				}
+			}
+
+			tamedMinilotls.removeAll(toRemove);
+		}
+	}
+
+	// Método para ativar animação
+	private void triggerAnimation(String animation) {
+		this.animationprocedure = animation;
+		this.entityData.set(ANIMATION, animation);
 	}
 
 	@Override
 	public MobType getMobType() {
-		return MobType.UNDEFINED;
+		return MobType.WATER;
 	}
 
 	@Override
@@ -121,13 +263,23 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	}
 
 	@Override
+	public SoundEvent getAmbientSound() {
+		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.axolotl.idle_air"));
+	}
+
+	@Override
+	public void playStepSound(BlockPos pos, BlockState blockIn) {
+		this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.axolotl.swim")), 0.15f, 1);
+	}
+
+	@Override
 	public SoundEvent getHurtSound(DamageSource ds) {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.hurt"));
+		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.axolotl.hurt"));
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.death"));
+		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.axolotl.death"));
 	}
 
 	@Override
@@ -138,6 +290,19 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 			return false;
 		if (source.is(DamageTypes.DROWN))
 			return false;
+
+		// Quando é atacado, os Minilotls atacam o agressor
+		if (!this.level().isClientSide() && source.getEntity() instanceof LivingEntity attacker) {
+			for (UUID minilotlId : tamedMinilotls) {
+				// Procura o Minilotl no mundo
+				for (MinilotlEntity minilotl : this.level().getEntitiesOfClass(MinilotlEntity.class, this.getBoundingBox().inflate(30))) {
+					if (minilotl.getUUID().equals(minilotlId) && minilotl.isAlive()) {
+						minilotl.setTarget(attacker);
+					}
+				}
+			}
+		}
+
 		return super.hurt(source, amount);
 	}
 
@@ -145,6 +310,18 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
 		compound.putString("Texture", this.getTexture());
+		compound.putInt("AttackCounter", this.attackCounter);
+		compound.putInt("AttackCooldown", this.attackCooldown);
+
+		// Salva Minilotls domados
+		CompoundTag minilotlsTag = new CompoundTag();
+		int i = 0;
+		for (UUID uuid : tamedMinilotls) {
+			minilotlsTag.putUUID("Minilotl_" + i, uuid);
+			i++;
+		}
+		minilotlsTag.putInt("Count", i);
+		compound.put("TamedMinilotls", minilotlsTag);
 	}
 
 	@Override
@@ -152,19 +329,80 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		super.readAdditionalSaveData(compound);
 		if (compound.contains("Texture"))
 			this.setTexture(compound.getString("Texture"));
+		if (compound.contains("AttackCounter"))
+			this.attackCounter = compound.getInt("AttackCounter");
+		if (compound.contains("AttackCooldown"))
+			this.attackCooldown = compound.getInt("AttackCooldown");
+
+		// Carrega Minilotls domados
+		tamedMinilotls.clear();
+		if (compound.contains("TamedMinilotls")) {
+			CompoundTag minilotlsTag = compound.getCompound("TamedMinilotls");
+			int count = minilotlsTag.getInt("Count");
+			for (int i = 0; i < count; i++) {
+				if (minilotlsTag.hasUUID("Minilotl_" + i)) {
+					tamedMinilotls.add(minilotlsTag.getUUID("Minilotl_" + i));
+				}
+			}
+		}
 	}
 
 	@Override
 	public void baseTick() {
-	super.baseTick();
-	this.refreshDimensions();
+		super.baseTick();
+		MaxoloteQuebraBlocosProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
+		this.refreshDimensions();
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+		// Reduz cooldown do ataque
+		if (attackCooldown > 0) {
+			attackCooldown--;
+		}
+
+		// Controla animação de ataque
+		if (this.swinging && this.lastSwing + 15L <= level().getGameTime()) {
+			this.swinging = false;
+			this.animationprocedure = "empty";
+		}
+
+		// Limpa Minilotls mortos periodicamente
+		if (this.tickCount % 100 == 0) { // A cada 5 segundos
+			cleanDeadMinilotls();
+		}
+
+		// Atualiza alvos dos Minilotls
+		if (!this.level().isClientSide() && this.tickCount % 20 == 0) { // A cada segundo
+			LivingEntity target = this.getTarget();
+			if (target != null) {
+				for (UUID minilotlId : tamedMinilotls) {
+					// Procura o Minilotl no mundo
+					for (MinilotlEntity minilotl : this.level().getEntitiesOfClass(MinilotlEntity.class, this.getBoundingBox().inflate(50))) {
+						if (minilotl.getUUID().equals(minilotlId) && minilotl.isAlive()) {
+							// Atualiza o alvo do Minilotl
+							if (minilotl.getTarget() == null || minilotl.getTarget() != target) {
+								minilotl.setTarget(target);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+=======
+=======
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 	// cooldown do punch
 	if (!this.level().isClientSide && punchCooldown > 0) {
 		punchCooldown--;
 	}
 	}
 
+<<<<<<< HEAD
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
+=======
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 	@Override
 	public EntityDimensions getDimensions(Pose p_33597_) {
 		return super.getDimensions(p_33597_).scale((float) 1);
@@ -201,22 +439,25 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
 		builder = builder.add(Attributes.MAX_HEALTH, 600);
 		builder = builder.add(Attributes.ARMOR, 35);
-		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
-		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
-		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 100);
-		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 0.5);
+		builder = builder.add(Attributes.ATTACK_DAMAGE, 15); // Aumentado para 15
+		builder = builder.add(Attributes.FOLLOW_RANGE, 32); // Aumentado para 32 blocos
+		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1); // Reduzido para poder ser empurrado
+		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1.0); // Aumentado knockback
+		builder = builder.add(Attributes.ATTACK_SPEED, 1); // Velocidade de ataque
+		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 1); // Velocidade na água
 		return builder;
 	}
 
 	private PlayState movementPredicate(AnimationState event) {
 		if (this.animationprocedure.equals("empty")) {
-			if ((event.isMoving() || !(event.getLimbSwingAmount() > -0.15F && event.getLimbSwingAmount() < 0.15F))
-
-			) {
+			if ((event.isMoving() || !(event.getLimbSwingAmount() > -0.15F && event.getLimbSwingAmount() < 0.15F))) {
 				return event.setAndContinue(RawAnimation.begin().thenLoop("walk"));
 			}
 			if (this.isDeadOrDying()) {
 				return event.setAndContinue(RawAnimation.begin().thenPlay("death"));
+			}
+			if (this.isInWaterOrBubble()) {
+				return event.setAndContinue(RawAnimation.begin().thenLoop("swim"));
 			}
 			return event.setAndContinue(RawAnimation.begin().thenLoop("idle"));
 		}
@@ -231,11 +472,15 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 			this.swinging = true;
 			this.lastSwing = level().getGameTime();
 		}
-		if (this.swinging && this.lastSwing + 7L <= level().getGameTime()) {
+		if (this.swinging && this.lastSwing + 15L <= level().getGameTime()) {
 			this.swinging = false;
 		}
 		if (this.swinging && event.getController().getAnimationState() == AnimationController.State.STOPPED) {
 			event.getController().forceAnimationReset();
+			// Usa a animação atual ou padrão
+			if (!this.animationprocedure.equals("empty")) {
+				return event.setAndContinue(RawAnimation.begin().thenPlay(this.animationprocedure));
+			}
 			return event.setAndContinue(RawAnimation.begin().thenPlay("attack"));
 		}
 		return PlayState.CONTINUE;
@@ -264,6 +509,17 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	protected void tickDeath() {
 		++this.deathTime;
 		if (this.deathTime == 40) {
+			// Libera os Minilotls quando morre
+			for (UUID minilotlId : tamedMinilotls) {
+				// Procura o Minilotl no mundo
+				for (MinilotlEntity minilotl : this.level().getEntitiesOfClass(MinilotlEntity.class, this.getBoundingBox().inflate(50))) {
+					if (minilotl.getUUID().equals(minilotlId) && minilotl.isAlive()) {
+						// Limpa o alvo do Minilotl
+						minilotl.setTarget(null);
+					}
+				}
+			}
+
 			this.remove(MaxolotEntity.RemovalReason.KILLED);
 			this.dropExperience();
 		}
@@ -283,6 +539,11 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		data.add(new AnimationController<>(this, "attacking", 4, this::attackingPredicate));
 		data.add(new AnimationController<>(this, "procedure", 4, this::procedurePredicate));
 	}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 
 	@Override
 public boolean doHurtTarget(Entity target) {
@@ -320,6 +581,7 @@ public boolean doHurtTarget(Entity target) {
 	return hit;
 }
 
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 
 	@Override
 	public AnimatableInstanceCache getAnimatableInstanceCache() {

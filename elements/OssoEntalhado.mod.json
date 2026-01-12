@@ -1,0 +1,35 @@
+{
+  "_fv": 73,
+  "_type": "blockstates",
+  "definition": {
+    "block": "CarvedBoneBlock",
+    "blockstateList": [
+      {
+        "texture": "minecraft:bone_block_top",
+        "textureTop": "minecraft:bone_block_top",
+        "textureLeft": "minecraft:bone_block_side",
+        "textureFront": "jackobone",
+        "textureRight": "minecraft:bone_block_side",
+        "textureBack": "minecraft:bone_block_side",
+        "particleTexture": "minecraft:campfire_fire",
+        "renderType": 0,
+        "customModelName": "Normal",
+        "luminance": 15,
+        "boundingBoxes": []
+      },
+      {
+        "texture": "minecraft:bone_block_top",
+        "textureTop": "minecraft:bone_block_top",
+        "textureLeft": "minecraft:bone_block_side",
+        "textureFront": "jackobonesouls",
+        "textureRight": "minecraft:bone_block_side",
+        "textureBack": "minecraft:bone_block_side",
+        "particleTexture": "minecraft:soul_campfire_fire",
+        "renderType": 0,
+        "customModelName": "Normal",
+        "luminance": 15,
+        "boundingBoxes": []
+      }
+    ]
+  }
+}

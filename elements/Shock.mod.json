@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "damagetype",
+  "definition": {
+    "exhaustion": 0.2,
+    "scaling": "never",
+    "effects": "hurt",
+    "normalDeathMessage": "%1$s was hit by a shockwave",
+    "itemDeathMessage": "%1$s was hit by a shockwave by %2$s using %3$s",
+    "playerDeathMessage": "%1$s was hit by a shockwavewhilst trying to escape %2$s"
+  }
+}

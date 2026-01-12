@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "morebosses:blocks/withered_bone_block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "morebosses:withered_bone_block"
+        }
+      ]
+    }
+  ]
+}

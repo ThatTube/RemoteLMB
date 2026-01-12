@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/jacotopw",
+    "up": "morebosses:block/jacotopw",
+    "north": "morebosses:block/jackowither",
+    "east": "morebosses:block/witheredbone_side",
+    "south": "morebosses:block/witheredbone_side",
+    "west": "morebosses:block/witheredbone_side",
+    "particle": "minecraft:block/soul_campfire_fire"
+  },
+  "render_type": "solid"
+}

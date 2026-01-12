@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/pisantes",
+  "textures": {
+    "0": "morebosses:block/pisantes",
+    "particle": "minecraft:item/chainmail_boots"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "minecraft:block/bone_block_top",
+    "up": "minecraft:block/bone_block_top",
+    "north": "morebosses:block/carved_bone",
+    "east": "minecraft:block/bone_block_side",
+    "south": "minecraft:block/bone_block_side",
+    "west": "minecraft:block/bone_block_side",
+    "particle": "minecraft:block/bone_block_top"
+  },
+  "render_type": "solid"
+}

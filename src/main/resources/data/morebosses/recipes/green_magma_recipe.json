@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "aa",
+    "aa"
+  ],
+  "key": {
+    "a": {
+      "item": "morebosses:green_magma_cream"
+    }
+  },
+  "result": {
+    "item": "morebosses:green_magma_block",
+    "count": 1
+  }
+}

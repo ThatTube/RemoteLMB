@@ -1,7 +1,6 @@
 
 package net.mcreator.morebosses.entity;
 
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -16,17 +15,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 
 import net.mcreator.morebosses.procedures.CargaDeVentoProcedure;
+import net.mcreator.morebosses.procedures.CabutoProcedure;
 import net.mcreator.morebosses.init.MorebossesModEntities;
 
 import javax.annotation.Nullable;
@@ -95,21 +92,15 @@ public class WindBurstEntity extends AbstractArrow implements ItemSupplier {
 	}
 
 	@Override
-	public void playerTouch(Player entity) {
-		super.playerTouch(entity);
-		CargaDeVentoProcedure.execute(entity);
-	}
-
-	@Override
 	public void onHitEntity(EntityHitResult entityHitResult) {
 		super.onHitEntity(entityHitResult);
-		CargaDeVentoProcedure.execute(entityHitResult.getEntity());
+		CabutoProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), entityHitResult.getEntity());
 	}
 
 	@Override
 	public void onHitBlock(BlockHitResult blockHitResult) {
 		super.onHitBlock(blockHitResult);
-		CargaDeVentoProcedure.execute(this.getOwner());
+		CargaDeVentoProcedure.execute(this.level(), blockHitResult.getBlockPos().getX(), blockHitResult.getBlockPos().getY(), blockHitResult.getBlockPos().getZ());
 	}
 
 	@Override
@@ -135,7 +126,14 @@ public class WindBurstEntity extends AbstractArrow implements ItemSupplier {
 		entityarrow.setBaseDamage(damage);
 		entityarrow.setKnockback(knockback);
 		world.addFreshEntity(entityarrow);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 		world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("intentionally_empty")), SoundSource.PLAYERS, 1, 1f / (random.nextFloat() * 0.5f + 1) + (power / 2));
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
+=======
+		world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("intentionally_empty")), SoundSource.PLAYERS, 1, 1f / (random.nextFloat() * 0.5f + 1) + (power / 2));
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 		return entityarrow;
 	}
 
@@ -150,7 +148,14 @@ public class WindBurstEntity extends AbstractArrow implements ItemSupplier {
 		entityarrow.setKnockback(0);
 		entityarrow.setCritArrow(true);
 		entity.level().addFreshEntity(entityarrow);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 		entity.level().playSound(null, entity.getX(), entity.getY(), entity.getZ(), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("intentionally_empty")), SoundSource.PLAYERS, 1, 1f / (RandomSource.create().nextFloat() * 0.5f + 1));
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
+=======
+		entity.level().playSound(null, entity.getX(), entity.getY(), entity.getZ(), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("intentionally_empty")), SoundSource.PLAYERS, 1, 1f / (RandomSource.create().nextFloat() * 0.5f + 1));
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 		return entityarrow;
 	}
 }

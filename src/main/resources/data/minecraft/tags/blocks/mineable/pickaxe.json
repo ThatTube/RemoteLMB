@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "morebosses:carved_bone_block",
+    "morebosses:carved_withered_bone_block",
+    "morebosses:withered_bone_block",
+    "morebosses:polished_cracked_blackstone_block"
+  ]
+}

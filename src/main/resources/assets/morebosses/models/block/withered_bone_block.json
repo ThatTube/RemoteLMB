@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/withered_boneblock",
+    "up": "morebosses:block/withered_boneblock",
+    "north": "morebosses:block/witheredbone_side",
+    "east": "morebosses:block/witheredbone_side",
+    "south": "morebosses:block/witheredbone_side",
+    "west": "morebosses:block/witheredbone_side",
+    "particle": "morebosses:block/withered_boneblock"
+  },
+  "render_type": "solid"
+}

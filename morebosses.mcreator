@@ -71,7 +71,7 @@
           "src/main/resources/data/morebosses/loot_tables/blocks/green_magma_block.json"
         ]
       },
-      "path": "~/Blocks"
+      "path": "~/Drops"
     },
     {
       "name": "GreenMagma",
@@ -165,26 +165,6 @@
           {
             "name": "world",
             "type": "world"
-          }
-        ]
-      },
-      "path": "~/Procedures"
-    },
-    {
-      "name": "CondicaoDeHitboxCopper",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "condicao_de_hitbox_copper",
-      "metadata": {
-        "return_type": "logic",
-        "files": [
-          "src/main/java/net/mcreator/morebosses/procedures/CondicaoDeHitboxCopperProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
           }
         ]
       },
@@ -309,7 +289,7 @@
       "name": "BossCurar",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "boss_curar",
       "metadata": {
         "files": [
@@ -355,43 +335,6 @@
         ],
         "dependencies": [
           {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Procedures"
-    },
-    {
-      "name": "WindBurst",
-      "type": "projectile",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "wind_burst",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/morebosses/entity/WindBurstEntity.java",
-          "src/main/java/net/mcreator/morebosses/client/renderer/WindBurstRenderer.java"
-        ]
-      },
-      "path": "~/Projeteis"
-    },
-    {
-      "name": "CopperMonstrosityOnEntityTickUpdate",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "copper_monstrosity_on_entity_tick_update",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/morebosses/procedures/CopperMonstrosityOnEntityTickUpdateProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
             "name": "x",
             "type": "number"
           },
@@ -410,6 +353,20 @@
         ]
       },
       "path": "~/Procedures"
+    },
+    {
+      "name": "WindBurst",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_burst",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/WindBurstEntity.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/WindBurstRenderer.java"
+        ]
+      },
+      "path": "~/Projeteis"
     },
     {
       "name": "Maxolot",
@@ -439,13 +396,1169 @@
         ]
       },
       "path": "~/Efeitos"
+<<<<<<< HEAD
+<<<<<<< HEAD
+    },
+    {
+      "name": "MaxolotDeathTimeIsReached",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "maxolot_death_time_is_reached",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/MaxolotDeathTimeIsReachedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "MaxoloteQuebraBlocos",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "maxolote_quebra_blocos",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/MaxoloteQuebraBlocosProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "WaveEffect",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "wave_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/WaveEffect.java"
+        ]
+      }
+    },
+    {
+      "name": "Teste",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teste",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/TesteProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "GeradorDeWaves",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gerador_de_waves",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/GeradorDeWavesItem.java",
+          "src/main/resources/assets/morebosses/models/item/gerador_de_waves.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DryBones",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dry_bones",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/client/renderer/DryBonesRenderer.java",
+          "src/main/resources/assets/morebosses/models/item/dry_bones_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/model/DryBonesModel.java",
+          "src/main/java/net/mcreator/morebosses/entity/DryBonesEntity.java",
+          "src/main/java/net/mcreator/morebosses/entity/layer/DryBonesLayer.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "DryBonesLol",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dry_bones_lol",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/DryBonesLolProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "DryBonesWither",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dry_bones_wither",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/DryBonesWitherProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "StoneCuirlass",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stone_cuirlass",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/StoneCuirlassItem.java",
+          "src/main/resources/assets/morebosses/models/item/stone_cuirlass.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DryBonesDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dry_bones_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/dry_bones.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "Shock",
+      "type": "damagetype",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shock",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/damage_type/shock.json"
+        ]
+      },
+      "path": "~/Danos"
+    },
+    {
+      "name": "TankOfFury",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tank_of_fury",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/TankOfFuryItem.java",
+          "src/main/resources/assets/morebosses/models/item/tank_of_fury.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "EmptyTank",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "empty_tank",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/empty_tank.json",
+          "src/main/java/net/mcreator/morebosses/item/EmptyTankItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "TankOfFuryPlayerFinishesUsingItem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tank_of_fury_player_finishes_using_item",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/TankOfFuryPlayerFinishesUsingItemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "MaxolotDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "maxolot_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/maxolot.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "CuirlassArmor",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cuirlass_armor",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/CuirlassArmorItem.java",
+          "src/main/resources/assets/morebosses/models/item/cuirlass_armor_boots.json",
+          "src/main/resources/assets/morebosses/models/item/cuirlass_armor_chestplate.json",
+          "src/main/resources/assets/morebosses/models/item/cuirlass_armor_leggings.json",
+          "src/main/resources/assets/morebosses/models/item/cuirlass_armor_helmet.json"
+        ]
+      },
+      "path": "~/Items/Armaduras"
+    },
+    {
+      "name": "CuirlassArmorHelmetRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cuirlass_armor_helmet_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/cuirlass_armor_helmet_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CuirlassArmorChestplateRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cuirlass_armor_chestplate_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/cuirlass_armor_chestplate_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CuirlassArmorLeggingsRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cuirlass_armor_leggings_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/cuirlass_armor_leggings_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CuirlassArmorBootsRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cuirlass_armor_boots_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/cuirlass_armor_boots_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CuirlassSmithingUpgrade",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cuirlass_smithing_upgrade",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/CuirlassSmithingUpgradeItem.java",
+          "src/main/resources/assets/morebosses/models/item/cuirlass_smithing_upgrade.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "CuirlassUpgrade",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cuirlass_upgrade",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/cuirlass_upgrade.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CuirlassUpgrade2",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cuirlass_upgrade_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/cuirlass_upgrade_2.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "ShieldBeater",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shield_beater",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/ShieldBeaterItem.java",
+          "src/main/resources/assets/morebosses/models/item/shield_beater.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Panic",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "panic",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/PanicMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
+    },
+    {
+      "name": "Minilotl",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "minilotl",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/minilotl_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/client/renderer/MinilotlRenderer.java",
+          "src/main/resources/data/morebosses/forge/biome_modifier/minilotl_biome_modifier.json",
+          "src/main/java/net/mcreator/morebosses/entity/MinilotlEntity.java",
+          "src/main/java/net/mcreator/morebosses/entity/model/MinilotlModel.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "MinilotlRightClickedOnEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "minilotl_right_clicked_on_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/MinilotlRightClickedOnEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "MinilotlOnEntityTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "minilotl_on_entity_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/MinilotlOnEntityTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "MONSTROUSFOOTWEAR",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "monstrousfootwear",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/MONSTROUSFOOTWEARItem.java",
+          "src/main/resources/assets/morebosses/models/item/monstrousfootwear_boots.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "BootsHabilityOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boots_hability_on_key_pressed",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/BootsHabilityOnKeyPressedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "BootsHability",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boots_hability",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/network/BootsHabilityMessage.java"
+        ]
+      }
+    },
+    {
+      "name": "CopperMonstrosityDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_monstrosity_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/copper_monstrosity.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "Monstrous",
+      "type": "painting",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "monstrous",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "SetupAnimations",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "setup_animations",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/SetupAnimationsProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "AntiDps",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "anti_dps",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/AntiDps.java"
+        ]
+      }
+    },
+    {
+      "name": "MacholoteNadaDiminuirHitBox",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "macholote_nada_diminuir_hit_box",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/MacholoteNadaDiminuirHitBoxProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "ShieldBeaterLivingEntityIsHitWithTool",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "shield_beater_living_entity_is_hit_with_tool",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/ShieldBeaterLivingEntityIsHitWithToolProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "PanicAnimation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "panic_animation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/PanicAnimationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "NetherBricksStick",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nether_bricks_stick",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/nether_bricks_stick.json",
+          "src/main/java/net/mcreator/morebosses/item/NetherBricksStickItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "ShieldBeaterRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shield_beater_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/shield_beater_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "NetherrackStickRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "netherrack_stick_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/netherrack_stick_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Cabuto",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cabuto",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/CabutoProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "FuryPotion",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fury_potion",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/recipes/brewing/FuryPotionBrewingRecipe.java"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "GongBlockAdded",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gong_block_added",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/GongBlockAddedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "GongStick",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gong_stick",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/gong_stick.json",
+          "src/main/java/net/mcreator/morebosses/item/GongStickItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "GongOnBlockRightClicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gong_on_block_right_clicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/GongOnBlockRightClickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Gong",
+      "type": "animatedblock",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gong",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/block/model/GongBlockModel.java",
+          "src/main/java/net/mcreator/morebosses/block/entity/GongTileEntity.java",
+          "src/main/java/net/mcreator/morebosses/block/model/GongDisplayModel.java",
+          "src/main/java/net/mcreator/morebosses/block/GongBlock.java",
+          "src/main/java/net/mcreator/morebosses/block/renderer/GongDisplayItemRenderer.java",
+          "src/main/resources/assets/morebosses/models/item/gong.json",
+          "src/main/java/net/mcreator/morebosses/block/renderer/GongTileRenderer.java",
+          "src/main/java/net/mcreator/morebosses/block/display/GongDisplayItem.java",
+          "src/main/resources/assets/morebosses/models/custom/gong_particle.json",
+          "src/main/resources/assets/morebosses/blockstates/gong.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "GreenMagmaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "green_magma_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/green_magma_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "BlockMagmaGreen",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "block_magma_green",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/block_magma_green.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "GongStickRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gong_stick_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/gong_stick_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PolishedCrackedBlackstoneBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "polished_cracked_blackstone_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/blockstates/polished_cracked_blackstone_block.json",
+          "src/main/resources/assets/morebosses/models/block/polished_cracked_blackstone_block.json",
+          "src/main/java/net/mcreator/morebosses/block/PolishedCrackedBlackstoneBlockBlock.java",
+          "src/main/resources/assets/morebosses/models/item/polished_cracked_blackstone_block.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/polished_cracked_blackstone_block.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CrakedBlacksotne",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "craked_blacksotne",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/craked_blacksotne.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "WitheredBoneBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "withered_bone_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/withered_bone_block.json",
+          "src/main/resources/assets/morebosses/blockstates/withered_bone_block.json",
+          "src/main/java/net/mcreator/morebosses/block/WitheredBoneBlockBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/withered_bone_block.json",
+          "src/main/resources/assets/morebosses/models/block/withered_bone_block.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "WitheredBone",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "withered_bone",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/withered_bone.json",
+          "src/main/java/net/mcreator/morebosses/item/WitheredBoneItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "CarvedWitheredBoneBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "carved_withered_bone_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/carved_withered_bone_block.json",
+          "src/main/resources/assets/morebosses/blockstates/carved_withered_bone_block.json",
+          "src/main/resources/assets/morebosses/models/item/carved_withered_bone_block.json",
+          "src/main/java/net/mcreator/morebosses/block/CarvedWitheredBoneBlockBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/carved_withered_bone_block.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CarvedandJackocarved",
+      "type": "blockstates",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "carvedand_jackocarved",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/carvedand_jackocarved_blockstate_0.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "WitheredBoneBlockOnBlockRightClicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "withered_bone_block_on_block_right_clicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/WitheredBoneBlockOnBlockRightClickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Entalhar",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entalhar",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/EntalharProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "EntalharOsso",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entalhar_osso",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/EntalharOssoProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "CarvedBoneBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "carved_bone_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/blockstates/carved_bone_block.json",
+          "src/main/resources/assets/morebosses/models/item/carved_bone_block.json",
+          "src/main/java/net/mcreator/morebosses/block/CarvedBoneBlockBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/carved_bone_block.json",
+          "src/main/resources/assets/morebosses/models/block/carved_bone_block.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "OssoEntalhado",
+      "type": "blockstates",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "osso_entalhado",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/osso_entalhado_blockstate_1.json",
+          "src/main/resources/assets/morebosses/models/block/osso_entalhado_blockstate_0.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CarvedBoneBlockOnBlockRightClicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "carved_bone_block_on_block_right_clicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/CarvedBoneBlockOnBlockRightClickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+=======
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
+=======
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "tag_elements": {
     "ENTITIES:lmb:boss": [
-      "CUSTOM:CopperMonstrosity"
+      "CUSTOM:CopperMonstrosity",
+      "CUSTOM:Maxolot",
+      "CUSTOM:DryBones"
     ],
     "ENTITIES:lmb:immunetoshockwave": [
       "CUSTOM:ShockWave",
@@ -454,11 +1567,37 @@
     "BLOCKS:minecraft:replaceable": [
       "~CUSTOM:RawMagma",
       "~CUSTOM:GreenMagma"
+    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:CarvedBoneBlock",
+      "~CUSTOM:CarvedWitheredBoneBlock",
+      "~CUSTOM:WitheredBoneBlock",
+      "~CUSTOM:PolishedCrackedBlackstoneBlock"
+    ],
+    "ITEMS:minecraft:pickaxes": [
+      "~CUSTOM:ShieldBeater"
+    ],
+    "DAMAGE_TYPES:minecraft:is_fire": [
+      "CUSTOM:Magma"
+    ],
+    "ENTITIES:mod:aqua": [
+      "CUSTOM:Maxolot",
+      "CUSTOM:Minilotl"
+    ],
+    "ENTITIES:mod:antidps": [
+      "CUSTOM:CopperMonstrosity",
+      "CUSTOM:Maxolot",
+      "CUSTOM:DryBones"
     ]
   },
   "tab_element_order": {},
   "language_map": {
     "en_us": {
+<<<<<<< HEAD
+      "subtitles.wind_charge": "Wind Burst",
+      "item_group.morebosses.lmb_itens": "LMB Itens",
+      "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
+=======
       "death.attack.magma": "%1$s tried to swim in magma",
       "entity.morebosses.shock_wave": "Shock Wave",
       "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
@@ -467,18 +1606,57 @@
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
       "item_group.morebosses.lmb_itens": "LMB Itens",
       "fluid.morebosses.raw_magma": "Raw Magma",
+>>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
       "block.morebosses.green_magma": "Green Magma",
+      "block.morebosses.gong": "Gong",
+      "entity.morebosses.minilotl": "Minilotl",
       "item.morebosses.green_magma_cream": "Green Magma Cream",
-      "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
+      "item.morebosses.tank_of_fury": "Tank Of Fury",
+      "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
+      "item.morebosses.shield_beater": "The Shield Breaker",
+      "painting.morebosses.monstrous.author": "That LucaTube",
+      "entity.morebosses.dry_bones": "Dry Bones",
+      "item.morebosses.monstrousfootwear_boots.description_0": "Press R to stomp and generate a shockwave.",
+      "item.morebosses.dry_bones_spawn_egg": "Dry Bones Spawn Egg",
+      "key.morebosses.boots_hability": "LMB Boots Hability",
+      "item.morebosses.gerador_de_waves": "Gerador De Waves",
       "entity.morebosses.copper_monstrosity": "Copper Monstrosity",
       "block.morebosses.raw_magma": "Raw Magma",
       "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
-      "item.morebosses.green_magma_bucket": "Green Magma Bucket",
-      "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
       "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
       "block.morebosses.green_magma_block": "Green Magma Block",
-      "item_group.morebosses.lmb_mobs": "LMB Mobs",
-      "entity.morebosses.maxolot": "Maxolot"
+      "block.morebosses.withered_bone_block": "Withered Bone Block",
+      "item.morebosses.gong_stick": "Gong Stick",
+      "item.morebosses.cuirlass_armor_leggings": "Cuirlass Leggings",
+      "death.attack.magma": "%1$s tried to swim in magma",
+      "item.morebosses.cuirlass_armor_chestplate": "Cuirlass Chestplate",
+      "item.morebosses.cuirlass_smithing_upgrade": "Cuirlass Smithing Upgrade",
+      "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
+      "fluid.morebosses.green_magma": "Green Magma",
+      "item.morebosses.withered_bone": "Withered Bone",
+      "item_group.morebosses.lmb_blocks": "LMB Blocks",
+      "item.morebosses.empty_tank": "Empty Tank",
+      "item.morebosses.cuirlass_armor_helmet": "Cuirlass Helmet",
+      "death.attack.shock.player": "%1$s was hit by a shockwavewhilst trying to escape %2$s",
+      "painting.morebosses.monstrous.title": "Monstrous",
+      "block.morebosses.carved_withered_bone_block": "Carved Withered Bone Block",
+      "death.attack.shock.item": "%1$s was hit by a shockwave by %2$s using %3$s",
+      "entity.morebosses.maxolot": "Maxolot",
+      "item.morebosses.shield_beater.description_0": "The name is really self-explanatory.",
+      "block.morebosses.carved_bone_block": "Carved Bone Block",
+      "entity.morebosses.shock_wave": "Shock Wave",
+      "item.morebosses.stone_cuirlass": "Stone Cuirlass",
+      "death.attack.shock": "%1$s was hit by a shockwave",
+      "item.morebosses.nether_bricks_stick": "Nether Bricks Stick",
+      "effect.morebosses.heavy": "Heavy",
+      "effect.morebosses.panic": "Panic",
+      "fluid.morebosses.raw_magma": "Raw Magma",
+      "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
+      "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
+      "item.morebosses.green_magma_bucket": "Green Magma Bucket",
+      "item.morebosses.cuirlass_armor_boots": "Cuirlass Boots",
+      "block.morebosses.polished_cracked_blackstone_block": "Polished Cracked Blackstone Block",
+      "item_group.morebosses.lmb_mobs": "LMB Mobs"
     }
   },
   "foldersRoot": {
@@ -490,7 +1668,12 @@
       },
       {
         "name": "Items",
-        "children": []
+        "children": [
+          {
+            "name": "Armaduras",
+            "children": []
+          }
+        ]
       },
       {
         "name": "Mobs",
@@ -523,13 +1706,17 @@
       {
         "name": "Projeteis",
         "children": []
+      },
+      {
+        "name": "Drops",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "morebosses",
-    "modName": "RemoteLMB",
-    "version": "1.0.0",
+    "modName": "Lu\u0027s More Bosses and Mobs",
+    "version": "1.0.2",
     "description": "U want more bosses? We have more bosses",
     "author": "That Lucatube, JorginhoAMM",
     "websiteURL": "https://mcreator.net",
@@ -540,6 +1727,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [
+      "pehkui",
       "curios_api",
       "nexus_compiled_mods",
       "geckolib",

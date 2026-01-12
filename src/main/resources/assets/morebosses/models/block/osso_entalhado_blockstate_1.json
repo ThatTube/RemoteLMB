@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "minecraft:block/bone_block_top",
+    "up": "minecraft:block/bone_block_top",
+    "north": "morebosses:block/jackobonesouls",
+    "east": "minecraft:block/bone_block_side",
+    "south": "minecraft:block/bone_block_side",
+    "west": "minecraft:block/bone_block_side",
+    "particle": "minecraft:block/soul_campfire_fire"
+  },
+  "render_type": "solid"
+}

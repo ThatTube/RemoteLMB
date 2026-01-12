@@ -1,0 +1,7 @@
+
+{
+  "parent": "morebosses:displaysettings/gong",
+  "textures": {
+    "particle": "morebosses:block/gong"
+  }
+}

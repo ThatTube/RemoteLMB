@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "morebosses:custom/gong_particle"
+    },
+    "facing=east": {
+      "model": "morebosses:custom/gong_particle",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "morebosses:custom/gong_particle",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "morebosses:custom/gong_particle",
+      "y": 270
+    }
+  }
+}

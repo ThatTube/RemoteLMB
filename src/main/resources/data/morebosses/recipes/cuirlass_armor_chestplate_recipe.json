@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "morebosses:cuirlass_smithing_upgrade"
+  },
+  "base": {
+    "item": "minecraft:netherite_chestplate"
+  },
+  "addition": {
+    "item": "morebosses:stone_cuirlass"
+  },
+  "result": {
+    "item": "morebosses:cuirlass_armor_chestplate"
+  }
+}

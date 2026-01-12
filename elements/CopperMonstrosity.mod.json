@@ -12,9 +12,6 @@
     "boundingBoxScale": {
       "fixedValue": 1.0
     },
-    "solidBoundingBox": {
-      "name": "CondicaoDeHitboxCopper"
-    },
     "entityDataEntries": [],
     "modelWidth": 4.5,
     "modelHeight": 5.2,
@@ -23,11 +20,11 @@
     "stepHeight": 1.0,
     "hasSpawnEgg": true,
     "spawnEggBaseColor": {
-      "value": -13421773,
+      "value": -1,
       "falpha": 0.0
     },
     "spawnEggDotColor": {
-      "value": -16751002,
+      "value": -1,
       "falpha": 0.0
     },
     "creativeTabs": [
@@ -65,7 +62,7 @@
     "armorBaseValue": 50.0,
     "trackingRange": 128,
     "followRange": 64,
-    "health": 1000,
+    "health": 800,
     "xpAmount": 35,
     "waterMob": false,
     "flyingMob": false,
@@ -117,7 +114,7 @@
     },
     "hasAI": true,
     "aiBase": "(none)",
-    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><field name=\"condition\">null,null</field><next><block type=\"attack_with_range\"><field name=\"range\">2</field><field name=\"speed\">1</field><field name=\"longmemory\">TRUE</field><field name=\"condition\">null,null</field><next><block type=\"wander\"><field name=\"speed\">1</field><field name=\"condition\">null,null</field><next><block type=\"attack_action\"><field name=\"callhelp\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"look_around\"><field name=\"condition\">null,null</field><next><block type=\"swim_in_water\"><field name=\"condition\">null,null</field></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">CUSTOM:DryBones</field><field name=\"condition\">null,null</field><next><block type=\"attack_with_range\"><field name=\"range\">2</field><field name=\"speed\">1</field><field name=\"longmemory\">TRUE</field><field name=\"condition\">null,null</field><next><block type=\"wander\"><field name=\"speed\">1</field><field name=\"condition\">null,null</field><next><block type=\"attack_action\"><field name=\"callhelp\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"look_around\"><field name=\"condition\">null,null</field><next><block type=\"swim_in_water\"><field name=\"condition\">null,null</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
     "model": "copper_monstrosity.geo.json",
     "groupName": "head",
     "animation1": "idle",
@@ -143,7 +140,7 @@
     "tameable": false,
     "disableDeathRotation": true,
     "headMovement": true,
-    "eyeHeight": false,
+    "eyeHeight": true,
     "breedTriggerItems": [],
     "ranged": false,
     "rangedAttackItem": {
@@ -152,7 +149,7 @@
     "rangedItemType": "Default item",
     "rangedAttackInterval": 20,
     "rangedAttackRadius": 10.0,
-    "height": 1.0,
+    "height": 4.0,
     "attackRate": 7,
     "raidSpawnsCount": [
       4,

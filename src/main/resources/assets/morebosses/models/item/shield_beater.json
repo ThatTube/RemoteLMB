@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/shieldbeater",
+  "textures": {
+    "0": "morebosses:block/shieldbeater",
+    "particle": "minecraft:item/cauldron"
+  }
+}

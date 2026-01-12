@@ -1,0 +1,44 @@
+{
+  "_fv": 73,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Special",
+    "renderType": 1,
+    "blockingRenderType": 0,
+    "texture": "minecraft:cauldron",
+    "customModelName": "shieldbeater:default",
+    "blockingModelName": "Normal blocking",
+    "name": "The Shield Breaker",
+    "specialInformation": {
+      "fixedValue": [
+        "The name is really self-explanatory."
+      ]
+    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:LMBItens"
+      }
+    ],
+    "efficiency": 5.0,
+    "attackSpeed": 0.5,
+    "enchantability": 18,
+    "damageVsEntity": 9.0,
+    "usageCount": 3000,
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "repairItems": [
+      {
+        "value": "CUSTOM:StoneCuirlass"
+      }
+    ],
+    "immuneToFire": true,
+    "blockDropsTier": "NETHERITE",
+    "blocksAffected": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "ShieldBeaterLivingEntityIsHitWithTool"
+    }
+  }
+}
