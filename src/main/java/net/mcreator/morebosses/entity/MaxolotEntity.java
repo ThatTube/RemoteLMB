@@ -4,7 +4,6 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.animation.AnimationState;
-import net.minecraft.world.entity.Entity;
 import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -19,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
@@ -28,7 +28,6 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.Pose;
-import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
@@ -49,34 +48,25 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.BlockPos;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 import net.mcreator.morebosses.procedures.MaxoloteQuebraBlocosProcedure;
 import net.mcreator.morebosses.procedures.MaxolotDeathTimeIsReachedProcedure;
 import net.mcreator.morebosses.init.MorebossesModMobEffects;
-=======
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
-=======
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 import net.mcreator.morebosses.init.MorebossesModEntities;
 
 import java.util.UUID;
 import java.util.List;
 import java.util.ArrayList;
 
-public class MaxolotEntity extends PathfinderMob implements GeoEntity {
+public class MaxolotEntity extends Monster implements GeoEntity {
 	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(MaxolotEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(MaxolotEntity.class, EntityDataSerializers.STRING);
 	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(MaxolotEntity.class, EntityDataSerializers.STRING);
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 	private boolean swinging;
 	private boolean lastloop;
-	private int punchCooldown = 0;
-	private boolean usePunchNext = false;
 	private long lastSwing;
 	public String animationprocedure = "empty";
 	private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), ServerBossEvent.BossBarColor.PINK, ServerBossEvent.BossBarOverlay.PROGRESS);
-
 	// Variáveis para controle dos ataques
 	private int attackCounter = 0;
 	private int attackCooldown = 0;
@@ -131,10 +121,8 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 				double d0 = this.getAttackReachSqr(target);
 				if (range <= d0 && this.getTicksUntilNextAttack() <= 0) {
 					this.resetAttackCooldown();
-
 					// Causa dano base
 					this.mob.doHurtTarget(target);
-
 					// Sistema de ataques alternados
 					if (attackCooldown <= 0) {
 						performSpecialAttack(target);
@@ -168,7 +156,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 			performSummonAttack();
 			attackCounter = 0;
 		}
-
 		// Marca como atacando para animação
 		this.swinging = true;
 		this.lastSwing = this.level().getGameTime();
@@ -180,7 +167,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 			if (player.isBlocking()) {
 				// Desarma o escudo por 4 segundos (80 ticks)
 				player.disableShield(true);
-
 				// Aplica efeito panic (5 segundos = 100 ticks)
 				target.addEffect(new MobEffectInstance(MorebossesModMobEffects.PANIC.get(), 100, 0));
 			}
@@ -197,7 +183,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 				double spawnX = this.getX() + Math.cos(angle) * radius;
 				double spawnY = this.getY() + 0.5;
 				double spawnZ = this.getZ() + Math.sin(angle) * radius;
-
 				// Verifica se tem espaço
 				BlockPos spawnPos = new BlockPos((int) spawnX, (int) spawnY, (int) spawnZ);
 				if (world.getBlockState(spawnPos).isAir() || world.getBlockState(spawnPos).canBeReplaced()) {
@@ -205,15 +190,12 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 					MinilotlEntity minilotl = MorebossesModEntities.MINILOTL.get().create(world);
 					if (minilotl != null) {
 						minilotl.moveTo(spawnX, spawnY, spawnZ, this.getYRot(), 0);
-
 						// Define o mesmo alvo do Maxolotl
 						LivingEntity target = this.getTarget();
 						if (target != null) {
 							minilotl.setTarget(target);
 						}
-
 						world.addFreshEntity(minilotl);
-
 						// Registra como domado
 						tamedMinilotls.add(minilotl.getUUID());
 					}
@@ -226,7 +208,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 	private void cleanDeadMinilotls() {
 		if (!this.level().isClientSide()) {
 			List<UUID> toRemove = new ArrayList<>();
-
 			for (UUID minilotlId : tamedMinilotls) {
 				boolean found = false;
 				// Procura o Minilotl no mundo
@@ -236,12 +217,10 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 						break;
 					}
 				}
-
 				if (!found) {
 					toRemove.add(minilotlId);
 				}
 			}
-
 			tamedMinilotls.removeAll(toRemove);
 		}
 	}
@@ -290,7 +269,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 			return false;
 		if (source.is(DamageTypes.DROWN))
 			return false;
-
 		// Quando é atacado, os Minilotls atacam o agressor
 		if (!this.level().isClientSide() && source.getEntity() instanceof LivingEntity attacker) {
 			for (UUID minilotlId : tamedMinilotls) {
@@ -302,7 +280,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 				}
 			}
 		}
-
 		return super.hurt(source, amount);
 	}
 
@@ -312,7 +289,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 		compound.putString("Texture", this.getTexture());
 		compound.putInt("AttackCounter", this.attackCounter);
 		compound.putInt("AttackCooldown", this.attackCooldown);
-
 		// Salva Minilotls domados
 		CompoundTag minilotlsTag = new CompoundTag();
 		int i = 0;
@@ -333,7 +309,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 			this.attackCounter = compound.getInt("AttackCounter");
 		if (compound.contains("AttackCooldown"))
 			this.attackCooldown = compound.getInt("AttackCooldown");
-
 		// Carrega Minilotls domados
 		tamedMinilotls.clear();
 		if (compound.contains("TamedMinilotls")) {
@@ -352,25 +327,19 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 		super.baseTick();
 		MaxoloteQuebraBlocosProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
 		this.refreshDimensions();
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 		// Reduz cooldown do ataque
 		if (attackCooldown > 0) {
 			attackCooldown--;
 		}
-
 		// Controla animação de ataque
 		if (this.swinging && this.lastSwing + 15L <= level().getGameTime()) {
 			this.swinging = false;
 			this.animationprocedure = "empty";
 		}
-
 		// Limpa Minilotls mortos periodicamente
 		if (this.tickCount % 100 == 0) { // A cada 5 segundos
 			cleanDeadMinilotls();
 		}
-
 		// Atualiza alvos dos Minilotls
 		if (!this.level().isClientSide() && this.tickCount % 20 == 0) { // A cada segundo
 			LivingEntity target = this.getTarget();
@@ -390,19 +359,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 		}
 	}
 
-=======
-=======
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
-	// cooldown do punch
-	if (!this.level().isClientSide && punchCooldown > 0) {
-		punchCooldown--;
-	}
-	}
-
-<<<<<<< HEAD
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
-=======
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 	@Override
 	public EntityDimensions getDimensions(Pose p_33597_) {
 		return super.getDimensions(p_33597_).scale((float) 1);
@@ -441,10 +397,10 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 		builder = builder.add(Attributes.ARMOR, 35);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 15); // Aumentado para 15
 		builder = builder.add(Attributes.FOLLOW_RANGE, 32); // Aumentado para 32 blocos
-		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1); // Reduzido para poder ser empurrado
+		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 0.5); // Reduzido para poder ser empurrado
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1.0); // Aumentado knockback
-		builder = builder.add(Attributes.ATTACK_SPEED, 1); // Velocidade de ataque
-		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 1); // Velocidade na água
+		builder = builder.add(Attributes.ATTACK_SPEED, 0.8); // Velocidade de ataque
+		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 0.5); // Velocidade na água
 		return builder;
 	}
 
@@ -519,9 +475,9 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 					}
 				}
 			}
-
 			this.remove(MaxolotEntity.RemovalReason.KILLED);
 			this.dropExperience();
+			MaxolotDeathTimeIsReachedProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
 		}
 	}
 
@@ -539,49 +495,6 @@ public class MaxolotEntity extends PathfinderMob implements GeoEntity {
 		data.add(new AnimationController<>(this, "attacking", 4, this::attackingPredicate));
 		data.add(new AnimationController<>(this, "procedure", 4, this::procedurePredicate));
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
-
-	@Override
-public boolean doHurtTarget(Entity target) {
-	if (!(target instanceof LivingEntity living)) return super.doHurtTarget(target);
-
-	// ================= PUNCH =================
-	if (usePunchNext && punchCooldown <= 0) {
-
-		this.animationprocedure = "punch";
-		this.setAnimation("punch");
-
-		living.hurt(
-			this.damageSources().mobAttack(this),
-			(float) (this.getAttributeValue(Attributes.ATTACK_DAMAGE) * 2.5)
-		);
-
-		// quebra escudo
-		if (living instanceof Player player && player.isBlocking()) {
-			player.disableShield(true);
-		}
-
-		punchCooldown = 80; // 4 segundos
-		usePunchNext = false;
-
-		return true;
-	}
-
-	// ================= ATAQUE NORMAL =================
-	this.animationprocedure = "attack";
-	this.setAnimation("attack");
-
-	boolean hit = super.doHurtTarget(target);
-
-	usePunchNext = true;
-	return hit;
-}
-
->>>>>>> parent of 7748096 (Algumas melhorias no Maxolote, agora a Monstruosidade e o Maxolote quebram blocos, add o cataclysm só para testes, será removido qualquer coisa relacionada ao cataclysm na versão de exportar)
 
 	@Override
 	public AnimatableInstanceCache getAnimatableInstanceCache() {

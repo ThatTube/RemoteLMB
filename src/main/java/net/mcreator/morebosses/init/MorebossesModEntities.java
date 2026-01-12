@@ -16,6 +16,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.morebosses.entity.WindBurstEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
@@ -42,6 +43,8 @@ public class MorebossesModEntities {
 			EntityType.Builder.<MinilotlEntity>of(MinilotlEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MinilotlEntity::new)
 
 					.sized(0.6f, 1.6f));
+	public static final RegistryObject<EntityType<WindBurstEntity>> WIND_BURST = register("wind_burst",
+			EntityType.Builder.<WindBurstEntity>of(WindBurstEntity::new, MobCategory.MISC).setCustomClientFactory(WindBurstEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(1f, 1f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities

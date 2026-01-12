@@ -355,20 +355,6 @@
       "path": "~/Procedures"
     },
     {
-      "name": "WindBurst",
-      "type": "projectile",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "wind_burst",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/morebosses/entity/WindBurstEntity.java",
-          "src/main/java/net/mcreator/morebosses/client/renderer/WindBurstRenderer.java"
-        ]
-      },
-      "path": "~/Projeteis"
-    },
-    {
       "name": "Maxolot",
       "type": "animatedentity",
       "compiles": true,
@@ -406,37 +392,6 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/morebosses/procedures/MaxolotDeathTimeIsReachedProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Procedures"
-    },
-    {
-      "name": "MaxoloteQuebraBlocos",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "maxolote_quebra_blocos",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/morebosses/procedures/MaxoloteQuebraBlocosProcedure.java"
         ],
         "dependencies": [
           {
@@ -1491,6 +1446,51 @@
             "name": "entity",
             "type": "entity"
           },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "WindBurst",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wind_burst",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/WindBurstEntity.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/WindBurstRenderer.java"
+        ]
+      },
+      "path": "~/Projeteis"
+    },
+    {
+      "name": "MaxoloteQuebraBlocos",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "maxolote_quebra_blocos",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/MaxoloteQuebraBlocosProcedure.java"
+        ],
+        "dependencies": [
           {
             "name": "x",
             "type": "number"
