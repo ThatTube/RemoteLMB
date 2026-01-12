@@ -11,6 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraft.world.level.block.Block;
 
 import net.mcreator.morebosses.block.WitheredBoneBlockBlock;
+import net.mcreator.morebosses.block.RawMagmaBlockBlock;
 import net.mcreator.morebosses.block.RawMagmaBlock;
 import net.mcreator.morebosses.block.PolishedCrackedBlackstoneBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlockBlock;
@@ -30,6 +31,7 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> WITHERED_BONE_BLOCK = REGISTRY.register("withered_bone_block", () -> new WitheredBoneBlockBlock());
 	public static final RegistryObject<Block> CARVED_WITHERED_BONE_BLOCK = REGISTRY.register("carved_withered_bone_block", () -> new CarvedWitheredBoneBlockBlock());
 	public static final RegistryObject<Block> CARVED_BONE_BLOCK = REGISTRY.register("carved_bone_block", () -> new CarvedBoneBlockBlock());
+	public static final RegistryObject<Block> RAW_MAGMA_BLOCK = REGISTRY.register("raw_magma_block", () -> new RawMagmaBlockBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

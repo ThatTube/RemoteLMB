@@ -15,7 +15,7 @@ import net.mcreator.morebosses.init.MorebossesModBlocks;
 
 public abstract class GreenMagmaFluid extends ForgeFlowingFluid {
 	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(() -> MorebossesModFluidTypes.GREEN_MAGMA_TYPE.get(), () -> MorebossesModFluids.GREEN_MAGMA.get(), () -> MorebossesModFluids.FLOWING_GREEN_MAGMA.get())
-			.explosionResistance(100f).bucket(() -> MorebossesModItems.GREEN_MAGMA_BUCKET.get()).block(() -> (LiquidBlock) MorebossesModBlocks.GREEN_MAGMA.get());
+			.explosionResistance(100f).tickRate(15).levelDecreasePerBlock(2).bucket(() -> MorebossesModItems.GREEN_MAGMA_BUCKET.get()).block(() -> (LiquidBlock) MorebossesModBlocks.GREEN_MAGMA.get());
 
 	private GreenMagmaFluid() {
 		super(PROPERTIES);

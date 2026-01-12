@@ -4,10 +4,14 @@
   "definition": {
     "name": "Raw Magma",
     "bucketName": "Raw Magma Bucket",
-    "textureStill": "mgm1",
-    "textureFlowing": "minecraft:magma",
+    "textureStill": "raw_magma",
+    "textureFlowing": "raw_magma",
     "textureRenderOverlay": "mgm1",
-    "hasFog": false,
+    "hasFog": true,
+    "fogColor": {
+      "value": -39424,
+      "falpha": 0.0
+    },
     "fogStartDistance": {
       "fixedValue": 0.0
     },

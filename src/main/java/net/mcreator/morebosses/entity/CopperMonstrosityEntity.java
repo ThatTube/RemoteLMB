@@ -16,6 +16,7 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
@@ -26,7 +27,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.Pose;
-import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class CopperMonstrosityEntity extends PathfinderMob implements GeoEntity {
+public class CopperMonstrosityEntity extends Monster implements GeoEntity {
 	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(CopperMonstrosityEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(CopperMonstrosityEntity.class, EntityDataSerializers.STRING);
 	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(CopperMonstrosityEntity.class, EntityDataSerializers.STRING);
@@ -514,47 +514,39 @@ public class CopperMonstrosityEntity extends PathfinderMob implements GeoEntity 
 		LivingEntity target = this.getTarget();
 		if (target == null)
 			return;
-
 		// Toca som de disparo
 		SoundEvent shootSound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.witch.throw"));
 		if (shootSound != null) {
 			this.playSound(shootSound, 1.0f, 0.8f);
 		}
-
 		// Calcula direção para o alvo
 		double dx = target.getX() - this.getX();
 		double dy = target.getY() - this.getY();
 		double dz = target.getZ() - this.getZ();
 		double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
 		if (distance > 0) {
 			dx = dx / distance;
 			dy = dy / distance;
 			dz = dz / distance;
 		}
-
 		// Posição de spawn dos projéteis (MUITO mais na frente da monstruosidade)
 		double spawnX = this.getX() + this.getLookAngle().x * 4.0; // Aumentado de 2.0 para 4.0
 		double spawnY = this.getY() + 4.0; // Aumentado de 3.0 para 4.0 (mais alto)
 		double spawnZ = this.getZ() + this.getLookAngle().z * 4.0; // Aumentado de 2.0 para 4.0
-
 		// Dispara 2 projéteis com pequenas variações
 		for (int i = 0; i < 2; i++) {
 			// Cria o projétil WindBurst
 			WindBurstEntity projectile = new WindBurstEntity(MorebossesModEntities.WIND_BURST.get(), this.level());
 			projectile.setOwner(this);
 			projectile.setPos(spawnX, spawnY, spawnZ);
-
 			// Adiciona uma leve tendência para o alvo com pequena variação
 			double variationX = (ThreadLocalRandom.current().nextDouble() - 0.5) * 0.2;
 			double variationY = (ThreadLocalRandom.current().nextDouble() - 0.5) * 0.1;
 			double variationZ = (ThreadLocalRandom.current().nextDouble() - 0.5) * 0.2;
-
 			// 80% de precisão na direção do alvo, 20% de variação
 			double finalDx = dx * 0.8 + variationX;
 			double finalDy = dy * 0.8 + variationY;
 			double finalDz = dz * 0.8 + variationZ;
-
 			// Normaliza o vetor
 			double finalDistance = Math.sqrt(finalDx * finalDx + finalDy * finalDy + finalDz * finalDz);
 			if (finalDistance > 0) {
@@ -562,13 +554,10 @@ public class CopperMonstrosityEntity extends PathfinderMob implements GeoEntity 
 				finalDy = finalDy / finalDistance;
 				finalDz = finalDz / finalDistance;
 			}
-
 			// Define velocidade do projétil (aumentada um pouco)
 			projectile.shoot(finalDx, finalDy, finalDz, 1.5F, 2.0F); // Aumentado de 1.2F para 1.5F
-
 			// Adiciona ao mundo
 			this.level().addFreshEntity(projectile);
-
 			// Pequeno delay entre os projéteis
 			try {
 				Thread.sleep(10); // 10ms de delay

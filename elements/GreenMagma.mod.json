@@ -7,7 +7,11 @@
     "textureStill": "m1",
     "textureFlowing": "magma_green_block",
     "textureRenderOverlay": "m2",
-    "hasFog": false,
+    "hasFog": true,
+    "fogColor": {
+      "value": -6684775,
+      "falpha": 0.0
+    },
     "fogStartDistance": {
       "fixedValue": 0.0
     },
@@ -16,14 +20,14 @@
     },
     "tintType": "No tint",
     "canMultiply": false,
-    "flowRate": 5,
-    "levelDecrease": 1,
+    "flowRate": 15,
+    "levelDecrease": 2,
     "slopeFindDistance": 4,
     "spawnParticles": false,
     "dripParticle": {
       "value": "EXPLOSION_NORMAL"
     },
-    "flowStrength": 1.0,
+    "flowStrength": 0.5,
     "luminosity": 15,
     "density": 1500,
     "viscosity": 1500,

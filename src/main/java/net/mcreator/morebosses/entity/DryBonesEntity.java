@@ -96,7 +96,7 @@ public class DryBonesEntity extends Monster implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, CopperMonstrosityEntity.class, (float) 6, 1, 1.2));
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, CopperMonstrosityEntity.class, (float) 4, 5, 1.2));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true, false));
 		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 2, true) {
 			@Override

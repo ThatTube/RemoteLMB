@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 16,
+    "discard_chance_on_air_exposure": 0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "blockstate_match",
+          "block_state": {
+            "Name": "minecraft:magma_block"
+          }
+        },
+        "state": {
+          "Name": "morebosses:raw_magma_block"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "blockstate_match",
+          "block_state": {
+            "Name": "morebosses:raw_magma",
+            "Properties": {
+              "level": "0"
+            }
+          }
+        },
+        "state": {
+          "Name": "morebosses:raw_magma_block"
+        }
+      }
+    ]
+  }
+}

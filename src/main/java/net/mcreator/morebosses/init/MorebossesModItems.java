@@ -59,6 +59,7 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> WITHERED_BONE = REGISTRY.register("withered_bone", () -> new WitheredBoneItem());
 	public static final RegistryObject<Item> CARVED_WITHERED_BONE_BLOCK = block(MorebossesModBlocks.CARVED_WITHERED_BONE_BLOCK);
 	public static final RegistryObject<Item> CARVED_BONE_BLOCK = block(MorebossesModBlocks.CARVED_BONE_BLOCK);
+	public static final RegistryObject<Item> RAW_MAGMA_BLOCK = block(MorebossesModBlocks.RAW_MAGMA_BLOCK);
 
 	// Start of user code block custom items
 	// End of user code block custom items

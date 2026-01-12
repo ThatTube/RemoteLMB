@@ -1510,6 +1510,40 @@
         ]
       },
       "path": "~/Procedures"
+    },
+    {
+      "name": "RawMagmaBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "raw_magma_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/block/RawMagmaBlockBlock.java",
+          "src/main/resources/data/morebosses/forge/biome_modifier/raw_magma_block_biome_modifier.json",
+          "src/main/resources/assets/morebosses/models/block/raw_magma_block.json",
+          "src/main/resources/data/morebosses/worldgen/placed_feature/raw_magma_block.json",
+          "src/main/resources/assets/morebosses/models/item/raw_magma_block.json",
+          "src/main/resources/assets/morebosses/blockstates/raw_magma_block.json",
+          "src/main/resources/data/morebosses/worldgen/configured_feature/raw_magma_block.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "MagmaChamber",
+      "type": "feature",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "magma_chamber",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/worldgen/configured_feature/magma_chamber.json",
+          "src/main/resources/data/morebosses/worldgen/placed_feature/magma_chamber.json",
+          "src/main/resources/data/morebosses/forge/biome_modifier/magma_chamber_biome_modifier.json"
+        ]
+      },
+      "path": "~/Estruturas"
     }
   ],
   "variable_elements": [],
@@ -1546,6 +1580,9 @@
     "ITEMS:minecraft:pickaxes": [
       "~CUSTOM:ShieldBeater"
     ],
+    "BLOCKS:minecraft:mineable/shovel": [
+      "~CUSTOM:RawMagmaBlock"
+    ],
     "DAMAGE_TYPES:minecraft:is_fire": [
       "CUSTOM:Magma"
     ],
@@ -1562,16 +1599,16 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "item_group.morebosses.lmb_itens": "LMB Itens",
       "subtitles.wind_charge": "Wind Burst",
+      "item_group.morebosses.lmb_itens": "LMB Itens",
       "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
       "block.morebosses.green_magma": "Green Magma",
       "block.morebosses.gong": "Gong",
       "entity.morebosses.minilotl": "Minilotl",
       "item.morebosses.green_magma_cream": "Green Magma Cream",
       "item.morebosses.tank_of_fury": "Tank Of Fury",
-      "item.morebosses.shield_beater": "The Shield Breaker",
       "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
+      "item.morebosses.shield_beater": "The Shield Breaker",
       "painting.morebosses.monstrous.author": "That LucaTube",
       "entity.morebosses.dry_bones": "Dry Bones",
       "item.morebosses.monstrousfootwear_boots.description_0": "Press R to stomp and generate a shockwave.",
@@ -1609,6 +1646,7 @@
       "effect.morebosses.heavy": "Heavy",
       "effect.morebosses.panic": "Panic",
       "fluid.morebosses.raw_magma": "Raw Magma",
+      "block.morebosses.raw_magma_block": "Raw Magma Block",
       "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
