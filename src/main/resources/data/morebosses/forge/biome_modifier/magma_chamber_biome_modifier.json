@@ -2,5 +2,5 @@
   "type": "forge:add_features",
   "biomes": "#minecraft:is_nether",
   "features": "morebosses:magma_chamber",
-  "step": "underground_structures"
+  "step": "raw_generation"
 }

@@ -17,6 +17,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.morebosses.entity.WindBurstEntity;
+import net.mcreator.morebosses.entity.SoulDionaeaEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
@@ -45,6 +46,10 @@ public class MorebossesModEntities {
 					.sized(0.6f, 1.6f));
 	public static final RegistryObject<EntityType<WindBurstEntity>> WIND_BURST = register("wind_burst",
 			EntityType.Builder.<WindBurstEntity>of(WindBurstEntity::new, MobCategory.MISC).setCustomClientFactory(WindBurstEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(1f, 1f));
+	public static final RegistryObject<EntityType<SoulDionaeaEntity>> SOUL_DIONAEA = register("soul_dionaea",
+			EntityType.Builder.<SoulDionaeaEntity>of(SoulDionaeaEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(SoulDionaeaEntity::new)
+
+					.sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -60,6 +65,7 @@ public class MorebossesModEntities {
 			MaxolotEntity.init();
 			DryBonesEntity.init();
 			MinilotlEntity.init();
+			SoulDionaeaEntity.init();
 		});
 	}
 
@@ -70,5 +76,6 @@ public class MorebossesModEntities {
 		event.put(MAXOLOT.get(), MaxolotEntity.createAttributes().build());
 		event.put(DRY_BONES.get(), DryBonesEntity.createAttributes().build());
 		event.put(MINILOTL.get(), MinilotlEntity.createAttributes().build());
+		event.put(SOUL_DIONAEA.get(), SoulDionaeaEntity.createAttributes().build());
 	}
 }

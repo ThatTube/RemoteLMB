@@ -61,6 +61,7 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> CARVED_BONE_BLOCK = block(MorebossesModBlocks.CARVED_BONE_BLOCK);
 	public static final RegistryObject<Item> RAW_MAGMA_BLOCK = block(MorebossesModBlocks.RAW_MAGMA_BLOCK);
 	public static final RegistryObject<Item> SEAT = block(MorebossesModBlocks.SEAT);
+	public static final RegistryObject<Item> SOUL_DIONAEA_SPAWN_EGG = REGISTRY.register("soul_dionaea_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.SOUL_DIONAEA, -1, -1, new Item.Properties()));
 
 	// Start of user code block custom items
 	// End of user code block custom items

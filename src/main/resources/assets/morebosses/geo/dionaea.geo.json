@@ -1,0 +1,66 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.dionaea",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "all",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-4, 0, -4], "size": [8, 10, 8], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "b",
+					"parent": "all",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{"origin": [-3, 10, -3], "size": [6, 15, 6], "uv": [0, 18]}
+					]
+				},
+				{
+					"name": "b2",
+					"parent": "b",
+					"pivot": [0, 25, 0],
+					"cubes": [
+						{"origin": [-2.5, 25, -2.5], "size": [5, 7, 5], "uv": [30, 48]}
+					]
+				},
+				{
+					"name": "b3",
+					"parent": "b2",
+					"pivot": [0, 32, 0],
+					"cubes": [
+						{"origin": [-2, 32, -2], "size": [4, 9, 4], "uv": [50, 48]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "b3",
+					"pivot": [0, 41, 0],
+					"cubes": [
+						{"origin": [-6, 41, 0], "size": [12, 12, 3], "uv": [24, 18]},
+						{"origin": [-6, 41, -2], "size": [12, 12, 3], "inflate": -0.25, "uv": [0, 48]}
+					]
+				},
+				{
+					"name": "jaw",
+					"parent": "head",
+					"pivot": [0, 41, 0],
+					"cubes": [
+						{"origin": [-6, 41, -3], "size": [12, 12, 3], "uv": [32, 0]},
+						{"origin": [-6, 41, -1], "size": [12, 12, 3], "inflate": -0.25, "uv": [24, 33]}
+					]
+				}
+			]
+		}
+	]
+}
