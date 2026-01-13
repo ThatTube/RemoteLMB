@@ -15,7 +15,9 @@ import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
@@ -37,6 +39,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 
+import net.mcreator.morebosses.procedures.SoulDionaeaOnEntityTickUpdateProcedure;
 import net.mcreator.morebosses.init.MorebossesModEntities;
 
 public class SoulDionaeaEntity extends Monster implements GeoEntity {
@@ -84,14 +87,15 @@ public class SoulDionaeaEntity extends Monster implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.2, false) {
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, Player.class, true, false));
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, false) {
 			@Override
 			protected double getAttackReachSqr(LivingEntity entity) {
 				return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
 			}
 		});
-		this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
-		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+		this.targetSelector.addGoal(3, new HurtByTargetGoal(this).setAlertOthers());
+		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 	}
 
 	@Override
@@ -125,6 +129,7 @@ public class SoulDionaeaEntity extends Monster implements GeoEntity {
 	@Override
 	public void baseTick() {
 		super.baseTick();
+		SoulDionaeaOnEntityTickUpdateProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
 		this.refreshDimensions();
 	}
 

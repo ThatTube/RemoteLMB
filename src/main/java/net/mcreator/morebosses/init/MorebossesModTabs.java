@@ -26,6 +26,8 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.CARVED_BONE_BLOCK.get().asItem());
 				tabData.accept(MorebossesModBlocks.RAW_MAGMA_BLOCK.get().asItem());
 				tabData.accept(MorebossesModBlocks.SEAT.get().asItem());
+				tabData.accept(MorebossesModBlocks.SOUL_LIGHT.get().asItem());
+				tabData.accept(MorebossesModBlocks.BLUE_SOUL_LIGHT.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -45,6 +47,7 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.NETHER_BRICKS_STICK.get());
 				tabData.accept(MorebossesModItems.GONG_STICK.get());
 				tabData.accept(MorebossesModItems.WITHERED_BONE.get());
+				tabData.accept(MorebossesModItems.RAW_MAGMA_CREAM.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {

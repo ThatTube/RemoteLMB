@@ -1549,7 +1549,7 @@
       "name": "Seat",
       "type": "block",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "seat",
       "metadata": {
         "files": [
@@ -1577,6 +1577,189 @@
         ]
       },
       "path": "~/Mobs"
+    },
+    {
+      "name": "SoulLight",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soul_light",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/soul_light.json",
+          "src/main/resources/assets/morebosses/blockstates/soul_light.json",
+          "src/main/java/net/mcreator/morebosses/block/SoulLightBlock.java",
+          "src/main/resources/assets/morebosses/models/block/soul_light.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "BlueSoulLight",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blue_soul_light",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/blockstates/blue_soul_light.json",
+          "src/main/java/net/mcreator/morebosses/block/BlueSoulLightBlock.java",
+          "src/main/resources/assets/morebosses/models/item/blue_soul_light.json",
+          "src/main/resources/assets/morebosses/models/block/blue_soul_light.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "RawMagmaCream",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "raw_magma_cream",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/raw_magma_cream.json",
+          "src/main/java/net/mcreator/morebosses/item/RawMagmaCreamItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "RawMagmaBucket",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "raw_magma_bucket",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/raw_magma_bucket.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PlantaAtaque",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "planta_ataque",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/PlantaAtaqueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "PlantAttackDeteciton",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "plant_attack_deteciton",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/PlantAttackDetecitonProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "SoulDionaeaOnEntityTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soul_dionaea_on_entity_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/SoulDionaeaOnEntityTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "PlantaSemDano",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "planta_sem_dano",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/PlantaSemDanoProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
     }
   ],
   "variable_elements": [],
@@ -1635,6 +1818,7 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
+      "item.morebosses.raw_magma_cream": "Raw Magma Cream",
       "entity.morebosses.soul_dionaea": "Soul Dionaea",
       "subtitles.wind_charge": "Wind Burst",
       "item_group.morebosses.lmb_itens": "LMB Itens",
@@ -1645,11 +1829,13 @@
       "item.morebosses.green_magma_cream": "Green Magma Cream",
       "item.morebosses.tank_of_fury": "Tank Of Fury",
       "block.morebosses.seat": "Seat",
+      "block.morebosses.blue_soul_light": "Blue Soul Light",
       "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
       "item.morebosses.shield_beater": "The Shield Breaker",
       "painting.morebosses.monstrous.author": "That LucaTube",
       "entity.morebosses.dry_bones": "Dry Bones",
       "item.morebosses.monstrousfootwear_boots.description_0": "Press R to stomp and generate a shockwave.",
+      "block.morebosses.soul_light": "Soul Light",
       "item.morebosses.dry_bones_spawn_egg": "Dry Bones Spawn Egg",
       "key.morebosses.boots_hability": "LMB Boots Hability",
       "item.morebosses.gerador_de_waves": "Gerador De Waves",

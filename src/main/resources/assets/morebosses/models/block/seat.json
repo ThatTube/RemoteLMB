@@ -3,7 +3,7 @@
   "textures": {
     "all": "morebosses:block/larrysit",
     "particle": "morebosses:block/larrysit",
-    "1": "morebosses:block/larrysit"
+    "0": "morebosses:block/larrysit"
   },
   "render_type": "solid"
 }

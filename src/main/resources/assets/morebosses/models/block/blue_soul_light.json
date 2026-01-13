@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "morebosses:block/blu_soullight",
+    "particle": "morebosses:block/blu_soullight"
+  },
+  "render_type": "solid"
+}

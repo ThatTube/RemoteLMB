@@ -18,6 +18,7 @@ import net.mcreator.morebosses.item.TankOfFuryItem;
 import net.mcreator.morebosses.item.StoneCuirlassItem;
 import net.mcreator.morebosses.item.ShieldBeaterItem;
 import net.mcreator.morebosses.item.RawMagmaItem;
+import net.mcreator.morebosses.item.RawMagmaCreamItem;
 import net.mcreator.morebosses.item.NetherBricksStickItem;
 import net.mcreator.morebosses.item.MONSTROUSFOOTWEARItem;
 import net.mcreator.morebosses.item.GreenMagmaItem;
@@ -62,6 +63,9 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> RAW_MAGMA_BLOCK = block(MorebossesModBlocks.RAW_MAGMA_BLOCK);
 	public static final RegistryObject<Item> SEAT = block(MorebossesModBlocks.SEAT);
 	public static final RegistryObject<Item> SOUL_DIONAEA_SPAWN_EGG = REGISTRY.register("soul_dionaea_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.SOUL_DIONAEA, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> SOUL_LIGHT = block(MorebossesModBlocks.SOUL_LIGHT);
+	public static final RegistryObject<Item> BLUE_SOUL_LIGHT = block(MorebossesModBlocks.BLUE_SOUL_LIGHT);
+	public static final RegistryObject<Item> RAW_MAGMA_CREAM = REGISTRY.register("raw_magma_cream", () -> new RawMagmaCreamItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items
