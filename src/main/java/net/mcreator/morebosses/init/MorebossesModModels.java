@@ -10,6 +10,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.mcreator.morebosses.client.model.Modelshockwave;
+import net.mcreator.morebosses.client.model.Modelbracadeira;
 import net.mcreator.morebosses.client.model.ModelCustomModel;
 import net.mcreator.morebosses.client.model.ModelCustomArmor;
 
@@ -20,5 +21,6 @@ public class MorebossesModModels {
 		event.registerLayerDefinition(ModelCustomModel.LAYER_LOCATION, ModelCustomModel::createBodyLayer);
 		event.registerLayerDefinition(Modelshockwave.LAYER_LOCATION, Modelshockwave::createBodyLayer);
 		event.registerLayerDefinition(ModelCustomArmor.LAYER_LOCATION, ModelCustomArmor::createBodyLayer);
+		event.registerLayerDefinition(Modelbracadeira.LAYER_LOCATION, Modelbracadeira::createBodyLayer);
 	}
 }

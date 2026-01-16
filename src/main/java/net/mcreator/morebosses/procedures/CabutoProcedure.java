@@ -6,66 +6,15 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 
-import net.mcreator.morebosses.entity.WindBurstEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
 
 public class CabutoProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (!(entity instanceof WindBurstEntity) && !(entity instanceof CopperMonstrosityEntity)) {
+		if (!(entity instanceof CopperMonstrosityEntity)) {
 			if (world instanceof Level _level && !_level.isClientSide())
 				_level.explode(null, x, y, z, 3, Level.ExplosionInteraction.NONE);
-			if (world instanceof net.minecraft.world.level.Level _level && !_level.isClientSide()) {
-				int r = (int) java.lang.Math.max(1, java.lang.Math.round(3));
-				String shape = "ROUND";
-				// centro real (double) informado pelo bloco:
-				double cx = (double) (x);
-				double cy = (double) (y);
-				double cz = (double) (z);
-				// <<< NOVO: toggle de drops (checkbox no JSON, default = false) >>>
-				boolean __dropBlocks = false;
-				// limites de varredura ao redor do centro
-				int minX = (int) java.lang.Math.floor(cx - r - 1);
-				int maxX = (int) java.lang.Math.floor(cx + r + 1);
-				int minY = (int) java.lang.Math.floor(cy - r - 1);
-				int maxY = (int) java.lang.Math.floor(cy + r + 1);
-				int minZ = (int) java.lang.Math.floor(cz - r - 1);
-				int maxZ = (int) java.lang.Math.floor(cz + r - 1);
-				// raio inclusivo com viés de meia célula para evitar “buracos/fiapos”
-				double R = r + 0.5;
-				double R2 = R * R;
-				for (int bx = minX; bx <= maxX; bx++) {
-					for (int by = minY; by <= maxY; by++) {
-						for (int bz = minZ; bz <= maxZ; bz++) {
-							boolean destroy = false;
-							if ("ROUND".equals(shape)) {
-								// distâncias a partir do CENTRO dos voxels
-								double dx = (bx + 0.5) - cx;
-								double dy = (by + 0.5) - cy;
-								double dz = (bz + 0.5) - cz;
-								// esfera sólida: <= R^2 (R = r + 0.5) evita furos e peças na borda
-								destroy = (dx * dx + dy * dy + dz * dz) <= R2;
-							} else { // SQUARE inalterado (cubo sólido)
-								double dx = java.lang.Math.abs((bx + 0.5) - cx);
-								double dy = java.lang.Math.abs((by + 0.5) - cy);
-								double dz = java.lang.Math.abs((bz + 0.5) - cz);
-								destroy = (dx <= R && dy <= R && dz <= R);
-							}
-							if (destroy) {
-								net.minecraft.core.BlockPos _bp = new net.minecraft.core.BlockPos(bx, by, bz);
-								// <<< AQUI é a única mudança: com/sem drop conforme checkbox >>>
-								if (__dropBlocks) {
-									_level.destroyBlock(_bp, true); // COM drop
-								} else {
-									_level.setBlock(_bp, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(), 3); // SEM drop (igual antes)
-									// (se preferir, poderia usar: _level.destroyBlock(_bp, false);)
-								}
-							}
-						}
-					}
-				}
-			}
 			{ // spawn_particles_custom.java.ftl (WORLD action) — nomes corrigidos, sem conflito com (x,y,z)
 				// ---- Parâmetros do bloco ----
 				final double _cx = x;
@@ -77,7 +26,7 @@ public class CabutoProcedure {
 				final int _count = Math.max(1, (int) (600));
 				final boolean _rotate = false;
 				final double _speed = Math.max(0.01, Math.abs(1));
-				final String _pid = "minecraft:glow";
+				final String _pid = "minecraft:sga_n";
 				// ---- Mundo/nível ----
 				if (!(world instanceof net.minecraft.server.level.ServerLevel _level))
 					return;

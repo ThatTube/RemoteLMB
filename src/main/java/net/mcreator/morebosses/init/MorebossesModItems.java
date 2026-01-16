@@ -25,9 +25,14 @@ import net.mcreator.morebosses.item.GreenMagmaItem;
 import net.mcreator.morebosses.item.GreenMagmaCreamItem;
 import net.mcreator.morebosses.item.GongStickItem;
 import net.mcreator.morebosses.item.GeradorDeWavesItem;
+import net.mcreator.morebosses.item.FriedEggItem;
+import net.mcreator.morebosses.item.FriedChayoteItem;
 import net.mcreator.morebosses.item.EmptyTankItem;
 import net.mcreator.morebosses.item.CuirlassSmithingUpgradeItem;
+import net.mcreator.morebosses.item.CuirlassBracerItem;
 import net.mcreator.morebosses.item.CuirlassArmorItem;
+import net.mcreator.morebosses.item.BoneCarverItem;
+import net.mcreator.morebosses.item.BoiledEggItem;
 import net.mcreator.morebosses.block.display.GongDisplayItem;
 import net.mcreator.morebosses.MorebossesMod;
 
@@ -66,6 +71,12 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> SOUL_LIGHT = block(MorebossesModBlocks.SOUL_LIGHT);
 	public static final RegistryObject<Item> BLUE_SOUL_LIGHT = block(MorebossesModBlocks.BLUE_SOUL_LIGHT);
 	public static final RegistryObject<Item> RAW_MAGMA_CREAM = REGISTRY.register("raw_magma_cream", () -> new RawMagmaCreamItem());
+	public static final RegistryObject<Item> BONE_CARVER = REGISTRY.register("bone_carver", () -> new BoneCarverItem());
+	public static final RegistryObject<Item> FRIED_CHAYOTE = REGISTRY.register("fried_chayote", () -> new FriedChayoteItem());
+	public static final RegistryObject<Item> BOILED_EGG = REGISTRY.register("boiled_egg", () -> new BoiledEggItem());
+	public static final RegistryObject<Item> FRIED_EGG = REGISTRY.register("fried_egg", () -> new FriedEggItem());
+	public static final RegistryObject<Item> CHAYOTE = block(MorebossesModBlocks.CHAYOTE);
+	public static final RegistryObject<Item> CUIRLASS_BRACER = REGISTRY.register("cuirlass_bracer", () -> new CuirlassBracerItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

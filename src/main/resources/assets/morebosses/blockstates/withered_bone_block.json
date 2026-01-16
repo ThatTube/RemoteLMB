@@ -1,57 +1,16 @@
 {
   "variants": {
-    "face=floor,facing=north": {
+    "axis=x": {
+      "model": "morebosses:block/withered_bone_block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "morebosses:block/withered_bone_block"
     },
-    "face=floor,facing=east": {
-      "model": "morebosses:block/withered_bone_block",
-      "y": 90
-    },
-    "face=floor,facing=south": {
-      "model": "morebosses:block/withered_bone_block",
-      "y": 180
-    },
-    "face=floor,facing=west": {
-      "model": "morebosses:block/withered_bone_block",
-      "y": 270
-    },
-    "face=wall,facing=north": {
+    "axis=z": {
       "model": "morebosses:block/withered_bone_block",
       "x": 90
-    },
-    "face=wall,facing=east": {
-      "model": "morebosses:block/withered_bone_block",
-      "x": 90,
-      "y": 90
-    },
-    "face=wall,facing=south": {
-      "model": "morebosses:block/withered_bone_block",
-      "x": 90,
-      "y": 180
-    },
-    "face=wall,facing=west": {
-      "model": "morebosses:block/withered_bone_block",
-      "x": 90,
-      "y": 270
-    },
-    "face=ceiling,facing=north": {
-      "model": "morebosses:block/withered_bone_block",
-      "x": 180,
-      "y": 180
-    },
-    "face=ceiling,facing=east": {
-      "model": "morebosses:block/withered_bone_block",
-      "x": 180,
-      "y": 270
-    },
-    "face=ceiling,facing=south": {
-      "model": "morebosses:block/withered_bone_block",
-      "x": 180
-    },
-    "face=ceiling,facing=west": {
-      "model": "morebosses:block/withered_bone_block",
-      "x": 180,
-      "y": 90
     }
   }
 }

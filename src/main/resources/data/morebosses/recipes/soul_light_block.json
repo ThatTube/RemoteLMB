@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " a ",
+    "aba",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:soul_sand"
+    },
+    "b": {
+      "item": "minecraft:shroomlight"
+    }
+  },
+  "result": {
+    "item": "morebosses:soul_light",
+    "count": 1
+  }
+}

@@ -53,6 +53,8 @@ import net.mcreator.morebosses.procedures.MaxolotDeathTimeIsReachedProcedure;
 import net.mcreator.morebosses.init.MorebossesModMobEffects;
 import net.mcreator.morebosses.init.MorebossesModEntities;
 
+import javax.annotation.Nullable;
+
 import java.util.UUID;
 import java.util.List;
 import java.util.ArrayList;
@@ -66,7 +68,8 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	private boolean lastloop;
 	private long lastSwing;
 	public String animationprocedure = "empty";
-	private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), ServerBossEvent.BossBarColor.PINK, ServerBossEvent.BossBarOverlay.PROGRESS);
+	@Nullable
+	private ServerBossEvent bossInfo;
 	// Variáveis para controle dos ataques
 	private int attackCounter = 0;
 	private int attackCooldown = 0;
@@ -77,7 +80,7 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		this(MorebossesModEntities.MAXOLOT.get(), world);
 	}
 
-	public MaxolotEntity(EntityType<MaxolotEntity> type, Level world) {
+	public MaxolotEntity(EntityType<? extends MaxolotEntity> type, Level world) {
 		super(type, world);
 		xpReward = 34;
 		setNoAi(false);
@@ -109,7 +112,7 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, Player.class, true, false));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true, false));
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.5, true) {
 			@Override
 			protected double getAttackReachSqr(LivingEntity entity) {
@@ -177,29 +180,34 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	private void performSummonAttack() {
 		Level world = this.level();
 		if (!world.isClientSide()) {
-			double radius = 3.0;
-			for (int i = 0; i < 4; i++) {
-				double angle = (Math.PI * 2 / 4) * i;
-				double spawnX = this.getX() + Math.cos(angle) * radius;
-				double spawnY = this.getY() + 0.5;
-				double spawnZ = this.getZ() + Math.sin(angle) * radius;
-				// Verifica se tem espaço
-				BlockPos spawnPos = new BlockPos((int) spawnX, (int) spawnY, (int) spawnZ);
-				if (world.getBlockState(spawnPos).isAir() || world.getBlockState(spawnPos).canBeReplaced()) {
-					// Cria o Minilotl
-					MinilotlEntity minilotl = MorebossesModEntities.MINILOTL.get().create(world);
-					if (minilotl != null) {
-						minilotl.moveTo(spawnX, spawnY, spawnZ, this.getYRot(), 0);
-						// Define o mesmo alvo do Maxolotl
-						LivingEntity target = this.getTarget();
-						if (target != null) {
-							minilotl.setTarget(target);
+			try {
+				double radius = 3.0;
+				for (int i = 0; i < 4; i++) {
+					double angle = (Math.PI * 2 / 4) * i;
+					double spawnX = this.getX() + Math.cos(angle) * radius;
+					double spawnY = this.getY() + 0.5;
+					double spawnZ = this.getZ() + Math.sin(angle) * radius;
+					// Verifica se tem espaço
+					BlockPos spawnPos = new BlockPos((int) spawnX, (int) spawnY, (int) spawnZ);
+					if (world.getBlockState(spawnPos).isAir() || world.getBlockState(spawnPos).canBeReplaced()) {
+						// Cria o Minilotl
+						var minilotl = MorebossesModEntities.MINILOTL.get().create(world);
+						if (minilotl != null) {
+							minilotl.moveTo(spawnX, spawnY, spawnZ, this.getYRot(), 0);
+							// Define o mesmo alvo do Maxolotl
+							LivingEntity target = this.getTarget();
+							if (target != null) {
+								minilotl.setTarget(target);
+							}
+							world.addFreshEntity(minilotl);
+							// Registra como domado
+							tamedMinilotls.add(minilotl.getUUID());
 						}
-						world.addFreshEntity(minilotl);
-						// Registra como domado
-						tamedMinilotls.add(minilotl.getUUID());
 					}
 				}
+			} catch (Exception e) {
+				// Log ou tratamento de erro
+				System.err.println("Erro ao invocar Minilotls: " + e.getMessage());
 			}
 		}
 	}
@@ -210,11 +218,15 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 			List<UUID> toRemove = new ArrayList<>();
 			for (UUID minilotlId : tamedMinilotls) {
 				boolean found = false;
-				// Procura o Minilotl no mundo
-				for (MinilotlEntity minilotl : this.level().getEntitiesOfClass(MinilotlEntity.class, this.getBoundingBox().inflate(50))) {
-					if (minilotl.getUUID().equals(minilotlId) && minilotl.isAlive()) {
-						found = true;
-						break;
+				// Busca todas as entidades Minilotl na área
+				var minilotlType = MorebossesModEntities.MINILOTL.get();
+				if (minilotlType != null) {
+					// Busca por entidades do tipo Minilotl em uma área grande
+					for (var entity : this.level().getEntitiesOfClass(minilotlType.getBaseClass(), this.getBoundingBox().inflate(100))) {
+						if (entity.getUUID().equals(minilotlId) && entity.isAlive()) {
+							found = true;
+							break;
+						}
 					}
 				}
 				if (!found) {
@@ -272,10 +284,16 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		// Quando é atacado, os Minilotls atacam o agressor
 		if (!this.level().isClientSide() && source.getEntity() instanceof LivingEntity attacker) {
 			for (UUID minilotlId : tamedMinilotls) {
-				// Procura o Minilotl no mundo
-				for (MinilotlEntity minilotl : this.level().getEntitiesOfClass(MinilotlEntity.class, this.getBoundingBox().inflate(30))) {
-					if (minilotl.getUUID().equals(minilotlId) && minilotl.isAlive()) {
-						minilotl.setTarget(attacker);
+				// Busca todas as entidades Minilotl na área
+				var minilotlType = MorebossesModEntities.MINILOTL.get();
+				if (minilotlType != null) {
+					for (var entity : this.level().getEntitiesOfClass(minilotlType.getBaseClass(), this.getBoundingBox().inflate(50))) {
+						if (entity.getUUID().equals(minilotlId) && entity.isAlive() && entity instanceof LivingEntity livingEntity) {
+							livingEntity.setLastHurtByMob(attacker);
+							if (entity instanceof Monster monster) {
+								monster.setTarget(attacker);
+							}
+						}
 					}
 				}
 			}
@@ -325,7 +343,9 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	@Override
 	public void baseTick() {
 		super.baseTick();
-		MaxoloteQuebraBlocosProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
+		if (!this.level().isClientSide()) {
+			MaxoloteQuebraBlocosProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
+		}
 		this.refreshDimensions();
 		// Reduz cooldown do ataque
 		if (attackCooldown > 0) {
@@ -344,13 +364,14 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		if (!this.level().isClientSide() && this.tickCount % 20 == 0) { // A cada segundo
 			LivingEntity target = this.getTarget();
 			if (target != null) {
-				for (UUID minilotlId : tamedMinilotls) {
-					// Procura o Minilotl no mundo
-					for (MinilotlEntity minilotl : this.level().getEntitiesOfClass(MinilotlEntity.class, this.getBoundingBox().inflate(50))) {
-						if (minilotl.getUUID().equals(minilotlId) && minilotl.isAlive()) {
+				var minilotlType = MorebossesModEntities.MINILOTL.get();
+				if (minilotlType != null) {
+					for (var entity : this.level().getEntitiesOfClass(minilotlType.getBaseClass(), this.getBoundingBox().inflate(50))) {
+						if (tamedMinilotls.contains(entity.getUUID()) && entity.isAlive() && entity instanceof LivingEntity livingEntity) {
 							// Atualiza o alvo do Minilotl
-							if (minilotl.getTarget() == null || minilotl.getTarget() != target) {
-								minilotl.setTarget(target);
+							livingEntity.setLastHurtByMob(target);
+							if (entity instanceof Monster monster) {
+								monster.setTarget(target);
 							}
 						}
 					}
@@ -360,8 +381,8 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	}
 
 	@Override
-	public EntityDimensions getDimensions(Pose p_33597_) {
-		return super.getDimensions(p_33597_).scale((float) 1);
+	public EntityDimensions getDimensions(Pose pose) {
+		return super.getDimensions(pose).scale((float) 1);
 	}
 
 	@Override
@@ -372,19 +393,26 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	@Override
 	public void startSeenByPlayer(ServerPlayer player) {
 		super.startSeenByPlayer(player);
+		if (this.bossInfo == null) {
+			this.bossInfo = new ServerBossEvent(this.getDisplayName(), ServerBossEvent.BossBarColor.PINK, ServerBossEvent.BossBarOverlay.PROGRESS);
+		}
 		this.bossInfo.addPlayer(player);
 	}
 
 	@Override
 	public void stopSeenByPlayer(ServerPlayer player) {
 		super.stopSeenByPlayer(player);
-		this.bossInfo.removePlayer(player);
+		if (this.bossInfo != null) {
+			this.bossInfo.removePlayer(player);
+		}
 	}
 
 	@Override
 	public void customServerAiStep() {
 		super.customServerAiStep();
-		this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
+		if (this.bossInfo != null) {
+			this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
+		}
 	}
 
 	public static void init() {
@@ -466,18 +494,25 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		++this.deathTime;
 		if (this.deathTime == 40) {
 			// Libera os Minilotls quando morre
-			for (UUID minilotlId : tamedMinilotls) {
-				// Procura o Minilotl no mundo
-				for (MinilotlEntity minilotl : this.level().getEntitiesOfClass(MinilotlEntity.class, this.getBoundingBox().inflate(50))) {
-					if (minilotl.getUUID().equals(minilotlId) && minilotl.isAlive()) {
-						// Limpa o alvo do Minilotl
-						minilotl.setTarget(null);
+			var minilotlType = MorebossesModEntities.MINILOTL.get();
+			if (minilotlType != null) {
+				for (var entity : this.level().getEntitiesOfClass(minilotlType.getBaseClass(), this.getBoundingBox().inflate(50))) {
+					if (tamedMinilotls.contains(entity.getUUID()) && entity.isAlive()) {
+						// Limpa o último agressor do Minilotl
+						if (entity instanceof LivingEntity livingEntity) {
+							livingEntity.setLastHurtByMob(null);
+						}
+						if (entity instanceof Monster monster) {
+							monster.setTarget(null);
+						}
 					}
 				}
 			}
 			this.remove(MaxolotEntity.RemovalReason.KILLED);
 			this.dropExperience();
-			MaxolotDeathTimeIsReachedProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
+			if (!this.level().isClientSide()) {
+				MaxolotDeathTimeIsReachedProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
+			}
 		}
 	}
 

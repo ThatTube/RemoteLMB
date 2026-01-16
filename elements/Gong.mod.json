@@ -125,7 +125,7 @@
     "onRightClicked": {
       "name": "GongOnBlockRightClicked"
     },
-    "onBlockAdded": {
+    "onTickUpdate": {
       "name": "GongBlockAdded"
     },
     "restrictionBiomes": [],

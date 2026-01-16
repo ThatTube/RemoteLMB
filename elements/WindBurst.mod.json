@@ -11,7 +11,7 @@
     },
     "igniteFire": false,
     "power": 1.0,
-    "damage": 18.0,
+    "damage": 10.0,
     "knockback": 0,
     "entityModel": "ModelCustomModel",
     "customModelTexture": "wind_burst.png",

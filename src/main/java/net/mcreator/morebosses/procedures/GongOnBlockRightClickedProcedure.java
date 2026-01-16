@@ -19,12 +19,6 @@ public class GongOnBlockRightClickedProcedure {
 			return;
 		if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == MorebossesModItems.GONG_STICK.get()) {
 			{
-				BlockPos _pos = BlockPos.containing(x, y, z);
-				BlockState _bs = world.getBlockState(_pos);
-				if (_bs.getBlock().getStateDefinition().getProperty("animation") instanceof IntegerProperty _integerProp)
-					world.setBlock(_pos, _bs.setValue(_integerProp, 0), 3);
-			}
-			{
 				int _value = 1;
 				BlockPos _pos = BlockPos.containing(x, y, z);
 				BlockState _bs = world.getBlockState(_pos);

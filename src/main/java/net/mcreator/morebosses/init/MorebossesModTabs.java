@@ -48,6 +48,12 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.GONG_STICK.get());
 				tabData.accept(MorebossesModItems.WITHERED_BONE.get());
 				tabData.accept(MorebossesModItems.RAW_MAGMA_CREAM.get());
+				tabData.accept(MorebossesModItems.BONE_CARVER.get());
+				tabData.accept(MorebossesModItems.FRIED_CHAYOTE.get());
+				tabData.accept(MorebossesModItems.BOILED_EGG.get());
+				tabData.accept(MorebossesModItems.FRIED_EGG.get());
+				tabData.accept(MorebossesModBlocks.CHAYOTE.get().asItem());
+				tabData.accept(MorebossesModItems.CUIRLASS_BRACER.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {

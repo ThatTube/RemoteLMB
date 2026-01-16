@@ -111,11 +111,11 @@ public class WindBurstEntity extends AbstractArrow implements ItemSupplier {
 	}
 
 	public static WindBurstEntity shoot(Level world, LivingEntity entity, RandomSource source) {
-		return shoot(world, entity, source, 1f, 18, 0);
+		return shoot(world, entity, source, 1f, 10, 0);
 	}
 
 	public static WindBurstEntity shoot(Level world, LivingEntity entity, RandomSource source, float pullingPower) {
-		return shoot(world, entity, source, pullingPower * 1f, 18, 0);
+		return shoot(world, entity, source, pullingPower * 1f, 10, 0);
 	}
 
 	public static WindBurstEntity shoot(Level world, LivingEntity entity, RandomSource random, float power, double damage, int knockback) {
@@ -136,7 +136,7 @@ public class WindBurstEntity extends AbstractArrow implements ItemSupplier {
 		double dz = target.getZ() - entity.getZ();
 		entityarrow.shoot(dx, dy - entityarrow.getY() + Math.hypot(dx, dz) * 0.2F, dz, 1f * 2, 12.0F);
 		entityarrow.setSilent(true);
-		entityarrow.setBaseDamage(18);
+		entityarrow.setBaseDamage(10);
 		entityarrow.setKnockback(0);
 		entityarrow.setCritArrow(true);
 		entity.level().addFreshEntity(entityarrow);

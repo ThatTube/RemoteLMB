@@ -19,6 +19,7 @@ import net.mcreator.morebosses.block.PolishedCrackedBlackstoneBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlock;
 import net.mcreator.morebosses.block.GongBlock;
+import net.mcreator.morebosses.block.ChayoteBlock;
 import net.mcreator.morebosses.block.CarvedWitheredBoneBlockBlock;
 import net.mcreator.morebosses.block.CarvedBoneBlockBlock;
 import net.mcreator.morebosses.block.BlueSoulLightBlock;
@@ -38,6 +39,7 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> SEAT = REGISTRY.register("seat", () -> new SeatBlock());
 	public static final RegistryObject<Block> SOUL_LIGHT = REGISTRY.register("soul_light", () -> new SoulLightBlock());
 	public static final RegistryObject<Block> BLUE_SOUL_LIGHT = REGISTRY.register("blue_soul_light", () -> new BlueSoulLightBlock());
+	public static final RegistryObject<Block> CHAYOTE = REGISTRY.register("chayote", () -> new ChayoteBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

@@ -1,34 +1,28 @@
 {
   "variants": {
-    "facing=north,blockstate=0": {
+    "axis=x,blockstate=0": {
+      "model": "morebosses:block/carved_withered_bone_block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,blockstate=0": {
       "model": "morebosses:block/carved_withered_bone_block"
     },
-    "facing=east,blockstate=0": {
+    "axis=z,blockstate=0": {
       "model": "morebosses:block/carved_withered_bone_block",
+      "x": 90
+    },
+    "axis=x,blockstate=1": {
+      "model": "morebosses:block/carvedand_jackocarved_blockstate_0",
+      "x": 90,
       "y": 90
     },
-    "facing=south,blockstate=0": {
-      "model": "morebosses:block/carved_withered_bone_block",
-      "y": 180
-    },
-    "facing=west,blockstate=0": {
-      "model": "morebosses:block/carved_withered_bone_block",
-      "y": 270
-    },
-    "facing=north,blockstate=1": {
+    "axis=y,blockstate=1": {
       "model": "morebosses:block/carvedand_jackocarved_blockstate_0"
     },
-    "facing=east,blockstate=1": {
+    "axis=z,blockstate=1": {
       "model": "morebosses:block/carvedand_jackocarved_blockstate_0",
-      "y": 90
-    },
-    "facing=south,blockstate=1": {
-      "model": "morebosses:block/carvedand_jackocarved_blockstate_0",
-      "y": 180
-    },
-    "facing=west,blockstate=1": {
-      "model": "morebosses:block/carvedand_jackocarved_blockstate_0",
-      "y": 270
+      "x": 90
     }
   }
 }
