@@ -19,6 +19,8 @@ import net.mcreator.morebosses.item.StoneCuirlassItem;
 import net.mcreator.morebosses.item.ShieldBeaterItem;
 import net.mcreator.morebosses.item.RawMagmaItem;
 import net.mcreator.morebosses.item.RawMagmaCreamItem;
+import net.mcreator.morebosses.item.PotWithFlourItem;
+import net.mcreator.morebosses.item.PotItem;
 import net.mcreator.morebosses.item.NetherBricksStickItem;
 import net.mcreator.morebosses.item.MONSTROUSFOOTWEARItem;
 import net.mcreator.morebosses.item.GreenMagmaItem;
@@ -27,9 +29,10 @@ import net.mcreator.morebosses.item.GongStickItem;
 import net.mcreator.morebosses.item.GeradorDeWavesItem;
 import net.mcreator.morebosses.item.FriedEggItem;
 import net.mcreator.morebosses.item.FriedChayoteItem;
+import net.mcreator.morebosses.item.FlourItem;
+import net.mcreator.morebosses.item.FleshItem;
 import net.mcreator.morebosses.item.EmptyTankItem;
 import net.mcreator.morebosses.item.CuirlassSmithingUpgradeItem;
-import net.mcreator.morebosses.item.CuirlassBracerItem;
 import net.mcreator.morebosses.item.CuirlassArmorItem;
 import net.mcreator.morebosses.item.BoneCarverItem;
 import net.mcreator.morebosses.item.BoiledEggItem;
@@ -76,7 +79,16 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> BOILED_EGG = REGISTRY.register("boiled_egg", () -> new BoiledEggItem());
 	public static final RegistryObject<Item> FRIED_EGG = REGISTRY.register("fried_egg", () -> new FriedEggItem());
 	public static final RegistryObject<Item> CHAYOTE = block(MorebossesModBlocks.CHAYOTE);
-	public static final RegistryObject<Item> CUIRLASS_BRACER = REGISTRY.register("cuirlass_bracer", () -> new CuirlassBracerItem());
+	public static final RegistryObject<Item> POT = REGISTRY.register("pot", () -> new PotItem());
+	public static final RegistryObject<Item> BEGGAR_WOLF_SPAWN_EGG = REGISTRY.register("beggar_wolf_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.BEGGAR_WOLF, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> FLOUR = REGISTRY.register("flour", () -> new FlourItem());
+	public static final RegistryObject<Item> POT_WITH_FLOUR = REGISTRY.register("pot_with_flour", () -> new PotWithFlourItem());
+	public static final RegistryObject<Item> FLESH = REGISTRY.register("flesh", () -> new FleshItem());
+	public static final RegistryObject<Item> ENGINEER_SPAWN_EGG = REGISTRY.register("engineer_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.ENGINEER, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> BRUTE_ENGINEER_SPAWN_EGG = REGISTRY.register("brute_engineer_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.BRUTE_ENGINEER, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> TURRET_SPAWN_EGG = REGISTRY.register("turret_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.TURRET, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> TALL_ENGINEER_SPAWN_EGG = REGISTRY.register("tall_engineer_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.TALL_ENGINEER, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> OIL_ENGINEER_SPAWN_EGG = REGISTRY.register("oil_engineer_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.OIL_ENGINEER, -1, -1, new Item.Properties()));
 
 	// Start of user code block custom items
 	// End of user code block custom items

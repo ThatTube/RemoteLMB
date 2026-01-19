@@ -9,13 +9,21 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.api.distmarker.Dist;
 
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+
 import net.mcreator.morebosses.client.renderer.WindBurstRenderer;
+import net.mcreator.morebosses.client.renderer.TurretRenderer;
+import net.mcreator.morebosses.client.renderer.TallEngineerRenderer;
 import net.mcreator.morebosses.client.renderer.SoulDionaeaRenderer;
 import net.mcreator.morebosses.client.renderer.ShockWaveRenderer;
+import net.mcreator.morebosses.client.renderer.OilEngineerRenderer;
 import net.mcreator.morebosses.client.renderer.MinilotlRenderer;
 import net.mcreator.morebosses.client.renderer.MaxolotRenderer;
+import net.mcreator.morebosses.client.renderer.EngineerRenderer;
 import net.mcreator.morebosses.client.renderer.DryBonesRenderer;
 import net.mcreator.morebosses.client.renderer.CopperMonstrosityRenderer;
+import net.mcreator.morebosses.client.renderer.BruteEngineerRenderer;
+import net.mcreator.morebosses.client.renderer.BeggarWolfRenderer;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class MorebossesModEntityRenderers {
@@ -28,5 +36,13 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.MINILOTL.get(), MinilotlRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.WIND_BURST.get(), WindBurstRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.SOUL_DIONAEA.get(), SoulDionaeaRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.BEGGAR_WOLF.get(), BeggarWolfRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.ENGINEER.get(), EngineerRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.BRUTE_ENGINEER.get(), BruteEngineerRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.TURRET.get(), TurretRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.TURRET_PROJECTILE.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.TALL_ENGINEER.get(), TallEngineerRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.OIL_DROP.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.OIL_ENGINEER.get(), OilEngineerRenderer::new);
 	}
 }

@@ -53,7 +53,9 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.BOILED_EGG.get());
 				tabData.accept(MorebossesModItems.FRIED_EGG.get());
 				tabData.accept(MorebossesModBlocks.CHAYOTE.get().asItem());
-				tabData.accept(MorebossesModItems.CUIRLASS_BRACER.get());
+				tabData.accept(MorebossesModItems.POT.get());
+				tabData.accept(MorebossesModItems.POT_WITH_FLOUR.get());
+				tabData.accept(MorebossesModItems.FLESH.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {
@@ -61,5 +63,11 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.MAXOLOT_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.DRY_BONES_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.MINILOTL_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.BEGGAR_WOLF_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.ENGINEER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.BRUTE_ENGINEER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.TURRET_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.TALL_ENGINEER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.OIL_ENGINEER_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 }

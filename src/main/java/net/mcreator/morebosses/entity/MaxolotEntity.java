@@ -425,10 +425,10 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		builder = builder.add(Attributes.ARMOR, 35);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 15); // Aumentado para 15
 		builder = builder.add(Attributes.FOLLOW_RANGE, 32); // Aumentado para 32 blocos
-		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 0.5); // Reduzido para poder ser empurrado
+		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1); // Reduzido para poder ser empurrado
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1.0); // Aumentado knockback
 		builder = builder.add(Attributes.ATTACK_SPEED, 0.8); // Velocidade de ataque
-		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 0.5); // Velocidade na água
+		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 4); // Velocidade na água
 		return builder;
 	}
 

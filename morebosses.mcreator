@@ -945,25 +945,6 @@
       }
     },
     {
-      "name": "MacholoteNadaDiminuirHitBox",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "macholote_nada_diminuir_hit_box",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/morebosses/procedures/MacholoteNadaDiminuirHitBoxProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Procedures"
-    },
-    {
       "name": "ShieldBeaterLivingEntityIsHitWithTool",
       "type": "procedure",
       "compiles": true,
@@ -1784,32 +1765,406 @@
       "path": "~/Barras de Boss/English"
     },
     {
-      "name": "CuirlassBracer",
-      "type": "curiosbauble",
+      "name": "FriedEggg",
+      "type": "recipe",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "cuirlass_bracer",
+      "registry_name": "fried_eggg",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/morebosses/item/CuirlassBracerItem.java",
-          "src/main/resources/assets/morebosses/models/item/cuirlass_bracer.json"
+          "src/main/resources/data/morebosses/recipes/fried_eggg.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "BoiledEggg",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boiled_eggg",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/boiled_eggg.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Pot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/PotItem.java",
+          "src/main/resources/assets/morebosses/models/item/pot.json"
         ]
       },
       "path": "~/Items"
     },
     {
-      "name": "CuirlassBracerWhileBaubleIsEquippedTick",
+      "name": "BeggarWolf",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "beggar_wolf",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/beggar_wolf_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/BeggarWolfEntity.java",
+          "src/main/resources/data/morebosses/forge/biome_modifier/beggar_wolf_biome_modifier.json",
+          "src/main/java/net/mcreator/morebosses/entity/model/BeggarWolfModel.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/BeggarWolfRenderer.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "BeggarWolfRightClickedOnEntity",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "cuirlass_bracer_while_bauble_is_equipped_tick",
+      "registry_name": "beggar_wolf_right_clicked_on_entity",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/morebosses/procedures/CuirlassBracerWhileBaubleIsEquippedTickProcedure.java"
+          "src/main/java/net/mcreator/morebosses/procedures/BeggarWolfRightClickedOnEntityProcedure.java"
         ],
         "dependencies": []
       },
       "path": "~/Procedures"
+    },
+    {
+      "name": "Flour",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flour",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/FlourItem.java",
+          "src/main/resources/assets/morebosses/models/item/flour.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PotWithFlour",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pot_with_flour",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/PotWithFlourItem.java",
+          "src/main/resources/assets/morebosses/models/item/pot_with_flour.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "BeggarWolfDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beggar_wolf_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/beggar_wolf.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "FleshPlayerFinishesUsingItem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flesh_player_finishes_using_item",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/FleshPlayerFinishesUsingItemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Flesh",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flesh",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/flesh.json",
+          "src/main/java/net/mcreator/morebosses/item/FleshItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "EngineerEntityIsHurt",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "engineer_entity_is_hurt",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/EngineerEntityIsHurtProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Engineer",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "engineer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/model/EngineerModel.java",
+          "src/main/resources/assets/morebosses/models/item/engineer_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/client/renderer/EngineerRenderer.java",
+          "src/main/java/net/mcreator/morebosses/entity/EngineerEntity.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "BruteEngineer",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "brute_engineer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/client/renderer/BruteEngineerRenderer.java",
+          "src/main/java/net/mcreator/morebosses/entity/model/BruteEngineerModel.java",
+          "src/main/java/net/mcreator/morebosses/entity/BruteEngineerEntity.java",
+          "src/main/resources/assets/morebosses/models/item/brute_engineer_spawn_egg.json"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "PermaTurrets",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "perma_turrets",
+      "metadata": {
+        "files": [],
+        "type": "logic"
+      }
+    },
+    {
+      "name": "TurretOnInitialEntitySpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "turret_on_initial_entity_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/TurretOnInitialEntitySpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Turret",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "turret",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/turret_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/model/TurretModel.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/TurretRenderer.java",
+          "src/main/java/net/mcreator/morebosses/entity/TurretEntityProjectile.java",
+          "src/main/java/net/mcreator/morebosses/entity/TurretEntity.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "TallEngineer",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "tall_engineer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/TallEngineerEntity.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/TallEngineerRenderer.java",
+          "src/main/resources/assets/morebosses/models/item/tall_engineer_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/model/TallEngineerModel.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "TallEngineerOnEntityTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tall_engineer_on_entity_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/TallEngineerOnEntityTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Sticky",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sticky",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/StickyMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
+    },
+    {
+      "name": "EngineBoost",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "engine_boost",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/EngineBoostMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
+    },
+    {
+      "name": "OilDropProjectileHitsLivingEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oil_drop_projectile_hits_living_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/OilDropProjectileHitsLivingEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "OilDrop",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oil_drop",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/OilDropEntity.java"
+        ]
+      },
+      "path": "~/Projeteis"
+    },
+    {
+      "name": "OilEngineer",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "oil_engineer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/client/renderer/OilEngineerRenderer.java",
+          "src/main/java/net/mcreator/morebosses/entity/model/OilEngineerModel.java",
+          "src/main/java/net/mcreator/morebosses/entity/OilEngineerEntity.java",
+          "src/main/resources/assets/morebosses/models/item/oil_engineer_spawn_egg.json"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "FlamingIgnition",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flaming_ignition",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/FlamingIgnitionMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
+    },
+    {
+      "name": "Flammable",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flammable",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/FlammableMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
     }
   ],
   "variable_elements": [],
@@ -1843,6 +2198,10 @@
       "~CUSTOM:WitheredBoneBlock",
       "~CUSTOM:PolishedCrackedBlackstoneBlock"
     ],
+    "ENTITIES:c:mechas": [
+      "CUSTOM:CopperMonstrosity",
+      "CUSTOM:Turret"
+    ],
     "ITEMS:minecraft:pickaxes": [
       "~CUSTOM:BoneCarver",
       "~CUSTOM:ShieldBeater"
@@ -1868,19 +2227,22 @@
     "en_us": {
       "item.morebosses.raw_magma_cream": "Raw Magma Cream",
       "entity.morebosses.soul_dionaea": "Soul Dionaea",
+      "effect.morebosses.sticky": "Sticky",
       "item.morebosses.fried_chayote": "Fried Chayote",
-      "subtitles.wind_charge": "Wind Burst",
       "item_group.morebosses.lmb_itens": "LMB Itens",
-      "item.morebosses.cuirlass_bracer": "Cuirlass Bracer",
+      "subtitles.wind_charge": "Wind Burst",
       "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
+      "item.morebosses.pot_with_flour": "Pot With Flour",
       "block.morebosses.green_magma": "Green Magma",
       "block.morebosses.gong": "Gong",
       "entity.morebosses.minilotl": "Minilotl",
       "item.morebosses.green_magma_cream": "Green Magma Cream",
       "item.morebosses.tank_of_fury": "Tank Of Fury",
       "block.morebosses.chayote": "Chayote",
+      "effect.morebosses.engine_boost": "Engine Boost",
       "block.morebosses.seat": "Seat",
       "block.morebosses.blue_soul_light": "Blue Soul Light",
+      "effect.morebosses.flaming_ignition": "Flaming Ignition",
       "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
       "item.morebosses.shield_beater": "The Shield Breaker",
       "painting.morebosses.monstrous.author": "That LucaTube",
@@ -1888,10 +2250,13 @@
       "item.morebosses.monstrousfootwear_boots.description_0": "Press R to stomp and generate a shockwave.",
       "block.morebosses.soul_light": "Soul Light",
       "item.morebosses.dry_bones_spawn_egg": "Dry Bones Spawn Egg",
+      "item.morebosses.turret_spawn_egg": "Turret Spawn Egg",
       "key.morebosses.boots_hability": "LMB Boots Hability",
       "item.morebosses.gerador_de_waves": "Gerador De Waves",
       "item.morebosses.bone_carver": "Bone Carver",
       "entity.morebosses.copper_monstrosity": "Copper Monstrosity",
+      "entity.morebosses.tall_engineer": "Tall Engineer",
+      "entity.morebosses.oil_engineer": "Oil Engineer",
       "block.morebosses.raw_magma": "Raw Magma",
       "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
       "item.morebosses.soul_dionaea_spawn_egg": "Soul Dionaea Spawn Egg",
@@ -1901,54 +2266,72 @@
       "item.morebosses.gong_stick": "Gong Stick",
       "item.morebosses.cuirlass_armor_leggings": "Cuirlass Leggings",
       "death.attack.magma": "%1$s tried to swim in magma",
+      "entity.morebosses.beggar_wolf": "Beggar Wolf",
       "item.morebosses.cuirlass_armor_chestplate": "Cuirlass Chestplate",
       "item.morebosses.cuirlass_smithing_upgrade": "Cuirlass Smithing Upgrade",
+      "entity.morebosses.turret": "Turret",
       "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
       "fluid.morebosses.green_magma": "Green Magma",
+      "item.morebosses.engineer_spawn_egg": "Engineer Spawn Egg",
       "item.morebosses.withered_bone": "Withered Bone",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
+      "effect.morebosses.flammable": "Flammable",
       "item.morebosses.empty_tank": "Empty Tank",
       "item.morebosses.cuirlass_armor_helmet": "Cuirlass Helmet",
       "death.attack.shock.player": "%1$s was hit by a shockwavewhilst trying to escape %2$s",
+      "item.morebosses.pot": "Pot",
       "painting.morebosses.monstrous.title": "Monstrous",
       "block.morebosses.carved_withered_bone_block": "Carved Withered Bone Block",
       "item.morebosses.boiled_egg": "Boiled Egg",
+      "item.morebosses.flour": "Flour",
       "death.attack.shock.item": "%1$s was hit by a shockwave by %2$s using %3$s",
+      "item.morebosses.beggar_wolf_spawn_egg": "Beggar Wolf Spawn Egg",
+      "entity.morebosses.brute_engineer": "Brute Engineer",
       "entity.morebosses.maxolot": "Maxolotl",
       "item.morebosses.shield_beater.description_0": "The name is really self-explanatory.",
       "block.morebosses.carved_bone_block": "Carved Bone Block",
+      "item.morebosses.oil_engineer_spawn_egg": "Oil Engineer Spawn Egg",
       "entity.morebosses.shock_wave": "Shock Wave",
       "item.morebosses.stone_cuirlass": "Stone Cuirlass",
       "death.attack.shock": "%1$s was hit by a shockwave",
       "item.morebosses.nether_bricks_stick": "Nether Bricks Stick",
+      "item.morebosses.brute_engineer_spawn_egg": "Brute Engineer Spawn Egg",
+      "gamerule.permaTurrets.description": "If true, the turrets will not despawn.",
       "effect.morebosses.heavy": "Heavy",
       "effect.morebosses.panic": "Panic",
+      "item.morebosses.flesh": "Flesh of Questionable Origin",
       "fluid.morebosses.raw_magma": "Raw Magma",
       "block.morebosses.raw_magma_block": "Raw Magma Block",
+      "item.morebosses.tall_engineer_spawn_egg": "Tall Engineer Spawn Egg",
       "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
+      "entity.morebosses.engineer": "Engineer",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
       "item.morebosses.cuirlass_armor_boots": "Cuirlass Boots",
       "block.morebosses.polished_cracked_blackstone_block": "Polished Cracked Blackstone Block",
       "item.morebosses.fried_egg": "Fried Egg",
-      "item_group.morebosses.lmb_mobs": "LMB Mobs"
+      "item_group.morebosses.lmb_mobs": "LMB Mobs",
+      "gamerule.permaTurrets": "Perma Turrets"
     },
     "pt_br": {
       "item.morebosses.raw_magma_cream": "Raw Magma Cream",
       "entity.morebosses.soul_dionaea": "Soul Dionaea",
+      "effect.morebosses.sticky": "Sticky",
       "item.morebosses.fried_chayote": "Fried Chayote",
-      "item_group.morebosses.lmb_itens": "LMB Itens",
       "subtitles.wind_charge": "Wind Burst",
-      "item.morebosses.cuirlass_bracer": "Cuirlass Bracer",
+      "item_group.morebosses.lmb_itens": "LMB Itens",
       "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
+      "item.morebosses.pot_with_flour": "Pot With Flour",
       "block.morebosses.green_magma": "Green Magma",
       "block.morebosses.gong": "Gong",
       "entity.morebosses.minilotl": "Minilotl",
       "item.morebosses.green_magma_cream": "Green Magma Cream",
       "item.morebosses.tank_of_fury": "Tank Of Fury",
       "block.morebosses.chayote": "Chayote",
+      "effect.morebosses.engine_boost": "Engine Boost",
       "block.morebosses.seat": "Seat",
       "block.morebosses.blue_soul_light": "Blue Soul Light",
+      "effect.morebosses.flaming_ignition": "Flaming Ignition",
       "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
       "item.morebosses.shield_beater": "The Shield Breaker",
       "painting.morebosses.monstrous.author": "That LucaTube",
@@ -1956,10 +2339,13 @@
       "item.morebosses.monstrousfootwear_boots.description_0": "Press R to stomp and generate a shockwave.",
       "block.morebosses.soul_light": "Soul Light",
       "item.morebosses.dry_bones_spawn_egg": "Dry Bones Spawn Egg",
+      "item.morebosses.turret_spawn_egg": "Turret Spawn Egg",
       "key.morebosses.boots_hability": "LMB Boots Hability",
       "item.morebosses.gerador_de_waves": "Gerador De Waves",
       "item.morebosses.bone_carver": "Bone Carver",
       "entity.morebosses.copper_monstrosity": "Monstruosidade de Cobre, a máquina de guerra do Owerworld",
+      "entity.morebosses.tall_engineer": "Tall Engineer",
+      "entity.morebosses.oil_engineer": "Oil Engineer",
       "block.morebosses.raw_magma": "Raw Magma",
       "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
       "item.morebosses.soul_dionaea_spawn_egg": "Soul Dionaea Spawn Egg",
@@ -1969,37 +2355,52 @@
       "item.morebosses.gong_stick": "Gong Stick",
       "item.morebosses.cuirlass_armor_leggings": "Cuirlass Leggings",
       "death.attack.magma": "%1$s tried to swim in magma",
+      "entity.morebosses.beggar_wolf": "Beggar Wolf",
       "item.morebosses.cuirlass_armor_chestplate": "Cuirlass Chestplate",
       "item.morebosses.cuirlass_smithing_upgrade": "Cuirlass Smithing Upgrade",
+      "entity.morebosses.turret": "Turret",
       "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
       "fluid.morebosses.green_magma": "Green Magma",
+      "item.morebosses.engineer_spawn_egg": "Engineer Spawn Egg",
       "item.morebosses.withered_bone": "Withered Bone",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
+      "effect.morebosses.flammable": "Flammable",
       "item.morebosses.empty_tank": "Empty Tank",
       "item.morebosses.cuirlass_armor_helmet": "Cuirlass Helmet",
       "death.attack.shock.player": "%1$s was hit by a shockwavewhilst trying to escape %2$s",
+      "item.morebosses.pot": "Pot",
       "painting.morebosses.monstrous.title": "Monstrous",
       "block.morebosses.carved_withered_bone_block": "Carved Withered Bone Block",
       "item.morebosses.boiled_egg": "Boiled Egg",
+      "item.morebosses.flour": "Flour",
       "death.attack.shock.item": "%1$s was hit by a shockwave by %2$s using %3$s",
+      "item.morebosses.beggar_wolf_spawn_egg": "Beggar Wolf Spawn Egg",
+      "entity.morebosses.brute_engineer": "Brute Engineer",
       "entity.morebosses.maxolot": "Maxolot",
       "item.morebosses.shield_beater.description_0": "The name is really self-explanatory.",
       "block.morebosses.carved_bone_block": "Carved Bone Block",
+      "item.morebosses.oil_engineer_spawn_egg": "Oil Engineer Spawn Egg",
       "entity.morebosses.shock_wave": "Shock Wave",
       "item.morebosses.stone_cuirlass": "Stone Cuirlass",
       "death.attack.shock": "%1$s was hit by a shockwave",
       "item.morebosses.nether_bricks_stick": "Nether Bricks Stick",
+      "item.morebosses.brute_engineer_spawn_egg": "Brute Engineer Spawn Egg",
+      "gamerule.permaTurrets.description": "If true, the turrets will not despawn.",
       "effect.morebosses.heavy": "Heavy",
       "effect.morebosses.panic": "Panic",
+      "item.morebosses.flesh": "Flesh of Questionable Origin",
       "fluid.morebosses.raw_magma": "Raw Magma",
       "block.morebosses.raw_magma_block": "Raw Magma Block",
+      "item.morebosses.tall_engineer_spawn_egg": "Tall Engineer Spawn Egg",
       "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
+      "entity.morebosses.engineer": "Engineer",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
       "item.morebosses.cuirlass_armor_boots": "Cuirlass Boots",
       "block.morebosses.polished_cracked_blackstone_block": "Polished Cracked Blackstone Block",
       "item.morebosses.fried_egg": "Fried Egg",
-      "item_group.morebosses.lmb_mobs": "LMB Mobs"
+      "item_group.morebosses.lmb_mobs": "LMB Mobs",
+      "gamerule.permaTurrets": "Perma Turrets"
     }
   },
   "foldersRoot": {
@@ -2088,7 +2489,6 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [
-      "kleidersplayerrenderer",
       "pehkui",
       "curios_api",
       "nexus_compiled_mods",

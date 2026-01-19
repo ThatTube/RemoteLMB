@@ -4,7 +4,7 @@
   "definition": {
     "renderType": 0,
     "texture": "furytank",
-    "customModelName": "Tool",
+    "customModelName": "Normal",
     "customProperties": {},
     "states": [],
     "name": "Tank Of Fury",

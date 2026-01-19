@@ -15,8 +15,8 @@
     "knockback": 0,
     "entityModel": "ModelCustomModel",
     "customModelTexture": "wind_burst.png",
-    "modelWidth": 1.0,
-    "modelHeight": 1.0,
+    "modelWidth": 0.6,
+    "modelHeight": 0.6,
     "onHitsBlock": {
       "name": "CargaDeVento"
     },

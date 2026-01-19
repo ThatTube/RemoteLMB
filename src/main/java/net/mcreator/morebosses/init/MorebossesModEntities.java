@@ -17,12 +17,20 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.morebosses.entity.WindBurstEntity;
+import net.mcreator.morebosses.entity.TurretEntityProjectile;
+import net.mcreator.morebosses.entity.TurretEntity;
+import net.mcreator.morebosses.entity.TallEngineerEntity;
 import net.mcreator.morebosses.entity.SoulDionaeaEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
+import net.mcreator.morebosses.entity.OilEngineerEntity;
+import net.mcreator.morebosses.entity.OilDropEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
+import net.mcreator.morebosses.entity.EngineerEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
+import net.mcreator.morebosses.entity.BruteEngineerEntity;
+import net.mcreator.morebosses.entity.BeggarWolfEntity;
 import net.mcreator.morebosses.MorebossesMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -45,11 +53,39 @@ public class MorebossesModEntities {
 
 					.sized(0.6f, 1.6f));
 	public static final RegistryObject<EntityType<WindBurstEntity>> WIND_BURST = register("wind_burst",
-			EntityType.Builder.<WindBurstEntity>of(WindBurstEntity::new, MobCategory.MISC).setCustomClientFactory(WindBurstEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(1f, 1f));
+			EntityType.Builder.<WindBurstEntity>of(WindBurstEntity::new, MobCategory.MISC).setCustomClientFactory(WindBurstEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.6f, 0.6f));
 	public static final RegistryObject<EntityType<SoulDionaeaEntity>> SOUL_DIONAEA = register("soul_dionaea",
 			EntityType.Builder.<SoulDionaeaEntity>of(SoulDionaeaEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(SoulDionaeaEntity::new)
 
 					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<BeggarWolfEntity>> BEGGAR_WOLF = register("beggar_wolf",
+			EntityType.Builder.<BeggarWolfEntity>of(BeggarWolfEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(BeggarWolfEntity::new)
+
+					.sized(1.3f, 2f));
+	public static final RegistryObject<EntityType<EngineerEntity>> ENGINEER = register("engineer",
+			EntityType.Builder.<EngineerEntity>of(EngineerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EngineerEntity::new)
+
+					.sized(0.6f, 0.6f));
+	public static final RegistryObject<EntityType<BruteEngineerEntity>> BRUTE_ENGINEER = register("brute_engineer",
+			EntityType.Builder.<BruteEngineerEntity>of(BruteEngineerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(BruteEngineerEntity::new)
+
+					.sized(1f, 1f));
+	public static final RegistryObject<EntityType<TurretEntity>> TURRET = register("turret",
+			EntityType.Builder.<TurretEntity>of(TurretEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(TurretEntity::new)
+
+					.sized(0.5f, 1f));
+	public static final RegistryObject<EntityType<TurretEntityProjectile>> TURRET_PROJECTILE = register("projectile_turret", EntityType.Builder.<TurretEntityProjectile>of(TurretEntityProjectile::new, MobCategory.MISC)
+			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(TurretEntityProjectile::new).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<TallEngineerEntity>> TALL_ENGINEER = register("tall_engineer",
+			EntityType.Builder.<TallEngineerEntity>of(TallEngineerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(TallEngineerEntity::new)
+
+					.sized(0.6f, 1.5f));
+	public static final RegistryObject<EntityType<OilDropEntity>> OIL_DROP = register("oil_drop",
+			EntityType.Builder.<OilDropEntity>of(OilDropEntity::new, MobCategory.MISC).setCustomClientFactory(OilDropEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<OilEngineerEntity>> OIL_ENGINEER = register("oil_engineer",
+			EntityType.Builder.<OilEngineerEntity>of(OilEngineerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(OilEngineerEntity::new)
+
+					.sized(0.3f, 0.3f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -66,6 +102,12 @@ public class MorebossesModEntities {
 			DryBonesEntity.init();
 			MinilotlEntity.init();
 			SoulDionaeaEntity.init();
+			BeggarWolfEntity.init();
+			EngineerEntity.init();
+			BruteEngineerEntity.init();
+			TurretEntity.init();
+			TallEngineerEntity.init();
+			OilEngineerEntity.init();
 		});
 	}
 
@@ -77,5 +119,11 @@ public class MorebossesModEntities {
 		event.put(DRY_BONES.get(), DryBonesEntity.createAttributes().build());
 		event.put(MINILOTL.get(), MinilotlEntity.createAttributes().build());
 		event.put(SOUL_DIONAEA.get(), SoulDionaeaEntity.createAttributes().build());
+		event.put(BEGGAR_WOLF.get(), BeggarWolfEntity.createAttributes().build());
+		event.put(ENGINEER.get(), EngineerEntity.createAttributes().build());
+		event.put(BRUTE_ENGINEER.get(), BruteEngineerEntity.createAttributes().build());
+		event.put(TURRET.get(), TurretEntity.createAttributes().build());
+		event.put(TALL_ENGINEER.get(), TallEngineerEntity.createAttributes().build());
+		event.put(OIL_ENGINEER.get(), OilEngineerEntity.createAttributes().build());
 	}
 }
