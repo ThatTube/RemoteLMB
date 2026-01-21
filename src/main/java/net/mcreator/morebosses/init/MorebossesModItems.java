@@ -21,12 +21,17 @@ import net.mcreator.morebosses.item.RawMagmaItem;
 import net.mcreator.morebosses.item.RawMagmaCreamItem;
 import net.mcreator.morebosses.item.PotWithFlourItem;
 import net.mcreator.morebosses.item.PotItem;
+import net.mcreator.morebosses.item.PipeWrenchItem;
 import net.mcreator.morebosses.item.NetherBricksStickItem;
+import net.mcreator.morebosses.item.MonstrosityEyeItem;
+import net.mcreator.morebosses.item.MacabreScytheItem;
 import net.mcreator.morebosses.item.MONSTROUSFOOTWEARItem;
+import net.mcreator.morebosses.item.MMAEyeItem;
 import net.mcreator.morebosses.item.GreenMagmaItem;
 import net.mcreator.morebosses.item.GreenMagmaCreamItem;
 import net.mcreator.morebosses.item.GongStickItem;
 import net.mcreator.morebosses.item.GeradorDeWavesItem;
+import net.mcreator.morebosses.item.GearItem;
 import net.mcreator.morebosses.item.FriedEggItem;
 import net.mcreator.morebosses.item.FriedChayoteItem;
 import net.mcreator.morebosses.item.FlourItem;
@@ -89,6 +94,15 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> TURRET_SPAWN_EGG = REGISTRY.register("turret_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.TURRET, -1, -1, new Item.Properties()));
 	public static final RegistryObject<Item> TALL_ENGINEER_SPAWN_EGG = REGISTRY.register("tall_engineer_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.TALL_ENGINEER, -1, -1, new Item.Properties()));
 	public static final RegistryObject<Item> OIL_ENGINEER_SPAWN_EGG = REGISTRY.register("oil_engineer_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.OIL_ENGINEER, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> PIPE_WRENCH = REGISTRY.register("pipe_wrench", () -> new PipeWrenchItem());
+	public static final RegistryObject<Item> MACABRE_SCYTHE = REGISTRY.register("macabre_scythe", () -> new MacabreScytheItem());
+	public static final RegistryObject<Item> MONSTROSITY_EYE = REGISTRY.register("monstrosity_eye", () -> new MonstrosityEyeItem());
+	public static final RegistryObject<Item> COPPER_FALL = block(MorebossesModBlocks.COPPER_FALL);
+	public static final RegistryObject<Item> COPPER_POISON = block(MorebossesModBlocks.COPPER_POISON);
+	public static final RegistryObject<Item> COPPER_LAVA = block(MorebossesModBlocks.COPPER_LAVA);
+	public static final RegistryObject<Item> COPPER_BOOOM = block(MorebossesModBlocks.COPPER_BOOOM);
+	public static final RegistryObject<Item> MMA_EYE = REGISTRY.register("mma_eye", () -> new MMAEyeItem());
+	public static final RegistryObject<Item> GEAR = REGISTRY.register("gear", () -> new GearItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

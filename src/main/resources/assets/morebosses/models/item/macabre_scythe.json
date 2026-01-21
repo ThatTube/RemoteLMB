@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/fioce",
+  "textures": {
+    "0": "morebosses:block/foice",
+    "particle": "minecraft:item/diamond_hoe"
+  }
+}

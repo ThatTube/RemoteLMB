@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "minecraft:block/oxidized_cut_copper",
+    "up": "minecraft:block/oxidized_cut_copper",
+    "north": "morebosses:block/copper_boom",
+    "east": "morebosses:block/copper_boom",
+    "south": "morebosses:block/copper_boom",
+    "west": "morebosses:block/copper_boom",
+    "particle": "minecraft:block/oxidized_cut_copper"
+  },
+  "render_type": "solid"
+}

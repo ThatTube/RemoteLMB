@@ -4,7 +4,7 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="morebosses"
-version="1.0.3"
+version="1.0.4"
 displayName="Lu's More Bosses and Mobs"
 displayURL="https://mcreator.net"
 logoFile="logo.png"
@@ -23,12 +23,6 @@ description="U want more bosses? We have more bosses"
     side="BOTH"
 
 
-[[dependencies.morebosses]]
-    modId="pehkui"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
 [[dependencies.morebosses]]
     modId="curios_api"
     mandatory=false

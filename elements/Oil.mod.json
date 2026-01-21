@@ -1,0 +1,22 @@
+{
+  "_fv": 73,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Oil Bottle",
+    "splashName": "Splash Oil Bottle",
+    "lingeringName": "Lingering Oil Bottle",
+    "arrowName": "Arrow of Oil",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:Sticky"
+        },
+        "duration": 3600,
+        "infinite": false,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

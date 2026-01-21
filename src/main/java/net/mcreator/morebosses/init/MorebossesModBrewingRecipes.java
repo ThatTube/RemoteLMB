@@ -1,6 +1,7 @@
 
 package net.mcreator.morebosses.init;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.Items;
@@ -35,6 +36,17 @@ public class MorebossesModBrewingRecipes implements IModPlugin {
 		ingredientStack.add(new ItemStack(MorebossesModItems.TANK_OF_FURY.get()));
 		PotionUtils.setPotion(potion, Potions.WATER);
 		PotionUtils.setPotion(potion2, Potions.STRONG_STRENGTH);
+		brewingRecipes.add(factory.createBrewingRecipe(List.copyOf(ingredientStack), potion.copy(), potion2.copy()));
+		ingredientStack.clear();
+		ingredientStack.add(new ItemStack(Blocks.STONE));
+		inputStack.add(new ItemStack(Items.GLASS_BOTTLE));
+		PotionUtils.setPotion(potion, MorebossesModPotions.OIL.get());
+		brewingRecipes.add(factory.createBrewingRecipe(List.copyOf(ingredientStack), List.copyOf(inputStack), potion.copy()));
+		ingredientStack.clear();
+		inputStack.clear();
+		ingredientStack.add(new ItemStack(MorebossesModItems.GEAR.get()));
+		PotionUtils.setPotion(potion, Potions.LONG_SWIFTNESS);
+		PotionUtils.setPotion(potion2, MorebossesModPotions.GREASE.get());
 		brewingRecipes.add(factory.createBrewingRecipe(List.copyOf(ingredientStack), potion.copy(), potion2.copy()));
 		ingredientStack.clear();
 		registration.addRecipes(RecipeTypes.BREWING, brewingRecipes);

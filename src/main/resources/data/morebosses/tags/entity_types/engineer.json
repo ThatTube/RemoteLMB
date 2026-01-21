@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "morebosses:oil_engineer",
+    "morebosses:engineer",
+    "morebosses:tall_engineer",
+    "morebosses:turret",
+    "morebosses:brute_engineer"
+  ]
+}

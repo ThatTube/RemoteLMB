@@ -29,6 +29,7 @@ import net.mcreator.morebosses.entity.MaxolotEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
+import net.mcreator.morebosses.entity.CopperEyeEntity;
 import net.mcreator.morebosses.entity.BruteEngineerEntity;
 import net.mcreator.morebosses.entity.BeggarWolfEntity;
 import net.mcreator.morebosses.MorebossesMod;
@@ -86,6 +87,8 @@ public class MorebossesModEntities {
 			EntityType.Builder.<OilEngineerEntity>of(OilEngineerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(OilEngineerEntity::new)
 
 					.sized(0.3f, 0.3f));
+	public static final RegistryObject<EntityType<CopperEyeEntity>> COPPER_EYE = register("copper_eye",
+			EntityType.Builder.<CopperEyeEntity>of(CopperEyeEntity::new, MobCategory.MISC).setCustomClientFactory(CopperEyeEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities

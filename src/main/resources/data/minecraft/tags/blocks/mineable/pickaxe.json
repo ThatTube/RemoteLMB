@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
+    "morebosses:copper_booom",
+    "morebosses:copper_lava",
+    "morebosses:copper_poison",
+    "morebosses:copper_fall",
     "morebosses:carved_bone_block",
     "morebosses:carved_withered_bone_block",
     "morebosses:withered_bone_block",

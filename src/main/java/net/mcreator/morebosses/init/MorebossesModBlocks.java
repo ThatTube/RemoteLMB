@@ -19,6 +19,10 @@ import net.mcreator.morebosses.block.PolishedCrackedBlackstoneBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlock;
 import net.mcreator.morebosses.block.GongBlock;
+import net.mcreator.morebosses.block.CopperPoisonBlock;
+import net.mcreator.morebosses.block.CopperLavaBlock;
+import net.mcreator.morebosses.block.CopperFallBlock;
+import net.mcreator.morebosses.block.CopperBOOOMBlock;
 import net.mcreator.morebosses.block.ChayoteBlock;
 import net.mcreator.morebosses.block.CarvedWitheredBoneBlockBlock;
 import net.mcreator.morebosses.block.CarvedBoneBlockBlock;
@@ -40,6 +44,10 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> SOUL_LIGHT = REGISTRY.register("soul_light", () -> new SoulLightBlock());
 	public static final RegistryObject<Block> BLUE_SOUL_LIGHT = REGISTRY.register("blue_soul_light", () -> new BlueSoulLightBlock());
 	public static final RegistryObject<Block> CHAYOTE = REGISTRY.register("chayote", () -> new ChayoteBlock());
+	public static final RegistryObject<Block> COPPER_FALL = REGISTRY.register("copper_fall", () -> new CopperFallBlock());
+	public static final RegistryObject<Block> COPPER_POISON = REGISTRY.register("copper_poison", () -> new CopperPoisonBlock());
+	public static final RegistryObject<Block> COPPER_LAVA = REGISTRY.register("copper_lava", () -> new CopperLavaBlock());
+	public static final RegistryObject<Block> COPPER_BOOOM = REGISTRY.register("copper_booom", () -> new CopperBOOOMBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

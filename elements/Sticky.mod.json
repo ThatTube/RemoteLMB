@@ -27,14 +27,14 @@
         "attribute": {
           "value": "MOVEMENT_SPEED"
         },
-        "amount": -2.0,
+        "amount": -0.5,
         "operation": "ADD_VALUE"
       },
       {
         "attribute": {
           "value": "ENTITY_GRAVITY"
         },
-        "amount": 1.0,
+        "amount": 0.5,
         "operation": "ADD_VALUE"
       }
     ]

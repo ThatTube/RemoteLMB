@@ -138,7 +138,11 @@
     "disableDeathRotation": true,
     "headMovement": true,
     "eyeHeight": false,
-    "breedTriggerItems": [],
+    "breedTriggerItems": [
+      {
+        "value": "Blocks.BEDROCK"
+      }
+    ],
     "ranged": true,
     "rangedAttackItem": {
       "value": "Blocks.CONCRETE#7"

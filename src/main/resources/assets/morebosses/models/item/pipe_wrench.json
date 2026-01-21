@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/pipe_wrench",
+  "textures": {
+    "0": "morebosses:block/pipe_wrench",
+    "particle": "minecraft:item/dune_armor_trim_smithing_template"
+  }
+}

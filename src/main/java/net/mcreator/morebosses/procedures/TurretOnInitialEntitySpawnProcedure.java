@@ -12,7 +12,7 @@ public class TurretOnInitialEntitySpawnProcedure {
 		if (entity == null)
 			return;
 		MorebossesMod.queueServerWork(2200, () -> {
-			if ((entity instanceof TamableAnimal _tamEnt ? _tamEnt.isTame() : false) && !(world.getLevelData().getGameRules().getBoolean(MorebossesModGameRules.PERMA_TURRETS) == true)) {
+			if (!(entity instanceof TamableAnimal _tamEnt ? _tamEnt.isTame() : false) || !(world.getLevelData().getGameRules().getBoolean(MorebossesModGameRules.PERMA_TURRETS) == true)) {
 				if (!entity.level().isClientSide())
 					entity.discard();
 			}

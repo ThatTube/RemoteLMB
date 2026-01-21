@@ -98,7 +98,7 @@ public class DryBonesEntity extends Monster implements GeoEntity {
 		super.registerGoals();
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, CopperMonstrosityEntity.class, (float) 4, 5, 1.2));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true, false));
-		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 2, true) {
+		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.5, true) {
 			@Override
 			protected double getAttackReachSqr(LivingEntity entity) {
 				return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
@@ -201,7 +201,7 @@ public class DryBonesEntity extends Monster implements GeoEntity {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		AttributeSupplier.Builder builder = Mob.createMobAttributes();
-		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
+		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.25);
 		builder = builder.add(Attributes.MAX_HEALTH, 450);
 		builder = builder.add(Attributes.ARMOR, 60);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 14);

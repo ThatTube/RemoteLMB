@@ -19,12 +19,14 @@ import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.morebosses.init.MorebossesModTabs;
 import net.mcreator.morebosses.init.MorebossesModSounds;
+import net.mcreator.morebosses.init.MorebossesModPotions;
 import net.mcreator.morebosses.init.MorebossesModPaintings;
 import net.mcreator.morebosses.init.MorebossesModMobEffects;
 import net.mcreator.morebosses.init.MorebossesModItems;
 import net.mcreator.morebosses.init.MorebossesModFluids;
 import net.mcreator.morebosses.init.MorebossesModFluidTypes;
 import net.mcreator.morebosses.init.MorebossesModEntities;
+import net.mcreator.morebosses.init.MorebossesModEnchantments;
 import net.mcreator.morebosses.init.MorebossesModBlocks;
 import net.mcreator.morebosses.init.MorebossesModBlockEntities;
 
@@ -52,11 +54,11 @@ public class MorebossesMod {
 		MorebossesModBlockEntities.REGISTRY.register(bus);
 		MorebossesModItems.REGISTRY.register(bus);
 		MorebossesModEntities.REGISTRY.register(bus);
-
+		MorebossesModEnchantments.REGISTRY.register(bus);
 		MorebossesModTabs.REGISTRY.register(bus);
 
 		MorebossesModMobEffects.REGISTRY.register(bus);
-
+		MorebossesModPotions.REGISTRY.register(bus);
 		MorebossesModPaintings.REGISTRY.register(bus);
 
 		MorebossesModFluids.REGISTRY.register(bus);

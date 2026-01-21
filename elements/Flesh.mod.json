@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "minecraft:brick",
+    "texture": "flesh",
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],

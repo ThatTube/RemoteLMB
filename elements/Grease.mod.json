@@ -1,0 +1,22 @@
+{
+  "_fv": 73,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Grease Bottle",
+    "splashName": "Splash Grease Bottle",
+    "lingeringName": "Lingering Grease Bottle",
+    "arrowName": "Arrow of Grease",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:EngineBoost"
+        },
+        "duration": 3600,
+        "infinite": false,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

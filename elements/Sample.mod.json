@@ -1,0 +1,28 @@
+{
+  "_fv": 73,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Sample",
+    "icon": "sample",
+    "color": {
+      "value": -10066330,
+      "falpha": 0.0
+    },
+    "isInstant": true,
+    "mobEffectCategory": "NEUTRAL",
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": true,
+    "isCuredByMilk": false,
+    "isProtectedByTotem": false,
+    "isCuredbyHoney": false,
+    "modifiers": [
+      {
+        "attribute": {
+          "value": "ARMOR"
+        },
+        "amount": -2.0,
+        "operation": "ADD_VALUE"
+      }
+    ]
+  }
+}

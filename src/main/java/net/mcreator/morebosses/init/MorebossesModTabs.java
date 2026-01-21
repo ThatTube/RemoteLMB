@@ -28,6 +28,10 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.SEAT.get().asItem());
 				tabData.accept(MorebossesModBlocks.SOUL_LIGHT.get().asItem());
 				tabData.accept(MorebossesModBlocks.BLUE_SOUL_LIGHT.get().asItem());
+				tabData.accept(MorebossesModBlocks.COPPER_FALL.get().asItem());
+				tabData.accept(MorebossesModBlocks.COPPER_POISON.get().asItem());
+				tabData.accept(MorebossesModBlocks.COPPER_LAVA.get().asItem());
+				tabData.accept(MorebossesModBlocks.COPPER_BOOOM.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -56,6 +60,11 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.POT.get());
 				tabData.accept(MorebossesModItems.POT_WITH_FLOUR.get());
 				tabData.accept(MorebossesModItems.FLESH.get());
+				tabData.accept(MorebossesModItems.PIPE_WRENCH.get());
+				tabData.accept(MorebossesModItems.MACABRE_SCYTHE.get());
+				tabData.accept(MorebossesModItems.MONSTROSITY_EYE.get());
+				tabData.accept(MorebossesModItems.MMA_EYE.get());
+				tabData.accept(MorebossesModItems.GEAR.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {

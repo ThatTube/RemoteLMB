@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "morebosses:blocks/copper_lava",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "morebosses:copper_lava"
+        }
+      ]
+    }
+  ]
+}

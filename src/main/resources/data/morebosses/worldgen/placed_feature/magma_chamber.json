@@ -4,6 +4,18 @@
     {
       "type": "minecraft:rarity_filter",
       "chance": 2
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:biased_to_bottom",
+        "min_inclusive": {
+          "absolute": 0
+        },
+        "max_inclusive": {
+          "absolute": 64
+        }
+      }
     }
   ]
 }

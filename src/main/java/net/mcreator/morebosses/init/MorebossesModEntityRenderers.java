@@ -44,5 +44,6 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.TALL_ENGINEER.get(), TallEngineerRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.OIL_DROP.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.OIL_ENGINEER.get(), OilEngineerRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.COPPER_EYE.get(), ThrownItemRenderer::new);
 	}
 }

@@ -55,7 +55,7 @@
     },
     "mobBehaviourType": "Mob",
     "mobCreatureType": "UNDEFINED",
-    "attackStrength": 3,
+    "attackStrength": 5,
     "attackKnockback": 0.0,
     "knockbackResistance": 0.0,
     "movementSpeed": 0.30000000000000004,
@@ -105,9 +105,6 @@
     },
     "raidCelebrationSound": {
       "value": ""
-    },
-    "onMobTickUpdate": {
-      "name": "TallEngineerOnEntityTickUpdate"
     },
     "hasAI": true,
     "aiBase": "(none)",

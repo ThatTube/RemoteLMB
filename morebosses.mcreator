@@ -2032,41 +2032,6 @@
       "path": "~/Mobs"
     },
     {
-      "name": "TallEngineerOnEntityTickUpdate",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "tall_engineer_on_entity_tick_update",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/morebosses/procedures/TallEngineerOnEntityTickUpdateProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Procedures"
-    },
-    {
       "name": "Sticky",
       "type": "potioneffect",
       "compiles": true,
@@ -2165,6 +2130,585 @@
         ]
       },
       "path": "~/Efeitos"
+    },
+    {
+      "name": "PipeWrenchRightclickedOnBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pipe_wrench_rightclicked_on_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/PipeWrenchRightclickedOnBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "PipeWrench",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pipe_wrench",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/pipe_wrench.json",
+          "src/main/java/net/mcreator/morebosses/item/PipeWrenchItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "TallEngineerDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tall_engineer_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/tall_engineer.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "MacabreScythe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "macabre_scythe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/MacabreScytheItem.java",
+          "src/main/resources/assets/morebosses/models/item/macabre_scythe.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Moocher",
+      "type": "enchantment",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "moocher",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/enchantment/MoocherEnchantment.java"
+        ]
+      },
+      "path": "~/Items/Encantamentos"
+    },
+    {
+      "name": "ShowOff",
+      "type": "enchantment",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "show_off",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/enchantment/ShowOffEnchantment.java"
+        ]
+      },
+      "path": "~/Items/Encantamentos"
+    },
+    {
+      "name": "EncantamentosNaFoice",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "encantamentos_na_foice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/EncantamentosNaFoiceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Sample",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sample",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/SampleMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
+    },
+    {
+      "name": "MaxoBossBarPT",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "maxo_boss_bar_pt",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/MaxoBossBarPT.java"
+        ]
+      },
+      "path": "~/Barras de Boss/Portuguese"
+    },
+    {
+      "name": "AquaImmunetoWetEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "aqua_immuneto_wet_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/AquaImmunetoWetEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Grease",
+      "type": "potion",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grease",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Oil",
+      "type": "potion",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oil",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Frenzy",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "frenzy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/FrenzyMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
+    },
+    {
+      "name": "FrenzyNaFoice",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "frenzy_na_foice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/FrenzyNaFoiceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "MonstrosityEye",
+      "type": "item",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "monstrosity_eye",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/MonstrosityEyeItem.java",
+          "src/main/resources/assets/morebosses/models/item/monstrosity_eye.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Test",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/worldgen/structure_set/test.json",
+          "src/main/resources/data/morebosses/worldgen/template_pool/test.json",
+          "src/main/resources/data/morebosses/worldgen/structure/test.json"
+        ]
+      },
+      "path": "~/Estruturas"
+    },
+    {
+      "name": "CopperEye",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "copper_eye",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/CopperEyeEntity.java"
+        ]
+      },
+      "path": "~/Projeteis"
+    },
+    {
+      "name": "CustomRegistry",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "custom_registry",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/CustomRegistry.java"
+        ]
+      }
+    },
+    {
+      "name": "CopperEyeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_eye_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/copper_eye_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CopperFall",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_fall",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/copper_fall.json",
+          "src/main/resources/assets/morebosses/blockstates/copper_fall.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/copper_fall.json",
+          "src/main/resources/assets/morebosses/models/item/copper_fall.json",
+          "src/main/java/net/mcreator/morebosses/block/CopperFallBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CopperPoison",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_poison",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/block/CopperPoisonBlock.java",
+          "src/main/resources/assets/morebosses/models/item/copper_poison.json",
+          "src/main/resources/assets/morebosses/models/block/copper_poison.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/copper_poison.json",
+          "src/main/resources/assets/morebosses/blockstates/copper_poison.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CopperLava",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_lava",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/copper_lava.json",
+          "src/main/resources/assets/morebosses/blockstates/copper_lava.json",
+          "src/main/resources/assets/morebosses/models/block/copper_lava.json",
+          "src/main/java/net/mcreator/morebosses/block/CopperLavaBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/copper_lava.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CopperBOOOM",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_booom",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/blocks/copper_booom.json",
+          "src/main/resources/assets/morebosses/models/item/copper_booom.json",
+          "src/main/resources/assets/morebosses/models/block/copper_booom.json",
+          "src/main/resources/assets/morebosses/blockstates/copper_booom.json",
+          "src/main/java/net/mcreator/morebosses/block/CopperBOOOMBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CopperFallEntityWalksOnTheBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_fall_entity_walks_on_the_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/CopperFallEntityWalksOnTheBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "CopperBOOOMEntityWalksOnTheBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_booom_entity_walks_on_the_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/CopperBOOOMEntityWalksOnTheBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "CopperLavaEntityWalksOnTheBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_lava_entity_walks_on_the_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/CopperLavaEntityWalksOnTheBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "CopperPoisonRedstoneOn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_poison_redstone_on",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/CopperPoisonRedstoneOnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "MMAEye",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mma_eye",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/mma_eye.json",
+          "src/main/java/net/mcreator/morebosses/item/MMAEyeItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "MMAEyeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mma_eye_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/mma_eye_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "OilBottle",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oil_bottle",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/recipes/brewing/OilBottleBrewingRecipe.java"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Gear",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gear",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/GearItem.java",
+          "src/main/resources/assets/morebosses/models/item/gear.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "GreaseRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grease_recipe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/recipes/brewing/GreaseRecipeBrewingRecipe.java"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "GearRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gear_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/gear_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
     }
   ],
   "variable_elements": [],
@@ -2179,11 +2723,6 @@
     }
   ],
   "tag_elements": {
-    "ENTITIES:lmb:boss": [
-      "CUSTOM:CopperMonstrosity",
-      "CUSTOM:Maxolot",
-      "CUSTOM:DryBones"
-    ],
     "ENTITIES:lmb:immunetoshockwave": [
       "CUSTOM:ShockWave",
       "CUSTOM:CopperMonstrosity"
@@ -2192,7 +2731,28 @@
       "~CUSTOM:RawMagma",
       "~CUSTOM:GreenMagma"
     ],
+    "ITEMS:minecraft:pickaxes": [
+      "~CUSTOM:PipeWrench",
+      "~CUSTOM:BoneCarver",
+      "~CUSTOM:ShieldBeater"
+    ],
+    "ENTITIES:mod:aqua": [
+      "CUSTOM:Maxolot",
+      "CUSTOM:Minilotl"
+    ],
+    "ITEMS:minecraft:hoes": [
+      "~CUSTOM:MacabreScythe"
+    ],
+    "ENTITIES:lmb:boss": [
+      "CUSTOM:CopperMonstrosity",
+      "CUSTOM:Maxolot",
+      "CUSTOM:DryBones"
+    ],
     "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:CopperBOOOM",
+      "~CUSTOM:CopperLava",
+      "~CUSTOM:CopperPoison",
+      "~CUSTOM:CopperFall",
       "~CUSTOM:CarvedBoneBlock",
       "~CUSTOM:CarvedWitheredBoneBlock",
       "~CUSTOM:WitheredBoneBlock",
@@ -2202,19 +2762,27 @@
       "CUSTOM:CopperMonstrosity",
       "CUSTOM:Turret"
     ],
-    "ITEMS:minecraft:pickaxes": [
-      "~CUSTOM:BoneCarver",
-      "~CUSTOM:ShieldBeater"
+    "BLOCKS:minecraft:needs_stone_tool": [
+      "~CUSTOM:CopperBOOOM",
+      "~CUSTOM:CopperLava",
+      "~CUSTOM:CopperPoison",
+      "~CUSTOM:CopperFall"
     ],
     "BLOCKS:minecraft:mineable/shovel": [
       "~CUSTOM:RawMagmaBlock"
     ],
+    "ITEMS:minecraft:enchantable/weapon": [
+      "CUSTOM:MacabreScythe"
+    ],
     "DAMAGE_TYPES:minecraft:is_fire": [
       "CUSTOM:Magma"
     ],
-    "ENTITIES:mod:aqua": [
-      "CUSTOM:Maxolot",
-      "CUSTOM:Minilotl"
+    "ENTITIES:mod:engineer": [
+      "CUSTOM:OilEngineer",
+      "CUSTOM:Engineer",
+      "CUSTOM:TallEngineer",
+      "CUSTOM:Turret",
+      "CUSTOM:BruteEngineer"
     ],
     "ENTITIES:mod:antidps": [
       "CUSTOM:CopperMonstrosity",
@@ -2225,182 +2793,224 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "item.morebosses.raw_magma_cream": "Raw Magma Cream",
-      "entity.morebosses.soul_dionaea": "Soul Dionaea",
       "effect.morebosses.sticky": "Sticky",
-      "item.morebosses.fried_chayote": "Fried Chayote",
+      "entity.morebosses.soul_dionaea": "Soul Dionaea",
       "item_group.morebosses.lmb_itens": "LMB Itens",
       "subtitles.wind_charge": "Wind Burst",
-      "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
-      "item.morebosses.pot_with_flour": "Pot With Flour",
       "block.morebosses.green_magma": "Green Magma",
-      "block.morebosses.gong": "Gong",
-      "entity.morebosses.minilotl": "Minilotl",
-      "item.morebosses.green_magma_cream": "Green Magma Cream",
       "item.morebosses.tank_of_fury": "Tank Of Fury",
-      "block.morebosses.chayote": "Chayote",
       "effect.morebosses.engine_boost": "Engine Boost",
       "block.morebosses.seat": "Seat",
       "block.morebosses.blue_soul_light": "Blue Soul Light",
       "effect.morebosses.flaming_ignition": "Flaming Ignition",
-      "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
-      "item.morebosses.shield_beater": "The Shield Breaker",
-      "painting.morebosses.monstrous.author": "That LucaTube",
       "entity.morebosses.dry_bones": "Dry Bones",
       "item.morebosses.monstrousfootwear_boots.description_0": "Press R to stomp and generate a shockwave.",
-      "block.morebosses.soul_light": "Soul Light",
-      "item.morebosses.dry_bones_spawn_egg": "Dry Bones Spawn Egg",
-      "item.morebosses.turret_spawn_egg": "Turret Spawn Egg",
+      "item.morebosses.pipe_wrench": "Pipe Wrench",
+      "effect.morebosses.frenzy": "Frenzy",
       "key.morebosses.boots_hability": "LMB Boots Hability",
-      "item.morebosses.gerador_de_waves": "Gerador De Waves",
-      "item.morebosses.bone_carver": "Bone Carver",
+      "item.minecraft.potion.effect.oil": "Oil Bottle",
+      "block.morebosses.copper_poison": "Copper Trap",
       "entity.morebosses.copper_monstrosity": "Copper Monstrosity",
-      "entity.morebosses.tall_engineer": "Tall Engineer",
       "entity.morebosses.oil_engineer": "Oil Engineer",
       "block.morebosses.raw_magma": "Raw Magma",
       "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
-      "item.morebosses.soul_dionaea_spawn_egg": "Soul Dionaea Spawn Egg",
       "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
+      "item.minecraft.tipped_arrow.effect.oil": "Arrow of Oil",
+      "death.attack.magma": "%1$s tried to swim in magma",
+      "item.morebosses.cuirlass_smithing_upgrade": "Cuirlass Smithing Upgrade",
+      "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
+      "fluid.morebosses.green_magma": "Green Magma",
+      "block.morebosses.copper_fall": "Copper Trap",
+      "item.morebosses.withered_bone": "Withered Bone",
+      "item.minecraft.potion.effect.grease": "Grease Bottle",
+      "item.morebosses.empty_tank": "Empty Tank",
+      "item.morebosses.pot": "Pot",
+      "painting.morebosses.monstrous.title": "Monstrous",
+      "item.morebosses.flour": "Flour",
+      "block.morebosses.copper_booom": "Copper Trap",
+      "item.minecraft.lingering_potion.effect.oil": "Lingering Oil Bottle",
+      "item.morebosses.stone_cuirlass": "Stone Cuirlass",
+      "death.attack.shock": "%1$s was hit by a shockwave",
+      "gamerule.permaTurrets.description": "If true, the turrets will not despawn.",
+      "item.morebosses.flesh": "Flesh of Questionable Origin",
+      "block.morebosses.raw_magma_block": "Raw Magma Block",
+      "item.minecraft.tipped_arrow.effect.grease": "Arrow of Grease",
+      "item.morebosses.cuirlass_armor_boots": "Cuirlass Boots",
+      "block.morebosses.polished_cracked_blackstone_block": "Polished Cracked Blackstone Block",
+      "item.morebosses.fried_egg": "Fried Egg",
+      "gamerule.permaTurrets": "Perma Turrets",
+      "item.morebosses.raw_magma_cream": "Raw Magma Cream",
+      "item.minecraft.splash_potion.effect.grease": "Splash Grease Bottle",
+      "item.morebosses.fried_chayote": "Fried Chayote",
+      "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
+      "item.morebosses.pot_with_flour": "Pot With Flour",
+      "item.minecraft.splash_potion.effect.oil": "Splash Oil Bottle",
+      "block.morebosses.gong": "Gong",
+      "entity.morebosses.minilotl": "Minilotl",
+      "item.morebosses.green_magma_cream": "Green Magma Cream",
+      "block.morebosses.chayote": "Chayote",
+      "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
+      "item.morebosses.shield_beater": "The Shield Breaker",
+      "item.morebosses.monstrosity_eye": "Monstrosity Eye",
+      "painting.morebosses.monstrous.author": "That LucaTube",
+      "block.morebosses.soul_light": "Soul Light",
+      "enchantment.morebosses.show_off": "Show-Off",
+      "item.morebosses.dry_bones_spawn_egg": "Dry Bones Spawn Egg",
+      "item.morebosses.turret_spawn_egg": "Turret Spawn Egg",
+      "item.morebosses.gerador_de_waves": "Gerador De Waves",
+      "item.morebosses.bone_carver": "Bone Carver",
+      "entity.morebosses.tall_engineer": "Tall Engineer",
+      "item.morebosses.gear": "Gear",
+      "item.morebosses.macabre_scythe": "Macabre Scythe",
+      "item.morebosses.soul_dionaea_spawn_egg": "Soul Dionaea Spawn Egg",
       "block.morebosses.green_magma_block": "Green Magma Block",
       "block.morebosses.withered_bone_block": "Withered Bone Block",
       "item.morebosses.gong_stick": "Gong Stick",
       "item.morebosses.cuirlass_armor_leggings": "Cuirlass Leggings",
-      "death.attack.magma": "%1$s tried to swim in magma",
       "entity.morebosses.beggar_wolf": "Beggar Wolf",
       "item.morebosses.cuirlass_armor_chestplate": "Cuirlass Chestplate",
-      "item.morebosses.cuirlass_smithing_upgrade": "Cuirlass Smithing Upgrade",
       "entity.morebosses.turret": "Turret",
-      "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
-      "fluid.morebosses.green_magma": "Green Magma",
       "item.morebosses.engineer_spawn_egg": "Engineer Spawn Egg",
-      "item.morebosses.withered_bone": "Withered Bone",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
+      "effect.morebosses.sample": "Sample",
       "effect.morebosses.flammable": "Flammable",
-      "item.morebosses.empty_tank": "Empty Tank",
       "item.morebosses.cuirlass_armor_helmet": "Cuirlass Helmet",
       "death.attack.shock.player": "%1$s was hit by a shockwavewhilst trying to escape %2$s",
-      "item.morebosses.pot": "Pot",
-      "painting.morebosses.monstrous.title": "Monstrous",
       "block.morebosses.carved_withered_bone_block": "Carved Withered Bone Block",
       "item.morebosses.boiled_egg": "Boiled Egg",
-      "item.morebosses.flour": "Flour",
       "death.attack.shock.item": "%1$s was hit by a shockwave by %2$s using %3$s",
       "item.morebosses.beggar_wolf_spawn_egg": "Beggar Wolf Spawn Egg",
       "entity.morebosses.brute_engineer": "Brute Engineer",
       "entity.morebosses.maxolot": "Maxolotl",
       "item.morebosses.shield_beater.description_0": "The name is really self-explanatory.",
       "block.morebosses.carved_bone_block": "Carved Bone Block",
+      "item.morebosses.mma_eye": "MMA Eye",
       "item.morebosses.oil_engineer_spawn_egg": "Oil Engineer Spawn Egg",
       "entity.morebosses.shock_wave": "Shock Wave",
-      "item.morebosses.stone_cuirlass": "Stone Cuirlass",
-      "death.attack.shock": "%1$s was hit by a shockwave",
       "item.morebosses.nether_bricks_stick": "Nether Bricks Stick",
       "item.morebosses.brute_engineer_spawn_egg": "Brute Engineer Spawn Egg",
-      "gamerule.permaTurrets.description": "If true, the turrets will not despawn.",
+      "item.minecraft.lingering_potion.effect.grease": "Lingering Grease Bottle",
       "effect.morebosses.heavy": "Heavy",
       "effect.morebosses.panic": "Panic",
-      "item.morebosses.flesh": "Flesh of Questionable Origin",
       "fluid.morebosses.raw_magma": "Raw Magma",
-      "block.morebosses.raw_magma_block": "Raw Magma Block",
+      "block.morebosses.copper_lava": "Copper Trap",
+      "enchantment.morebosses.moocher": "Moocher",
       "item.morebosses.tall_engineer_spawn_egg": "Tall Engineer Spawn Egg",
       "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
       "entity.morebosses.engineer": "Engineer",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
-      "item.morebosses.cuirlass_armor_boots": "Cuirlass Boots",
-      "block.morebosses.polished_cracked_blackstone_block": "Polished Cracked Blackstone Block",
-      "item.morebosses.fried_egg": "Fried Egg",
-      "item_group.morebosses.lmb_mobs": "LMB Mobs",
-      "gamerule.permaTurrets": "Perma Turrets"
+      "item_group.morebosses.lmb_mobs": "LMB Mobs"
     },
     "pt_br": {
-      "item.morebosses.raw_magma_cream": "Raw Magma Cream",
       "entity.morebosses.soul_dionaea": "Soul Dionaea",
       "effect.morebosses.sticky": "Sticky",
-      "item.morebosses.fried_chayote": "Fried Chayote",
       "subtitles.wind_charge": "Wind Burst",
       "item_group.morebosses.lmb_itens": "LMB Itens",
-      "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
-      "item.morebosses.pot_with_flour": "Pot With Flour",
       "block.morebosses.green_magma": "Green Magma",
-      "block.morebosses.gong": "Gong",
-      "entity.morebosses.minilotl": "Minilotl",
-      "item.morebosses.green_magma_cream": "Green Magma Cream",
       "item.morebosses.tank_of_fury": "Tank Of Fury",
-      "block.morebosses.chayote": "Chayote",
       "effect.morebosses.engine_boost": "Engine Boost",
       "block.morebosses.seat": "Seat",
       "block.morebosses.blue_soul_light": "Blue Soul Light",
       "effect.morebosses.flaming_ignition": "Flaming Ignition",
-      "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
-      "item.morebosses.shield_beater": "The Shield Breaker",
-      "painting.morebosses.monstrous.author": "That LucaTube",
       "entity.morebosses.dry_bones": "Dry Bones",
       "item.morebosses.monstrousfootwear_boots.description_0": "Press R to stomp and generate a shockwave.",
+      "item.morebosses.pipe_wrench": "Pipe Wrench",
+      "effect.morebosses.frenzy": "Frenzy",
+      "key.morebosses.boots_hability": "LMB Boots Hability",
+      "item.minecraft.potion.effect.oil": "Oil Bottle",
+      "block.morebosses.copper_poison": "Copper Trap",
+      "entity.morebosses.copper_monstrosity": "Monstruosidade de Cobre, a máquina de guerra do Owerworld",
+      "entity.morebosses.oil_engineer": "Oil Engineer",
+      "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
+      "block.morebosses.raw_magma": "Raw Magma",
+      "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
+      "item.minecraft.tipped_arrow.effect.oil": "Arrow of Oil",
+      "death.attack.magma": "%1$s tried to swim in magma",
+      "item.morebosses.cuirlass_smithing_upgrade": "Cuirlass Smithing Upgrade",
+      "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
+      "fluid.morebosses.green_magma": "Green Magma",
+      "block.morebosses.copper_fall": "Copper Trap",
+      "item.morebosses.withered_bone": "Withered Bone",
+      "item.morebosses.empty_tank": "Empty Tank",
+      "item.minecraft.potion.effect.grease": "Grease Bottle",
+      "item.morebosses.pot": "Cumbuca",
+      "painting.morebosses.monstrous.title": "Monstrouso",
+      "item.morebosses.flour": "Flour",
+      "block.morebosses.copper_booom": "Copper Trap",
+      "item.minecraft.lingering_potion.effect.oil": "Lingering Oil Bottle",
+      "item.morebosses.stone_cuirlass": "Stone Cuirlass",
+      "death.attack.shock": "%1$s was hit by a shockwave",
+      "gamerule.permaTurrets.description": "If true, the turrets will not despawn.",
+      "item.morebosses.flesh": "Flesh of Questionable Origin",
+      "block.morebosses.raw_magma_block": "Raw Magma Block",
+      "item.minecraft.tipped_arrow.effect.grease": "Arrow of Grease",
+      "item.morebosses.cuirlass_armor_boots": "Cuirlass Boots",
+      "block.morebosses.polished_cracked_blackstone_block": "Polished Cracked Blackstone Block",
+      "item.morebosses.fried_egg": "Fried Egg",
+      "gamerule.permaTurrets": "Perma Turrets",
+      "item.morebosses.raw_magma_cream": "Raw Magma Cream",
+      "item.minecraft.splash_potion.effect.grease": "Splash Grease Bottle",
+      "item.morebosses.fried_chayote": "Fried Chayote",
+      "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
+      "item.morebosses.pot_with_flour": "Cumbuca com Farinha",
+      "item.minecraft.splash_potion.effect.oil": "Splash Oil Bottle",
+      "block.morebosses.gong": "Gong",
+      "entity.morebosses.minilotl": "Minilote",
+      "item.morebosses.green_magma_cream": "Green Magma Cream",
+      "block.morebosses.chayote": "Chayote",
+      "item.morebosses.monstrousfootwear_boots": "PISANTES MONSTRUOSOS",
+      "item.morebosses.shield_beater": "The Shield Breaker",
+      "item.morebosses.monstrosity_eye": "Olho da Monstruosidade",
+      "painting.morebosses.monstrous.author": "That LucaTube",
       "block.morebosses.soul_light": "Soul Light",
+      "enchantment.morebosses.show_off": "Show-Off",
       "item.morebosses.dry_bones_spawn_egg": "Dry Bones Spawn Egg",
       "item.morebosses.turret_spawn_egg": "Turret Spawn Egg",
-      "key.morebosses.boots_hability": "LMB Boots Hability",
       "item.morebosses.gerador_de_waves": "Gerador De Waves",
       "item.morebosses.bone_carver": "Bone Carver",
-      "entity.morebosses.copper_monstrosity": "Monstruosidade de Cobre, a máquina de guerra do Owerworld",
       "entity.morebosses.tall_engineer": "Tall Engineer",
-      "entity.morebosses.oil_engineer": "Oil Engineer",
-      "block.morebosses.raw_magma": "Raw Magma",
-      "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
+      "item.morebosses.gear": "Gear",
+      "item.morebosses.macabre_scythe": "Macabre Scythe",
       "item.morebosses.soul_dionaea_spawn_egg": "Soul Dionaea Spawn Egg",
-      "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
       "block.morebosses.green_magma_block": "Green Magma Block",
       "block.morebosses.withered_bone_block": "Withered Bone Block",
       "item.morebosses.gong_stick": "Gong Stick",
       "item.morebosses.cuirlass_armor_leggings": "Cuirlass Leggings",
-      "death.attack.magma": "%1$s tried to swim in magma",
       "entity.morebosses.beggar_wolf": "Beggar Wolf",
       "item.morebosses.cuirlass_armor_chestplate": "Cuirlass Chestplate",
-      "item.morebosses.cuirlass_smithing_upgrade": "Cuirlass Smithing Upgrade",
       "entity.morebosses.turret": "Turret",
-      "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
-      "fluid.morebosses.green_magma": "Green Magma",
       "item.morebosses.engineer_spawn_egg": "Engineer Spawn Egg",
-      "item.morebosses.withered_bone": "Withered Bone",
-      "item_group.morebosses.lmb_blocks": "LMB Blocks",
+      "item_group.morebosses.lmb_blocks": "LMB Blocos",
+      "effect.morebosses.sample": "Sample",
       "effect.morebosses.flammable": "Flammable",
-      "item.morebosses.empty_tank": "Empty Tank",
       "item.morebosses.cuirlass_armor_helmet": "Cuirlass Helmet",
       "death.attack.shock.player": "%1$s was hit by a shockwavewhilst trying to escape %2$s",
-      "item.morebosses.pot": "Pot",
-      "painting.morebosses.monstrous.title": "Monstrous",
       "block.morebosses.carved_withered_bone_block": "Carved Withered Bone Block",
       "item.morebosses.boiled_egg": "Boiled Egg",
-      "item.morebosses.flour": "Flour",
       "death.attack.shock.item": "%1$s was hit by a shockwave by %2$s using %3$s",
       "item.morebosses.beggar_wolf_spawn_egg": "Beggar Wolf Spawn Egg",
       "entity.morebosses.brute_engineer": "Brute Engineer",
-      "entity.morebosses.maxolot": "Maxolot",
+      "entity.morebosses.maxolot": "Macholote, o Terror dos 7 tanquinhos",
       "item.morebosses.shield_beater.description_0": "The name is really self-explanatory.",
       "block.morebosses.carved_bone_block": "Carved Bone Block",
+      "item.morebosses.mma_eye": "Olho do MMA",
       "item.morebosses.oil_engineer_spawn_egg": "Oil Engineer Spawn Egg",
       "entity.morebosses.shock_wave": "Shock Wave",
-      "item.morebosses.stone_cuirlass": "Stone Cuirlass",
-      "death.attack.shock": "%1$s was hit by a shockwave",
       "item.morebosses.nether_bricks_stick": "Nether Bricks Stick",
       "item.morebosses.brute_engineer_spawn_egg": "Brute Engineer Spawn Egg",
-      "gamerule.permaTurrets.description": "If true, the turrets will not despawn.",
+      "item.minecraft.lingering_potion.effect.grease": "Lingering Grease Bottle",
       "effect.morebosses.heavy": "Heavy",
       "effect.morebosses.panic": "Panic",
-      "item.morebosses.flesh": "Flesh of Questionable Origin",
       "fluid.morebosses.raw_magma": "Raw Magma",
-      "block.morebosses.raw_magma_block": "Raw Magma Block",
+      "block.morebosses.copper_lava": "Copper Trap",
+      "enchantment.morebosses.moocher": "Moocher",
       "item.morebosses.tall_engineer_spawn_egg": "Tall Engineer Spawn Egg",
       "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
       "entity.morebosses.engineer": "Engineer",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
-      "item.morebosses.cuirlass_armor_boots": "Cuirlass Boots",
-      "block.morebosses.polished_cracked_blackstone_block": "Polished Cracked Blackstone Block",
-      "item.morebosses.fried_egg": "Fried Egg",
-      "item_group.morebosses.lmb_mobs": "LMB Mobs",
-      "gamerule.permaTurrets": "Perma Turrets"
+      "item_group.morebosses.lmb_mobs": "LMB Mobs"
     }
   },
   "foldersRoot": {
@@ -2420,6 +3030,10 @@
         "children": [
           {
             "name": "Armaduras",
+            "children": []
+          },
+          {
+            "name": "Encantamentos",
             "children": []
           }
         ]
@@ -2478,7 +3092,7 @@
   "workspaceSettings": {
     "modid": "morebosses",
     "modName": "Lu\u0027s More Bosses and Mobs",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "U want more bosses? We have more bosses",
     "author": "That Lucatube, JorginhoAMM",
     "websiteURL": "https://mcreator.net",
@@ -2489,7 +3103,6 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [
-      "pehkui",
       "curios_api",
       "nexus_compiled_mods",
       "geckolib",

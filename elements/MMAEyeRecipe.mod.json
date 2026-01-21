@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Items.NETHERBRICK"
+      },
+      {
+        "value": "Blocks.RED_NETHER_BRICK"
+      },
+      {
+        "value": "Items.NETHERBRICK"
+      },
+      {
+        "value": "Items.NETHERITE_INGOT"
+      },
+      {
+        "value": "Items.ENDER_EYE"
+      },
+      {
+        "value": "Items.NETHERITE_INGOT"
+      },
+      {
+        "value": "Items.NETHERBRICK"
+      },
+      {
+        "value": "Blocks.RED_NETHER_BRICK"
+      },
+      {
+        "value": "Items.NETHERBRICK"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:MMAEye"
+    },
+    "name": "mma_eye_recipe",
+    "namespace": "mod"
+  }
+}

@@ -14,11 +14,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.network.NetworkHooks;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
@@ -84,6 +86,13 @@ public class TurretEntity extends TamableAnimal implements RangedAttackMob, GeoE
 		setNoAi(false);
 		setMaxUpStep(0f);
 		setPersistenceRequired();
+	}
+
+	@Override
+	public boolean hurt(DamageSource source, float amount) {
+		if (source.getDirectEntity() instanceof AbstractArrow)
+			return false;
+		return super.hurt(source, amount);
 	}
 
 	@Override
@@ -330,7 +339,7 @@ public class TurretEntity extends TamableAnimal implements RangedAttackMob, GeoE
 
 	@Override
 	public boolean isFood(ItemStack stack) {
-		return List.of().contains(stack.getItem());
+		return List.of(Blocks.BEDROCK.asItem()).contains(stack.getItem());
 	}
 
 	@Override
@@ -347,6 +356,7 @@ public class TurretEntity extends TamableAnimal implements RangedAttackMob, GeoE
 		builder = builder.add(Attributes.MOVEMENT_SPEED, 0);
 		builder = builder.add(Attributes.MAX_HEALTH, 20);
 		builder = builder.add(Attributes.ARMOR, 2);
+		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 10);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
 		return builder;
