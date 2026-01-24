@@ -29,7 +29,6 @@ import net.mcreator.morebosses.item.MonstrosityEyeItem;
 import net.mcreator.morebosses.item.MacabreScytheItem;
 import net.mcreator.morebosses.item.MONSTROUSFOOTWEARItem;
 import net.mcreator.morebosses.item.MMAEyeItem;
-import net.mcreator.morebosses.item.IgnitionKeyItem;
 import net.mcreator.morebosses.item.GreenMagmaItem;
 import net.mcreator.morebosses.item.GreenMagmaCreamItem;
 import net.mcreator.morebosses.item.GongStickItem;
@@ -48,9 +47,7 @@ import net.mcreator.morebosses.item.CopperSoupItem;
 import net.mcreator.morebosses.item.CopperHammerItem;
 import net.mcreator.morebosses.item.BoneCarverItem;
 import net.mcreator.morebosses.item.BoiledEggItem;
-import net.mcreator.morebosses.block.display.MonstrosityAltarDisplayItem;
 import net.mcreator.morebosses.block.display.GongDisplayItem;
-import net.mcreator.morebosses.block.display.CopperDoorDisplayItem;
 import net.mcreator.morebosses.MorebossesMod;
 
 public class MorebossesModItems {
@@ -107,14 +104,11 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> MACABRE_SCYTHE = REGISTRY.register("macabre_scythe", () -> new MacabreScytheItem());
 	public static final RegistryObject<Item> MONSTROSITY_EYE = REGISTRY.register("monstrosity_eye", () -> new MonstrosityEyeItem());
 	public static final RegistryObject<Item> COPPER_FALL = block(MorebossesModBlocks.COPPER_FALL);
-	public static final RegistryObject<Item> COPPER_POISON = block(MorebossesModBlocks.COPPER_POISON);
 	public static final RegistryObject<Item> COPPER_LAVA = block(MorebossesModBlocks.COPPER_LAVA);
 	public static final RegistryObject<Item> COPPER_BOOOM = block(MorebossesModBlocks.COPPER_BOOOM);
 	public static final RegistryObject<Item> MMA_EYE = REGISTRY.register("mma_eye", () -> new MMAEyeItem());
 	public static final RegistryObject<Item> GEAR = REGISTRY.register("gear", () -> new GearItem());
 	public static final RegistryObject<Item> INDESTRUCTIBLE_BLOCK = block(MorebossesModBlocks.INDESTRUCTIBLE_BLOCK);
-	public static final RegistryObject<Item> MONSTROSITY_ALTAR = REGISTRY.register(MorebossesModBlocks.MONSTROSITY_ALTAR.getId().getPath(), () -> new MonstrosityAltarDisplayItem(MorebossesModBlocks.MONSTROSITY_ALTAR.get(), new Item.Properties()));
-	public static final RegistryObject<Item> IGNITION_KEY = REGISTRY.register("ignition_key", () -> new IgnitionKeyItem());
 	public static final RegistryObject<Item> COPPER_WIRES = REGISTRY.register("copper_wires", () -> new CopperWiresItem());
 	public static final RegistryObject<Item> FUSE = REGISTRY.register("fuse", () -> new FuseItem());
 	public static final RegistryObject<Item> MOTHERBOARD = REGISTRY.register("motherboard", () -> new MotherboardItem());
@@ -123,8 +117,8 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> OXIDATION_DUST = REGISTRY.register("oxidation_dust", () -> new OxidationDustItem());
 	public static final RegistryObject<Item> COPPER_GRATES = block(MorebossesModBlocks.COPPER_GRATES);
 	public static final RegistryObject<Item> COPPER_PRESSURE_PLATE = block(MorebossesModBlocks.COPPER_PRESSURE_PLATE);
-	public static final RegistryObject<Item> COPPER_DOOR = REGISTRY.register(MorebossesModBlocks.COPPER_DOOR.getId().getPath(), () -> new CopperDoorDisplayItem(MorebossesModBlocks.COPPER_DOOR.get(), new Item.Properties()));
 	public static final RegistryObject<Item> COPPER_STRUCTURE_DETECT = block(MorebossesModBlocks.COPPER_STRUCTURE_DETECT);
+	public static final RegistryObject<Item> COPPER_GRABLER_SPAWN_EGG = REGISTRY.register("copper_grabler_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.COPPER_GRABLER, -1, -1, new Item.Properties()));
 
 	// Start of user code block custom items
 	// End of user code block custom items

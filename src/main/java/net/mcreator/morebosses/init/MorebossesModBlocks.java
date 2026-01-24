@@ -16,18 +16,15 @@ import net.mcreator.morebosses.block.SeatBlock;
 import net.mcreator.morebosses.block.RawMagmaBlockBlock;
 import net.mcreator.morebosses.block.RawMagmaBlock;
 import net.mcreator.morebosses.block.PolishedCrackedBlackstoneBlockBlock;
-import net.mcreator.morebosses.block.MonstrosityAltarBlock;
 import net.mcreator.morebosses.block.IndestructibleBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlock;
 import net.mcreator.morebosses.block.GongBlock;
 import net.mcreator.morebosses.block.CopperStructureDetectBlock;
 import net.mcreator.morebosses.block.CopperPressurePlateBlock;
-import net.mcreator.morebosses.block.CopperPoisonBlock;
 import net.mcreator.morebosses.block.CopperLavaBlock;
 import net.mcreator.morebosses.block.CopperGratesBlock;
 import net.mcreator.morebosses.block.CopperFallBlock;
-import net.mcreator.morebosses.block.CopperDoorBlock;
 import net.mcreator.morebosses.block.CopperBOOOMBlock;
 import net.mcreator.morebosses.block.ChayoteBlock;
 import net.mcreator.morebosses.block.CarvedWitheredBoneBlockBlock;
@@ -51,14 +48,11 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> BLUE_SOUL_LIGHT = REGISTRY.register("blue_soul_light", () -> new BlueSoulLightBlock());
 	public static final RegistryObject<Block> CHAYOTE = REGISTRY.register("chayote", () -> new ChayoteBlock());
 	public static final RegistryObject<Block> COPPER_FALL = REGISTRY.register("copper_fall", () -> new CopperFallBlock());
-	public static final RegistryObject<Block> COPPER_POISON = REGISTRY.register("copper_poison", () -> new CopperPoisonBlock());
 	public static final RegistryObject<Block> COPPER_LAVA = REGISTRY.register("copper_lava", () -> new CopperLavaBlock());
 	public static final RegistryObject<Block> COPPER_BOOOM = REGISTRY.register("copper_booom", () -> new CopperBOOOMBlock());
 	public static final RegistryObject<Block> INDESTRUCTIBLE_BLOCK = REGISTRY.register("indestructible_block", () -> new IndestructibleBlockBlock());
-	public static final RegistryObject<Block> MONSTROSITY_ALTAR = REGISTRY.register("monstrosity_altar", () -> new MonstrosityAltarBlock());
 	public static final RegistryObject<Block> COPPER_GRATES = REGISTRY.register("copper_grates", () -> new CopperGratesBlock());
 	public static final RegistryObject<Block> COPPER_PRESSURE_PLATE = REGISTRY.register("copper_pressure_plate", () -> new CopperPressurePlateBlock());
-	public static final RegistryObject<Block> COPPER_DOOR = REGISTRY.register("copper_door", () -> new CopperDoorBlock());
 	public static final RegistryObject<Block> COPPER_STRUCTURE_DETECT = REGISTRY.register("copper_structure_detect", () -> new CopperStructureDetectBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

@@ -6,22 +6,25 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "morebosses:copper_hammer",
-          "weight": 20,
+          "name": "minecraft:wither_skeleton_skull",
+          "weight": 2,
           "functions": [
             {
               "function": "set_count",
               "count": {
-                "min": 1,
+                "min": 0,
                 "max": 1
               }
+            },
+            {
+              "function": "minecraft:explosion_decay"
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_ingot",
-          "weight": 80,
+          "name": "morebosses:withered_bone",
+          "weight": 98,
           "functions": [
             {
               "function": "set_count",
@@ -35,49 +38,37 @@
       ]
     },
     {
-      "rolls": {
-        "min": 1,
-        "max": 3
-      },
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "morebosses:fuse",
-          "weight": 34,
+          "name": "morebosses:withered_bone",
+          "weight": 1,
           "functions": [
             {
               "function": "set_count",
               "count": {
                 "min": 1,
-                "max": 2
+                "max": 8
               }
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
         {
           "type": "minecraft:item",
-          "name": "morebosses:copper_wires",
-          "weight": 33,
+          "name": "minecraft:coal",
+          "weight": 1,
           "functions": [
             {
               "function": "set_count",
               "count": {
                 "min": 1,
-                "max": 2
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "morebosses:motherboard",
-          "weight": 33,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 2
+                "max": 6
               }
             }
           ]
@@ -85,5 +76,5 @@
       ]
     }
   ],
-  "random_sequence": "morebosses:entities/brute_engineer"
+  "random_sequence": "minecraft:entities/wither_skeleton"
 }

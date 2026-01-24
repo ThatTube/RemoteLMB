@@ -3,91 +3,131 @@ package net.mcreator.morebosses;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.Component;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Mod.EventBusSubscriber(modid = "morebosses")
 public class StructureTest {
     
-    private static final Set<String> testedPlayers = new HashSet<>();
+    // Thread-safe maps para multiplayer
+    private static final ConcurrentHashMap<String, Boolean> playerAchievementStatus = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, Integer> lastPositionCheck = new ConcurrentHashMap<>();
     
     @SubscribeEvent
-    public static void testDetection(TickEvent.PlayerTickEvent event) {
+    public static void monitorPlayer(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
+        if (event.player.level().isClientSide()) return;
         if (!(event.player instanceof ServerPlayer player)) return;
-        if (player.level().isClientSide()) return;
         
         String playerId = player.getStringUUID();
-        if (testedPlayers.contains(playerId)) return;
+        int currentTick = player.tickCount;
         
-        // Verifica a cada 5 segundos
-        if (player.tickCount % 100 != 0) return;
+        // Verifica a cada 3 segundos (60 ticks) quando fora da workshop
+        // Verifica a cada 1 segundo (20 ticks) quando dentro da workshop
+        Integer lastCheck = lastPositionCheck.get(playerId);
+        boolean shouldCheck = false;
         
+        if (lastCheck == null) {
+            shouldCheck = true;
+        } else {
+            int checkInterval = isNearWorkshop(player) ? 20 : 60;
+            shouldCheck = (currentTick - lastCheck) >= checkInterval;
+        }
+        
+        if (!shouldCheck) return;
+        
+        lastPositionCheck.put(playerId, currentTick);
+        
+        // Se está perto da workshop e não tem a conquista
+        if (isNearWorkshop(player) && !hasAchievement(player)) {
+            grantAchievement(player);
+            playerAchievementStatus.put(playerId, true);
+        }
+        
+        // Opcional: atualiza cache periodicamente
+        if (currentTick % 600 == 0) { // A cada 30 segundos
+            playerAchievementStatus.put(playerId, hasAchievement(player));
+        }
+    }
+    
+    private static boolean isNearWorkshop(ServerPlayer player) {
         BlockPos pos = player.blockPosition();
         
-        // TESTE 1: Verifica bloco específico
-        boolean foundBlock = false;
-        String foundBlockId = "";
-        
-        for (int x = -10; x <= 10; x++) {
-            for (int y = -5; y <= 5; y++) {
-                for (int z = -10; z <= 10; z++) {
-                    BlockPos check = pos.offset(x, y, z);
-                    var block = player.level().getBlockState(check).getBlock();
-                    var blockId = net.minecraftforge.registries.ForgeRegistries.BLOCKS.getKey(block);
-                    
-                    if (blockId != null) {
-                        // Mostra TODOS os blocos do seu mod próximos
-                        if (blockId.toString().contains("morebosses:")) {
-                            player.displayClientMessage(
-                                Component.literal("§7Bloco do mod: §f" + blockId.toString()),
-                                false
-                            );
-                            
-                            if (blockId.toString().equals("morebosses:copper_structure_detect")) {
-                                foundBlock = true;
-                                foundBlockId = blockId.toString();
-                            }
-                        }
-                    }
-                }
+        // Checagem RÁPIDA - amostra aleatória
+        for (int i = 0; i < 50; i++) {
+            int x = (int) (Math.random() * 50) - 25;
+            int y = (int) (Math.random() * 20) - 5;
+            int z = (int) (Math.random() * 50) - 25;
+            
+            BlockPos check = pos.offset(x, y, z);
+            var block = player.level().getBlockState(check).getBlock();
+            var blockId = net.minecraftforge.registries.ForgeRegistries.BLOCKS.getKey(block);
+            
+            if (blockId != null && 
+                blockId.toString().equals("morebosses:copper_structure_detect")) {
+                return true;
             }
         }
         
-        if (foundBlock) {
-            player.displayClientMessage(
-                Component.literal("§a✅ ENCONTREI O BLOCO DETECTOR: " + foundBlockId),
-                false
-            );
-            testedPlayers.add(playerId);
+        return false;
+    }
+    
+    private static boolean hasAchievement(ServerPlayer player) {
+        // Primeiro tenta cache
+        Boolean cached = playerAchievementStatus.get(player.getStringUUID());
+        if (cached != null && cached) {
+            return true;
+        }
+        
+        // Se não em cache, verifica
+        try {
+            var adv = player.server.getAdvancements()
+                .getAdvancement(new ResourceLocation("morebosses:the_underground_workshop"));
             
-            // Tenta dar a conquista
-            try {
-                var adv = player.server.getAdvancements()
-                    .getAdvancement(new ResourceLocation("morebosses:the_underground_workshop"));
-                
-                if (adv != null) {
-                    var progress = player.getAdvancements().getOrStartProgress(adv);
+            if (adv != null) {
+                var progress = player.getAdvancements().getOrStartProgress(adv);
+                boolean hasIt = progress.isDone();
+                playerAchievementStatus.put(player.getStringUUID(), hasIt);
+                return hasIt;
+            }
+        } catch (Exception ignored) {}
+        
+        return false;
+    }
+    
+    private static void grantAchievement(ServerPlayer player) {
+        try {
+            var adv = player.server.getAdvancements()
+                .getAdvancement(new ResourceLocation("morebosses:the_underground_workshop"));
+            
+            if (adv != null) {
+                var progress = player.getAdvancements().getOrStartProgress(adv);
+                if (!progress.isDone()) {
                     for (String criterion : progress.getRemainingCriteria()) {
                         player.getAdvancements().award(adv, criterion);
                     }
-                    player.displayClientMessage(Component.literal("§a🎉 Conquista dada!"), false);
-                } else {
-                    player.displayClientMessage(Component.literal("§c❌ Conquista NÃO encontrada!"), false);
                 }
-            } catch (Exception e) {
-                player.displayClientMessage(Component.literal("§cErro: " + e.getMessage()), false);
             }
-        } else {
-            player.displayClientMessage(
-                Component.literal("§cNenhum bloco 'copper_structure_detect' encontrado em 10 blocos"),
-                false
-            );
+        } catch (Exception ignored) {}
+    }
+    
+    @SubscribeEvent
+    public static void onPlayerJoin(net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            // Atualiza cache ao entrar
+            playerAchievementStatus.put(player.getStringUUID(), hasAchievement(player));
+        }
+    }
+    
+    @SubscribeEvent
+    public static void onPlayerLeave(net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
+        if (event.getEntity() instanceof ServerPlayer) {
+            String id = event.getEntity().getStringUUID();
+            playerAchievementStatus.remove(id);
+            lastPositionCheck.remove(id);
         }
     }
 }

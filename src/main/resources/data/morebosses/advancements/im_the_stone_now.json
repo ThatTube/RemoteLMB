@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:stone_cuirlass"
+    },
+    "title": {
+      "translate": "advancements.im_the_stone_now.title"
+    },
+    "description": {
+      "translate": "advancements.im_the_stone_now.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "im_the_stone_now_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 40
+  },
+  "parent": "morebosses:skin_thief"
+}

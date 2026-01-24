@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:flesh"
+    },
+    "title": {
+      "translate": "advancements.definitely_no.title"
+    },
+    "description": {
+      "translate": "advancements.definitely_no.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "definitely_no_0": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "morebosses:flesh"
+          ]
+        }
+      }
+    }
+  },
+  "parent": "morebosses:is_this_safe"
+}

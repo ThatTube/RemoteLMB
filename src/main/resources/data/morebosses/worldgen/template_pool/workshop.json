@@ -6,7 +6,7 @@
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "morebosses:workshop3",
+        "location": "morebosses:workshop4",
         "projection": "rigid",
         "processors": {
           "processors": [

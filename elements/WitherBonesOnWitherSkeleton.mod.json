@@ -14,23 +14,23 @@
           {
             "type": "item",
             "item": {
-              "value": "CUSTOM:CopperHammer"
+              "value": "Items.SKULL#1"
             },
-            "weight": 20,
-            "minCount": 1,
+            "weight": 2,
+            "minCount": 0,
             "maxCount": 1,
             "minEnchantmentLevel": 0,
             "maxEnchantmentLevel": 0,
-            "affectedByFortune": false,
-            "explosionDecay": false,
+            "affectedByFortune": true,
+            "explosionDecay": true,
             "silkTouchMode": 0
           },
           {
             "type": "item",
             "item": {
-              "value": "Items.COPPER_INGOT"
+              "value": "CUSTOM:WitheredBone"
             },
-            "weight": 80,
+            "weight": 98,
             "minCount": 1,
             "maxCount": 1,
             "minEnchantmentLevel": 0,
@@ -43,7 +43,7 @@
       },
       {
         "minrolls": 1,
-        "maxrolls": 3,
+        "maxrolls": 1,
         "minbonusrolls": 1,
         "maxbonusrolls": 1,
         "hasbonusrolls": false,
@@ -51,49 +51,44 @@
           {
             "type": "item",
             "item": {
-              "value": "CUSTOM:Fuse"
+              "value": "CUSTOM:WitheredBone"
             },
-            "weight": 34,
+            "weight": 1,
             "minCount": 1,
-            "maxCount": 2,
+            "maxCount": 8,
             "minEnchantmentLevel": 0,
             "maxEnchantmentLevel": 0,
-            "affectedByFortune": false,
+            "affectedByFortune": true,
             "explosionDecay": false,
             "silkTouchMode": 0
-          },
+          }
+        ]
+      },
+      {
+        "minrolls": 1,
+        "maxrolls": 1,
+        "minbonusrolls": 1,
+        "maxbonusrolls": 1,
+        "hasbonusrolls": false,
+        "entries": [
           {
             "type": "item",
             "item": {
-              "value": "CUSTOM:CopperWires"
+              "value": "Items.COAL#0"
             },
-            "weight": 33,
+            "weight": 1,
             "minCount": 1,
-            "maxCount": 2,
+            "maxCount": 6,
             "minEnchantmentLevel": 0,
             "maxEnchantmentLevel": 0,
-            "affectedByFortune": false,
-            "explosionDecay": false,
-            "silkTouchMode": 0
-          },
-          {
-            "type": "item",
-            "item": {
-              "value": "CUSTOM:Motherboard"
-            },
-            "weight": 33,
-            "minCount": 1,
-            "maxCount": 2,
-            "minEnchantmentLevel": 0,
-            "maxEnchantmentLevel": 0,
-            "affectedByFortune": false,
+            "affectedByFortune": true,
             "explosionDecay": false,
             "silkTouchMode": 0
           }
         ]
       }
     ],
-    "name": "entities/brute_engineer",
-    "namespace": "mod"
+    "name": "entities/wither_skeleton",
+    "namespace": "minecraft"
   }
 }

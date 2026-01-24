@@ -22,6 +22,7 @@ import net.mcreator.morebosses.client.renderer.MaxolotRenderer;
 import net.mcreator.morebosses.client.renderer.EngineerRenderer;
 import net.mcreator.morebosses.client.renderer.DryBonesRenderer;
 import net.mcreator.morebosses.client.renderer.CopperMonstrosityRenderer;
+import net.mcreator.morebosses.client.renderer.CopperGrablerRenderer;
 import net.mcreator.morebosses.client.renderer.BruteEngineerRenderer;
 import net.mcreator.morebosses.client.renderer.BeggarWolfRenderer;
 
@@ -45,5 +46,6 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.OIL_DROP.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.OIL_ENGINEER.get(), OilEngineerRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.COPPER_EYE.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.COPPER_GRABLER.get(), CopperGrablerRenderer::new);
 	}
 }

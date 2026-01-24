@@ -29,6 +29,7 @@ import net.mcreator.morebosses.entity.MaxolotEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
+import net.mcreator.morebosses.entity.CopperGrablerEntity;
 import net.mcreator.morebosses.entity.CopperEyeEntity;
 import net.mcreator.morebosses.entity.BruteEngineerEntity;
 import net.mcreator.morebosses.entity.BeggarWolfEntity;
@@ -89,6 +90,10 @@ public class MorebossesModEntities {
 					.sized(0.3f, 0.3f));
 	public static final RegistryObject<EntityType<CopperEyeEntity>> COPPER_EYE = register("copper_eye",
 			EntityType.Builder.<CopperEyeEntity>of(CopperEyeEntity::new, MobCategory.MISC).setCustomClientFactory(CopperEyeEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<CopperGrablerEntity>> COPPER_GRABLER = register("copper_grabler",
+			EntityType.Builder.<CopperGrablerEntity>of(CopperGrablerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CopperGrablerEntity::new)
+
+					.sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -111,6 +116,7 @@ public class MorebossesModEntities {
 			TurretEntity.init();
 			TallEngineerEntity.init();
 			OilEngineerEntity.init();
+			CopperGrablerEntity.init();
 		});
 	}
 
@@ -128,5 +134,6 @@ public class MorebossesModEntities {
 		event.put(TURRET.get(), TurretEntity.createAttributes().build());
 		event.put(TALL_ENGINEER.get(), TallEngineerEntity.createAttributes().build());
 		event.put(OIL_ENGINEER.get(), OilEngineerEntity.createAttributes().build());
+		event.put(COPPER_GRABLER.get(), CopperGrablerEntity.createAttributes().build());
 	}
 }

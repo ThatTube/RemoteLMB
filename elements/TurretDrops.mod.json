@@ -6,7 +6,7 @@
     "pools": [
       {
         "minrolls": 1,
-        "maxrolls": 1,
+        "maxrolls": 3,
         "minbonusrolls": 1,
         "maxbonusrolls": 1,
         "hasbonusrolls": false,
@@ -14,11 +14,11 @@
           {
             "type": "item",
             "item": {
-              "value": "CUSTOM:CopperHammer"
+              "value": "CUSTOM:Gear"
             },
-            "weight": 20,
+            "weight": 33,
             "minCount": 1,
-            "maxCount": 1,
+            "maxCount": 2,
             "minEnchantmentLevel": 0,
             "maxEnchantmentLevel": 0,
             "affectedByFortune": false,
@@ -28,32 +28,9 @@
           {
             "type": "item",
             "item": {
-              "value": "Items.COPPER_INGOT"
-            },
-            "weight": 80,
-            "minCount": 1,
-            "maxCount": 1,
-            "minEnchantmentLevel": 0,
-            "maxEnchantmentLevel": 0,
-            "affectedByFortune": false,
-            "explosionDecay": false,
-            "silkTouchMode": 0
-          }
-        ]
-      },
-      {
-        "minrolls": 1,
-        "maxrolls": 3,
-        "minbonusrolls": 1,
-        "maxbonusrolls": 1,
-        "hasbonusrolls": false,
-        "entries": [
-          {
-            "type": "item",
-            "item": {
               "value": "CUSTOM:Fuse"
             },
-            "weight": 34,
+            "weight": 33,
             "minCount": 1,
             "maxCount": 2,
             "minEnchantmentLevel": 0,
@@ -75,25 +52,11 @@
             "affectedByFortune": false,
             "explosionDecay": false,
             "silkTouchMode": 0
-          },
-          {
-            "type": "item",
-            "item": {
-              "value": "CUSTOM:Motherboard"
-            },
-            "weight": 33,
-            "minCount": 1,
-            "maxCount": 2,
-            "minEnchantmentLevel": 0,
-            "maxEnchantmentLevel": 0,
-            "affectedByFortune": false,
-            "explosionDecay": false,
-            "silkTouchMode": 0
           }
         ]
       }
     ],
-    "name": "entities/brute_engineer",
+    "name": "entities/turret",
     "namespace": "mod"
   }
 }

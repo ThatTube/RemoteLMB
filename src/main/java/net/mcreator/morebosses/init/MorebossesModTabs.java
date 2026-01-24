@@ -34,14 +34,11 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.SOUL_LIGHT.get().asItem());
 				tabData.accept(MorebossesModBlocks.BLUE_SOUL_LIGHT.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_FALL.get().asItem());
-				tabData.accept(MorebossesModBlocks.COPPER_POISON.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_LAVA.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_BOOOM.get().asItem());
 				tabData.accept(MorebossesModBlocks.INDESTRUCTIBLE_BLOCK.get().asItem());
-				tabData.accept(MorebossesModBlocks.MONSTROSITY_ALTAR.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_GRATES.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_PRESSURE_PLATE.get().asItem());
-				tabData.accept(MorebossesModBlocks.COPPER_DOOR.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -75,7 +72,6 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.MONSTROSITY_EYE.get());
 				tabData.accept(MorebossesModItems.MMA_EYE.get());
 				tabData.accept(MorebossesModItems.GEAR.get());
-				tabData.accept(MorebossesModItems.IGNITION_KEY.get());
 				tabData.accept(MorebossesModItems.COPPER_WIRES.get());
 				tabData.accept(MorebossesModItems.FUSE.get());
 				tabData.accept(MorebossesModItems.MOTHERBOARD.get());
@@ -94,6 +90,7 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.TURRET_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.TALL_ENGINEER_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.OIL_ENGINEER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.COPPER_GRABLER_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 
 	@SubscribeEvent

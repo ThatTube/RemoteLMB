@@ -13,6 +13,7 @@ import net.mcreator.morebosses.entity.MaxolotEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
+import net.mcreator.morebosses.entity.CopperGrablerEntity;
 import net.mcreator.morebosses.entity.BruteEngineerEntity;
 import net.mcreator.morebosses.entity.BeggarWolfEntity;
 
@@ -92,6 +93,13 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof OilEngineerEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof CopperGrablerEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");

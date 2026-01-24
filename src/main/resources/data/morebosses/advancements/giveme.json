@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:macabre_scythe"
+    },
+    "title": {
+      "translate": "advancements.giveme.title"
+    },
+    "description": {
+      "translate": "advancements.giveme.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "giveme_0": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "taken": {
+            "min": 0,
+            "max": 9
+          },
+          "source_entity": {
+            "type": "morebosses:beggar_wolf"
+          },
+          "blocked": false
+        }
+      }
+    }
+  },
+  "parent": "morebosses:flour_advancement"
+}

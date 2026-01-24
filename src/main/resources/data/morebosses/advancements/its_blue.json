@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:blue_soul_light"
+    },
+    "title": {
+      "translate": "advancements.its_blue.title"
+    },
+    "description": {
+      "translate": "advancements.its_blue.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "its_blue_0": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "morebosses:blue_soul_light"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "morebosses:the_inner_light"
+}

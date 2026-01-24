@@ -1,0 +1,62 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:flour"
+    },
+    "title": {
+      "translate": "advancements.flour_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.flour_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "flour_advancement_0": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "morebosses:pot_with_flour"
+          ]
+        }
+      }
+    },
+    "flour_advancement_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "morebosses:flour"
+            ],
+            "count": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        ]
+      }
+    },
+    "flour_advancement_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "morebosses:pot_with_flour"
+            ],
+            "count": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "morebosses:download_the_mod"
+}
