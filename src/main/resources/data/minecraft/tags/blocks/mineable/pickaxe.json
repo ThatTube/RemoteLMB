@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
+    "morebosses:copper_pressure_plate",
+    "morebosses:copper_grates",
+    "morebosses:indestructible_block",
     "morebosses:copper_booom",
     "morebosses:copper_lava",
     "morebosses:copper_poison",

@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "mma_eye",
+    "texture": "mma_eyes",
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],

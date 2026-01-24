@@ -18,7 +18,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 public class CopperMonstrosityRenderer extends GeoEntityRenderer<CopperMonstrosityEntity> {
 	public CopperMonstrosityRenderer(EntityRendererProvider.Context renderManager) {
 		super(renderManager, new CopperMonstrosityModel());
-		this.shadowRadius = 0.5f;
+		this.shadowRadius = 4f;
 	}
 
 	@Override

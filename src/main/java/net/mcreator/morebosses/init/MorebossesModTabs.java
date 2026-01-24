@@ -6,14 +6,19 @@ package net.mcreator.morebosses.init;
 
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.Registries;
 
 import net.mcreator.morebosses.MorebossesMod;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MorebossesModTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MorebossesMod.MODID);
 	public static final RegistryObject<CreativeModeTab> LMB_BLOCKS = REGISTRY.register("lmb_blocks",
@@ -32,6 +37,11 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.COPPER_POISON.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_LAVA.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_BOOOM.get().asItem());
+				tabData.accept(MorebossesModBlocks.INDESTRUCTIBLE_BLOCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.MONSTROSITY_ALTAR.get().asItem());
+				tabData.accept(MorebossesModBlocks.COPPER_GRATES.get().asItem());
+				tabData.accept(MorebossesModBlocks.COPPER_PRESSURE_PLATE.get().asItem());
+				tabData.accept(MorebossesModBlocks.COPPER_DOOR.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -65,6 +75,12 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.MONSTROSITY_EYE.get());
 				tabData.accept(MorebossesModItems.MMA_EYE.get());
 				tabData.accept(MorebossesModItems.GEAR.get());
+				tabData.accept(MorebossesModItems.IGNITION_KEY.get());
+				tabData.accept(MorebossesModItems.COPPER_WIRES.get());
+				tabData.accept(MorebossesModItems.FUSE.get());
+				tabData.accept(MorebossesModItems.MOTHERBOARD.get());
+				tabData.accept(MorebossesModItems.COPPER_HAMMER.get());
+				tabData.accept(MorebossesModItems.COPPER_SOUP.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {
@@ -79,4 +95,13 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.TALL_ENGINEER_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.OIL_ENGINEER_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
+
+	@SubscribeEvent
+	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
+		if (tabData.getTabKey() == CreativeModeTabs.OP_BLOCKS) {
+			if (tabData.hasPermissions()) {
+				tabData.accept(MorebossesModBlocks.COPPER_STRUCTURE_DETECT.get().asItem());
+			}
+		}
+	}
 }

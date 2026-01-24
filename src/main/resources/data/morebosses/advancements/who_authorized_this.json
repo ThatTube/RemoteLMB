@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:monstrousfootwear_boots"
+    },
+    "title": {
+      "translate": "advancements.who_authorized_this.title"
+    },
+    "description": {
+      "translate": "advancements.who_authorized_this.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "who_authorized_this_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 22
+  },
+  "parent": "morebosses:the_underground_workshop"
+}

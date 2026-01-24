@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "morebosses:copper_hammer",
     "morebosses:pipe_wrench",
     "morebosses:bone_carver",
     "morebosses:shield_beater"

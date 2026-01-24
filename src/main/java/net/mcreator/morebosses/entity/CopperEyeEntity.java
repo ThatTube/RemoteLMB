@@ -92,15 +92,7 @@ public class CopperEyeEntity extends AbstractArrow implements ItemSupplier {
 					this.level().addParticle(ParticleTypes.GLOW, this.getX() + (this.random.nextDouble() - 0.5) * 0.4, this.getY() + (this.random.nextDouble() - 0.5) * 0.4, this.getZ() + (this.random.nextDouble() - 0.5) * 0.4, 0, 0, 0);
 				}
 				// Efeito especial ocasional
-				if (this.tickCount % 8 == 0) {
-					this.level().addParticle(ParticleTypes.ENCHANT, this.getX(), this.getY(), this.getZ(), 0, 0.1, 0);
-				}
-			} else {
-				// 🌟 Partículas normais fora do bloco
-				for (int i = 0; i < 2; ++i) {
-					this.level().addParticle(ParticleTypes.WAX_ON, this.getX() + (this.random.nextDouble() - 0.5) * 0.3, this.getY() + (this.random.nextDouble() - 0.5) * 0.3, this.getZ() + (this.random.nextDouble() - 0.5) * 0.3, 0, 0, 0);
-				}
-			}
+			} 
 		}
 		// ⏱️ ⏱️ ⏱️ TEMPO LIMITE: 5 SEGUNDOS (100 ticks) ⏱️ ⏱️ ⏱️
 		if (this.tickCount >= 60) {
@@ -108,12 +100,7 @@ public class CopperEyeEntity extends AbstractArrow implements ItemSupplier {
 			return;
 		}
 		// 🔄 Diminuir velocidade gradualmente (opcional)
-		if (this.tickCount > 30) {
-			double slowFactor = 1.0 - ((this.tickCount - 50) * 0.01);
-			if (slowFactor < 0.3)
-				slowFactor = 0.3;
-			this.setDeltaMovement(motion.x * slowFactor, motion.y * slowFactor, motion.z * slowFactor);
-		}
+		
 		// Nunca ficar preso no chão
 		this.inGround = false;
 	}

@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "morebosses:textures/screens/lmb_background.png",
+    "icon": {
+      "item": "minecraft:amethyst_cluster"
+    },
+    "title": {
+      "translate": "advancements.download_the_mod.title"
+    },
+    "description": {
+      "translate": "advancements.download_the_mod.descr"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "download_the_mod_0": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

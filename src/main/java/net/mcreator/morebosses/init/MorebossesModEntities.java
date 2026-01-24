@@ -64,7 +64,7 @@ public class MorebossesModEntities {
 
 					.sized(1.3f, 2f));
 	public static final RegistryObject<EntityType<EngineerEntity>> ENGINEER = register("engineer",
-			EntityType.Builder.<EngineerEntity>of(EngineerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EngineerEntity::new)
+			EntityType.Builder.<EngineerEntity>of(EngineerEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EngineerEntity::new)
 
 					.sized(0.6f, 0.6f));
 	public static final RegistryObject<EntityType<BruteEngineerEntity>> BRUTE_ENGINEER = register("brute_engineer",

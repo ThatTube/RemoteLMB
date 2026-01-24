@@ -61,7 +61,6 @@ public class EngineerEntity extends PathfinderMob implements GeoEntity {
 		xpReward = 6;
 		setNoAi(false);
 		setMaxUpStep(1f);
-		setPersistenceRequired();
 	}
 
 	@Override
@@ -98,11 +97,6 @@ public class EngineerEntity extends PathfinderMob implements GeoEntity {
 	@Override
 	public MobType getMobType() {
 		return MobType.UNDEFINED;
-	}
-
-	@Override
-	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-		return false;
 	}
 
 	@Override

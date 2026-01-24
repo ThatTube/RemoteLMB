@@ -5,6 +5,10 @@
     "morebosses:engineer",
     "morebosses:tall_engineer",
     "morebosses:turret",
-    "morebosses:brute_engineer"
+    "morebosses:brute_engineer",
+    "morebosses:copper_monstrosity",
+    "morebosses:copper_eye",
+    "morebosses:oil_drop",
+    "morebosses:wind_burst"
   ]
 }

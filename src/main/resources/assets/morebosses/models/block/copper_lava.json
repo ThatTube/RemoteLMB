@@ -1,13 +1,13 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "minecraft:block/oxidized_cut_copper",
-    "up": "minecraft:block/oxidized_cut_copper",
+    "down": "morebosses:block/lava_top",
+    "up": "morebosses:block/lava_top",
     "north": "morebosses:block/copper_lava",
     "east": "morebosses:block/copper_lava",
     "south": "morebosses:block/copper_lava",
     "west": "morebosses:block/copper_lava",
-    "particle": "minecraft:block/oxidized_cut_copper"
+    "particle": "morebosses:block/lava_top"
   },
   "render_type": "solid"
 }

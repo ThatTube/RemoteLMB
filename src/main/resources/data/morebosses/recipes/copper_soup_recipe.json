@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "abc",
+    " d "
+  ],
+  "key": {
+    "a": {
+      "item": "morebosses:copper_wires"
+    },
+    "b": {
+      "item": "minecraft:copper_ingot"
+    },
+    "c": {
+      "item": "morebosses:oxidation_dust"
+    },
+    "d": {
+      "item": "morebosses:pot"
+    }
+  },
+  "result": {
+    "item": "morebosses:copper_soup",
+    "count": 1
+  }
+}

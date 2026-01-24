@@ -1,0 +1,56 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.monstrosity_summon",
+				"texture_width": 256,
+				"texture_height": 256,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [32, 3, 32], "uv": [0, 0]},
+						{"origin": [-8, 13, -8], "size": [32, 3, 32], "uv": [0, 35]},
+						{"origin": [-7, 3, -7], "size": [30, 10, 30], "uv": [0, 70]},
+						{"origin": [-5, 16, -5], "size": [26, 11, 26], "uv": [0, 110]}
+					]
+				},
+				{
+					"name": "horn",
+					"parent": "bone",
+					"pivot": [21, 21, 6],
+					"cubes": [
+						{"origin": [21, 16, 5], "size": [13, 8, 6], "uv": [104, 110]},
+						{"origin": [30, 24, 7], "size": [2, 8, 2], "uv": [128, 12]},
+						{"origin": [28, 32, 5], "size": [6, 6, 6], "uv": [120, 96]}
+					]
+				},
+				{
+					"name": "horn2",
+					"parent": "bone",
+					"pivot": [-5, 21, 6],
+					"cubes": [
+						{"origin": [-18, 16, 5], "size": [13, 8, 6], "uv": [120, 70]},
+						{"origin": [-16, 24, 7], "size": [2, 8, 2], "uv": [128, 22]},
+						{"origin": [-18, 32, 5], "size": [6, 6, 6], "uv": [104, 124]}
+					]
+				},
+				{
+					"name": "rod",
+					"parent": "bone",
+					"pivot": [8, 27, 8],
+					"cubes": [
+						{"origin": [7, 27, 7], "size": [2, 10, 2], "uv": [128, 0]},
+						{"origin": [5, 37, 5], "size": [6, 6, 6], "uv": [120, 84]}
+					]
+				}
+			]
+		}
+	]
+}

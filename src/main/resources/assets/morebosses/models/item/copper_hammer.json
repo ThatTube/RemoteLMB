@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/copper_hammer",
+  "textures": {
+    "0": "morebosses:block/brute_hammer",
+    "particle": "minecraft:item/carrot"
+  }
+}

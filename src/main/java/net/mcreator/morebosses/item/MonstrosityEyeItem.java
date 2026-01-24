@@ -31,7 +31,7 @@ public class MonstrosityEyeItem extends Item {
 	public MonstrosityEyeItem() {
 		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
 		// Cria a tag "morebosses:test" inline
-		this.structureTag = TagKey.create(net.minecraft.core.registries.Registries.STRUCTURE, new net.minecraft.resources.ResourceLocation("morebosses", "test"));
+		this.structureTag = TagKey.create(net.minecraft.core.registries.Registries.STRUCTURE, new net.minecraft.resources.ResourceLocation("morebosses", "workshop"));
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class MonstrosityEyeItem extends Item {
 				double dz = blockpos.getZ() - player.getZ();
 				double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 				if (distance > 0) {
-					eyeEntity.setDeltaMovement((dx / distance) * 0.5, (dy / distance + 0.5) * 0.5, // Leve curva para cima
+					eyeEntity.setDeltaMovement((dx / distance) * 0.5, (dy / distance + 0.3) * 0.5, // Leve curva para cima
 							(dz / distance) * 0.5);
 				}
 				// ⚡ CONFIGURAÇÕES PARA ATRAVESSAR

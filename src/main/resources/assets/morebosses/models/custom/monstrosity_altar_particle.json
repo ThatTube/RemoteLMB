@@ -1,0 +1,7 @@
+
+{
+  "parent": "morebosses:displaysettings/monstrosity_summon.animation",
+  "textures": {
+    "particle": "morebosses:block/minecraft:oxidized_cut_copper"
+  }
+}

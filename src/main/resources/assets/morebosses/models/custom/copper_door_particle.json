@@ -1,0 +1,7 @@
+
+{
+  "parent": "morebosses:displaysettings/copper_door",
+  "textures": {
+    "particle": "morebosses:block/minecraft:oxidized_cut_copper"
+  }
+}

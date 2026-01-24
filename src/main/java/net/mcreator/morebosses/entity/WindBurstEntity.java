@@ -1,4 +1,3 @@
-
 package net.mcreator.morebosses.entity;
 
 import net.minecraftforge.network.PlayMessages;
@@ -89,6 +88,23 @@ public class WindBurstEntity extends AbstractArrow implements ItemSupplier {
 			}
 		}
 		return entity == null ? null : new EntityHitResult(entity);
+	}
+
+	@Override
+	protected boolean canHitEntity(Entity target) {
+		// Não colidir com outros projéteis do mesmo tipo
+		if (target instanceof WindBurstEntity) {
+			return false;
+		}
+		// Não colidir com o dono
+		if (target == this.getOwner()) {
+			return false;
+		}
+		// Não colidir com a CopperMonstrosity (própria monstrosidade)
+		if (target instanceof CopperMonstrosityEntity) {
+			return false;
+		}
+		return super.canHitEntity(target);
 	}
 
 	@Override

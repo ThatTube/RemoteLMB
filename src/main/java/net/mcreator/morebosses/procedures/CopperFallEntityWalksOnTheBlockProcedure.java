@@ -1,5 +1,6 @@
 package net.mcreator.morebosses.procedures;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.TagKey;
@@ -11,7 +12,7 @@ public class CopperFallEntityWalksOnTheBlockProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (!entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("morebosses:engineer")))) {
+		if (!entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("morebosses:engineer"))) && (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.AIR) {
 			world.destroyBlock(BlockPos.containing(x, y, z), false);
 		}
 	}

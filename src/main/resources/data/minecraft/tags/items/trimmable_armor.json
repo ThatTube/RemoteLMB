@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "morebosses:cuirlass_armor_helmet",
+    "morebosses:cuirlass_armor_chestplate",
+    "morebosses:cuirlass_armor_leggings",
+    "morebosses:cuirlass_armor_boots",
+    "morebosses:monstrousfootwear_boots"
+  ]
+}

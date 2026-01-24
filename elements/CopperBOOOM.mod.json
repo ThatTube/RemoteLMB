@@ -2,8 +2,8 @@
   "_fv": 73,
   "_type": "block",
   "definition": {
-    "texture": "minecraft:oxidized_cut_copper",
-    "textureTop": "minecraft:oxidized_cut_copper",
+    "texture": "top",
+    "textureTop": "top",
     "textureLeft": "copper_boom",
     "textureFront": "copper_boom",
     "textureRight": "copper_boom",

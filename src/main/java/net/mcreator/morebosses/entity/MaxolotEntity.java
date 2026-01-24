@@ -14,11 +14,17 @@ import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.common.ForgeMod;
 
+import net.minecraft.world.level.pathfinder.BlockPathTypes; // Importante para pathfinding
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader; // Importante
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation; // Navegação água
+import net.minecraft.world.entity.ai.navigation.GroundPathNavigation; // Navegação terra
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.ai.control.MoveControl; // Controle de movimento
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
@@ -28,6 +34,7 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.MoverType; // Importante para travel
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
@@ -36,6 +43,7 @@ import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.util.Mth; // Importante para matemática de movimento
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerBossEvent;
@@ -47,6 +55,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3; // Vetores
 
 import net.mcreator.morebosses.procedures.MaxoloteQuebraBlocosProcedure;
 import net.mcreator.morebosses.procedures.MaxolotDeathTimeIsReachedProcedure;
@@ -70,11 +79,14 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	public String animationprocedure = "empty";
 	@Nullable
 	private ServerBossEvent bossInfo;
-	// Variáveis para controle dos ataques
 	private int attackCounter = 0;
 	private int attackCooldown = 0;
-	private static final int ATTACK_DELAY = 40; // 2 segundos entre ataques especiais
+	private static final int ATTACK_DELAY = 40; 
 	private final List<UUID> tamedMinilotls = new ArrayList<>();
+
+    // --- CORREÇÃO: PathNavigation para alternar entre água e terra ---
+    protected final WaterBoundPathNavigation waterNavigation;
+    protected final GroundPathNavigation groundNavigation;
 
 	public MaxolotEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(MorebossesModEntities.MAXOLOT.get(), world);
@@ -84,8 +96,17 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		super(type, world);
 		xpReward = 34;
 		setNoAi(false);
-		setMaxUpStep(0.6f);
+		setMaxUpStep(1.0f); // Aumentei um pouco para ele subir blocos melhor saindo da água
 		setPersistenceRequired();
+		
+        // --- CORREÇÃO: Inicializar Navegações e MoveControl ---
+        this.waterNavigation = new WaterBoundPathNavigation(this, world);
+        this.groundNavigation = new GroundPathNavigation(this, world);
+        this.moveControl = new MaxolotMoveControl(this); // MoveControl customizado (veja abaixo)
+        
+        // Define que ele prefere água, mas anda na terra
+        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
+        this.setPathfindingMalus(BlockPathTypes.WATER_BORDER, 0.0F);
 	}
 
 	@Override
@@ -112,7 +133,9 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
+		// Prioridade 0 e 1 para combate
 		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true, false));
+		
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.5, true) {
 			@Override
 			protected double getAttackReachSqr(LivingEntity entity) {
@@ -124,9 +147,7 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 				double d0 = this.getAttackReachSqr(target);
 				if (range <= d0 && this.getTicksUntilNextAttack() <= 0) {
 					this.resetAttackCooldown();
-					// Causa dano base
 					this.mob.doHurtTarget(target);
-					// Sistema de ataques alternados
 					if (attackCooldown <= 0) {
 						performSpecialAttack(target);
 						attackCooldown = ATTACK_DELAY;
@@ -134,49 +155,122 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 				}
 			}
 		});
-		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1));
-		this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, 1, 40));
+		
+		// --- CORREÇÃO: Ajuste de Goals para Anfíbios ---
+        // O RandomSwimmingGoal deve ter prioridade alta para ele nadar quando estiver na água
+		this.goalSelector.addGoal(3, new RandomSwimmingGoal(this, 1.0D, 40)); 
+		this.goalSelector.addGoal(4, new RandomStrollGoal(this, 0.8D)); // Anda mais devagar na terra que na água
 		this.targetSelector.addGoal(5, new HurtByTargetGoal(this).setAlertOthers());
 		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 	}
+	
+	// --- CORREÇÃO: Sistema de Viagem (Travel) ---
+    // Isso define como a física funciona na água vs terra
+    @Override
+    public void travel(Vec3 travelVector) {
+        if (this.isEffectiveAi() && this.isInWater()) {
+            this.moveRelative(this.getSpeed(), travelVector);
+            this.move(MoverType.SELF, this.getDeltaMovement());
+            this.setDeltaMovement(this.getDeltaMovement().scale(0.9D)); // Atrito na água
+            if (this.getTarget() == null) {
+                this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.005D, 0.0D)); // Gravidade leve na água
+            }
+        } else {
+            super.travel(travelVector);
+        }
+    }
+
+    // --- CORREÇÃO: Atualizar Navegação ---
+    // Troca o cérebro de navegação dependendo se está na água ou terra
+    @Override
+    public void updateSwimming() {
+        if (!this.level().isClientSide) {
+            if (this.isInWater()) {
+                this.navigation = this.waterNavigation;
+                this.setSwimming(true);
+            } else {
+                this.navigation = this.groundNavigation;
+                this.setSwimming(false);
+            }
+        }
+        super.updateSwimming();
+    }
+    
+    // --- CORREÇÃO: MoveControl Híbrido ---
+    // Classe interna para controlar o movimento 3D na água e 2D na terra
+    static class MaxolotMoveControl extends MoveControl {
+        private final MaxolotEntity maxolot;
+
+        public MaxolotMoveControl(MaxolotEntity entity) {
+            super(entity);
+            this.maxolot = entity;
+        }
+
+        @Override
+        public void tick() {
+            if (this.maxolot.isInWater()) {
+                this.maxolot.setDeltaMovement(this.maxolot.getDeltaMovement().add(0.0D, 0.005D, 0.0D));
+                if (this.operation == MoveControl.Operation.MOVE_TO && !this.maxolot.getNavigation().isDone()) {
+                    double dx = this.wantedX - this.maxolot.getX();
+                    double dy = this.wantedY - this.maxolot.getY();
+                    double dz = this.wantedZ - this.maxolot.getZ();
+                    double dist = Math.sqrt(dx * dx + dy * dy + dz * dz); // Distância 3D
+                    
+                    if (dist < 0.1D) { // Chegou no destino
+                         this.maxolot.setZza(0.0F);
+                         return;
+                    }
+
+                    dy /= dist;
+                    float f = (float)(Mth.atan2(dz, dx) * (double)(180F / (float)Math.PI)) - 90.0F;
+                    this.maxolot.setYRot(this.rotlerp(this.maxolot.getYRot(), f, 90.0F));
+                    this.maxolot.yBodyRot = this.maxolot.getYRot();
+                    
+                    float speed = (float)(this.speedModifier * this.maxolot.getAttributeValue(Attributes.MOVEMENT_SPEED) * 1.5); // Multiplicador de velocidade na água
+                    this.maxolot.setSpeed(speed * 0.6F); // Ajuste fino
+                    
+                    // Movimento vertical suave
+                    this.maxolot.setDeltaMovement(this.maxolot.getDeltaMovement().add(0.0D, (double)speed * dy * 0.1D, 0.0D));
+                    this.maxolot.setZza(speed);
+                } else {
+                    this.maxolot.setSpeed(0.0F);
+                }
+            } else {
+                // Comportamento padrão de terra
+                super.tick();
+            }
+        }
+    }
 
 	// Método para ataques especiais
 	private void performSpecialAttack(LivingEntity target) {
-		// Primeiro ataque: normal (animação attack)
 		if (attackCounter == 0) {
 			triggerAnimation("attack");
 			attackCounter = 1;
 		}
-		// Segundo ataque: soco desarmador (animação punch)
 		else if (attackCounter == 1) {
 			triggerAnimation("punch");
 			performDisarmAttack(target);
 			attackCounter = 2;
 		}
-		// Terceiro ataque: invocação (animação summon)
 		else {
 			triggerAnimation("summon");
 			performSummonAttack();
 			attackCounter = 0;
 		}
-		// Marca como atacando para animação
 		this.swinging = true;
 		this.lastSwing = this.level().getGameTime();
 	}
 
-	// Método para ataque desarmador
 	private void performDisarmAttack(LivingEntity target) {
 		if (target instanceof Player player) {
 			if (player.isBlocking()) {
-				// Desarma o escudo por 4 segundos (80 ticks)
 				player.disableShield(true);
-				// Aplica efeito panic (5 segundos = 100 ticks)
 				target.addEffect(new MobEffectInstance(MorebossesModMobEffects.PANIC.get(), 100, 0));
 			}
 		}
 	}
 
-	// Método para invocação
 	private void performSummonAttack() {
 		Level world = this.level();
 		if (!world.isClientSide()) {
@@ -187,41 +281,33 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 					double spawnX = this.getX() + Math.cos(angle) * radius;
 					double spawnY = this.getY() + 0.5;
 					double spawnZ = this.getZ() + Math.sin(angle) * radius;
-					// Verifica se tem espaço
 					BlockPos spawnPos = new BlockPos((int) spawnX, (int) spawnY, (int) spawnZ);
 					if (world.getBlockState(spawnPos).isAir() || world.getBlockState(spawnPos).canBeReplaced()) {
-						// Cria o Minilotl
 						var minilotl = MorebossesModEntities.MINILOTL.get().create(world);
 						if (minilotl != null) {
 							minilotl.moveTo(spawnX, spawnY, spawnZ, this.getYRot(), 0);
-							// Define o mesmo alvo do Maxolotl
 							LivingEntity target = this.getTarget();
 							if (target != null) {
 								minilotl.setTarget(target);
 							}
 							world.addFreshEntity(minilotl);
-							// Registra como domado
 							tamedMinilotls.add(minilotl.getUUID());
 						}
 					}
 				}
 			} catch (Exception e) {
-				// Log ou tratamento de erro
 				System.err.println("Erro ao invocar Minilotls: " + e.getMessage());
 			}
 		}
 	}
 
-	// Limpa Minilotls mortos da lista
 	private void cleanDeadMinilotls() {
 		if (!this.level().isClientSide()) {
 			List<UUID> toRemove = new ArrayList<>();
 			for (UUID minilotlId : tamedMinilotls) {
 				boolean found = false;
-				// Busca todas as entidades Minilotl na área
 				var minilotlType = MorebossesModEntities.MINILOTL.get();
 				if (minilotlType != null) {
-					// Busca por entidades do tipo Minilotl em uma área grande
 					for (var entity : this.level().getEntitiesOfClass(minilotlType.getBaseClass(), this.getBoundingBox().inflate(100))) {
 						if (entity.getUUID().equals(minilotlId) && entity.isAlive()) {
 							found = true;
@@ -237,7 +323,6 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		}
 	}
 
-	// Método para ativar animação
 	private void triggerAnimation(String animation) {
 		this.animationprocedure = animation;
 		this.entityData.set(ANIMATION, animation);
@@ -281,10 +366,8 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 			return false;
 		if (source.is(DamageTypes.DROWN))
 			return false;
-		// Quando é atacado, os Minilotls atacam o agressor
 		if (!this.level().isClientSide() && source.getEntity() instanceof LivingEntity attacker) {
 			for (UUID minilotlId : tamedMinilotls) {
-				// Busca todas as entidades Minilotl na área
 				var minilotlType = MorebossesModEntities.MINILOTL.get();
 				if (minilotlType != null) {
 					for (var entity : this.level().getEntitiesOfClass(minilotlType.getBaseClass(), this.getBoundingBox().inflate(50))) {
@@ -307,7 +390,6 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		compound.putString("Texture", this.getTexture());
 		compound.putInt("AttackCounter", this.attackCounter);
 		compound.putInt("AttackCooldown", this.attackCooldown);
-		// Salva Minilotls domados
 		CompoundTag minilotlsTag = new CompoundTag();
 		int i = 0;
 		for (UUID uuid : tamedMinilotls) {
@@ -327,7 +409,6 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 			this.attackCounter = compound.getInt("AttackCounter");
 		if (compound.contains("AttackCooldown"))
 			this.attackCooldown = compound.getInt("AttackCooldown");
-		// Carrega Minilotls domados
 		tamedMinilotls.clear();
 		if (compound.contains("TamedMinilotls")) {
 			CompoundTag minilotlsTag = compound.getCompound("TamedMinilotls");
@@ -347,28 +428,23 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 			MaxoloteQuebraBlocosProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
 		}
 		this.refreshDimensions();
-		// Reduz cooldown do ataque
 		if (attackCooldown > 0) {
 			attackCooldown--;
 		}
-		// Controla animação de ataque
 		if (this.swinging && this.lastSwing + 15L <= level().getGameTime()) {
 			this.swinging = false;
 			this.animationprocedure = "empty";
 		}
-		// Limpa Minilotls mortos periodicamente
-		if (this.tickCount % 100 == 0) { // A cada 5 segundos
+		if (this.tickCount % 100 == 0) {
 			cleanDeadMinilotls();
 		}
-		// Atualiza alvos dos Minilotls
-		if (!this.level().isClientSide() && this.tickCount % 20 == 0) { // A cada segundo
+		if (!this.level().isClientSide() && this.tickCount % 20 == 0) {
 			LivingEntity target = this.getTarget();
 			if (target != null) {
 				var minilotlType = MorebossesModEntities.MINILOTL.get();
 				if (minilotlType != null) {
 					for (var entity : this.level().getEntitiesOfClass(minilotlType.getBaseClass(), this.getBoundingBox().inflate(50))) {
 						if (tamedMinilotls.contains(entity.getUUID()) && entity.isAlive() && entity instanceof LivingEntity livingEntity) {
-							// Atualiza o alvo do Minilotl
 							livingEntity.setLastHurtByMob(target);
 							if (entity instanceof Monster monster) {
 								monster.setTarget(target);
@@ -420,28 +496,32 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		AttributeSupplier.Builder builder = Mob.createMobAttributes();
-		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
+		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3); // Velocidade terra
 		builder = builder.add(Attributes.MAX_HEALTH, 600);
 		builder = builder.add(Attributes.ARMOR, 35);
-		builder = builder.add(Attributes.ATTACK_DAMAGE, 15); // Aumentado para 15
-		builder = builder.add(Attributes.FOLLOW_RANGE, 32); // Aumentado para 32 blocos
-		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1); // Reduzido para poder ser empurrado
-		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1.0); // Aumentado knockback
-		builder = builder.add(Attributes.ATTACK_SPEED, 0.8); // Velocidade de ataque
-		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 4); // Velocidade na água
+		builder = builder.add(Attributes.ATTACK_DAMAGE, 15);
+		builder = builder.add(Attributes.FOLLOW_RANGE, 32);
+		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1);
+		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1.0);
+		builder = builder.add(Attributes.ATTACK_SPEED, 0.8);
+		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 2.5); // Velocidade água (não precisa ser 4, o MoveControl multiplica)
 		return builder;
 	}
 
 	private PlayState movementPredicate(AnimationState event) {
 		if (this.animationprocedure.equals("empty")) {
 			if ((event.isMoving() || !(event.getLimbSwingAmount() > -0.15F && event.getLimbSwingAmount() < 0.15F))) {
+				if (this.isInWaterOrBubble()) {
+					return event.setAndContinue(RawAnimation.begin().thenLoop("swim"));
+				}
 				return event.setAndContinue(RawAnimation.begin().thenLoop("walk"));
 			}
 			if (this.isDeadOrDying()) {
 				return event.setAndContinue(RawAnimation.begin().thenPlay("death"));
 			}
 			if (this.isInWaterOrBubble()) {
-				return event.setAndContinue(RawAnimation.begin().thenLoop("swim"));
+				// Adicionado idle de nado para não parecer que está andando parado na água
+				return event.setAndContinue(RawAnimation.begin().thenLoop("swim_idle")); 
 			}
 			return event.setAndContinue(RawAnimation.begin().thenLoop("idle"));
 		}
@@ -461,7 +541,6 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 		}
 		if (this.swinging && event.getController().getAnimationState() == AnimationController.State.STOPPED) {
 			event.getController().forceAnimationReset();
-			// Usa a animação atual ou padrão
 			if (!this.animationprocedure.equals("empty")) {
 				return event.setAndContinue(RawAnimation.begin().thenPlay(this.animationprocedure));
 			}
@@ -493,12 +572,10 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 	protected void tickDeath() {
 		++this.deathTime;
 		if (this.deathTime == 40) {
-			// Libera os Minilotls quando morre
 			var minilotlType = MorebossesModEntities.MINILOTL.get();
 			if (minilotlType != null) {
 				for (var entity : this.level().getEntitiesOfClass(minilotlType.getBaseClass(), this.getBoundingBox().inflate(50))) {
 					if (tamedMinilotls.contains(entity.getUUID()) && entity.isAlive()) {
-						// Limpa o último agressor do Minilotl
 						if (entity instanceof LivingEntity livingEntity) {
 							livingEntity.setLastHurtByMob(null);
 						}
@@ -515,6 +592,17 @@ public class MaxolotEntity extends Monster implements GeoEntity {
 			}
 		}
 	}
+
+    // --- CORREÇÃO: checkDespawn ---
+    // Impede que o boss desapareça (despawn) aleatoriamente já que agora ele tem navegação customizada
+    @Override
+    public void checkDespawn() {
+        if (this.level().getDifficulty() == net.minecraft.world.Difficulty.PEACEFUL && this.shouldDespawnInPeaceful()) {
+            this.discard();
+        } else {
+            this.noActionTime = 0;
+        }
+    }
 
 	public String getSyncedAnimation() {
 		return this.entityData.get(ANIMATION);
