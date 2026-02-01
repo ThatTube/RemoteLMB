@@ -1,0 +1,19 @@
+{
+  "_fv": 73,
+  "_type": "jeirecipe",
+  "definition": {
+    "category": "mega_forge_improvements",
+    "result": {
+      "value": "CUSTOM:CopperGlove"
+    },
+    "count": 1,
+    "ingredients": [
+      {
+        "value": "CUSTOM:RobotGlove"
+      },
+      {
+        "value": "CUSTOM:MONSTROUSFOOTWEAR.boots"
+      }
+    ]
+  }
+}

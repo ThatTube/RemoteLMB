@@ -4,17 +4,17 @@
   "definition": {
     "mobName": "Dry Bones",
     "mobLabel": "",
-    "mobModelTexture": "drycool.png",
-    "mobModelGlowTexture": "dryglow.png",
+    "mobModelTexture": "eisque.png",
+    "mobModelGlowTexture": "leto.png",
     "visualScale": {
-      "fixedValue": 1.0
+      "fixedValue": 1.5
     },
     "boundingBoxScale": {
       "fixedValue": 1.0
     },
     "entityDataEntries": [],
-    "modelWidth": 1.2,
-    "modelHeight": 4.0,
+    "modelWidth": 1.5,
+    "modelHeight": 3.0,
     "modelShadowSize": 0.5,
     "mountedYOffset": 0.0,
     "stepHeight": 1.0,
@@ -59,7 +59,7 @@
     "attackKnockback": 0.0,
     "knockbackResistance": 0.0,
     "movementSpeed": 0.25,
-    "armorBaseValue": 60.0,
+    "armorBaseValue": 80.0,
     "trackingRange": 64,
     "followRange": 16,
     "health": 450,
@@ -111,8 +111,8 @@
     },
     "hasAI": true,
     "aiBase": "(none)",
-    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"avoid_entity\"><field name=\"entity\">CUSTOM:CopperMonstrosity</field><field name=\"radius\">4</field><field name=\"farspeed\">5</field><field name=\"nearspeed\">1.2</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><field name=\"condition\">null,null</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.5</field><field name=\"longmemory\">TRUE</field><field name=\"condition\">null,null</field><next><block type=\"wander\"><field name=\"speed\">1</field><field name=\"condition\">null,null</field><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><field name=\"condition\">null,null</field><next><block type=\"look_around\"><field name=\"condition\">null,null</field><next><block type=\"swim_in_water\"><field name=\"condition\">null,null</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
-    "model": "the_cool_drybones.geo.json",
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"avoid_entity\"><field name=\"entity\">CUSTOM:CopperMonstrosity</field><field name=\"radius\">4</field><field name=\"farspeed\">5</field><field name=\"nearspeed\">1.2</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPiglin</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPiglinBrute</field><field name=\"condition\">null,null</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.5</field><field name=\"longmemory\">TRUE</field><field name=\"condition\">null,null</field><next><block type=\"wander\"><field name=\"speed\">1</field><field name=\"condition\">null,null</field><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><field name=\"condition\">null,null</field><next><block type=\"look_around\"><field name=\"condition\">null,null</field><next><block type=\"swim_in_water\"><field name=\"condition\">null,null</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "model": "esqueleto_moslestador.geo.json",
     "groupName": "head",
     "animation1": "idle",
     "animation2": "walk",

@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "nether_wastes",
+    "crimson_forest"
+  ],
+  "spawners": {
+    "type": "morebosses:piglin_boxer",
+    "weight": 20,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

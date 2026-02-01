@@ -1,0 +1,17 @@
+{
+  "_fv": 73,
+  "_type": "jeiinformation",
+  "definition": {
+    "items": [
+      {
+        "value": "CUSTOM:MonstrosityEye"
+      },
+      {
+        "value": "CUSTOM:MMAEye"
+      }
+    ],
+    "information": [
+      "The eyes will guide you to the corresponding structure, like an ender eye"
+    ]
+  }
+}

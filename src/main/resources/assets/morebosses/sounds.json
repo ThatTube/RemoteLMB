@@ -7,5 +7,14 @@
         "stream": false
       }
     ]
+  },
+  "piglinboulusscream": {
+    "subtitle": "subtitles.piglinboulusscream",
+    "sounds": [
+      {
+        "name": "morebosses:whatsapp-audio-2026-02-01-at-16.09.22",
+        "stream": false
+      }
+    ]
   }
 }

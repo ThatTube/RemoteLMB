@@ -15,10 +15,10 @@ public class OilDropProjectileHitsLivingEntityProcedure {
 			return;
 		if (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("c:mechas")))) {
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MorebossesModMobEffects.ENGINE_BOOST.get(), 120, 1, false, false));
+				_entity.addEffect(new MobEffectInstance(MorebossesModMobEffects.ENGINE_BOOST.get(), 120, 0, false, false));
 		} else {
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MorebossesModMobEffects.STICKY.get(), 120, 1, false, false));
+				_entity.addEffect(new MobEffectInstance(MorebossesModMobEffects.STICKY.get(), 120, 0, false, false));
 		}
 	}
 }

@@ -16,16 +16,23 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.morebosses.entity.WitherMissileEntity;
 import net.mcreator.morebosses.entity.WindBurstEntity;
 import net.mcreator.morebosses.entity.TurretEntityProjectile;
 import net.mcreator.morebosses.entity.TurretEntity;
 import net.mcreator.morebosses.entity.TallEngineerEntity;
 import net.mcreator.morebosses.entity.SoulDionaeaEntity;
+import net.mcreator.morebosses.entity.ShrimpEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
+import net.mcreator.morebosses.entity.RobotWhaleEntity;
+import net.mcreator.morebosses.entity.PiglinBoxerEntity;
+import net.mcreator.morebosses.entity.PiglinBoulusEntity;
 import net.mcreator.morebosses.entity.OilEngineerEntity;
 import net.mcreator.morebosses.entity.OilDropEntity;
+import net.mcreator.morebosses.entity.MissileEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
+import net.mcreator.morebosses.entity.LaserEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
@@ -49,7 +56,7 @@ public class MorebossesModEntities {
 
 					.sized(0.6f, 1.8f));
 	public static final RegistryObject<EntityType<DryBonesEntity>> DRY_BONES = register("dry_bones",
-			EntityType.Builder.<DryBonesEntity>of(DryBonesEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(DryBonesEntity::new).fireImmune().sized(1.2f, 4f));
+			EntityType.Builder.<DryBonesEntity>of(DryBonesEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(DryBonesEntity::new).fireImmune().sized(1.5f, 3f));
 	public static final RegistryObject<EntityType<MinilotlEntity>> MINILOTL = register("minilotl",
 			EntityType.Builder.<MinilotlEntity>of(MinilotlEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MinilotlEntity::new)
 
@@ -94,6 +101,26 @@ public class MorebossesModEntities {
 			EntityType.Builder.<CopperGrablerEntity>of(CopperGrablerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CopperGrablerEntity::new)
 
 					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<WitherMissileEntity>> WITHER_MISSILE = register("wither_missile",
+			EntityType.Builder.<WitherMissileEntity>of(WitherMissileEntity::new, MobCategory.MISC).setCustomClientFactory(WitherMissileEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<MissileEntity>> MISSILE = register("missile",
+			EntityType.Builder.<MissileEntity>of(MissileEntity::new, MobCategory.MISC).setCustomClientFactory(MissileEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<RobotWhaleEntity>> ROBOT_WHALE = register("robot_whale",
+			EntityType.Builder.<RobotWhaleEntity>of(RobotWhaleEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(RobotWhaleEntity::new)
+
+					.sized(2f, 1.2f));
+	public static final RegistryObject<EntityType<LaserEntity>> LASER = register("laser",
+			EntityType.Builder.<LaserEntity>of(LaserEntity::new, MobCategory.MISC).setCustomClientFactory(LaserEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<ShrimpEntity>> SHRIMP = register("shrimp",
+			EntityType.Builder.<ShrimpEntity>of(ShrimpEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(ShrimpEntity::new)
+
+					.sized(0.2f, 0.2f));
+	public static final RegistryObject<EntityType<PiglinBoulusEntity>> PIGLIN_BOULUS = register("piglin_boulus", EntityType.Builder.<PiglinBoulusEntity>of(PiglinBoulusEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true)
+			.setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(PiglinBoulusEntity::new).fireImmune().sized(1.2f, 3f));
+	public static final RegistryObject<EntityType<PiglinBoxerEntity>> PIGLIN_BOXER = register("piglin_boxer",
+			EntityType.Builder.<PiglinBoxerEntity>of(PiglinBoxerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(PiglinBoxerEntity::new)
+
+					.sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -117,6 +144,10 @@ public class MorebossesModEntities {
 			TallEngineerEntity.init();
 			OilEngineerEntity.init();
 			CopperGrablerEntity.init();
+			RobotWhaleEntity.init();
+			ShrimpEntity.init();
+			PiglinBoulusEntity.init();
+			PiglinBoxerEntity.init();
 		});
 	}
 
@@ -135,5 +166,9 @@ public class MorebossesModEntities {
 		event.put(TALL_ENGINEER.get(), TallEngineerEntity.createAttributes().build());
 		event.put(OIL_ENGINEER.get(), OilEngineerEntity.createAttributes().build());
 		event.put(COPPER_GRABLER.get(), CopperGrablerEntity.createAttributes().build());
+		event.put(ROBOT_WHALE.get(), RobotWhaleEntity.createAttributes().build());
+		event.put(SHRIMP.get(), ShrimpEntity.createAttributes().build());
+		event.put(PIGLIN_BOULUS.get(), PiglinBoulusEntity.createAttributes().build());
+		event.put(PIGLIN_BOXER.get(), PiglinBoxerEntity.createAttributes().build());
 	}
 }

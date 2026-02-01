@@ -14,12 +14,12 @@ import net.mcreator.morebosses.entity.DryBonesEntity;
 public class DryBonesModel extends GeoModel<DryBonesEntity> {
 	@Override
 	public ResourceLocation getAnimationResource(DryBonesEntity entity) {
-		return new ResourceLocation("morebosses", "animations/the_cool_drybones.animation.json");
+		return new ResourceLocation("morebosses", "animations/esqueleto_moslestador.animation.json");
 	}
 
 	@Override
 	public ResourceLocation getModelResource(DryBonesEntity entity) {
-		return new ResourceLocation("morebosses", "geo/the_cool_drybones.geo.json");
+		return new ResourceLocation("morebosses", "geo/esqueleto_moslestador.geo.json");
 	}
 
 	@Override

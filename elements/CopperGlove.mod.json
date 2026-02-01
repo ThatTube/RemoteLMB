@@ -1,0 +1,74 @@
+{
+  "_fv": 73,
+  "_type": "animateditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "copper_gloves",
+    "name": "Copper Glove",
+    "idle": "0",
+    "rarity": "EPIC",
+    "displaySettings": "curilass_glove.json",
+    "leftArm": "",
+    "rightArm": "",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:LMBItens"
+      }
+    ],
+    "firstPersonArms": false,
+    "stackSize": 1,
+    "enchantability": 0,
+    "useDuration": 0,
+    "toolType": 1.0,
+    "damageCount": 0,
+    "recipeRemainder": {
+      "value": ""
+    },
+    "destroyAnyBlock": false,
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "enableArmPose": true,
+    "damageOnCrafting": false,
+    "enableMeleeDamage": true,
+    "damageVsEntity": 11.0,
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "hasGlow": false,
+    "guiBoundTo": "<NONE>",
+    "inventorySize": 9,
+    "inventoryStackSize": 64,
+    "onRightClickedOnBlock": {
+      "name": "CopperGloveRightclickedOnBlock"
+    },
+    "isFood": false,
+    "nutritionalValue": 4,
+    "saturation": 0.3,
+    "eatResultItem": {
+      "value": ""
+    },
+    "isMeat": false,
+    "isAlwaysEdible": false,
+    "animation": "none",
+    "normal": "cuirlass_glove.geo.json",
+    "armPoseList": [
+      {
+        "armHeld": "RIGHT",
+        "arm": "RIGHT",
+        "angle": "X",
+        "rotation": 150.0,
+        "swings": false,
+        "followsHead": false
+      },
+      {
+        "armHeld": "LEFT",
+        "arm": "LEFT",
+        "angle": "X",
+        "rotation": 150.0,
+        "swings": false,
+        "followsHead": false
+      }
+    ],
+    "disableSwing": false
+  }
+}

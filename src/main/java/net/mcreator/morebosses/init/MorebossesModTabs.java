@@ -39,6 +39,7 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.INDESTRUCTIBLE_BLOCK.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_GRATES.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_PRESSURE_PLATE.get().asItem());
+				tabData.accept(MorebossesModBlocks.MEGA_FORGE.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -77,6 +78,15 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.MOTHERBOARD.get());
 				tabData.accept(MorebossesModItems.COPPER_HAMMER.get());
 				tabData.accept(MorebossesModItems.COPPER_SOUP.get());
+				tabData.accept(MorebossesModItems.NETHERITE_SCIMITAR.get());
+				tabData.accept(MorebossesModItems.CUIRLASS_GLOVE.get());
+				tabData.accept(MorebossesModItems.ROBOT_GLOVE.get());
+				tabData.accept(MorebossesModItems.COPPER_GLOVE.get());
+				tabData.accept(MorebossesModItems.MMA_GLOVE.get());
+				tabData.accept(MorebossesModItems.WITHER_RING.get());
+				tabData.accept(MorebossesModItems.RING.get());
+				tabData.accept(MorebossesModItems.FIRE_RING.get());
+				tabData.accept(MorebossesModItems.POISON_RING.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {
@@ -91,6 +101,10 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.TALL_ENGINEER_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.OIL_ENGINEER_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.COPPER_GRABLER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.ROBOT_WHALE_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.SHRIMP_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.PIGLIN_BOULUS_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.PIGLIN_BOXER_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 
 	@SubscribeEvent

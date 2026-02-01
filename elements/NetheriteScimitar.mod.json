@@ -1,0 +1,42 @@
+{
+  "_fv": 73,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Sword",
+    "renderType": 0,
+    "blockingRenderType": 0,
+    "texture": "netherite_sword_distorced",
+    "customModelName": "Normal",
+    "blockingModelName": "Normal blocking",
+    "name": "Strangely Crooked Netherite Sword",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:LMBItens"
+      }
+    ],
+    "efficiency": 9.0,
+    "attackSpeed": 1.7999999999999998,
+    "enchantability": 15,
+    "damageVsEntity": 8.5,
+    "usageCount": 2031,
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "repairItems": [
+      {
+        "value": "Items.NETHERITE_INGOT"
+      },
+      {
+        "value": "CUSTOM:NetherBricksStick"
+      }
+    ],
+    "immuneToFire": false,
+    "blockDropsTier": "NETHERITE",
+    "blocksAffected": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

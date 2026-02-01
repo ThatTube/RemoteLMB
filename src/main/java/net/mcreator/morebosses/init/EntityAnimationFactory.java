@@ -7,6 +7,9 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.mcreator.morebosses.entity.TurretEntity;
 import net.mcreator.morebosses.entity.TallEngineerEntity;
 import net.mcreator.morebosses.entity.SoulDionaeaEntity;
+import net.mcreator.morebosses.entity.RobotWhaleEntity;
+import net.mcreator.morebosses.entity.PiglinBoxerEntity;
+import net.mcreator.morebosses.entity.PiglinBoulusEntity;
 import net.mcreator.morebosses.entity.OilEngineerEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
@@ -100,6 +103,27 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof CopperGrablerEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof RobotWhaleEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof PiglinBoulusEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof PiglinBoxerEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");

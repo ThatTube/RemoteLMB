@@ -20,21 +20,21 @@
         "attribute": {
           "value": "ATTACK_SPEED"
         },
-        "amount": -1.0,
+        "amount": -0.75,
         "operation": "ADD_VALUE"
       },
       {
         "attribute": {
           "value": "MOVEMENT_SPEED"
         },
-        "amount": -0.5,
+        "amount": -0.25,
         "operation": "ADD_VALUE"
       },
       {
         "attribute": {
           "value": "ENTITY_GRAVITY"
         },
-        "amount": 0.5,
+        "amount": 0.1,
         "operation": "ADD_VALUE"
       }
     ]

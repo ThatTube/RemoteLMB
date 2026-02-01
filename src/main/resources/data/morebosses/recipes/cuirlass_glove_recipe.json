@@ -1,0 +1,15 @@
+{
+  "type": "morebosses:mega_forge_improvements",
+  "ingredients": [
+    {
+      "item": "morebosses:robot_glove"
+    },
+    {
+      "item": "morebosses:stone_cuirlass"
+    }
+  ],
+  "output": {
+    "item": "morebosses:cuirlass_glove",
+    "count": 1
+  }
+}

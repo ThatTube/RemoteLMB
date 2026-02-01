@@ -15,7 +15,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 public class DryBonesLayer extends GeoRenderLayer<DryBonesEntity> {
-	private static final ResourceLocation LAYER = new ResourceLocation("morebosses", "textures/entities/dryglow.png");
+	private static final ResourceLocation LAYER = new ResourceLocation("morebosses", "textures/entities/leto.png");
 
 	public DryBonesLayer(GeoRenderer<DryBonesEntity> entityRenderer) {
 		super(entityRenderer);

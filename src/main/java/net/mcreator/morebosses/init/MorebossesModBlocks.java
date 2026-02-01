@@ -16,6 +16,7 @@ import net.mcreator.morebosses.block.SeatBlock;
 import net.mcreator.morebosses.block.RawMagmaBlockBlock;
 import net.mcreator.morebosses.block.RawMagmaBlock;
 import net.mcreator.morebosses.block.PolishedCrackedBlackstoneBlockBlock;
+import net.mcreator.morebosses.block.MegaForgeBlock;
 import net.mcreator.morebosses.block.IndestructibleBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlock;
@@ -54,6 +55,7 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> COPPER_GRATES = REGISTRY.register("copper_grates", () -> new CopperGratesBlock());
 	public static final RegistryObject<Block> COPPER_PRESSURE_PLATE = REGISTRY.register("copper_pressure_plate", () -> new CopperPressurePlateBlock());
 	public static final RegistryObject<Block> COPPER_STRUCTURE_DETECT = REGISTRY.register("copper_structure_detect", () -> new CopperStructureDetectBlock());
+	public static final RegistryObject<Block> MEGA_FORGE = REGISTRY.register("mega_forge", () -> new MegaForgeBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

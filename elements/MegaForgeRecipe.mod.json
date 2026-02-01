@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "BUILDING",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Blocks.GRINDSTONE"
+      },
+      {
+        "value": "Blocks.SMITHING_TABLE"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "Items.CAULDRON"
+      },
+      {
+        "value": "Blocks.ANVIL"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:MegaForge"
+    },
+    "name": "mega_forge_recipe",
+    "namespace": "mod"
+  }
+}

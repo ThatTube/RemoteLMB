@@ -1,0 +1,6 @@
+{
+  "parent": "morebosses:displaysettings/curilass_glove",
+  "textures": {
+    "layer0": "morebosses:item/cg"
+  }
+}

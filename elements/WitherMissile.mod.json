@@ -1,0 +1,27 @@
+{
+  "_fv": 73,
+  "_type": "projectile",
+  "definition": {
+    "projectileItem": {
+      "value": "Blocks.REDSTONE_BLOCK"
+    },
+    "showParticles": false,
+    "actionSound": {
+      "value": "entity.wither.shoot"
+    },
+    "igniteFire": false,
+    "power": 1.0,
+    "damage": 5.0,
+    "knockback": 1,
+    "entityModel": "Modelwither_gloveproject",
+    "customModelTexture": "missil_wither.png",
+    "modelWidth": 0.5,
+    "modelHeight": 0.5,
+    "onHitsBlock": {
+      "name": "WitherMissileProjectileHitsBlock"
+    },
+    "onHitsEntity": {
+      "name": "WitherMissileProjectileHitsBlock"
+    }
+  }
+}

@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "morebosses:maxolot",
-    "morebosses:minilotl"
+    "morebosses:minilotl",
+    "morebosses:robot_whale"
   ]
 }

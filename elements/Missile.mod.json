@@ -1,0 +1,27 @@
+{
+  "_fv": 73,
+  "_type": "projectile",
+  "definition": {
+    "projectileItem": {
+      "value": "Blocks.REDSTONE_BLOCK"
+    },
+    "showParticles": false,
+    "actionSound": {
+      "value": "entity.tnt.primed"
+    },
+    "igniteFire": false,
+    "power": 1.0,
+    "damage": 7.0,
+    "knockback": 1,
+    "entityModel": "Modelwither_gloveproject",
+    "customModelTexture": "missil.png",
+    "modelWidth": 0.5,
+    "modelHeight": 0.5,
+    "onHitsBlock": {
+      "name": "MissileProjectileHitsBlock"
+    },
+    "onHitsEntity": {
+      "name": "MissileProjectileHitsBlock"
+    }
+  }
+}

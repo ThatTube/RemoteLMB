@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/mma_glove",
+  "textures": {
+    "1": "morebosses:block/mma_glove",
+    "particle": "minecraft:item/scute"
+  }
+}

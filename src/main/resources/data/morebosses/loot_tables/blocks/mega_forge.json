@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "morebosses:blocks/mega_forge",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "morebosses:mega_forge"
+        }
+      ]
+    }
+  ]
+}

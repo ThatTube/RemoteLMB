@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ab",
+    "cd"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:grindstone"
+    },
+    "b": {
+      "item": "minecraft:smithing_table"
+    },
+    "c": {
+      "item": "minecraft:cauldron"
+    },
+    "d": {
+      "tag": "minecraft:anvil"
+    }
+  },
+  "result": {
+    "item": "morebosses:mega_forge",
+    "count": 1
+  }
+}

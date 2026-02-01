@@ -15,9 +15,9 @@ import java.util.ArrayList;
 public class StickyMobEffect extends MobEffect {
 	public StickyMobEffect() {
 		super(MobEffectCategory.HARMFUL, -16777216);
-		this.addAttributeModifier(Attributes.ATTACK_SPEED, "4fad2721-31dc-3348-b9dc-654ecbe71698", -1, AttributeModifier.Operation.ADDITION);
-		this.addAttributeModifier(Attributes.MOVEMENT_SPEED, "875545ed-7ad4-3ca6-8a5f-3fe9cc6f4124", -0.5, AttributeModifier.Operation.ADDITION);
-		this.addAttributeModifier(ForgeMod.ENTITY_GRAVITY.get(), "e7d8afcf-20f7-3aa5-b1e5-d6c1ccffa5db", 0.5, AttributeModifier.Operation.ADDITION);
+		this.addAttributeModifier(Attributes.ATTACK_SPEED, "4fad2721-31dc-3348-b9dc-654ecbe71698", -0.75, AttributeModifier.Operation.ADDITION);
+		this.addAttributeModifier(Attributes.MOVEMENT_SPEED, "875545ed-7ad4-3ca6-8a5f-3fe9cc6f4124", -0.25, AttributeModifier.Operation.ADDITION);
+		this.addAttributeModifier(ForgeMod.ENTITY_GRAVITY.get(), "e7d8afcf-20f7-3aa5-b1e5-d6c1ccffa5db", 0.1, AttributeModifier.Operation.ADDITION);
 	}
 
 	@Override

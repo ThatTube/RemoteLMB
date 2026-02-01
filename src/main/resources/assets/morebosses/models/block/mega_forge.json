@@ -1,0 +1,9 @@
+{
+  "parent": "morebosses:custom/megaforge",
+  "textures": {
+    "all": "minecraft:block/attached_melon_stem",
+    "particle": "minecraft:block/attached_melon_stem",
+    "0": "morebosses:block/megaforge"
+  },
+  "render_type": "solid"
+}

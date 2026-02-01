@@ -22,6 +22,7 @@ import net.mcreator.morebosses.init.MorebossesModSounds;
 import net.mcreator.morebosses.init.MorebossesModPotions;
 import net.mcreator.morebosses.init.MorebossesModPaintings;
 import net.mcreator.morebosses.init.MorebossesModMobEffects;
+import net.mcreator.morebosses.init.MorebossesModMenus;
 import net.mcreator.morebosses.init.MorebossesModItems;
 import net.mcreator.morebosses.init.MorebossesModFluids;
 import net.mcreator.morebosses.init.MorebossesModFluidTypes;
@@ -61,6 +62,7 @@ public class MorebossesMod {
 		MorebossesModPotions.REGISTRY.register(bus);
 		MorebossesModPaintings.REGISTRY.register(bus);
 
+		MorebossesModMenus.REGISTRY.register(bus);
 		MorebossesModFluids.REGISTRY.register(bus);
 		MorebossesModFluidTypes.REGISTRY.register(bus);
 

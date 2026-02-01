@@ -17,6 +17,8 @@ public class MaxoloteQuebraBlocosProcedure {
 							&& world.getBlockState(BlockPos.containing(x + xi, y + 1, z + zi)).getDestroySpeed(world, BlockPos.containing(x + xi, y + 1, z + zi)) > 0
 							&& world.getBlockState(BlockPos.containing(x + xi, y + 3, z + zi)).getDestroySpeed(world, BlockPos.containing(x + xi, y + 3, z + zi)) < 22
 							&& world.getBlockState(BlockPos.containing(x + xi, y + 3, z + zi)).getDestroySpeed(world, BlockPos.containing(x + xi, y + 3, z + zi)) > 0
+							&& world.getBlockState(BlockPos.containing(x + xi, y, z + zi)).getDestroySpeed(world, BlockPos.containing(x + xi, y, z + zi)) < 22
+							&& world.getBlockState(BlockPos.containing(x + xi, y, z + zi)).getDestroySpeed(world, BlockPos.containing(x + xi, y, z + zi)) > 0
 							&& world.getBlockState(BlockPos.containing(x + xi, y + 2, z + zi)).getDestroySpeed(world, BlockPos.containing(x + xi, y + 2, z + zi)) < 22
 							&& world.getBlockState(BlockPos.containing(x + xi, y + 2, z + zi)).getDestroySpeed(world, BlockPos.containing(x + xi, y + 2, z + zi)) > 0) {
 						{
@@ -31,6 +33,11 @@ public class MaxoloteQuebraBlocosProcedure {
 						}
 						{
 							BlockPos _pos = BlockPos.containing(x + xi, y + 1, z + zi);
+							Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
+							world.destroyBlock(_pos, false);
+						}
+						{
+							BlockPos _pos = BlockPos.containing(x + xi, y, z + zi);
 							Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
 							world.destroyBlock(_pos, false);
 						}
