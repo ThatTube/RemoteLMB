@@ -73,7 +73,7 @@
       "value": ""
     },
     "offsetType": "NONE",
-    "aiPathNodeType": "DEFAULT",
+    "aiPathNodeType": "DAMAGE_FIRE",
     "flammability": 0,
     "fireSpreadSpeed": 0,
     "isLadder": false,

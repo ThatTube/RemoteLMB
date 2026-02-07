@@ -32,7 +32,10 @@ import net.mcreator.morebosses.entity.OilDropEntity;
 import net.mcreator.morebosses.entity.MissileEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
+import net.mcreator.morebosses.entity.MagmaticChampionEntity;
+import net.mcreator.morebosses.entity.MagmaPitEntity;
 import net.mcreator.morebosses.entity.LaserEntity;
+import net.mcreator.morebosses.entity.LamentBombEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
@@ -40,6 +43,7 @@ import net.mcreator.morebosses.entity.CopperGrablerEntity;
 import net.mcreator.morebosses.entity.CopperEyeEntity;
 import net.mcreator.morebosses.entity.BruteEngineerEntity;
 import net.mcreator.morebosses.entity.BeggarWolfEntity;
+import net.mcreator.morebosses.entity.ArchdukeLytherionEntity;
 import net.mcreator.morebosses.MorebossesMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -121,6 +125,16 @@ public class MorebossesModEntities {
 			EntityType.Builder.<PiglinBoxerEntity>of(PiglinBoxerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(PiglinBoxerEntity::new)
 
 					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<ArchdukeLytherionEntity>> ARCHDUKE_LYTHERION = register("archduke_lytherion",
+			EntityType.Builder.<ArchdukeLytherionEntity>of(ArchdukeLytherionEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(ArchdukeLytherionEntity::new)
+
+					.sized(1.6f, 2f));
+	public static final RegistryObject<EntityType<LamentBombEntity>> LAMENT_BOMB = register("lament_bomb",
+			EntityType.Builder.<LamentBombEntity>of(LamentBombEntity::new, MobCategory.MISC).setCustomClientFactory(LamentBombEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<MagmaticChampionEntity>> MAGMATIC_CHAMPION = register("magmatic_champion", EntityType.Builder.<MagmaticChampionEntity>of(MagmaticChampionEntity::new, MobCategory.MONSTER)
+			.setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(MagmaticChampionEntity::new).fireImmune().sized(1f, 2.5f));
+	public static final RegistryObject<EntityType<MagmaPitEntity>> MAGMA_PIT = register("magma_pit",
+			EntityType.Builder.<MagmaPitEntity>of(MagmaPitEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MagmaPitEntity::new).fireImmune().sized(1f, 0.1f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -148,6 +162,9 @@ public class MorebossesModEntities {
 			ShrimpEntity.init();
 			PiglinBoulusEntity.init();
 			PiglinBoxerEntity.init();
+			ArchdukeLytherionEntity.init();
+			MagmaticChampionEntity.init();
+			MagmaPitEntity.init();
 		});
 	}
 
@@ -170,5 +187,8 @@ public class MorebossesModEntities {
 		event.put(SHRIMP.get(), ShrimpEntity.createAttributes().build());
 		event.put(PIGLIN_BOULUS.get(), PiglinBoulusEntity.createAttributes().build());
 		event.put(PIGLIN_BOXER.get(), PiglinBoxerEntity.createAttributes().build());
+		event.put(ARCHDUKE_LYTHERION.get(), ArchdukeLytherionEntity.createAttributes().build());
+		event.put(MAGMATIC_CHAMPION.get(), MagmaticChampionEntity.createAttributes().build());
+		event.put(MAGMA_PIT.get(), MagmaPitEntity.createAttributes().build());
 	}
 }

@@ -13,12 +13,14 @@ import net.mcreator.morebosses.entity.PiglinBoulusEntity;
 import net.mcreator.morebosses.entity.OilEngineerEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
+import net.mcreator.morebosses.entity.MagmaticChampionEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
 import net.mcreator.morebosses.entity.CopperGrablerEntity;
 import net.mcreator.morebosses.entity.BruteEngineerEntity;
 import net.mcreator.morebosses.entity.BeggarWolfEntity;
+import net.mcreator.morebosses.entity.ArchdukeLytherionEntity;
 
 @Mod.EventBusSubscriber
 public class EntityAnimationFactory {
@@ -124,6 +126,20 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof PiglinBoxerEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof ArchdukeLytherionEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof MagmaticChampionEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:dry_bones_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.knockout.title"
+    },
+    "description": {
+      "translate": "advancements.knockout.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "knockout_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 22
+  },
+  "parent": "morebosses:fight_night"
+}

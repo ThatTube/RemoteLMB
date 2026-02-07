@@ -30,6 +30,7 @@ import net.mcreator.morebosses.init.MorebossesModEntities;
 import net.mcreator.morebosses.init.MorebossesModEnchantments;
 import net.mcreator.morebosses.init.MorebossesModBlocks;
 import net.mcreator.morebosses.init.MorebossesModBlockEntities;
+import net.mcreator.morebosses.init.MorebossesModAttributes;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -65,7 +66,7 @@ public class MorebossesMod {
 		MorebossesModMenus.REGISTRY.register(bus);
 		MorebossesModFluids.REGISTRY.register(bus);
 		MorebossesModFluidTypes.REGISTRY.register(bus);
-
+		MorebossesModAttributes.REGISTRY.register(bus);
 		// Start of user code block mod init
 		// End of user code block mod init
 	}

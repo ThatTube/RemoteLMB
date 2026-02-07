@@ -8,6 +8,7 @@ import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.GeoEntity;
+import net.minecraft.sounds.SoundSource;
 
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
@@ -69,7 +70,11 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private boolean swinging;
+    private boolean isPerformingRanged = false;
     private boolean lastloop;
+    private int musicLoopTimer = 0;
+    // 4 minutos e 19 segundos = 259 segundos. 259 * 20 ticks = 5180 ticks.
+    private static final int MUSIC_DURATION_TICKS = 5180;
     private int slamInvulnerableTicks = 0;
     private int slamCooldown = 0;
     private int rangedCooldown = 0;
@@ -90,7 +95,6 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     private static final int RANGED_COOLDOWN_TIME = 80;
     private static final double MOVEMENT_THRESHOLD = 1.0E-6D;
     private boolean isPerformingSlam = false;
-    private boolean isPerformingRanged = false;
 
     public CopperMonstrosityEntity(PlayMessages.SpawnEntity packet, Level world) {
         this(MorebossesModEntities.COPPER_MONSTROSITY.get(), world);
@@ -118,6 +122,7 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
         this.entityData.define(DORMANT, true);
         this.entityData.define(WAKING_UP, false);
     }
+   
 
     public void setTexture(String texture) {
         this.entityData.set(TEXTURE, texture);
@@ -241,6 +246,9 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     @Override
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
+         
+        // ... outros puts ...
+        compound.putInt("MusicLoopTimer", this.musicLoopTimer);
         compound.putString("Texture", this.getTexture());
         compound.putInt("SlamCooldown", this.slamCooldown);
         compound.putInt("RangedCooldown", this.rangedCooldown);
@@ -264,7 +272,7 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
         if (compound.contains("UseRangedNext")) this.useRangedNext = compound.getBoolean("UseRangedNext");
         if (compound.contains("IsPerformingSlam")) this.isPerformingSlam = compound.getBoolean("IsPerformingSlam");
         if (compound.contains("IsPerformingRanged")) this.isPerformingRanged = compound.getBoolean("IsPerformingRanged");
-        
+         if (compound.contains("MusicLoopTimer")) this.musicLoopTimer = compound.getInt("MusicLoopTimer");
         if (compound.contains("Dormant")) this.setDormant(compound.getBoolean("Dormant"));
         if (compound.contains("WakingUp")) this.setWakingUp(compound.getBoolean("WakingUp"));
         if (compound.contains("WakeUpTimer")) this.wakeUpTimer = compound.getInt("WakeUpTimer");
@@ -314,9 +322,11 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
         }
     }
 
-    @Override
+   @Override
     public void customServerAiStep() {
-        // === LÓGICA DE DORMIR ===
+        // ==================================================
+        // 1. LÓGICA DE DORMIR
+        // ==================================================
         if (this.isDormant()) {
             // TRAVA MOVIMENTO E ROTAÇÃO
             this.setDeltaMovement(0, this.getDeltaMovement().y, 0);
@@ -324,16 +334,16 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
             this.getLookControl().setLookAt(this.getX(), this.getY(), this.getZ());
 
             boolean trigger = false;
-            LivingEntity currentTarget = this.getTarget();
+            // AQUI ESTAVA A PRIMEIRA DEFINIÇÃO DE CURRENT TARGET
+            LivingEntity sleepTarget = this.getTarget(); 
 
-            // CASO 1: Tem um alvo definido (ex: foi atacado) E o alvo está perto (< 5 blocos)
-            if (currentTarget != null) {
-                // Distância ao quadrado (5 * 5 = 25)
-                if (this.distanceToSqr(currentTarget) <= 225.0D) {
+            // CASO 1: Tem um alvo definido e está perto
+            if (sleepTarget != null) {
+                if (this.distanceToSqr(sleepTarget) <= 225.0D) {
                     trigger = true;
                 }
             } 
-            // CASO 2: Detecção passiva de jogador perto (< 5 blocos)
+            // CASO 2: Detecção passiva de jogador perto
             else {
                 Player nearestPlayer = this.level().getNearestPlayer(this, 15.0D);
                 if (nearestPlayer != null && !nearestPlayer.isCreative() && !nearestPlayer.isSpectator()) {
@@ -347,19 +357,20 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
             
             // Interrompe o resto da IA enquanto dorme
             this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
-            return;
-        }
-        // ========================
+            return; // <--- O CÓDIGO PARAVA AQUI, POR ISSO A MÚSICA NÃO TOCAVA
+        } // <--- FECHEI O IF DO DORMANT AQUI
 
-        // === LÓGICA DE ACORDAR ===
+        // ==================================================
+        // 2. LÓGICA DE ACORDAR
+        // ==================================================
         if (this.isWakingUp()) {
             this.setDeltaMovement(0, this.getDeltaMovement().y, 0);
             this.getNavigation().stop();
             
             this.wakeUpTimer--;
             if (this.wakeUpTimer <= 0) {
-                this.setWakingUp(false); // Libera a fera. Não há código que torne Dormant=true novamente.
-                // Quando acabar de acordar, adiciona todos os jogadores que estão vendo a entidade à barra de boss
+                this.setWakingUp(false); 
+                
                 if (!this.level().isClientSide()) {
                     for (Player player : this.level().players()) {
                         if (player instanceof ServerPlayer serverPlayer && serverPlayer.hasLineOfSight(this)) {
@@ -372,11 +383,48 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
             this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
             return;
         }
-        // =========================
 
+        // ==================================================
+        // 3. COMPORTAMENTO PADRÃO (Música e Ataques)
+        // ==================================================
         super.customServerAiStep();
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
+
+        // --- LÓGICA DA MÚSICA (Agora no lugar certo) ---
+        if (!this.level().isClientSide()) {
+            boolean shouldPlayMusic = false;
+
+            // Verifica se está viva, acordada e não acordando
+            if (this.isAlive() && !this.isDormant() && !this.isWakingUp()) {
+                // AQUI ESTAVA A SEGUNDA DEFINIÇÃO (AGORA VÁLIDA POIS MUDAMOS O ESCOPO)
+                LivingEntity musicTarget = this.getTarget(); 
+                
+                // Verifica se tem alvo, se é Player e está vivo
+                if (musicTarget instanceof Player && musicTarget.isAlive()) {
+                    // Raio de 40 blocos (40^2 = 1600)
+                    if (this.distanceToSqr(musicTarget) <= 1600.0D) {
+                        shouldPlayMusic = true;
+                    }
+                }
+            }
+
+            if (shouldPlayMusic) {
+                if (this.musicLoopTimer <= 0) {
+                    SoundEvent musicSound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses", "copper_placeholder"));
+                    
+                    if (musicSound != null) {
+                        this.level().playSound(null, this.getX(), this.getY(), this.getZ(), 
+                            musicSound, net.minecraft.sounds.SoundSource.RECORDS, 4.0f, 1.0f);
+                    }
+                    this.musicLoopTimer = MUSIC_DURATION_TICKS;
+                }
+                this.musicLoopTimer--;
+            } else {
+                this.musicLoopTimer = 0;
+            }
+        }
         
+        // --- ATAQUE À DISTÂNCIA ALEATÓRIO ---
         if (!this.level().isClientSide() && this.getTarget() != null && rangedCooldown <= 0 && !isPerformingSlam && !isPerformingRanged) {
             LivingEntity target = this.getTarget();
             double distance = this.distanceToSqr(target);
@@ -416,7 +464,7 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
         AttributeSupplier.Builder builder = Mob.createMobAttributes();
         builder = builder.add(Attributes.MOVEMENT_SPEED, 0.25);
         builder = builder.add(Attributes.MAX_HEALTH, 800);
-        builder = builder.add(Attributes.ARMOR, 33);
+        builder = builder.add(Attributes.ARMOR, 50);
         builder = builder.add(Attributes.ATTACK_DAMAGE, 20);
         builder = builder.add(Attributes.FOLLOW_RANGE, 64);
         builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 100);

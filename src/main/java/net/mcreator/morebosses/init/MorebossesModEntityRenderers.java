@@ -25,12 +25,16 @@ import net.mcreator.morebosses.client.renderer.OilEngineerRenderer;
 import net.mcreator.morebosses.client.renderer.MissileRenderer;
 import net.mcreator.morebosses.client.renderer.MinilotlRenderer;
 import net.mcreator.morebosses.client.renderer.MaxolotRenderer;
+import net.mcreator.morebosses.client.renderer.MagmaticChampionRenderer;
+import net.mcreator.morebosses.client.renderer.MagmaPitRenderer;
+import net.mcreator.morebosses.client.renderer.LamentBombRenderer;
 import net.mcreator.morebosses.client.renderer.EngineerRenderer;
 import net.mcreator.morebosses.client.renderer.DryBonesRenderer;
 import net.mcreator.morebosses.client.renderer.CopperMonstrosityRenderer;
 import net.mcreator.morebosses.client.renderer.CopperGrablerRenderer;
 import net.mcreator.morebosses.client.renderer.BruteEngineerRenderer;
 import net.mcreator.morebosses.client.renderer.BeggarWolfRenderer;
+import net.mcreator.morebosses.client.renderer.ArchdukeLytherionRenderer;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class MorebossesModEntityRenderers {
@@ -60,5 +64,9 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.SHRIMP.get(), ShrimpRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.PIGLIN_BOULUS.get(), PiglinBoulusRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.PIGLIN_BOXER.get(), PiglinBoxerRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.ARCHDUKE_LYTHERION.get(), ArchdukeLytherionRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.LAMENT_BOMB.get(), LamentBombRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.MAGMATIC_CHAMPION.get(), MagmaticChampionRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.MAGMA_PIT.get(), MagmaPitRenderer::new);
 	}
 }

@@ -57,7 +57,6 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
     public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(PiglinBoulusEntity.class, EntityDataSerializers.STRING);
     public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(PiglinBoulusEntity.class, EntityDataSerializers.STRING);
     public static final EntityDataAccessor<Integer> ATTACK_TYPE = SynchedEntityData.defineId(PiglinBoulusEntity.class, EntityDataSerializers.INT);
-    public static final EntityDataAccessor<Boolean> IS_SPAWNING = SynchedEntityData.defineId(PiglinBoulusEntity.class, EntityDataSerializers.BOOLEAN);
 
     private static final UUID RAGE_DAMAGE_MODIFIER_UUID = UUID.fromString("12345678-1234-1234-1234-1234567890ab");
 
@@ -68,8 +67,6 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
     public String animationprocedure = "empty";
     private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), ServerBossEvent.BossBarColor.RED, ServerBossEvent.BossBarOverlay.PROGRESS);
 
-    private int spawnTimer = 0;
-    private boolean hasSpawned = false;
     private boolean isEnraged = false;
 
     public PiglinBoulusEntity(PlayMessages.SpawnEntity packet, Level world) {
@@ -91,7 +88,6 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
         this.entityData.define(ANIMATION, "idle");
         this.entityData.define(TEXTURE, "piglinboulus");
         this.entityData.define(ATTACK_TYPE, 0);
-        this.entityData.define(IS_SPAWNING, false);
     }
 
     public void setTexture(String texture) {
@@ -102,14 +98,6 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
         return this.entityData.get(TEXTURE);
     }
 
-    public void setIsSpawning(boolean spawning) {
-        this.entityData.set(IS_SPAWNING, spawning);
-    }
-
-    public boolean getIsSpawning() {
-        return this.entityData.get(IS_SPAWNING);
-    }
-
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
@@ -118,38 +106,17 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, Player.class, true, false));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, DryBonesEntity.class, true, false));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, DryBonesEntity.class, true, false));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true, false));
         this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, true) {
             @Override
             protected double getAttackReachSqr(LivingEntity entity) {
                 return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
             }
-            
-            @Override
-            public boolean canUse() {
-                return super.canUse() && hasSpawned;
-            }
-            
-            @Override
-            public boolean canContinueToUse() {
-                return super.canContinueToUse() && hasSpawned;
-            }
         });
-        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 1) {
-            @Override
-            public boolean canUse() {
-                return super.canUse() && hasSpawned;
-            }
-        });
+        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 1));
         this.targetSelector.addGoal(5, new HurtByTargetGoal(this).setAlertOthers());
-        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this) {
-            @Override
-            public boolean canUse() {
-                return super.canUse() && hasSpawned;
-            }
-        });
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(7, new FloatGoal(this));
     }
 
@@ -179,9 +146,6 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
             return false;
         if (source.is(DamageTypes.FALL))
             return false;
-        
-        if (!hasSpawned && spawnTimer < 100)
-            return false;
             
         return super.hurt(source, amount);
     }
@@ -190,9 +154,7 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putString("Texture", this.getTexture());
-        compound.putBoolean("HasSpawned", this.hasSpawned);
         compound.putBoolean("IsEnraged", this.isEnraged);
-        compound.putInt("SpawnTimer", this.spawnTimer);
     }
 
     @Override
@@ -200,15 +162,8 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
         super.readAdditionalSaveData(compound);
         if (compound.contains("Texture"))
             this.setTexture(compound.getString("Texture"));
-        if (compound.contains("HasSpawned"))
-            this.hasSpawned = compound.getBoolean("HasSpawned");
         if (compound.contains("IsEnraged"))
             this.isEnraged = compound.getBoolean("IsEnraged");
-        if (compound.contains("SpawnTimer"))
-            this.spawnTimer = compound.getInt("SpawnTimer");
-        
-        // Restaura o estado de spawning
-        this.setIsSpawning(!this.hasSpawned && this.spawnTimer > 0 && this.spawnTimer < 100);
     }
 
     @Override
@@ -216,7 +171,6 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
         super.tick();
         
         if (this.level().isClientSide) {
-            // NO CLIENTE: Sincroniza a animação do servidor
             this.animationprocedure = this.getSyncedAnimation();
         }
     }
@@ -254,39 +208,7 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
         super.customServerAiStep();
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
 
-        // --- LÓGICA DE SPAWN (Servidor) ---
-        if (!hasSpawned) {
-            spawnTimer++;
-            
-            // Trava movimento
-            this.setDeltaMovement(0, 0, 0);
-            this.getNavigation().stop();
-            if (this.getTarget() != null) this.setTarget(null);
-
-            // COMEÇA A ANIMAÇÃO DE SPAWN
-            if (spawnTimer == 1) {
-                this.setAnimation("spawn");
-                this.setIsSpawning(true);
-                this.setInvulnerable(true);
-                System.out.println("PORRA! Iniciando animação de spawn!");
-            }
-
-            // Som
-            if (spawnTimer == 70) {
-                this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:piglinboulusscream")), 1.0f, 1.0f);
-            }
-
-            // Termina spawn
-            if (spawnTimer >= 100) {
-                this.hasSpawned = true;
-                this.setInvulnerable(false);
-                this.setAnimation("idle");
-                this.setIsSpawning(false);
-                System.out.println("PORRA! Spawn completo!");
-            }
-        }
-
-        // --- LÓGICA DE RAIVA (Servidor) ---
+        // --- LÓGICA DE RAIVA ---
         if (!this.level().isClientSide) {
             if (!this.isEnraged && this.getHealth() <= this.getMaxHealth() / 2) {
                 this.isEnraged = true;
@@ -316,10 +238,6 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
 
     @Override
     public boolean doHurtTarget(Entity target) {
-        if (!hasSpawned) {
-            return false;
-        }
-        
         boolean result = super.doHurtTarget(target);
         
         if (result && !this.level().isClientSide) {
@@ -371,17 +289,10 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
     // --- ANIMAÇÕES ---
     
     private PlayState movementPredicate(AnimationState event) {
-        // SE ESTÁ SPAWNANDO, NÃO ANDA
-        if (this.getIsSpawning()) {
-            return PlayState.STOP;
-        }
-        
-        // Morto
         if (this.isDeadOrDying()) {
             return event.setAndContinue(RawAnimation.begin().thenPlay("death"));
         }
         
-        // Andando ou parado
         double dx = this.getX() - this.xOld;
         double dz = this.getZ() - this.zOld;
         double distance = Math.sqrt(dx * dx + dz * dz);
@@ -394,12 +305,6 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
     }
 
     private PlayState attackingPredicate(AnimationState event) {
-        // SE ESTÁ SPAWNANDO, NÃO ATACA
-        if (this.getIsSpawning()) {
-            return PlayState.STOP;
-        }
-        
-        // Lógica de ataque
         if (getAttackAnim(event.getPartialTick()) > 0f && !this.swinging) {
             this.swinging = true;
             this.lastSwing = level().getGameTime();
@@ -420,7 +325,6 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
     }
 
     private PlayState procedurePredicate(AnimationState event) {
-        // ESSA É A PORRA DA ANIMAÇÃO DE SPAWN!
         if (!this.animationprocedure.equals("empty") && event.getController().getAnimationState() == AnimationController.State.STOPPED) {
             event.getController().setAnimation(RawAnimation.begin().thenPlay(this.animationprocedure));
             return PlayState.CONTINUE;
@@ -442,14 +346,11 @@ public class PiglinBoulusEntity extends Monster implements GeoEntity {
     }
 
     public void setAnimation(String animation) {
-        // ESSA PORRA AQUI MANDA A ANIMAÇÃO PRO CLIENTE!
         this.entityData.set(ANIMATION, animation);
-        System.out.println("Setando animação para: " + animation);
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar data) {
-        // ORDEM IMPORTA! procedure primeiro!
         data.add(new AnimationController<>(this, "procedure", 0, this::procedurePredicate));
         data.add(new AnimationController<>(this, "movement", 3, this::movementPredicate));
         data.add(new AnimationController<>(this, "attacking", 1, this::attackingPredicate));

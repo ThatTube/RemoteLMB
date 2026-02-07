@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "morebosses:shrimp_death"
+    }
+  ],
+  "result": {
+    "item": "morebosses:raw_shrimp",
+    "count": 1
+  }
+}

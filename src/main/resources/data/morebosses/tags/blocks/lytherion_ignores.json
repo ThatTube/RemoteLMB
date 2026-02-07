@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:grass",
+    "minecraft:fern",
+    "minecraft:tall_grass",
+    "minecraft:seagrass",
+    "minecraft:tall_seagrass",
+    "#minecraft:tall_flowers",
+    "#minecraft:small_flowers",
+    "#minecraft:leaves",
+    "#minecraft:needs_stone_tool"
+  ]
+}

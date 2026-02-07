@@ -16,5 +16,14 @@
         "stream": false
       }
     ]
+  },
+  "copper_placeholder": {
+    "subtitle": "subtitles.copper_placeholder",
+    "sounds": [
+      {
+        "name": "morebosses:copper_placeholder",
+        "stream": false
+      }
+    ]
   }
 }

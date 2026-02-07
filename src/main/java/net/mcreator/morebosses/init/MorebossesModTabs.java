@@ -40,6 +40,10 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.COPPER_GRATES.get().asItem());
 				tabData.accept(MorebossesModBlocks.COPPER_PRESSURE_PLATE.get().asItem());
 				tabData.accept(MorebossesModBlocks.MEGA_FORGE.get().asItem());
+				tabData.accept(MorebossesModBlocks.CORIUM.get().asItem());
+				tabData.accept(MorebossesModBlocks.BLOLIUM.get().asItem());
+				tabData.accept(MorebossesModBlocks.OPAL_ORE_IN_DOOM_ROCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.HELLISH_TUNGSTEN_BLOCK.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -87,6 +91,11 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.RING.get());
 				tabData.accept(MorebossesModItems.FIRE_RING.get());
 				tabData.accept(MorebossesModItems.POISON_RING.get());
+				tabData.accept(MorebossesModItems.SHRIMP_DEATH.get());
+				tabData.accept(MorebossesModItems.RAW_SHRIMP.get());
+				tabData.accept(MorebossesModItems.COOKED_SHRIMP.get());
+				tabData.accept(MorebossesModItems.OPAL.get());
+				tabData.accept(MorebossesModItems.HELLISH_TUNGSTEN_INGOT.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {
@@ -105,6 +114,8 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.SHRIMP_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.PIGLIN_BOULUS_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.PIGLIN_BOXER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.ARCHDUKE_LYTHERION_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.MAGMATIC_CHAMPION_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 
 	@SubscribeEvent

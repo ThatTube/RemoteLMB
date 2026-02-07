@@ -10,9 +10,12 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.effect.MobEffect;
 
+import net.mcreator.morebosses.potion.StunMobEffect;
 import net.mcreator.morebosses.potion.StickyMobEffect;
+import net.mcreator.morebosses.potion.ShrimpedMobEffect;
 import net.mcreator.morebosses.potion.SampleMobEffect;
 import net.mcreator.morebosses.potion.PanicMobEffect;
+import net.mcreator.morebosses.potion.HellishBurnMobEffect;
 import net.mcreator.morebosses.potion.HeavyMobEffect;
 import net.mcreator.morebosses.potion.FrenzyMobEffect;
 import net.mcreator.morebosses.potion.FlammableMobEffect;
@@ -30,4 +33,7 @@ public class MorebossesModMobEffects {
 	public static final RegistryObject<MobEffect> FLAMMABLE = REGISTRY.register("flammable", () -> new FlammableMobEffect());
 	public static final RegistryObject<MobEffect> SAMPLE = REGISTRY.register("sample", () -> new SampleMobEffect());
 	public static final RegistryObject<MobEffect> FRENZY = REGISTRY.register("frenzy", () -> new FrenzyMobEffect());
+	public static final RegistryObject<MobEffect> SHRIMPED = REGISTRY.register("shrimped", () -> new ShrimpedMobEffect());
+	public static final RegistryObject<MobEffect> HELLISH_BURN = REGISTRY.register("hellish_burn", () -> new HellishBurnMobEffect());
+	public static final RegistryObject<MobEffect> STUN = REGISTRY.register("stun", () -> new StunMobEffect());
 }

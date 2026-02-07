@@ -3,9 +3,9 @@
   "_type": "achievement",
   "definition": {
     "achievementName": "Who Authorized This ?",
-    "achievementDescription": "Deaft the Copper Monstrosity",
+    "achievementDescription": "Defeat the Copper Monstrosity",
     "achievementIcon": {
-      "value": "CUSTOM:MONSTROUSFOOTWEAR.boots"
+      "value": "CUSTOM:CopperMonstrosity.spawn_egg"
     },
     "background": "Default",
     "disableDisplay": false,

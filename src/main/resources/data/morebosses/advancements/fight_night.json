@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:mma_glove"
+    },
+    "title": {
+      "translate": "advancements.fight_night.title"
+    },
+    "description": {
+      "translate": "advancements.fight_night.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "fight_night_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "morebosses:download_the_mod"
+}

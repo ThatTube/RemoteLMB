@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/corium",
+    "up": "morebosses:block/blolium_top",
+    "north": "morebosses:block/blolium",
+    "east": "morebosses:block/blolium",
+    "south": "morebosses:block/blolium",
+    "west": "morebosses:block/blolium",
+    "particle": "morebosses:block/corium"
+  },
+  "render_type": "solid"
+}

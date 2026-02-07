@@ -50,7 +50,7 @@ public class MegaForgeImprovementsRecipeCategory implements IRecipeCategory<Mega
 	@Override
 	public void setRecipe(IRecipeLayoutBuilder builder, MegaForgeImprovementsRecipe recipe, IFocusGroup focuses) {
 		builder.addSlot(RecipeIngredientRole.INPUT, 25, 38).addIngredients(recipe.getIngredients().get(0));
-		builder.addSlot(RecipeIngredientRole.INPUT, 59, 38).addIngredients(recipe.getIngredients().get(1));
+		builder.addSlot(RecipeIngredientRole.INPUT, 62, 38).addIngredients(recipe.getIngredients().get(1));
 		builder.addSlot(RecipeIngredientRole.OUTPUT, 113, 38).addItemStack(recipe.getResultItem(null));
 	}
 }

@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "morebosses:hellish_tungsten_block",
+    "morebosses:opal_ore_in_doom_rock",
     "morebosses:copper_pressure_plate",
     "morebosses:copper_grates",
     "morebosses:indestructible_block",

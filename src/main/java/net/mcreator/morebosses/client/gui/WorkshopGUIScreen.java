@@ -74,7 +74,7 @@ public class WorkshopGUIScreen extends AbstractContainerScreen<WorkshopGUIMenu> 
 	@Override
 	public void init() {
 		super.init();
-		button_merge = new PlainTextButton(this.leftPos + 85, this.topPos + 51, 51, 20, Component.translatable("gui.morebosses.workshop_gui.button_merge"), e -> {
+		button_merge = new PlainTextButton(this.leftPos + 84, this.topPos + 49, 51, 20, Component.translatable("gui.morebosses.workshop_gui.button_merge"), e -> {
 			if (true) {
 				MorebossesMod.PACKET_HANDLER.sendToServer(new WorkshopGUIButtonMessage(0, x, y, z));
 				WorkshopGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);

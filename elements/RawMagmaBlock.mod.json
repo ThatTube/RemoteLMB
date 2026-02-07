@@ -73,7 +73,7 @@
       "value": ""
     },
     "offsetType": "NONE",
-    "aiPathNodeType": "DEFAULT",
+    "aiPathNodeType": "DAMAGE_FIRE",
     "flammability": 0,
     "fireSpreadSpeed": 0,
     "isLadder": false,
@@ -81,7 +81,7 @@
     "speedFactor": 1.0,
     "jumpFactor": 1.0,
     "reactionToPushing": "NORMAL",
-    "isNotColidable": true,
+    "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {
       "value": "SHROOMLIGHT"
