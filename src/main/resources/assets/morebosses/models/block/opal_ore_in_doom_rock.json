@@ -1,8 +1,8 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "morebosses:block/opala_ore",
-    "particle": "morebosses:block/opala_ore"
+    "all": "morebosses:block/opal_ore_doomrock",
+    "particle": "morebosses:block/opal_ore_doomrock"
   },
   "render_type": "solid"
 }

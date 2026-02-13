@@ -1,0 +1,15 @@
+{
+  "parent": "morebosses:custom/basalt_shield",
+  "textures": {
+    "0": "morebosses:block/basalticshield",
+    "particle": "morebosses:item/basaltic_shard"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "morebosses:item/basaltic_shield_0"
+    }
+  ]
+}

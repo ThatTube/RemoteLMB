@@ -1,28 +1,23 @@
 {
-  "parent": "morebosses:download_the_mod",
-  "criteria": {
-    "trigger": {
-      "trigger": "minecraft:impossible"
-    }
-  },
   "display": {
-    "announce_to_chat": true,
-    "description": {
-      "translate": "advancements.the_underground_workshop.descr"
-    },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "morebosses:pipe_wrench"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.the_underground_workshop.title"
+    },
+    "description": {
+      "translate": "advancements.the_underground_workshop.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "the_underground_workshop_0": {
+      "trigger": "minecraft:impossible"
     }
   },
-  "requirements": [
-    [
-      "trigger"
-    ]
-  ]
+  "parent": "morebosses:download_the_mod"
 }

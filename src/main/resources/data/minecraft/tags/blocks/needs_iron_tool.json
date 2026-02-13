@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
+    "morebosses:cobbled_doom_rock",
+    "morebosses:opal_ore_in_corium",
+    "morebosses:doom_rock",
     "morebosses:opal_ore_in_doom_rock",
     "morebosses:blolium",
     "morebosses:corium"

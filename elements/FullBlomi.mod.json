@@ -1,0 +1,35 @@
+{
+  "_fv": 73,
+  "_type": "blockstates",
+  "definition": {
+    "block": "BlomiBerryBush",
+    "blockstateList": [
+      {
+        "texture": "blomi_berry_bush",
+        "textureTop": "",
+        "textureLeft": "",
+        "textureFront": "",
+        "textureRight": "",
+        "textureBack": "",
+        "particleTexture": "",
+        "renderType": 5,
+        "customModelName": "Crop model",
+        "luminance": 0,
+        "boundingBoxes": []
+      },
+      {
+        "texture": "blomiberry_full",
+        "textureTop": "",
+        "textureLeft": "",
+        "textureFront": "",
+        "textureRight": "",
+        "textureBack": "",
+        "particleTexture": "",
+        "renderType": 5,
+        "customModelName": "Crop model",
+        "luminance": 0,
+        "boundingBoxes": []
+      }
+    ]
+  }
+}

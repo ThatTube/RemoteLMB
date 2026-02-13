@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "end_highlands",
+    "end_midlands",
+    "small_end_islands",
+    "the_end"
+  ],
+  "features": "morebosses:stroke_grass",
+  "step": "vegetal_decoration"
+}

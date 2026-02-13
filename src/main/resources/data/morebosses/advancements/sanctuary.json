@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:broken_idol"
+    },
+    "title": {
+      "translate": "advancements.sanctuary.title"
+    },
+    "description": {
+      "translate": "advancements.sanctuary.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "sanctuary_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "morebosses:download_the_mod"
+}

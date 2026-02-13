@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/longsword",
+  "textures": {
+    "1": "morebosses:block/longsword",
+    "particle": "minecraft:item/clock_19"
+  }
+}

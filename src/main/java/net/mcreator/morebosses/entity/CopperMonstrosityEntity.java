@@ -56,8 +56,8 @@ import net.mcreator.morebosses.init.MorebossesModEntities;
 import net.mcreator.morebosses.WaveEffect;
 
 import javax.annotation.Nullable;
-
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.List;
 
 public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(CopperMonstrosityEntity.class, EntityDataSerializers.BOOLEAN);
@@ -71,10 +71,10 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private boolean swinging;
     private boolean isPerformingRanged = false;
-    private boolean lastloop;
     private int musicLoopTimer = 0;
-    // 4 minutos e 19 segundos = 259 segundos. 259 * 20 ticks = 5180 ticks.
     private static final int MUSIC_DURATION_TICKS = 5180;
+    
+    // Variáveis de Combate
     private int slamInvulnerableTicks = 0;
     private int slamCooldown = 0;
     private int rangedCooldown = 0;
@@ -89,7 +89,11 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     
     // Timer para acordar
     private int wakeUpTimer = 0;
-    private static final int WAKE_UP_DURATION = 40; // 2 segundos de animação spawn
+    private static final int WAKE_UP_DURATION = 40; 
+
+    // Variáveis de Inteligência e Pânico
+    private int damageHitCounter = 0;
+    private int panicTimer = 0;
 
     private static final int SLAM_COOLDOWN_TIME = 100;
     private static final int RANGED_COOLDOWN_TIME = 80;
@@ -123,7 +127,6 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
         this.entityData.define(WAKING_UP, false);
     }
    
-
     public void setTexture(String texture) {
         this.entityData.set(TEXTURE, texture);
     }
@@ -166,18 +169,21 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, Player.class, true, false));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, DryBonesEntity.class, true, false));
+        // IA Melhorada: Prioridade para revidar e atacar
+        this.targetSelector.addGoal(0, new HurtByTargetGoal(this).setAlertOthers());
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, DryBonesEntity.class, true));
         
         this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, false) {
             @Override
             protected double getAttackReachSqr(LivingEntity entity) {
-                return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
+                // Alcance levemente maior para facilitar o ataque
+                return (double)(this.mob.getBbWidth() * 1.5F * this.mob.getBbWidth() * 1.5F + entity.getBbWidth());
             }
 
             @Override
             public boolean canUse() {
-                // Impede uso de AI se estiver dormindo/acordando
+                // Bloqueia IA normal se estiver fazendo animação especial
                 return super.canUse() && !isPerformingSlam && !isPerformingRanged && !isDormant() && !isWakingUp();
             }
 
@@ -187,13 +193,7 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
             }
         });
         
-        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 1) {
-            @Override
-            public boolean canUse() {
-                return super.canUse() && !isDormant() && !isWakingUp();
-            }
-        });
-        
+        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 0.8));
         this.targetSelector.addGoal(5, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(7, new FloatGoal(this));
@@ -221,16 +221,23 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
+        // IMUNIDADE A RAIO E ELETRICIDADE
+        if (source.is(DamageTypes.LIGHTNING_BOLT)) return false;
+
         if (slamInvulnerableTicks > 0) return false;
         if (source.is(DamageTypes.FALL)) return false;
         if (source.is(DamageTypes.EXPLOSION)) return false;
         
-        // --- RESTAURADO ---
-        // Se estiver dormindo e receber dano (ex: flecha de longe), ele acorda.
         if (this.isDormant()) {
             triggerWakeUp();
         }
         
+        // CONTADOR DE DANO PARA MODO PÂNICO
+        if (!this.level().isClientSide() && !isDormant() && !isWakingUp()) {
+            this.damageHitCounter++;
+            this.panicTimer = 60; // 3 segundos para considerar "ataque em grupo"
+        }
+
         return super.hurt(source, amount);
     }
 
@@ -246,8 +253,6 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     @Override
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
-         
-        // ... outros puts ...
         compound.putInt("MusicLoopTimer", this.musicLoopTimer);
         compound.putString("Texture", this.getTexture());
         compound.putInt("SlamCooldown", this.slamCooldown);
@@ -272,14 +277,13 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
         if (compound.contains("UseRangedNext")) this.useRangedNext = compound.getBoolean("UseRangedNext");
         if (compound.contains("IsPerformingSlam")) this.isPerformingSlam = compound.getBoolean("IsPerformingSlam");
         if (compound.contains("IsPerformingRanged")) this.isPerformingRanged = compound.getBoolean("IsPerformingRanged");
-         if (compound.contains("MusicLoopTimer")) this.musicLoopTimer = compound.getInt("MusicLoopTimer");
+        if (compound.contains("MusicLoopTimer")) this.musicLoopTimer = compound.getInt("MusicLoopTimer");
         if (compound.contains("Dormant")) this.setDormant(compound.getBoolean("Dormant"));
         if (compound.contains("WakingUp")) this.setWakingUp(compound.getBoolean("WakingUp"));
         if (compound.contains("WakeUpTimer")) this.wakeUpTimer = compound.getInt("WakeUpTimer");
     }
 
     private void triggerWakeUp() {
-        // Só executa se estiver dormindo para evitar resets acidentais
         if (this.isDormant()) {
             this.setDormant(false);
             this.setWakingUp(true);
@@ -303,6 +307,27 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
             if (rangedCooldown > 0) rangedCooldown--;
             if (slamInvulnerableTicks > 0) slamInvulnerableTicks--;
             
+            // LÓGICA DE PÂNICO E DETECÇÃO DE CERCO
+            if (panicTimer > 0) {
+                panicTimer--;
+                if (panicTimer == 0) damageHitCounter = 0;
+            }
+            
+            // Se tomou 3 hits ou mais e não está atacando
+            if (damageHitCounter >= 3 && !isPerformingSlam && !isPerformingRanged) {
+                // Verifica inimigos próximos
+                long nearbyEnemies = this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(6.0D))
+                    .stream()
+                    .filter(e -> e != this && (e instanceof Player || e instanceof Monster))
+                    .count();
+
+                // Se tiver 2 ou mais inimigos colados, ativa o SLAM defensivo
+                if (nearbyEnemies >= 2) {
+                    this.activatePanicSlam();
+                }
+            }
+
+            // Controle de efeitos de animação
             if (slamEffectTimer > 0) {
                 slamEffectTimer--;
                 if (slamEffectTimer == 10 && this.animationprocedure.equals("slam")) executeSlamEffects();
@@ -322,47 +347,47 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
         }
     }
 
-   @Override
+    private void activatePanicSlam() {
+        this.damageHitCounter = 0; 
+        this.slamCooldown = 0; // Zera cooldown
+        this.useSlamNext = true;
+        
+        // Se já tiver um alvo, tenta atacar agora
+        LivingEntity target = this.getTarget();
+        if (target != null) {
+            this.doHurtTarget(target);
+        } else {
+             // Se não tiver alvo, apenas seta o estado para o próximo AI tick pegar
+             this.useSlamNext = true;
+        }
+    }
+
+    @Override
     public void customServerAiStep() {
-        // ==================================================
-        // 1. LÓGICA DE DORMIR
-        // ==================================================
         if (this.isDormant()) {
-            // TRAVA MOVIMENTO E ROTAÇÃO
             this.setDeltaMovement(0, this.getDeltaMovement().y, 0);
             this.getNavigation().stop();
             this.getLookControl().setLookAt(this.getX(), this.getY(), this.getZ());
 
             boolean trigger = false;
-            // AQUI ESTAVA A PRIMEIRA DEFINIÇÃO DE CURRENT TARGET
-            LivingEntity sleepTarget = this.getTarget(); 
+            LivingEntity sleepTarget = this.getTarget();
 
-            // CASO 1: Tem um alvo definido e está perto
             if (sleepTarget != null) {
                 if (this.distanceToSqr(sleepTarget) <= 225.0D) {
                     trigger = true;
                 }
-            } 
-            // CASO 2: Detecção passiva de jogador perto
-            else {
+            } else {
                 Player nearestPlayer = this.level().getNearestPlayer(this, 15.0D);
                 if (nearestPlayer != null && !nearestPlayer.isCreative() && !nearestPlayer.isSpectator()) {
                     trigger = true;
                 }
             }
 
-            if (trigger) {
-                triggerWakeUp();
-            }
-            
-            // Interrompe o resto da IA enquanto dorme
+            if (trigger) triggerWakeUp();
             this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
-            return; // <--- O CÓDIGO PARAVA AQUI, POR ISSO A MÚSICA NÃO TOCAVA
-        } // <--- FECHEI O IF DO DORMANT AQUI
+            return; 
+        }
 
-        // ==================================================
-        // 2. LÓGICA DE ACORDAR
-        // ==================================================
         if (this.isWakingUp()) {
             this.setDeltaMovement(0, this.getDeltaMovement().y, 0);
             this.getNavigation().stop();
@@ -370,7 +395,6 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
             this.wakeUpTimer--;
             if (this.wakeUpTimer <= 0) {
                 this.setWakingUp(false); 
-                
                 if (!this.level().isClientSide()) {
                     for (Player player : this.level().players()) {
                         if (player instanceof ServerPlayer serverPlayer && serverPlayer.hasLineOfSight(this)) {
@@ -379,52 +403,13 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
                     }
                 }
             }
-            
             this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
             return;
         }
 
-        // ==================================================
-        // 3. COMPORTAMENTO PADRÃO (Música e Ataques)
-        // ==================================================
         super.customServerAiStep();
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
-
-        // --- LÓGICA DA MÚSICA (Agora no lugar certo) ---
-        if (!this.level().isClientSide()) {
-            boolean shouldPlayMusic = false;
-
-            // Verifica se está viva, acordada e não acordando
-            if (this.isAlive() && !this.isDormant() && !this.isWakingUp()) {
-                // AQUI ESTAVA A SEGUNDA DEFINIÇÃO (AGORA VÁLIDA POIS MUDAMOS O ESCOPO)
-                LivingEntity musicTarget = this.getTarget(); 
-                
-                // Verifica se tem alvo, se é Player e está vivo
-                if (musicTarget instanceof Player && musicTarget.isAlive()) {
-                    // Raio de 40 blocos (40^2 = 1600)
-                    if (this.distanceToSqr(musicTarget) <= 1600.0D) {
-                        shouldPlayMusic = true;
-                    }
-                }
-            }
-
-            if (shouldPlayMusic) {
-                if (this.musicLoopTimer <= 0) {
-                    SoundEvent musicSound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses", "copper_placeholder"));
-                    
-                    if (musicSound != null) {
-                        this.level().playSound(null, this.getX(), this.getY(), this.getZ(), 
-                            musicSound, net.minecraft.sounds.SoundSource.RECORDS, 4.0f, 1.0f);
-                    }
-                    this.musicLoopTimer = MUSIC_DURATION_TICKS;
-                }
-                this.musicLoopTimer--;
-            } else {
-                this.musicLoopTimer = 0;
-            }
-        }
         
-        // --- ATAQUE À DISTÂNCIA ALEATÓRIO ---
         if (!this.level().isClientSide() && this.getTarget() != null && rangedCooldown <= 0 && !isPerformingSlam && !isPerformingRanged) {
             LivingEntity target = this.getTarget();
             double distance = this.distanceToSqr(target);
@@ -456,9 +441,7 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
         return PlayState.STOP;
     }
 
-    // Métodos estáticos e auxiliares mantidos
-    public static void init() {
-    }
+    public static void init() { }
 
     public static AttributeSupplier.Builder createAttributes() {
         AttributeSupplier.Builder builder = Mob.createMobAttributes();
@@ -536,28 +519,32 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     @Override
     public boolean doHurtTarget(Entity target) {
         if (isDormant() || isWakingUp()) return false;
+        
+        // TRAVA DE SEGURANÇA: Se já estiver dando Slam, não faz mais nada para não cancelar a animação
+        if (isPerformingSlam || isPerformingRanged) return false;
 
         if (!(target instanceof LivingEntity living))
             return super.doHurtTarget(target);
             
+        // Se a IA decidiu usar Ranged antes e está longe
         if (useRangedNext && rangedCooldown <= 0 && this.distanceToSqr(target) > 16.0) {
             performRangedAttack();
             return true;
         }
         
-        if (useSlamNext && slamCooldown <= 0 && this.getDeltaMovement().horizontalDistanceSqr() > MOVEMENT_THRESHOLD) {
+        // Chance de Combo: 15% de chance de usar Slam imediatamente após tentar atacar
+        boolean comboChance = ThreadLocalRandom.current().nextDouble() < 0.15;
+
+        // Se estiver marcado para usar Slam (seja pelo pânico ou pela sorte)
+        if ((useSlamNext || comboChance) && slamCooldown <= 0) {
             this.animationprocedure = "slam";
             this.setAnimation("slam");
             this.isPerformingSlam = true;
             slamEffectTimer = 20;
-            this.slamInvulnerableTicks = 40;
+            this.slamInvulnerableTicks = 30; // Fica invulnerável durante a subida do braço
             
-            net.minecraft.world.effect.MobEffect heavyEffect = ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("morebosses", "heavy"));
-            if (heavyEffect != null) {
-                this.addEffect(new net.minecraft.world.effect.MobEffectInstance(heavyEffect, 40, 0, false, true));
-            } else {
-                this.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 40, 2, false, true));
-            }
+            // Efeito de resistência para não morrer durante a animação
+            this.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 40, 2, false, false));
             
             SoundEvent preparationSound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.iron_golem.attack"));
             if (preparationSound != null) {
@@ -565,21 +552,24 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
             }
             slamCooldown = SLAM_COOLDOWN_TIME;
             useSlamNext = false;
+            damageHitCounter = 0; // Reseta o pânico
             return true;
         }
         
+        // ATAQUE PADRÃO (SOCO)
         this.animationprocedure = "attack";
         this.setAnimation("attack");
         float damage = (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE);
         boolean hit = living.hurt(this.damageSources().mobAttack(this), damage);
         if (hit) {
-            living.knockback(0.5, living.getX() - this.getX(), living.getZ() - this.getZ());
+            living.knockback(0.6, living.getX() - this.getX(), living.getZ() - this.getZ());
             SoundEvent attackSound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.iron_golem.attack"));
             if (attackSound != null) {
                 this.playSound(attackSound, 1.0f, 0.7f);
             }
         }
         
+        // IA Decide o próximo passo
         double rand = ThreadLocalRandom.current().nextDouble();
         if (rand < 0.3) {
             useSlamNext = true;
@@ -613,74 +603,59 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
         useRangedNext = false;
     }
 
-   private void executeRangedAttack() {
-    LivingEntity target = this.getTarget();
-    if (target == null) return;
-    
-    // REMOVENDO o som de disparo
-    // SoundEvent shootSound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.witch.throw"));
-    // if (shootSound != null) {
-    //     this.playSound(shootSound, 1.0f, 0.8f);
-    // }
-    
-    // Calculando direção mais precisa para o jogador
-    double targetX = target.getX();
-    double targetY = target.getY() + target.getEyeHeight() * 0.5; // Mirar na altura do torso
-    double targetZ = target.getZ();
-    
-    double spawnX = this.getX() + this.getLookAngle().x * 4.0;
-    double spawnY = this.getY() + 4.0;
-    double spawnZ = this.getZ() + this.getLookAngle().z * 4.0;
-    
-    for (int i = 0; i < 2; i++) {
-        WindBurstEntity projectile = new WindBurstEntity(MorebossesModEntities.WIND_BURST.get(), this.level());
-        projectile.setOwner(this);
-        projectile.setPos(spawnX, spawnY, spawnZ);
+    private void executeRangedAttack() {
+        LivingEntity target = this.getTarget();
+        if (target == null) return;
+
+        double targetX = target.getX();
+        double targetY = target.getY() + target.getEyeHeight() * 0.5;
+        double targetZ = target.getZ();
         
-        // Calculando direção direta para o alvo com pequena variação
-        double dx = targetX - spawnX;
-        double dy = targetY - spawnY;
-        double dz = targetZ - spawnZ;
+        double spawnX = this.getX() + this.getLookAngle().x * 4.0;
+        double spawnY = this.getY() + 4.0;
+        double spawnZ = this.getZ() + this.getLookAngle().z * 4.0;
         
-        // Normalizar o vetor
-        double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
-        if (distance > 0) {
-            dx = dx / distance;
-            dy = dy / distance;
-            dz = dz / distance;
+        for (int i = 0; i < 2; i++) {
+            WindBurstEntity projectile = new WindBurstEntity(MorebossesModEntities.WIND_BURST.get(), this.level());
+            projectile.setOwner(this);
+            projectile.setPos(spawnX, spawnY, spawnZ);
+            
+            double dx = targetX - spawnX;
+            double dy = targetY - spawnY;
+            double dz = targetZ - spawnZ;
+            
+            double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+            if (distance > 0) {
+                dx = dx / distance;
+                dy = dy / distance;
+                dz = dz / distance;
+            }
+            
+            double variationX = (ThreadLocalRandom.current().nextDouble() - 0.5) * 0.1; 
+            double variationY = (ThreadLocalRandom.current().nextDouble() - 0.5) * 0.05; 
+            double variationZ = (ThreadLocalRandom.current().nextDouble() - 0.5) * 0.1; 
+            
+            double finalDx = dx * 0.9 + variationX;
+            double finalDy = dy * 0.9 + variationY;
+            double finalDz = dz * 0.9 + variationZ;
+            
+            double finalDistance = Math.sqrt(finalDx * finalDx + finalDy * finalDy + finalDz * finalDz);
+            if (finalDistance > 0) {
+                finalDx = finalDx / finalDistance;
+                finalDy = finalDy / finalDistance;
+                finalDz = finalDz / finalDistance;
+            }
+            
+            projectile.shoot(finalDx, finalDy, finalDz, 2.0F, 0.0F); 
+            projectile.setNoGravity(true);
+            
+            this.level().addFreshEntity(projectile);
+            
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {}
         }
-        
-        // Adicionar pequena variação aleatória (reduzida para ser mais preciso)
-        double variationX = (ThreadLocalRandom.current().nextDouble() - 0.5) * 0.1; // Reduzido de 0.2 para 0.1
-        double variationY = (ThreadLocalRandom.current().nextDouble() - 0.5) * 0.05; // Reduzido de 0.1 para 0.05
-        double variationZ = (ThreadLocalRandom.current().nextDouble() - 0.5) * 0.1; // Reduzido de 0.2 para 0.1
-        
-        // Direção final (90% para o alvo, 10% variação)
-        double finalDx = dx * 0.9 + variationX;
-        double finalDy = dy * 0.9 + variationY;
-        double finalDz = dz * 0.9 + variationZ;
-        
-        // Normalizar novamente
-        double finalDistance = Math.sqrt(finalDx * finalDx + finalDy * finalDy + finalDz * finalDz);
-        if (finalDistance > 0) {
-            finalDx = finalDx / finalDistance;
-            finalDy = finalDy / finalDistance;
-            finalDz = finalDz / finalDistance;
-        }
-        
-        // Velocidade mais rápida para serem mais diretos
-        projectile.shoot(finalDx, finalDy, finalDz, 2.0F, 0.0F); // Aumentado de 1.5F para 2.0F
-        
-        // Configurar para não colidir com outros projéteis do mesmo tipo
-        projectile.setNoGravity(true);
-        
-        this.level().addFreshEntity(projectile);
-        
-        try {
-            Thread.sleep(10);
-        } catch (InterruptedException e) {}
     }
-}
 
     private void executeSlamEffects() {
         SoundEvent explosionSound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.explode"));
@@ -719,7 +694,6 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     @Override
     public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
-        // Só adiciona o jogador à barra de boss se não estiver dormindo
         if (!this.isDormant()) {
             this.bossInfo.addPlayer(player);
         }
@@ -728,12 +702,24 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
     @Override
     public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
-        // Remove o jogador da barra de boss
         this.bossInfo.removePlayer(player);
     }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
+    }
+    
+    private void stopBossMusic() {
+        if (!this.level().isClientSide() && this.getServer() != null) {
+            String command = "stopsound @a record morebosses:copper_placeholder";
+            this.getServer().getCommands().performPrefixedCommand(this.createCommandSourceStack().withSuppressedOutput(), command);
+        }
+    }
+
+    @Override
+    public void die(DamageSource cause) {
+        super.die(cause);
+        stopBossMusic(); 
     }
 }

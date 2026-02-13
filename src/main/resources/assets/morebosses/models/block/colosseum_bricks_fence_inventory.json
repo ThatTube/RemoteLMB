@@ -1,0 +1,8 @@
+{
+  "parent": "block/fence_inventory",
+  "textures": {
+    "texture": "morebosses:block/coloseum_bricks",
+    "particle": "morebosses:block/coloseum_bricks"
+  },
+  "render_type": "solid"
+}

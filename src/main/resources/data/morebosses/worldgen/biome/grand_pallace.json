@@ -1,0 +1,59 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.5,
+  "downfall": 0.5,
+  "effects": {
+    "ambient_sound": "ambient.warped_forest.additions",
+    "additions_sound": {
+      "sound": "ambient.underwater.loop.additions.ultra_rare",
+      "tick_chance": 0.0111
+    },
+    "particle": {
+      "options": {
+        "type": "soul"
+      },
+      "probability": 0.005
+    },
+    "foliage_color": -1,
+    "grass_color": -1,
+    "sky_color": -3342337,
+    "fog_color": -6684673,
+    "water_color": -3355444,
+    "water_fog_color": -3355444
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "morebosses:grand_pallace_tree"
+    ],
+    []
+  ]
+}

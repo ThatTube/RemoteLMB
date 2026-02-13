@@ -72,7 +72,8 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
     private int actionTimer = 0;
     private int attackCooldown = 0;
     private boolean canCombo = false;
-    private boolean hasComboed = false; // Garante que só comba 1 vez
+    private boolean hasComboed = false;
+    private boolean isDying = false; // Nova flag para controle de morte
     
     // Constantes de Estado
     private static final int ST_IDLE = 0;
@@ -133,20 +134,30 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
             @Override
             public boolean canUse() {
                 // Só persegue se não estiver executando um ataque especial
-                return super.canUse() && actionState == ST_IDLE;
+                return super.canUse() && actionState == ST_IDLE && !isDying;
             }
             @Override
             public boolean canContinueToUse() {
-                return super.canContinueToUse() && actionState == ST_IDLE;
+                return super.canContinueToUse() && actionState == ST_IDLE && !isDying;
             }
              @Override
             protected double getAttackReachSqr(LivingEntity entity) {
                 return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth() + 2.0; 
             }
         });
-        this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1));
+        this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1) {
+            @Override
+            public boolean canUse() {
+                return super.canUse() && !isDying;
+            }
+        });
         this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setAlertOthers());
-        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this) {
+            @Override
+            public boolean canUse() {
+                return super.canUse() && !isDying;
+            }
+        });
         this.goalSelector.addGoal(6, new FloatGoal(this));
     }
 
@@ -167,30 +178,111 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
+        // Se estiver morrendo, não toma mais dano
+        if (this.isDying) {
+            return false;
+        }
+        
         // Lógica do PARRY
         if (this.actionState == ST_PARRY) {
              Entity attacker = source.getEntity();
              if (attacker instanceof LivingEntity) {
                  // Cancela o ataque, vira para o alvo e executa Revenge
                  this.actionState = ST_REVENGE;
-                 this.actionTimer = 25; // Tempo da animação revenge
+                 this.actionTimer = 25;
                  this.lookAt(attacker, 360, 360);
                  
                  // Resetar animação para garantir transição suave
                  if (!this.level().isClientSide()) {
                     this.animationprocedure = "revenge";
-                    this.setAnimation("revenge"); // Sync networking
+                    this.setAnimation("revenge");
                     this.level().broadcastEntityEvent(this, (byte) 0);
                  }
                  
-                 return false; // Nega o dano
+                 return false;
              }
         }
 
-        if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL))
+        // **IMUNIDADE A FOGO, WITHER E QUEDA**
+        if (source.is(DamageTypes.IN_FIRE) || 
+            source.is(DamageTypes.ON_FIRE) || 
+            source.is(DamageTypes.LAVA) ||
+            source.is(DamageTypes.FALL) || 
+            source.is(DamageTypes.WITHER) || 
+            source.is(DamageTypes.WITHER_SKULL) ||
+            source.is(DamageTypes.HOT_FLOOR) ||
+            source.is(DamageTypes.FIREBALL) ||
+            source.is(DamageTypes.UNATTRIBUTED_FIREBALL) ||
+            source.is(DamageTypes.DRAGON_BREATH)) {
             return false;
+        }
             
-        return super.hurt(source, amount);
+        boolean hurt = super.hurt(source, amount);
+        
+        // Verifica se morreu após o dano
+        if (this.getHealth() <= 0 && !this.isDying) {
+            startDeathAnimation();
+        }
+        
+        return hurt;
+    }
+    
+    @Override
+    public boolean fireImmune() {
+        return true; // Imune a fogo
+    }
+    
+    @Override
+    public boolean isInvulnerableTo(DamageSource source) {
+        // Imunidade adicional a wither
+        if (source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) {
+            return true;
+        }
+        return super.isInvulnerableTo(source);
+    }
+    
+    @Override
+    public boolean canFreeze() {
+        return false; // Não congela
+    }
+    
+    @Override
+    public void lavaHurt() {
+        // Não toma dano de lava
+    }
+    
+    @Override
+    public void setSecondsOnFire(int seconds) {
+        // Não pega fogo
+    }
+    
+    @Override
+    public void setRemainingFireTicks(int ticks) {
+        // Não mantém ticks de fogo
+    }
+    
+    // Novo método para iniciar animação de morte
+    private void startDeathAnimation() {
+        if (this.isDying) return;
+        
+        this.isDying = true;
+        this.actionState = ST_IDLE; // Reseta estado
+        this.actionTimer = 0;
+        this.attackCooldown = 0;
+        
+        // Para todos os movimentos
+        this.setDeltaMovement(0, 0, 0);
+        this.getNavigation().stop();
+        
+        // Toca animação de morte
+        if (!this.level().isClientSide()) {
+            this.animationprocedure = "death";
+            this.setAnimation("death");
+            this.level().broadcastEntityEvent(this, (byte) 2); // Evento especial de morte
+        }
+        
+        // Desativa AI
+        this.setNoAi(true);
     }
 
     // Método para atualizar jogadores que podem ver o boss
@@ -198,21 +290,25 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
     public void customServerAiStep() {
         super.customServerAiStep();
         
+        // Se estiver morrendo, não faz nada
+        if (this.isDying) {
+            this.setDeltaMovement(0, 0, 0);
+            return;
+        }
+        
         // Atualiza a barra de boss
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
         
         // Adiciona/remove jogadores da barra de boss baseado na visibilidade
         if (!this.level().isClientSide()) {
-            List<ServerPlayer> players = ((ServerLevel) this.level()).getPlayers(p -> p.distanceToSqr(this) < 2500); // 50 blocos de raio
+            List<ServerPlayer> players = ((ServerLevel) this.level()).getPlayers(p -> p.distanceToSqr(this) < 2500);
             
             for (ServerPlayer player : players) {
-                // Se o jogador pode ver o boss, adiciona à barra
                 if (player.hasLineOfSight(this) && !this.bossInfo.getPlayers().contains(player)) {
                     this.bossInfo.addPlayer(player);
                 }
             }
             
-            // Remove jogadores que estão muito longos
             List<ServerPlayer> playersToRemove = this.bossInfo.getPlayers().stream()
                 .filter(player -> player.distanceToSqr(this) > 2500 || !player.hasLineOfSight(this))
                 .toList();
@@ -227,7 +323,7 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
 
         // Se tiver alvo, gira pra ele (exceto se estiver no meio de um pulo ou parry travado)
         LivingEntity target = this.getTarget();
-        if (target != null && actionState != ST_PARRY && actionState != ST_JUMP_MID && actionState != ST_JUMP_START) {
+        if (target != null && actionState != ST_PARRY && actionState != ST_JUMP_MID && actionState != ST_JUMP_START && !isDying) {
             this.getLookControl().setLookAt(target, 30.0F, 30.0F);
         }
 
@@ -236,7 +332,7 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
             handleActionTick(target);
         } else {
             // Se estiver ocioso e tiver alvo
-            if (target != null && this.attackCooldown <= 0 && this.distanceTo(target) < 12) {
+            if (target != null && this.attackCooldown <= 0 && this.distanceTo(target) < 12 && !isDying) {
                 decideAttack(target);
             }
         }
@@ -271,16 +367,14 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
         double dist = this.distanceTo(target);
         double random = Math.random();
 
-        // Lógica de escolha MODIFICADA
-        if (dist > 6 && random < 0.6) { // Aumentei para 60% de chance de pular quando longe
-            startJump(target); // Longe? Pula em direção ao alvo.
+        if (dist > 6 && random < 0.6) {
+            startJump(target);
         } else if (random < 0.15) {
-            startParry(); // 15% de chance de Parry aleatório
-        } else if (random < 0.50) { // Aumentei para 35% de chance de Slam (era 20%)
-            startSlam(); // Slam mais frequente
+            startParry();
+        } else if (random < 0.50) {
+            startSlam();
         } else {
-            // Ataque básico (Slash)
-            startSlash(false); // false = Right slash (normal)
+            startSlash(false);
         }
     }
 
@@ -294,15 +388,20 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
         switch (actionState) {
             case ST_SLASH: // Slash Normal
             case ST_SLASH_LEFT: // Slash Esquerda
-                // **APENAS SLASH TEM DASH** - Verifica se o timer está no momento correto
+                // **APENAS SLASH TEM DASH** - E apenas no momento exato
                 if (actionTimer == 18) { // Apenas no tick 18
                     Vec3 vec = this.getLookAngle().scale(0.8); // Pequeno dash
-                    this.setDeltaMovement(vec.x, vec.y, vec.z);
+                    this.setDeltaMovement(vec.x, 0, vec.z); // Y sempre 0 no dash
+                } else if (actionTimer != 18) {
+                    // Em todos os outros ticks do slash, congela o movimento
+                    this.setDeltaMovement(0, this.getDeltaMovement().y, 0);
                 }
+                
                 // Dano no momento certo
                 if (actionTimer == 10) {
                     performAreaSlash(actionState == ST_SLASH_LEFT);
                 }
+                
                 // Janela de Combo
                 if (actionTimer < 8 && actionTimer > 0 && !hasComboed) {
                     if (target != null && this.distanceTo(target) < 4 && Math.random() < 0.5) {
@@ -316,8 +415,8 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
                 break;
 
             case ST_SLAM:
-                // **SEM DASH NO SLAM** - Apenas zera o movimento
-                this.setDeltaMovement(0, 0, 0);
+                // **SEM DASH NO SLAM** - Congela completamente
+                this.setDeltaMovement(0, this.getDeltaMovement().y, 0);
                 if (actionTimer == 10) {
                     spawnMagmaPitsInLine();
                 }
@@ -326,13 +425,13 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
 
             case ST_PARRY:
                 // **SEM DASH NO PARRY** - Congela completamente
-                this.setDeltaMovement(0, 0, 0);
+                this.setDeltaMovement(0, this.getDeltaMovement().y, 0);
                 if (actionTimer <= 0) resetToIdle(10);
                 break;
 
             case ST_REVENGE:
                 // **SEM DASH NO REVENGE** - Congela completamente
-                this.setDeltaMovement(0, 0, 0);
+                this.setDeltaMovement(0, this.getDeltaMovement().y, 0);
                 if (actionTimer == 12) {
                      performRevengeAttack();
                 }
@@ -355,7 +454,7 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
                 break;
                 
             case ST_JUMP_MID:
-                // **NO JUMP_MID DEIXA A FÍSICA AGIR** - Não modifica movimento
+                // **NO JUMP_MID DEIXA A FÍSICA AGIR** - Não modifica movimento além do pulo inicial
                 // Verifica se tocou no chão
                 if (this.onGround() && actionTimer < 35 && this.actionState == ST_JUMP_MID) {
                     this.actionState = ST_JUMP_END;
@@ -369,12 +468,8 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
                 
             case ST_JUMP_END:
                 // **NO JUMP_END CONGELA** - Recuperação do pouso
-                this.setDeltaMovement(0, 0, 0);
+                this.setDeltaMovement(0, this.getDeltaMovement().y, 0);
                 if (actionTimer <= 0) resetToIdle(10);
-                break;
-                
-            default:
-                // Para qualquer outro estado, não faz nada
                 break;
         }
     }
@@ -444,17 +539,14 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
     private int findGroundY(Level world, int x, int z, int startY) {
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x, startY, z);
         
-        // Se estiver no ar, desce até encontrar chão sólido
         while (pos.getY() > world.getMinBuildHeight() + 1) {
             BlockState state = world.getBlockState(pos);
             if (!state.isAir() && state.isSolid()) {
-                // Encontrou chão, retorna a posição acima do chão
                 return pos.getY() + 1;
             }
             pos.move(0, -1, 0);
         }
         
-        // Se não encontrou chão, retorna a posição original
         return startY;
     }
     
@@ -623,30 +715,24 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
         double spacing = 1.5;
         
         for (int i = 1; i <= lineLength; i++) {
-            // Posição na linha
             Vec3 pitPos = start.add(lookDir.x * i * spacing, 0, lookDir.z * i * spacing);
             
-            // CORREÇÃO: Encontra a posição Y correta do chão
             int groundY = findGroundY(this.level(), 
                 (int)Math.floor(pitPos.x), 
                 (int)Math.floor(pitPos.z),
                 (int)Math.floor(this.getY()));
             
-            // Se não encontrou chão sólido, tenta a posição Y do boss
             if (groundY <= this.level().getMinBuildHeight() + 1) {
                 groundY = (int)Math.floor(this.getY());
             }
             
-            // Invoca o pit
             Entity pit = MorebossesModEntities.MAGMA_PIT.get().create(this.level());
             if (pit != null) {
                 pit.moveTo(pitPos.x, groundY, pitPos.z, 0, 0);
                 this.level().addFreshEntity(pit);
             }
             
-            // Pits laterais
             if (i > 1 && i < lineLength) {
-                // Esquerda
                 Vec3 leftPos = start.add(
                     lookDir.x * i * spacing - lookDir.z * 0.8,
                     0,
@@ -654,7 +740,6 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
                 );
                 spawnSingleMagmaPitAtGround(leftPos);
                 
-                // Direita
                 Vec3 rightPos = start.add(
                     lookDir.x * i * spacing + lookDir.z * 0.8,
                     0,
@@ -665,7 +750,6 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
         }
     }
     
-    // CORREÇÃO: Método auxiliar para spawn de pit no chão
     private void spawnSingleMagmaPitAtGround(Vec3 position) {
         int groundY = findGroundY(this.level(), 
             (int)Math.floor(position.x), 
@@ -683,11 +767,6 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
         }
     }
     
-    // Método antigo mantido para compatibilidade
-    private void spawnMagmaPits() {
-        spawnMagmaPitsInLine();
-    }
-
     private void performRevengeAttack() {
         LivingEntity target = this.getTarget();
         if (target != null && this.distanceTo(target) < 5) {
@@ -713,6 +792,7 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putString("Texture", this.getTexture());
+        compound.putBoolean("IsDying", this.isDying);
     }
 
     @Override
@@ -720,6 +800,8 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
         super.readAdditionalSaveData(compound);
         if (compound.contains("Texture"))
             this.setTexture(compound.getString("Texture"));
+        if (compound.contains("IsDying"))
+            this.isDying = compound.getBoolean("IsDying");
     }
     
     public static void init() {}
@@ -744,7 +826,7 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
             return PlayState.STOP;
         }
         
-        if (this.isDeadOrDying()) {
+        if (this.isDeadOrDying() || this.isDying) {
             return event.setAndContinue(RawAnimation.begin().thenPlay("death"));
         }
         
@@ -790,6 +872,11 @@ public class MagmaticChampionEntity extends Monster implements GeoEntity {
                 if (!anim.equals("undefined")) {
                     this.animationprocedure = anim;
                 }
+            }
+        } else if (id == (byte) 2) {
+            // Evento de morte
+            if (this.level().isClientSide()) {
+                this.animationprocedure = "death";
             }
         }
         super.handleEntityEvent(id);

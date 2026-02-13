@@ -21,6 +21,8 @@ public class MorebossesModJeiInformation implements IModPlugin {
 
 	@Override
 	public void registerRecipes(IRecipeRegistration registration) {
-		registration.addIngredientInfo(List.of(new ItemStack(MorebossesModItems.MONSTROSITY_EYE.get()), new ItemStack(MorebossesModItems.MMA_EYE.get())), VanillaTypes.ITEM_STACK, Component.translatable("jei.morebosses.eyesinformation"));
+		registration.addIngredientInfo(
+				List.of(new ItemStack(MorebossesModItems.MONSTROSITY_EYE.get()), new ItemStack(MorebossesModItems.MMA_EYE.get()), new ItemStack(MorebossesModItems.LUSH_EYE.get()), new ItemStack(MorebossesModItems.OLD_EYE.get())),
+				VanillaTypes.ITEM_STACK, Component.translatable("jei.morebosses.eyesinformation"));
 	}
 }

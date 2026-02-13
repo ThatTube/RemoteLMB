@@ -30,7 +30,7 @@ public class CopperBossBarBr {
 			int x = event.getX();
 			int y = event.getY();
 			int barWidth = 189;
-			int barHeight = 35;
+			int barHeight = 32;
 
 			// Renderiza o fundo
 			guiGraphics.blit(CUSTOM_BAR_BG, x, y, 0, 0, barWidth, barHeight, barWidth, barHeight);

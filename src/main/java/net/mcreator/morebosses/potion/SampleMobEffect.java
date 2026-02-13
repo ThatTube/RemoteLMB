@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class SampleMobEffect extends MobEffect {
 	public SampleMobEffect() {
-		super(MobEffectCategory.NEUTRAL, -10066330);
-		this.addAttributeModifier(Attributes.ARMOR, "c3fdac46-054d-3822-9ef8-6fe675b7ec19", -2, AttributeModifier.Operation.ADDITION);
+		super(MobEffectCategory.HARMFUL, -10066330);
+		this.addAttributeModifier(Attributes.ARMOR, "b550c63f-3e0b-344c-a807-491464f428ac", -2, AttributeModifier.Operation.ADDITION);
 	}
 
 	@Override

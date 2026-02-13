@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/strike",
+    "up": "morebosses:block/strike_top",
+    "north": "morebosses:block/strike_side",
+    "east": "morebosses:block/strike_side",
+    "south": "morebosses:block/strike_side",
+    "west": "morebosses:block/strike_side",
+    "particle": "morebosses:block/strike"
+  },
+  "render_type": "solid"
+}

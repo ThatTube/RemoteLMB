@@ -21,7 +21,16 @@
     "subtitle": "subtitles.copper_placeholder",
     "sounds": [
       {
-        "name": "morebosses:copper_placeholder",
+        "name": "morebosses:monstruos",
+        "stream": false
+      }
+    ]
+  },
+  "taunt": {
+    "subtitle": "subtitles.taunt",
+    "sounds": [
+      {
+        "name": "morebosses:0206",
         "stream": false
       }
     ]

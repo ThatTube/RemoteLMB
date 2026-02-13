@@ -1,0 +1,43 @@
+{
+  "_fv": 73,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Sword",
+    "renderType": 1,
+    "blockingRenderType": 0,
+    "texture": "old_ingot",
+    "customModelName": "thelifeender:default",
+    "blockingModelName": "Normal blocking",
+    "name": "The Life Ender",
+    "specialInformation": {
+      "fixedValue": [
+        "Charge for 2 seconds for a thrust.",
+        "6 seconds cooldown",
+        "Enemies hit gain the effect of Armor Breach"
+      ]
+    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:LMBItens"
+      }
+    ],
+    "efficiency": 5.0,
+    "attackSpeed": 1.8,
+    "enchantability": 18,
+    "damageVsEntity": 12.0,
+    "usageCount": 3000,
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "repairItems": [
+      {
+        "value": "CUSTOM:OldSteelIngot"
+      }
+    ],
+    "immuneToFire": false,
+    "blockDropsTier": "NETHERITE",
+    "blocksAffected": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

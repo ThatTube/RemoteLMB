@@ -30,7 +30,7 @@ public class DryBossBar {
 			int x = event.getX();
 			int y = event.getY();
 			int barWidth = 189;
-			int barHeight = 35;
+			int barHeight = 20;
 
 
 

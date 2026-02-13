@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:old_steel_ingot"
+    },
+    "title": {
+      "translate": "advancements.nostalgia.title"
+    },
+    "description": {
+      "translate": "advancements.nostalgia.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "nostalgia_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "morebosses:sanctuary"
+}

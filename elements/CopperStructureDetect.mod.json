@@ -20,7 +20,7 @@
     "isItemTinted": false,
     "hasTransparency": true,
     "connectedSides": false,
-    "transparencyType": "SOLID",
+    "transparencyType": "TRANSLUCENT",
     "disableOffset": false,
     "boundingBoxes": [
       {
@@ -34,7 +34,7 @@
       }
     ],
     "customProperties": [],
-    "name": "Copper Structure Detect",
+    "name": "CSD",
     "specialInformation": {
       "fixedValue": []
     },

@@ -18,4 +18,5 @@ public class MorebossesModSounds {
 	public static final RegistryObject<SoundEvent> WIND_CHARGE = REGISTRY.register("wind_charge", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "wind_charge")));
 	public static final RegistryObject<SoundEvent> PIGLINBOULUSSCREAM = REGISTRY.register("piglinboulusscream", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "piglinboulusscream")));
 	public static final RegistryObject<SoundEvent> COPPER_PLACEHOLDER = REGISTRY.register("copper_placeholder", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "copper_placeholder")));
+	public static final RegistryObject<SoundEvent> TAUNT = REGISTRY.register("taunt", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "taunt")));
 }

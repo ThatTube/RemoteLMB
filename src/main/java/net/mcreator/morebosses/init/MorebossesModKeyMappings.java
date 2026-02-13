@@ -15,6 +15,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.KeyMapping;
 
+import net.mcreator.morebosses.network.TauntMessage;
 import net.mcreator.morebosses.network.BootsHabilityMessage;
 import net.mcreator.morebosses.MorebossesMod;
 
@@ -33,10 +34,24 @@ public class MorebossesModKeyMappings {
 			isDownOld = isDown;
 		}
 	};
+	public static final KeyMapping TAUNT = new KeyMapping("key.morebosses.taunt", GLFW.GLFW_KEY_G, "key.categories.misc") {
+		private boolean isDownOld = false;
+
+		@Override
+		public void setDown(boolean isDown) {
+			super.setDown(isDown);
+			if (isDownOld != isDown && isDown) {
+				MorebossesMod.PACKET_HANDLER.sendToServer(new TauntMessage(0, 0));
+				TauntMessage.pressAction(Minecraft.getInstance().player, 0, 0);
+			}
+			isDownOld = isDown;
+		}
+	};
 
 	@SubscribeEvent
 	public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
 		event.register(BOOTS_HABILITY);
+		event.register(TAUNT);
 	}
 
 	@Mod.EventBusSubscriber({Dist.CLIENT})
@@ -45,6 +60,7 @@ public class MorebossesModKeyMappings {
 		public static void onClientTick(TickEvent.ClientTickEvent event) {
 			if (Minecraft.getInstance().screen == null) {
 				BOOTS_HABILITY.consumeClick();
+				TAUNT.consumeClick();
 			}
 		}
 	}

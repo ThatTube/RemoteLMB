@@ -1,0 +1,8 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "morebosses:block/blomiberry_full",
+    "particle": "morebosses:block/blomi_berry_bush"
+  },
+  "render_type": "cutout_mipped"
+}

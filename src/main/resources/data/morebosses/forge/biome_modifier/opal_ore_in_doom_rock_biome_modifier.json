@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#morebosses:armagedom",
+  "features": "morebosses:opal_ore_in_doom_rock",
+  "step": "underground_ores"
+}

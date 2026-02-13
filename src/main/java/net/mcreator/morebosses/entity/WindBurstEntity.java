@@ -17,6 +17,8 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
@@ -67,6 +69,18 @@ public class WindBurstEntity extends AbstractArrow implements ItemSupplier {
 	protected void doPostHurtEffects(LivingEntity entity) {
 		super.doPostHurtEffects(entity);
 		entity.setArrowCount(entity.getArrowCount() - 1);
+	}
+
+	@Override
+	public boolean hurt(DamageSource source, float amount) {
+		// Verifica se o dano é de explosão
+		if (source.is(DamageTypes.EXPLOSION) || 
+			source.is(DamageTypes.PLAYER_EXPLOSION) || 
+			source.is(DamageTypes.FIREBALL) || 
+			source.is(DamageTypes.UNATTRIBUTED_FIREBALL)) {
+			return false; // Ignora completamente dano de explosão
+		}
+		return super.hurt(source, amount);
 	}
 
 	@Nullable

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "morebosses:block/colosseum_bricks_slab"
+    },
+    "type=top": {
+      "model": "morebosses:block/colosseum_bricks_slab_top"
+    },
+    "type=double": {
+      "model": "morebosses:block/colosseum_bricks_slab_full"
+    }
+  }
+}

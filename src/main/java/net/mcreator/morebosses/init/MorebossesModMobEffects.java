@@ -17,10 +17,13 @@ import net.mcreator.morebosses.potion.SampleMobEffect;
 import net.mcreator.morebosses.potion.PanicMobEffect;
 import net.mcreator.morebosses.potion.HellishBurnMobEffect;
 import net.mcreator.morebosses.potion.HeavyMobEffect;
+import net.mcreator.morebosses.potion.HardSkinMobEffect;
 import net.mcreator.morebosses.potion.FrenzyMobEffect;
 import net.mcreator.morebosses.potion.FlammableMobEffect;
 import net.mcreator.morebosses.potion.FlamingIgnitionMobEffect;
 import net.mcreator.morebosses.potion.EngineBoostMobEffect;
+import net.mcreator.morebosses.potion.DisguisedMobEffect;
+import net.mcreator.morebosses.potion.BleedingMobEffect;
 import net.mcreator.morebosses.MorebossesMod;
 
 public class MorebossesModMobEffects {
@@ -31,9 +34,12 @@ public class MorebossesModMobEffects {
 	public static final RegistryObject<MobEffect> ENGINE_BOOST = REGISTRY.register("engine_boost", () -> new EngineBoostMobEffect());
 	public static final RegistryObject<MobEffect> FLAMING_IGNITION = REGISTRY.register("flaming_ignition", () -> new FlamingIgnitionMobEffect());
 	public static final RegistryObject<MobEffect> FLAMMABLE = REGISTRY.register("flammable", () -> new FlammableMobEffect());
-	public static final RegistryObject<MobEffect> SAMPLE = REGISTRY.register("sample", () -> new SampleMobEffect());
+	public static final RegistryObject<MobEffect> ARMOR_BREACH = REGISTRY.register("armor_breach", () -> new SampleMobEffect());
 	public static final RegistryObject<MobEffect> FRENZY = REGISTRY.register("frenzy", () -> new FrenzyMobEffect());
 	public static final RegistryObject<MobEffect> SHRIMPED = REGISTRY.register("shrimped", () -> new ShrimpedMobEffect());
 	public static final RegistryObject<MobEffect> HELLISH_BURN = REGISTRY.register("hellish_burn", () -> new HellishBurnMobEffect());
 	public static final RegistryObject<MobEffect> STUN = REGISTRY.register("stun", () -> new StunMobEffect());
+	public static final RegistryObject<MobEffect> HARD_SKIN = REGISTRY.register("hard_skin", () -> new HardSkinMobEffect());
+	public static final RegistryObject<MobEffect> BLEEDING = REGISTRY.register("bleeding", () -> new BleedingMobEffect());
+	public static final RegistryObject<MobEffect> DISGUISED = REGISTRY.register("disguised", () -> new DisguisedMobEffect());
 }

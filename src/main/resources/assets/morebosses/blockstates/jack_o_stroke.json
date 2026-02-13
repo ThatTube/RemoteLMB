@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "morebosses:block/jack_o_stroke",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "morebosses:block/jack_o_stroke"
+    },
+    "axis=z": {
+      "model": "morebosses:block/jack_o_stroke",
+      "x": 90
+    }
+  }
+}

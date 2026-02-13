@@ -19,6 +19,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 import net.mcreator.morebosses.fluid.RawMagmaFluid;
 import net.mcreator.morebosses.fluid.GreenMagmaFluid;
+import net.mcreator.morebosses.fluid.BobFluid;
 import net.mcreator.morebosses.MorebossesMod;
 
 public class MorebossesModFluids {
@@ -27,6 +28,8 @@ public class MorebossesModFluids {
 	public static final RegistryObject<FlowingFluid> FLOWING_GREEN_MAGMA = REGISTRY.register("flowing_green_magma", () -> new GreenMagmaFluid.Flowing());
 	public static final RegistryObject<FlowingFluid> RAW_MAGMA = REGISTRY.register("raw_magma", () -> new RawMagmaFluid.Source());
 	public static final RegistryObject<FlowingFluid> FLOWING_RAW_MAGMA = REGISTRY.register("flowing_raw_magma", () -> new RawMagmaFluid.Flowing());
+	public static final RegistryObject<FlowingFluid> BOB = REGISTRY.register("bob", () -> new BobFluid.Source());
+	public static final RegistryObject<FlowingFluid> FLOWING_BOB = REGISTRY.register("flowing_bob", () -> new BobFluid.Flowing());
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class FluidsClientSideHandler {
@@ -36,6 +39,8 @@ public class MorebossesModFluids {
 			ItemBlockRenderTypes.setRenderLayer(FLOWING_GREEN_MAGMA.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(RAW_MAGMA.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(FLOWING_RAW_MAGMA.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(BOB.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(FLOWING_BOB.get(), RenderType.translucent());
 		}
 	}
 }

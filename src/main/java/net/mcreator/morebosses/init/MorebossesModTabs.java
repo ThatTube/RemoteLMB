@@ -44,6 +44,24 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.BLOLIUM.get().asItem());
 				tabData.accept(MorebossesModBlocks.OPAL_ORE_IN_DOOM_ROCK.get().asItem());
 				tabData.accept(MorebossesModBlocks.HELLISH_TUNGSTEN_BLOCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.DOOM_ROCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.OPAL_ORE_IN_CORIUM.get().asItem());
+				tabData.accept(MorebossesModBlocks.COBBLED_DOOM_ROCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.COLOSSEUM_BRICKS.get().asItem());
+				tabData.accept(MorebossesModBlocks.COLOSSEUM_BRICKS_FENCE.get().asItem());
+				tabData.accept(MorebossesModBlocks.COLOSSEUM_BRICKS_WALL.get().asItem());
+				tabData.accept(MorebossesModBlocks.COLOSSEUM_BRICKS_SLAB.get().asItem());
+				tabData.accept(MorebossesModBlocks.COLOSSEUM_BRICKS_STAIRS.get().asItem());
+				tabData.accept(MorebossesModBlocks.SHINING_COLOSSEUM_BRICKS.get().asItem());
+				tabData.accept(MorebossesModBlocks.STROKE.get().asItem());
+				tabData.accept(MorebossesModBlocks.STRIKE.get().asItem());
+				tabData.accept(MorebossesModBlocks.COARSE.get().asItem());
+				tabData.accept(MorebossesModBlocks.STROKE_MELON.get().asItem());
+				tabData.accept(MorebossesModBlocks.CARVED_STROKE_MELON.get().asItem());
+				tabData.accept(MorebossesModBlocks.JACK_O_STROKE.get().asItem());
+				tabData.accept(MorebossesModBlocks.STROKE_NEST.get().asItem());
+				tabData.accept(MorebossesModBlocks.STROKE_GRASS.get().asItem());
+				tabData.accept(MorebossesModBlocks.BLOMI_BERRY_BUSH.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -96,6 +114,25 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.COOKED_SHRIMP.get());
 				tabData.accept(MorebossesModItems.OPAL.get());
 				tabData.accept(MorebossesModItems.HELLISH_TUNGSTEN_INGOT.get());
+				tabData.accept(MorebossesModItems.BOB_BUCKET.get());
+				tabData.accept(MorebossesModItems.COPPER_DISC.get());
+				tabData.accept(MorebossesModItems.JUNGLE_ESSENCE.get());
+				tabData.accept(MorebossesModItems.ARMAGEDOM.get());
+				tabData.accept(MorebossesModItems.BASALTIC_SHARD.get());
+				tabData.accept(MorebossesModItems.BASALTIC_SHIELD.get());
+				tabData.accept(MorebossesModItems.BROKEN_SWORD.get());
+				tabData.accept(MorebossesModItems.NETHERITE_LONG_SWORD.get());
+				tabData.accept(MorebossesModItems.BLOMI_BERRY.get());
+				tabData.accept(MorebossesModItems.BLOMI_BERRY_SEEDS.get());
+				tabData.accept(MorebossesModItems.DIAMONDED_BLOMI_BERRY.get());
+				tabData.accept(MorebossesModItems.BROKEN_IDOL.get());
+				tabData.accept(MorebossesModItems.WOODRITE_INGOT.get());
+				tabData.accept(MorebossesModItems.LUSH_EYE.get());
+				tabData.accept(MorebossesModItems.OLD_EYE.get());
+				tabData.accept(MorebossesModItems.OLD_STEEL_INGOT.get());
+				tabData.accept(MorebossesModItems.THE_LIFE_ENDER.get());
+				tabData.accept(MorebossesModItems.OLD_STEEL_SMITHING_UPGRADE.get());
+				tabData.accept(MorebossesModItems.BOSS_REMOVER.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {
@@ -116,6 +153,7 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.PIGLIN_BOXER_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.ARCHDUKE_LYTHERION_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.MAGMATIC_CHAMPION_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.SLAGTIO_THE_MIGHTY_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 
 	@SubscribeEvent
@@ -123,6 +161,7 @@ public class MorebossesModTabs {
 		if (tabData.getTabKey() == CreativeModeTabs.OP_BLOCKS) {
 			if (tabData.hasPermissions()) {
 				tabData.accept(MorebossesModBlocks.COPPER_STRUCTURE_DETECT.get().asItem());
+				tabData.accept(MorebossesModBlocks.SDB.get().asItem());
 			}
 		}
 	}

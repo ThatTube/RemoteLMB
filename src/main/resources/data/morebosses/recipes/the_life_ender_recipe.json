@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "morebosses:old_steel_smithing_upgrade"
+  },
+  "base": {
+    "item": "morebosses:netherite_long_sword"
+  },
+  "addition": {
+    "item": "morebosses:old_steel_ingot"
+  },
+  "result": {
+    "item": "morebosses:the_life_ender"
+  }
+}

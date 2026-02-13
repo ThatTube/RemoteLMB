@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "morebosses:block/armagedom_portal_ew"
+    },
+    "axis=x": {
+      "model": "morebosses:block/armagedom_portal_ns"
+    }
+  }
+}

@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
+    "morebosses:strike",
+    "morebosses:stroke",
+    "morebosses:shining_colosseum_bricks",
+    "morebosses:colosseum_bricks_stairs",
+    "morebosses:colosseum_bricks_slab",
+    "morebosses:colosseum_bricks_wall",
+    "morebosses:colosseum_bricks_fence",
+    "morebosses:colosseum_bricks",
     "morebosses:copper_pressure_plate",
     "morebosses:copper_grates",
     "morebosses:copper_booom",

@@ -49,6 +49,11 @@ public class MorebossesModBrewingRecipes implements IModPlugin {
 		PotionUtils.setPotion(potion2, MorebossesModPotions.GREASE.get());
 		brewingRecipes.add(factory.createBrewingRecipe(List.copyOf(ingredientStack), potion.copy(), potion2.copy()));
 		ingredientStack.clear();
+		ingredientStack.add(new ItemStack(MorebossesModItems.BASALTIC_SHARD.get()));
+		PotionUtils.setPotion(potion, Potions.MUNDANE);
+		PotionUtils.setPotion(potion2, MorebossesModPotions.HARD_SKIN_POTION.get());
+		brewingRecipes.add(factory.createBrewingRecipe(List.copyOf(ingredientStack), potion.copy(), potion2.copy()));
+		ingredientStack.clear();
 		registration.addRecipes(RecipeTypes.BREWING, brewingRecipes);
 	}
 }

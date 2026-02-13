@@ -16,6 +16,7 @@ import net.mcreator.morebosses.client.renderer.WindBurstRenderer;
 import net.mcreator.morebosses.client.renderer.TurretRenderer;
 import net.mcreator.morebosses.client.renderer.TallEngineerRenderer;
 import net.mcreator.morebosses.client.renderer.SoulDionaeaRenderer;
+import net.mcreator.morebosses.client.renderer.SlagtioTheMightyRenderer;
 import net.mcreator.morebosses.client.renderer.ShrimpRenderer;
 import net.mcreator.morebosses.client.renderer.ShockWaveRenderer;
 import net.mcreator.morebosses.client.renderer.RobotWhaleRenderer;
@@ -68,5 +69,7 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.LAMENT_BOMB.get(), LamentBombRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.MAGMATIC_CHAMPION.get(), MagmaticChampionRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.MAGMA_PIT.get(), MagmaPitRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.SLAGTIO_THE_MIGHTY.get(), SlagtioTheMightyRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.EYE_OLD.get(), ThrownItemRenderer::new);
 	}
 }

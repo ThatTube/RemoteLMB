@@ -2,14 +2,14 @@
   "_fv": 73,
   "_type": "potioneffect",
   "definition": {
-    "effectName": "Sample",
+    "effectName": "Armor Breach",
     "icon": "sample",
     "color": {
       "value": -10066330,
       "falpha": 0.0
     },
     "isInstant": true,
-    "mobEffectCategory": "NEUTRAL",
+    "mobEffectCategory": "HARMFUL",
     "renderStatusInInventory": true,
     "renderStatusInHUD": true,
     "isCuredByMilk": false,

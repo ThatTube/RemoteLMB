@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#lmb:boss"
+    "#lmb:boss",
+    "#morebosses:miniboss"
   ]
 }

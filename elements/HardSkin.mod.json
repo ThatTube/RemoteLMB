@@ -1,0 +1,28 @@
+{
+  "_fv": 73,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Hard Skin",
+    "icon": "hard_skin",
+    "color": {
+      "value": -13948335,
+      "falpha": 0.0
+    },
+    "isInstant": true,
+    "mobEffectCategory": "BENEFICIAL",
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": true,
+    "isCuredByMilk": true,
+    "isProtectedByTotem": true,
+    "isCuredbyHoney": false,
+    "modifiers": [
+      {
+        "attribute": {
+          "value": "ARMOR_TOUGHNESS"
+        },
+        "amount": 6.0,
+        "operation": "ADD_VALUE"
+      }
+    ]
+  }
+}

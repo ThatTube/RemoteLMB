@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/thelifeender",
+  "textures": {
+    "0": "morebosses:block/lifeender",
+    "particle": "morebosses:item/old_ingot"
+  }
+}

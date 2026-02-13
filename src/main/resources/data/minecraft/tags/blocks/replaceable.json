@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "morebosses:bob",
     "morebosses:raw_magma",
     "morebosses:green_magma"
   ]

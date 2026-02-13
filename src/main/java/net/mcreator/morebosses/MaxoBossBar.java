@@ -28,7 +28,7 @@ public class MaxoBossBar {
 			int x = event.getX();
 			int y = event.getY();
 			int barWidth = 189;
-			int barHeight = 35;
+			int barHeight = 45;
 
 
 			// Renderiza o fundo

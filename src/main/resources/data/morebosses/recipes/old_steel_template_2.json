@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "aba",
+    "aca",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:quartz"
+    },
+    "b": {
+      "item": "morebosses:old_steel_smithing_upgrade"
+    },
+    "c": {
+      "item": "morebosses:old_steel_ingot"
+    }
+  },
+  "result": {
+    "item": "morebosses:old_steel_smithing_upgrade",
+    "count": 1
+  }
+}

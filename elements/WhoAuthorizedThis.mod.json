@@ -5,7 +5,7 @@
     "achievementName": "Who Authorized This ?",
     "achievementDescription": "Defeat the Copper Monstrosity",
     "achievementIcon": {
-      "value": "CUSTOM:CopperMonstrosity.spawn_egg"
+      "value": "CUSTOM:MONSTROUSFOOTWEAR.boots"
     },
     "background": "Default",
     "disableDisplay": false,

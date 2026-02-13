@@ -2,7 +2,7 @@
   "_fv": 73,
   "_type": "block",
   "definition": {
-    "texture": "opala_ore",
+    "texture": "opal_ore_doomrock",
     "textureTop": "",
     "textureLeft": "",
     "textureFront": "",
@@ -38,7 +38,7 @@
     "specialInformation": {
       "fixedValue": []
     },
-    "hardness": 1.0,
+    "hardness": 2.0,
     "resistance": 22.0,
     "hasGravity": false,
     "isWaterloggable": false,
@@ -121,17 +121,21 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "generateFeature": false,
-    "restrictionBiomes": [],
+    "generateFeature": true,
+    "restrictionBiomes": [
+      {
+        "value": "#mod:armagedom"
+      }
+    ],
     "blocksToReplace": [
       {
-        "value": "TAG:stone_ore_replaceables"
+        "value": "CUSTOM:DOOMRock"
       }
     ],
     "generationShape": "UNIFORM",
     "frequencyPerChunks": 10,
     "frequencyOnChunk": 16,
-    "minGenerateHeight": 0,
+    "minGenerateHeight": -64,
     "maxGenerateHeight": 64
   }
 }

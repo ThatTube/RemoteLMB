@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:blaze_powder"
+    },
+    {
+      "item": "morebosses:ring"
+    }
+  ],
+  "result": {
+    "item": "morebosses:fire_ring",
+    "count": 1
+  }
+}

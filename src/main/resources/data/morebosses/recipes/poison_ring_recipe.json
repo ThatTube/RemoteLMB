@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "morebosses:jungle_essence"
+    },
+    {
+      "item": "morebosses:ring"
+    }
+  ],
+  "result": {
+    "item": "morebosses:poison_ring",
+    "count": 1
+  }
+}

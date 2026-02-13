@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/brokensword",
+  "textures": {
+    "0": "morebosses:block/damaged_sword",
+    "particle": "minecraft:item/acacia_chest_boat"
+  }
+}

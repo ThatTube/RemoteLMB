@@ -22,6 +22,7 @@ import net.mcreator.morebosses.entity.TurretEntityProjectile;
 import net.mcreator.morebosses.entity.TurretEntity;
 import net.mcreator.morebosses.entity.TallEngineerEntity;
 import net.mcreator.morebosses.entity.SoulDionaeaEntity;
+import net.mcreator.morebosses.entity.SlagtioTheMightyEntity;
 import net.mcreator.morebosses.entity.ShrimpEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
 import net.mcreator.morebosses.entity.RobotWhaleEntity;
@@ -36,6 +37,7 @@ import net.mcreator.morebosses.entity.MagmaticChampionEntity;
 import net.mcreator.morebosses.entity.MagmaPitEntity;
 import net.mcreator.morebosses.entity.LaserEntity;
 import net.mcreator.morebosses.entity.LamentBombEntity;
+import net.mcreator.morebosses.entity.EyeOldEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
@@ -135,6 +137,12 @@ public class MorebossesModEntities {
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(MagmaticChampionEntity::new).fireImmune().sized(1f, 2.5f));
 	public static final RegistryObject<EntityType<MagmaPitEntity>> MAGMA_PIT = register("magma_pit",
 			EntityType.Builder.<MagmaPitEntity>of(MagmaPitEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MagmaPitEntity::new).fireImmune().sized(1f, 0.1f));
+	public static final RegistryObject<EntityType<SlagtioTheMightyEntity>> SLAGTIO_THE_MIGHTY = register("slagtio_the_mighty",
+			EntityType.Builder.<SlagtioTheMightyEntity>of(SlagtioTheMightyEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(SlagtioTheMightyEntity::new)
+
+					.sized(1.5f, 3f));
+	public static final RegistryObject<EntityType<EyeOldEntity>> EYE_OLD = register("eye_old",
+			EntityType.Builder.<EyeOldEntity>of(EyeOldEntity::new, MobCategory.MISC).setCustomClientFactory(EyeOldEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -165,6 +173,7 @@ public class MorebossesModEntities {
 			ArchdukeLytherionEntity.init();
 			MagmaticChampionEntity.init();
 			MagmaPitEntity.init();
+			SlagtioTheMightyEntity.init();
 		});
 	}
 
@@ -190,5 +199,6 @@ public class MorebossesModEntities {
 		event.put(ARCHDUKE_LYTHERION.get(), ArchdukeLytherionEntity.createAttributes().build());
 		event.put(MAGMATIC_CHAMPION.get(), MagmaticChampionEntity.createAttributes().build());
 		event.put(MAGMA_PIT.get(), MagmaPitEntity.createAttributes().build());
+		event.put(SLAGTIO_THE_MIGHTY.get(), SlagtioTheMightyEntity.createAttributes().build());
 	}
 }

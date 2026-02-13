@@ -1,6 +1,15 @@
 {
   "replace": false,
   "values": [
+    "morebosses:shining_colosseum_bricks",
+    "morebosses:colosseum_bricks_stairs",
+    "morebosses:colosseum_bricks_slab",
+    "morebosses:colosseum_bricks_wall",
+    "morebosses:colosseum_bricks_fence",
+    "morebosses:colosseum_bricks",
+    "morebosses:cobbled_doom_rock",
+    "morebosses:opal_ore_in_corium",
+    "morebosses:doom_rock",
     "morebosses:hellish_tungsten_block",
     "morebosses:opal_ore_in_doom_rock",
     "morebosses:copper_pressure_plate",

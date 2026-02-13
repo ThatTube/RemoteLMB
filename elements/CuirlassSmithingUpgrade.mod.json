@@ -7,7 +7,7 @@
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],
-    "name": "Cuirlass Smithing Upgrade",
+    "name": "Smithing Template",
     "rarity": "COMMON",
     "creativeTabs": [
       {
@@ -29,7 +29,13 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInformation": {
-      "fixedValue": []
+      "fixedValue": [
+        "Cuirlass Upgrade",
+        "Applies to:",
+        "Netherite Equipment",
+        "Ingredients:",
+        "Stone Cuirlass"
+      ]
     },
     "glowCondition": {
       "fixedValue": false

@@ -2215,7 +2215,7 @@
       "type": "potioneffect",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "sample",
+      "registry_name": "armor_breach",
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/morebosses/potion/SampleMobEffect.java"
@@ -2967,7 +2967,7 @@
       "name": "TheUndergroundWorkshop",
       "type": "achievement",
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "the_underground_workshop",
       "metadata": {
         "files": [
@@ -3363,8 +3363,7 @@
       "registry_name": "eyesinformation",
       "metadata": {
         "files": []
-      },
-      "path": "~/Recipes"
+      }
     },
     {
       "name": "MegaForge",
@@ -4340,10 +4339,13 @@
       "registry_name": "opal_ore_in_doom_rock",
       "metadata": {
         "files": [
+          "src/main/resources/data/morebosses/worldgen/placed_feature/opal_ore_in_doom_rock.json",
           "src/main/java/net/mcreator/morebosses/block/OpalOreInDOOMRockBlock.java",
           "src/main/resources/assets/morebosses/blockstates/opal_ore_in_doom_rock.json",
+          "src/main/resources/data/morebosses/worldgen/configured_feature/opal_ore_in_doom_rock.json",
           "src/main/resources/assets/morebosses/models/item/opal_ore_in_doom_rock.json",
-          "src/main/resources/assets/morebosses/models/block/opal_ore_in_doom_rock.json"
+          "src/main/resources/assets/morebosses/models/block/opal_ore_in_doom_rock.json",
+          "src/main/resources/data/morebosses/forge/biome_modifier/opal_ore_in_doom_rock_biome_modifier.json"
         ]
       },
       "path": "~/Blocks"
@@ -4572,6 +4574,1415 @@
         ]
       },
       "path": "~/Drops"
+    },
+    {
+      "name": "DOOMRock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_rock",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/doom_rock.json",
+          "src/main/resources/assets/morebosses/models/item/doom_rock.json",
+          "src/main/resources/assets/morebosses/blockstates/doom_rock.json",
+          "src/main/java/net/mcreator/morebosses/block/DOOMRockBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "OpalOreInCorium",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "opal_ore_in_corium",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/opal_ore_in_corium.json",
+          "src/main/resources/assets/morebosses/blockstates/opal_ore_in_corium.json",
+          "src/main/java/net/mcreator/morebosses/block/OpalOreInCoriumBlock.java",
+          "src/main/resources/data/morebosses/forge/biome_modifier/opal_ore_in_corium_biome_modifier.json",
+          "src/main/resources/assets/morebosses/models/item/opal_ore_in_corium.json",
+          "src/main/resources/data/morebosses/worldgen/placed_feature/opal_ore_in_corium.json",
+          "src/main/resources/data/morebosses/worldgen/configured_feature/opal_ore_in_corium.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "OpalCoriumDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "opal_corium_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/blocks/opal_ore_in_corium.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "CobbledDOOMRock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cobbled_doom_rock",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/cobbled_doom_rock.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/cobbled_doom_rock.json",
+          "src/main/resources/assets/morebosses/models/item/cobbled_doom_rock.json",
+          "src/main/resources/assets/morebosses/blockstates/cobbled_doom_rock.json",
+          "src/main/java/net/mcreator/morebosses/block/CobbledDOOMRockBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CobbledRock",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cobbled_rock",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/blocks/doom_rock.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "Bob",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bob",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/fluid/types/BobFluidType.java",
+          "src/main/java/net/mcreator/morebosses/item/BobItem.java",
+          "src/main/resources/assets/morebosses/blockstates/bob.json",
+          "src/main/resources/assets/morebosses/models/block/bob.json",
+          "src/main/java/net/mcreator/morebosses/fluid/BobFluid.java",
+          "src/main/java/net/mcreator/morebosses/block/BobBlock.java",
+          "src/main/resources/assets/morebosses/models/item/bob_bucket.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CopperDisc",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_disc",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/CopperDiscItem.java",
+          "src/main/resources/assets/morebosses/models/item/copper_disc.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "FireRingRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fire_ring_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/fire_ring_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "JungleEssence",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jungle_essence",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/JungleEssenceItem.java",
+          "src/main/resources/assets/morebosses/models/item/jungle_essence.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PoisonRingRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "poison_ring_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/poison_ring_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "GrandPallace",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grand_pallace",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/worldgen/placed_feature/grand_pallace_tree.json",
+          "src/main/resources/data/morebosses/worldgen/configured_feature/grand_pallace_tree.json",
+          "src/main/resources/data/morebosses/worldgen/biome/grand_pallace.json"
+        ]
+      },
+      "path": "~/ArmageDOOM"
+    },
+    {
+      "name": "Armagedom",
+      "type": "dimension",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "armagedom",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/world/teleporter/ArmagedomPortalShape.java",
+          "src/main/resources/data/morebosses/dimension_type/armagedom.json",
+          "src/main/resources/assets/morebosses/models/block/armagedom_portal_ns.json",
+          "src/main/java/net/mcreator/morebosses/item/ArmagedomItem.java",
+          "src/main/java/net/mcreator/morebosses/world/teleporter/ArmagedomTeleporter.java",
+          "src/main/java/net/mcreator/morebosses/block/ArmagedomPortalBlock.java",
+          "src/main/resources/assets/morebosses/models/item/armagedom.json",
+          "src/main/resources/assets/morebosses/models/block/armagedom_portal_ew.json",
+          "src/main/resources/data/morebosses/dimension/armagedom.json",
+          "src/main/resources/assets/morebosses/blockstates/armagedom_portal.json"
+        ]
+      },
+      "path": "~/ArmageDOOM"
+    },
+    {
+      "name": "BasalticShard",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "basaltic_shard",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/basaltic_shard.json",
+          "src/main/java/net/mcreator/morebosses/item/BasalticShardItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "HardSkin",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hard_skin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/HardSkinMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
+    },
+    {
+      "name": "HardSkinPotion",
+      "type": "potion",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hard_skin_potion",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "HardSkinPotionRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hard_skin_potion_recipe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/recipes/brewing/HardSkinPotionRecipeBrewingRecipe.java"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "ColosseumBricks",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "colosseum_bricks",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/block/ColosseumBricksBlock.java",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks.json",
+          "src/main/resources/assets/morebosses/blockstates/colosseum_bricks.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/colosseum_bricks.json",
+          "src/main/resources/assets/morebosses/models/item/colosseum_bricks.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "ColosseumBricksFence",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "colosseum_bricks_fence",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/blocks/colosseum_bricks_fence.json",
+          "src/main/resources/assets/morebosses/blockstates/colosseum_bricks_fence.json",
+          "src/main/java/net/mcreator/morebosses/block/ColosseumBricksFenceBlock.java",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_fence_post.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_fence.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_fence_inventory.json",
+          "src/main/resources/assets/morebosses/models/item/colosseum_bricks_fence.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "ColosseumBricksWall",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "colosseum_bricks_wall",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/blocks/colosseum_bricks_wall.json",
+          "src/main/java/net/mcreator/morebosses/block/ColosseumBricksWallBlock.java",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_wall_side_tall.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_wall_inventory.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_wall.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_wall_post.json",
+          "src/main/resources/assets/morebosses/models/item/colosseum_bricks_wall.json",
+          "src/main/resources/assets/morebosses/blockstates/colosseum_bricks_wall.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "ColosseumBricksSlab",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "colosseum_bricks_slab",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/blockstates/colosseum_bricks_slab.json",
+          "src/main/resources/assets/morebosses/models/item/colosseum_bricks_slab.json",
+          "src/main/java/net/mcreator/morebosses/block/ColosseumBricksSlabBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/colosseum_bricks_slab.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_slab.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_slab_full.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_slab_top.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "ColosseumBricksStairs",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "colosseum_bricks_stairs",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_stairs_inner.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_stairs.json",
+          "src/main/resources/assets/morebosses/models/block/colosseum_bricks_stairs_outer.json",
+          "src/main/java/net/mcreator/morebosses/block/ColosseumBricksStairsBlock.java",
+          "src/main/resources/assets/morebosses/blockstates/colosseum_bricks_stairs.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/colosseum_bricks_stairs.json",
+          "src/main/resources/assets/morebosses/models/item/colosseum_bricks_stairs.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "ShiningColosseumBricks",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shining_colosseum_bricks",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/shining_colosseum_bricks.json",
+          "src/main/resources/assets/morebosses/models/block/shining_colosseum_bricks.json",
+          "src/main/java/net/mcreator/morebosses/block/ShiningColosseumBricksBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/shining_colosseum_bricks.json",
+          "src/main/resources/assets/morebosses/blockstates/shining_colosseum_bricks.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "BasalticShield",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "basaltic_shield",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/BasalticShieldItem.java",
+          "src/main/resources/assets/morebosses/models/item/basaltic_shield_0.json",
+          "src/main/resources/assets/morebosses/models/item/basaltic_shield.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "BasaltDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "basalt_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/loot_tables/blocks/basalt.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "Stroke",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stroke",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/blockstates/stroke.json",
+          "src/main/resources/assets/morebosses/models/block/stroke.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/stroke.json",
+          "src/main/java/net/mcreator/morebosses/block/StrokeBlock.java",
+          "src/main/resources/assets/morebosses/models/item/stroke.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "Strike",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "strike",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/blockstates/strike.json",
+          "src/main/resources/assets/morebosses/models/block/strike.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/strike.json",
+          "src/main/resources/assets/morebosses/models/item/strike.json",
+          "src/main/java/net/mcreator/morebosses/block/StrikeBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "Coarse",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coarse",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/block/CoarseBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/coarse.json",
+          "src/main/resources/assets/morebosses/models/item/coarse.json",
+          "src/main/resources/assets/morebosses/blockstates/coarse.json",
+          "src/main/resources/assets/morebosses/models/block/coarse.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "TauntOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "taunt_on_key_pressed",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/TauntOnKeyPressedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Taunt",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "taunt",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/network/TauntMessage.java"
+        ]
+      }
+    },
+    {
+      "name": "NetheriteIsALie",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "netherite_is_a_lie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/advancements/netherite_is_a_lie.json"
+        ]
+      },
+      "path": "~/Conquistas"
+    },
+    {
+      "name": "BrokenSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_sword",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/BrokenSwordItem.java",
+          "src/main/resources/assets/morebosses/models/item/broken_sword.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "BrokenSwordCanbeFind",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_sword_canbe_find",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/chests/broken_sword.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "BrokenSwordExpand",
+      "type": "lootmodifier",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_sword_expand",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_modifiers/broken_sword_expand.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "BSExpandII",
+      "type": "lootmodifier",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bs_expand_ii",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_modifiers/bs_expand_ii.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "BSIII",
+      "type": "lootmodifier",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bsiii",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_modifiers/bsiii.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "BSIV",
+      "type": "lootmodifier",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bsiv",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_modifiers/bsiv.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "BSV",
+      "type": "lootmodifier",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bsv",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_modifiers/bsv.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "Bleed",
+      "type": "damagetype",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bleed",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/damage_type/bleed.json"
+        ]
+      },
+      "path": "~/Danos"
+    },
+    {
+      "name": "BleedingOnEffectActiveTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bleeding_on_effect_active_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/BleedingOnEffectActiveTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Bleeding",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bleeding",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/BleedingMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
+    },
+    {
+      "name": "BrokenSwordLivingEntityIsHitWithTool",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_sword_living_entity_is_hit_with_tool",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/BrokenSwordLivingEntityIsHitWithToolProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "NetheriteLongSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "netherite_long_sword",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/netherite_long_sword.json",
+          "src/main/java/net/mcreator/morebosses/item/NetheriteLongSwordItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "FixBrokenSword",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fix_broken_sword",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/fix_broken_sword.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "StrokeMelon",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stroke_melon",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/blockstates/stroke_melon.json",
+          "src/main/java/net/mcreator/morebosses/block/StrokeMelonBlock.java",
+          "src/main/resources/assets/morebosses/models/item/stroke_melon.json",
+          "src/main/resources/assets/morebosses/models/block/stroke_melon.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CarvedStrokeMelon",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "carved_stroke_melon",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/blockstates/carved_stroke_melon.json",
+          "src/main/java/net/mcreator/morebosses/block/CarvedStrokeMelonBlock.java",
+          "src/main/resources/assets/morebosses/models/block/carved_stroke_melon.json",
+          "src/main/resources/assets/morebosses/models/item/carved_stroke_melon.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "JackOStroke",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jack_o_stroke",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/jack_o_stroke.json",
+          "src/main/resources/assets/morebosses/blockstates/jack_o_stroke.json",
+          "src/main/java/net/mcreator/morebosses/block/JackOStrokeBlock.java",
+          "src/main/resources/assets/morebosses/models/block/jack_o_stroke.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "StrokeNest",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stroke_nest",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/block/StrokeNestBlock.java",
+          "src/main/resources/assets/morebosses/models/item/stroke_nest.json",
+          "src/main/resources/assets/morebosses/blockstates/stroke_nest.json",
+          "src/main/resources/assets/morebosses/models/block/stroke_nest.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "StrokeGrass",
+      "type": "plant",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stroke_grass",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/blocks/stroke_grass.json",
+          "src/main/resources/assets/morebosses/models/item/stroke_grass.json",
+          "src/main/resources/data/morebosses/worldgen/configured_feature/stroke_grass.json",
+          "src/main/java/net/mcreator/morebosses/block/StrokeGrassBlock.java",
+          "src/main/resources/data/morebosses/worldgen/placed_feature/stroke_grass.json",
+          "src/main/resources/assets/morebosses/blockstates/stroke_grass.json",
+          "src/main/resources/data/morebosses/forge/biome_modifier/stroke_grass_biome_modifier.json",
+          "src/main/resources/assets/morebosses/models/block/stroke_grass.json"
+        ]
+      },
+      "path": "~/Blocks/Plantas"
+    },
+    {
+      "name": "BlomiBerry",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blomi_berry",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/blomi_berry.json",
+          "src/main/java/net/mcreator/morebosses/item/BlomiBerryItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "BlomiBerryBushOnTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blomi_berry_bush_on_tick_update",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/BlomiBerryBushOnTickUpdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "BlomiBerryBush",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blomi_berry_bush",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/blomi_berry_bush.json",
+          "src/main/resources/assets/morebosses/models/item/blomi_berry_bush.json",
+          "src/main/resources/assets/morebosses/blockstates/blomi_berry_bush.json",
+          "src/main/java/net/mcreator/morebosses/block/BlomiBerryBushBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/blomi_berry_bush.json"
+        ]
+      },
+      "path": "~/Blocks/Plantas"
+    },
+    {
+      "name": "FullBlomi",
+      "type": "blockstates",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "full_blomi",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/full_blomi_blockstate_1.json",
+          "src/main/resources/assets/morebosses/models/block/full_blomi_blockstate_0.json"
+        ]
+      },
+      "path": "~/Blocks/Plantas"
+    },
+    {
+      "name": "BlomiBerryBushOnBlockRightClicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blomi_berry_bush_on_block_right_clicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/BlomiBerryBushOnBlockRightClickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "BlomiBerryRightclickedOnBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blomi_berry_rightclicked_on_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/BlomiBerryRightclickedOnBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "BlomiBerrySeeds",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blomi_berry_seeds",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/BlomiBerrySeedsItem.java",
+          "src/main/resources/assets/morebosses/models/item/blomi_berry_seeds.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DiamondedBlomiBerry",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "diamonded_blomi_berry",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/diamonded_blomi_berry.json",
+          "src/main/java/net/mcreator/morebosses/item/DiamondedBlomiBerryItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "BlomiSeedsRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blomi_seeds_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/blomi_seeds_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "DiamondedBlomi",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "diamonded_blomi",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/diamonded_blomi.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "DisguisedOnEffectActiveTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disguised_on_effect_active_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/DisguisedOnEffectActiveTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "DisguisedEffectExpires",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disguised_effect_expires",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/DisguisedEffectExpiresProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Disguised",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disguised",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/potion/DisguisedMobEffect.java"
+        ]
+      },
+      "path": "~/Efeitos"
+    },
+    {
+      "name": "DiamondedBlomiBerryPlayerFinishesUsingItem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "diamonded_blomi_berry_player_finishes_using_item",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/DiamondedBlomiBerryPlayerFinishesUsingItemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "SlagtioTheMighty",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "slagtio_the_mighty",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/SlagtioTheMightyEntity.java",
+          "src/main/java/net/mcreator/morebosses/entity/layer/SlagtioTheMightyLayer.java",
+          "src/main/java/net/mcreator/morebosses/entity/model/SlagtioTheMightyModel.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/SlagtioTheMightyRenderer.java",
+          "src/main/resources/assets/morebosses/models/item/slagtio_the_mighty_spawn_egg.json"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "BrokenIdol",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_idol",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/broken_idol.json",
+          "src/main/java/net/mcreator/morebosses/item/BrokenIdolItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "WoodriteIngot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "woodrite_ingot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/WoodriteIngotItem.java",
+          "src/main/resources/assets/morebosses/models/item/woodrite_ingot.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "LushEye",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lush_eye",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/lush_eye.json",
+          "src/main/java/net/mcreator/morebosses/item/LushEyeItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "OldEye",
+      "type": "item",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "old_eye",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/old_eye.json",
+          "src/main/java/net/mcreator/morebosses/item/OldEyeItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "LushEyeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lush_eye_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/lush_eye_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "OldEyeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "old_eye_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/old_eye_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "EyeOld",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "eye_old",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/EyeOldEntity.java"
+        ]
+      },
+      "path": "~/Projeteis"
+    },
+    {
+      "name": "OldSanctuary",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "old_sanctuary",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/worldgen/structure_set/old_sanctuary.json",
+          "src/main/resources/data/morebosses/worldgen/structure/old_sanctuary.json",
+          "src/main/resources/data/morebosses/worldgen/template_pool/old_sanctuary.json"
+        ]
+      },
+      "path": "~/Estruturas"
+    },
+    {
+      "name": "BrokenIdolRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "broken_idol_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/broken_idol_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "BI",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bi",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/chests/bi.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "BIFound",
+      "type": "lootmodifier",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bi_found",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_modifiers/bi_found.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "SDB",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sdb",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/block/sdb.json",
+          "src/main/resources/assets/morebosses/models/item/sdb.json",
+          "src/main/resources/assets/morebosses/blockstates/sdb.json",
+          "src/main/resources/data/morebosses/loot_tables/blocks/sdb.json",
+          "src/main/java/net/mcreator/morebosses/block/SDBBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "STS",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "sts",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/STS.java"
+        ]
+      }
+    },
+    {
+      "name": "Sanctuary",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sanctuary",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/advancements/sanctuary.json"
+        ]
+      },
+      "path": "~/Conquistas"
+    },
+    {
+      "name": "OldSteelIngot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "old_steel_ingot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/OldSteelIngotItem.java",
+          "src/main/resources/assets/morebosses/models/item/old_steel_ingot.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "SlagtioTheMightyDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "slagtio_the_mighty_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/slagtio_the_mighty.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "Nostalgia",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nostalgia",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/advancements/nostalgia.json"
+        ]
+      },
+      "path": "~/Conquistas"
+    },
+    {
+      "name": "SlagtioDeath",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "slagtio_death",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/SlagtioDeathProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "BossDamageHandler",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "boss_damage_handler",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/BossDamageHandler.java"
+        ]
+      }
+    },
+    {
+      "name": "TheLifeEnder",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "the_life_ender",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/TheLifeEnderItem.java",
+          "src/main/resources/assets/morebosses/models/item/the_life_ender.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DashLifeEnder",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dash_life_ender",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/DashLifeEnderProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "OldSteelSmithingUpgrade",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "old_steel_smithing_upgrade",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/OldSteelSmithingUpgradeItem.java",
+          "src/main/resources/assets/morebosses/models/item/old_steel_smithing_upgrade.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "OldSteelTemplate",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "old_steel_template",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/old_steel_template.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "OldSteelTemplate2",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "old_steel_template_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/old_steel_template_2.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "TheLifeEnderRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "the_life_ender_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/the_life_ender_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "BossRemover",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boss_remover",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/boss_remover.json",
+          "src/main/java/net/mcreator/morebosses/item/BossRemoverItem.java"
+        ]
+      },
+      "path": "~/Items"
     }
   ],
   "variable_elements": [],
@@ -4595,22 +6006,39 @@
     {
       "name": "copper_placeholder",
       "files": [
-        "copper_placeholder"
+        "monstruos"
       ],
       "category": "hostile",
-      "subtitle": "Theme of the Copper Monstrosity"
+      "subtitle": "Copper Monstrosity music"
+    },
+    {
+      "name": "taunt",
+      "files": [
+        "0206"
+      ],
+      "category": "player",
+      "subtitle": "Someone challenges something to a fight."
     }
   ],
   "tag_elements": {
+    "ENTITIES:mod:miniboss": [
+      "CUSTOM:SlagtioTheMighty"
+    ],
     "ENTITIES:lmb:immunetoshockwave": [
       "CUSTOM:ShockWave",
       "CUSTOM:CopperMonstrosity"
     ],
     "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:Bob",
       "~CUSTOM:RawMagma",
       "~CUSTOM:GreenMagma"
     ],
-    "BLOCKS:minecraft:tall_flowers": [],
+    "BLOCKS:minecraft:mineable/hoe": [
+      "~CUSTOM:JackOStroke",
+      "~CUSTOM:CarvedStrokeMelon",
+      "~CUSTOM:StrokeMelon",
+      "~CUSTOM:Coarse"
+    ],
     "ITEMS:minecraft:hoes": [
       "~CUSTOM:MacabreScythe"
     ],
@@ -4621,7 +6049,6 @@
       "CUSTOM:CuirlassArmor.boots",
       "CUSTOM:MONSTROUSFOOTWEAR.boots"
     ],
-    "BLOCKS:minecraft:logs": [],
     "ENTITIES:lmb:boss": [
       "CUSTOM:CopperMonstrosity",
       "CUSTOM:Maxolot",
@@ -4631,8 +6058,6 @@
       "CUSTOM:ArchdukeLytherion",
       "CUSTOM:MagmaticChampion"
     ],
-    "BLOCKS:minecraft:small_flowers": [],
-    "BLOCKS:minecraft:leaves": [],
     "BLOCKS:mod:lytherion_ignores": [
       "Blocks.TALLGRASS#1",
       "Blocks.TALLGRASS#2",
@@ -4644,11 +6069,22 @@
       "TAG:minecraft:leaves",
       "TAG:minecraft:needs_stone_tool"
     ],
+    "BLOCKS:minecraft:slabs": [
+      "~CUSTOM:ColosseumBricksSlab"
+    ],
     "ENTITIES:c:mechas": [
       "CUSTOM:CopperMonstrosity",
       "CUSTOM:Turret"
     ],
     "BLOCKS:minecraft:needs_stone_tool": [
+      "~CUSTOM:Strike",
+      "~CUSTOM:Stroke",
+      "~CUSTOM:ShiningColosseumBricks",
+      "~CUSTOM:ColosseumBricksStairs",
+      "~CUSTOM:ColosseumBricksSlab",
+      "~CUSTOM:ColosseumBricksWall",
+      "~CUSTOM:ColosseumBricksFence",
+      "~CUSTOM:ColosseumBricks",
       "~CUSTOM:CopperPressurePlate",
       "~CUSTOM:CopperGrates",
       "~CUSTOM:CopperBOOOM",
@@ -4658,10 +6094,23 @@
     "DAMAGE_TYPES:minecraft:is_fire": [
       "CUSTOM:Magma"
     ],
+    "BLOCKS:minecraft:stairs": [
+      "~CUSTOM:ColosseumBricksStairs"
+    ],
     "ITEMS:forge:armor": [
       "CUSTOM:CuirlassArmor.helmet"
     ],
+    "ITEMS:minecraft:shields": [
+      "Items.SHIELD",
+      "CUSTOM:BasalticShield"
+    ],
+    "ITEMS:neoforge:shields": [
+      "TAG:minecraft:shields"
+    ],
     "ITEMS:minecraft:swords": [
+      "~CUSTOM:TheLifeEnder",
+      "~CUSTOM:NetheriteLongSword",
+      "~CUSTOM:BrokenSword",
       "~CUSTOM:NetheriteScimitar",
       "CUSTOM:MacabreScythe"
     ],
@@ -4677,7 +6126,16 @@
       "CUSTOM:WindBurst",
       "CUSTOM:CopperGrabler"
     ],
+    "ITEMS:c:music_discs": [
+      "CUSTOM:CopperDisc"
+    ],
+    "ITEMS:forge:shields": [
+      "TAG:minecraft:shields"
+    ],
     "BLOCKS:minecraft:needs_iron_tool": [
+      "~CUSTOM:CobbledDOOMRock",
+      "~CUSTOM:OpalOreInCorium",
+      "~CUSTOM:DOOMRock",
       "~CUSTOM:OpalOreInDOOMRock",
       "~CUSTOM:Blolium",
       "~CUSTOM:Corium"
@@ -4685,7 +6143,9 @@
     "BLOCKS:minecraft:needs_diamond_tool": [
       "~CUSTOM:HellishTungstenBlock"
     ],
-    "BLOCKS:minecraft:wooden_fences": [],
+    "ITEMS:c:shields": [
+      "TAG:minecraft:shields"
+    ],
     "ITEMS:minecraft:pickaxes": [
       "~CUSTOM:MMAGlove",
       "~CUSTOM:CopperHammer",
@@ -4698,9 +6158,24 @@
       "CUSTOM:Minilotl",
       "CUSTOM:RobotWhale"
     ],
-    "BIOMES:minecraft:is_overworld": [],
-    "BLOCKS:minecraft:dirt": [],
+    "ITEMS:minecraft:music_discs": [
+      "~CUSTOM:CopperDisc"
+    ],
+    "BLOCKS:minecraft:overworld_carver_replaceables": [
+      "~CUSTOM:Corium",
+      "~CUSTOM:Blolium",
+      "~CUSTOM:DOOMRock"
+    ],
     "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:ShiningColosseumBricks",
+      "~CUSTOM:ColosseumBricksStairs",
+      "~CUSTOM:ColosseumBricksSlab",
+      "~CUSTOM:ColosseumBricksWall",
+      "~CUSTOM:ColosseumBricksFence",
+      "~CUSTOM:ColosseumBricks",
+      "~CUSTOM:CobbledDOOMRock",
+      "~CUSTOM:OpalOreInCorium",
+      "~CUSTOM:DOOMRock",
       "~CUSTOM:HellishTungstenBlock",
       "~CUSTOM:OpalOreInDOOMRock",
       "~CUSTOM:CopperPressurePlate",
@@ -4715,38 +6190,57 @@
       "~CUSTOM:PolishedCrackedBlackstoneBlock"
     ],
     "BLOCKS:minecraft:mineable/axe": [
+      "~CUSTOM:StrokeNest",
       "~CUSTOM:MegaForge"
     ],
+    "BLOCKS:minecraft:fences": [
+      "~CUSTOM:ColosseumBricksFence"
+    ],
     "BLOCKS:minecraft:mineable/shovel": [
+      "~CUSTOM:Strike",
+      "~CUSTOM:Stroke",
       "~CUSTOM:Blolium",
       "~CUSTOM:Corium",
       "~CUSTOM:RawMagmaBlock"
     ],
+    "BLOCKS:minecraft:walls": [
+      "~CUSTOM:ColosseumBricksWall"
+    ],
     "ITEMS:minecraft:enchantable/weapon": [
       "CUSTOM:MacabreScythe"
     ],
+    "BLOCKS:minecraft:infiniburn_armagedoom": [
+      "Blocks.GRASS",
+      "TAG:minecraft:dirt"
+    ],
     "ENTITIES:mod:antidps": [
-      "#lmb:boss"
+      "#lmb:boss",
+      "#mod:miniboss"
     ]
   },
   "tab_element_order": {},
   "language_map": {
     "en_us": {
       "entity.morebosses.soul_dionaea": "Soul Dionaea",
+      "item.morebosses.old_eye": "Old Eye",
+      "block.morebosses.strike": "Strike",
       "item.morebosses.shrimp_death": "Shrimp",
       "subtitles.wind_charge": "Wind Burst",
       "advancements.is_this_safe.descr": "Discover at your own risk.",
       "advancements.the_inner_light.descr": "Craft and place a Soul Light.",
       "entity.morebosses.copper_grabler": "Copper Grabler",
       "effect.morebosses.engine_boost": "Engine Boost",
+      "advancements.sanctuary.descr": "Locate the Old Sanctuary",
       "block.morebosses.mega_forge": "Mega Forge",
       "item.morebosses.monstrousfootwear_boots.description_0": "Press R to stomp and generate a shockwave.",
       "item.morebosses.pipe_wrench": "Pipe Wrench",
       "item.morebosses.fire_ring": "Fire Ring",
+      "item.morebosses.woodrite_ingot": "Woodrite Ingot",
       "effect.morebosses.frenzy": "Frenzy",
       "key.morebosses.boots_hability": "LMB Boots Hability",
       "item.morebosses.shrimp_spawn_egg": "Shrimp Spawn Egg",
       "entity.morebosses.copper_monstrosity": "Copper Monstrosity",
+      "item.morebosses.blomi_berry_seeds": "Blomi Berry Seeds",
       "advancements.definitely_no.descr": "Bitter taste",
       "advancements.skin_thief.title": "Skin Thief",
       "item.morebosses.wither_ring": "Wither Ring",
@@ -4754,45 +6248,64 @@
       "item.morebosses.robot_whale_spawn_egg": "Robot Whale Spawn Egg",
       "effect.morebosses.stun": "Stun",
       "item.minecraft.tipped_arrow.effect.oil": "Arrow of Oil",
-      "block.morebosses.copper_structure_detect": "Copper Structure Detect",
+      "block.morebosses.copper_structure_detect": "CSD",
+      "effect.morebosses.hard_skin": "Hard Skin",
       "advancements.giveme.title": "GIVE ME!!!!!!",
-      "item.morebosses.cuirlass_smithing_upgrade": "Cuirlass Smithing Upgrade",
+      "item.morebosses.cuirlass_smithing_upgrade": "Smithing Template",
       "fluid.morebosses.green_magma": "Green Magma",
       "item.morebosses.withered_bone": "Withered Bone",
-      "subtitles.copper_placeholder": "Theme of the Copper Monstrosity",
+      "subtitles.copper_placeholder": "Copper Monstrosity music",
+      "item.morebosses.netherite_long_sword.description_0": "Restored, but weaker than in its glory days.",
+      "block.morebosses.doom_rock": "DOOM Rock",
       "item.minecraft.potion.effect.grease": "Grease Bottle",
       "item.morebosses.pot": "Pot",
       "painting.morebosses.monstrous.title": "Monstrous",
+      "item.morebosses.the_life_ender.description_2": "§aEnemies hit gain the effect of Armor Breach",
+      "item.morebosses.the_life_ender.description_1": "§a6 seconds cooldown",
+      "item.morebosses.the_life_ender.description_0": "§aCharge for 2 seconds for a thrust.",
       "entity.morebosses.shrimp": "Shrimp",
       "item.morebosses.flour": "Flour",
-      "block.morebosses.copper_booom": "Copper Trap",
       "entity.morebosses.magma_pit": "Magma Pit",
+      "block.morebosses.copper_booom": "Copper Trap",
+      "effect.morebosses.disguised": "Disguised",
+      "item.morebosses.basaltic_shard": "Basaltic Shard",
       "advancements.its_blue.descr": "Craft and place a Blue Soul Light",
       "item.minecraft.lingering_potion.effect.oil": "Lingering Oil Bottle",
       "entity.morebosses.piglin_boxer": "Piglin Boxer",
+      "item.morebosses.armagedom": "ArmageDOOM Key",
+      "death.attack.bleed.item": "%1$s bleed to death by %2$s using %3$s",
       "item.morebosses.opal": "Opal",
       "gamerule.permaTurrets.description": "If true, the turrets will not despawn.",
       "item.morebosses.flesh": "Flesh of Questionable Origin",
+      "item.morebosses.jungle_essence": "Jungle Essence",
       "jei.morebosses.eyesinformation": "The eyes will guide you to the corresponding structure, like an ender eye",
       "item.minecraft.tipped_arrow.effect.grease": "Arrow of Grease",
+      "advancements.netherite_is_a_lie.descr": "Obtain a Netherite ingot, which will be very common from now on.",
+      "item.morebosses.diamonded_blomi_berry": "Diamonded Blomi Berry",
       "advancements.its_spooky_season.descr": "Obtain all 3 carved blocks.",
       "advancements.flour_advancement.title": "Does anyone have flour?",
       "item.morebosses.fried_egg": "Fried Egg",
       "advancements.definitely_no.title": "Definitely No",
       "gamerule.permaTurrets": "Perma Turrets",
+      "advancements.netherite_is_a_lie.title": "Netherite Is A Lie",
       "item.morebosses.fuse": "Fuse",
       "item.morebosses.fried_chayote": "Fried Chayote",
       "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
       "item.morebosses.pot_with_flour": "Pot With Flour",
       "item.minecraft.splash_potion.effect.oil": "Splash Oil Bottle",
+      "item.morebosses.bob_bucket": "Bob Bucket",
       "item.morebosses.green_magma_cream": "Green Magma Cream",
+      "advancements.sanctuary.title": "Old Memories",
       "item.morebosses.shield_beater": "The Shield Breaker",
       "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
       "item.morebosses.piglin_boulus_spawn_egg": "Piglin Boulus Spawn Egg",
+      "death.attack.bleed.player": "%1$s bleed to death whilst trying to escape %2$s",
       "advancements.who_authorized_this.descr": "Defeat the Copper Monstrosity",
       "block.morebosses.soul_light": "Soul Light",
+      "item.minecraft.lingering_potion.effect.hard_skin_potion": "Lingering Potion of Hard Skin",
       "enchantment.morebosses.show_off": "Show-Off",
       "entity.morebosses.piglin_boulus": "Piglin Boulus",
+      "block.morebosses.colosseum_bricks_wall": "Colosseum Bricks Wall",
       "item.morebosses.turret_spawn_egg": "Turret Spawn Egg",
       "death.attack.burn.item": "%1$s got burned by %2$s using %3$s",
       "item.morebosses.gerador_de_waves": "Gerador De Waves",
@@ -4803,6 +6316,7 @@
       "item.morebosses.gear": "Gear",
       "advancements.flour_advancement.descr": "Get some flour and eat it; it\u0027s not the best food, but it\u0027ll do.",
       "item.morebosses.macabre_scythe": "Macabre Scythe",
+      "item.morebosses.old_steel_ingot": "Old Steel Ingot",
       "item.morebosses.soul_dionaea_spawn_egg": "Soul Dionaea Spawn Egg",
       "gui.morebosses.workshop_gui.button_merge": "Merge",
       "advancements.death_advancement.descr": "Die to a boss for the first time.",
@@ -4813,70 +6327,103 @@
       "entity.morebosses.turret": "Turret",
       "item.morebosses.netherite_scimitar": "Strangely Crooked Netherite Sword",
       "gui.morebosses.workshop_gui.label_workshop": "Mega Forge",
+      "item.morebosses.copper_disc.desc": "Engineers Song - That LucaTube",
       "item_group.morebosses.lmb_blocks": "LMB Blocks",
       "effect.morebosses.flammable": "Flammable",
       "advancements.mega_isnt_juts_a_name_now.title": "Mega Isn\u0027t Just A Name Now",
       "death.attack.shock.player": "%1$s was hit by a shockwavewhilst trying to escape %2$s",
       "advancements.giveme.descr": "Find the Beggar Wolf",
+      "block.morebosses.stroke_melon": "Stroke Melon",
       "item.morebosses.copper_hammer": "Copper Hammer",
+      "block.morebosses.sdb": "SDB",
       "item.morebosses.boiled_egg": "Boiled Egg",
       "item.morebosses.copper_grabler_spawn_egg": "Copper Grabler Spawn Egg",
       "item.morebosses.beggar_wolf_spawn_egg": "Beggar Wolf Spawn Egg",
       "advancements.download_the_mod.descr": "Download The Mod. Thank you!! \u003c3",
       "attribute.morebosses.shrimp_metter": "Shrimp Metter",
-      "block.morebosses.carved_bone_block": "Carved Bone Block",
-      "item.morebosses.shield_beater.description_0": "The name is really self-explanatory.",
       "entity.morebosses.maxolot": "Maxolotl",
+      "item.morebosses.shield_beater.description_0": "The name is really self-explanatory.",
+      "block.morebosses.carved_bone_block": "Carved Bone Block",
+      "block.morebosses.coarse": "Coarse",
       "item.morebosses.oil_engineer_spawn_egg": "Oil Engineer Spawn Egg",
       "item.morebosses.copper_glove": "Copper Glove",
+      "advancements.im_the_stone_now.descr": "equips a full set of Stone Cuirass armor",
       "item.morebosses.nether_bricks_stick": "Nether Bricks Stick",
-      "advancements.im_the_stone_now.descr": "Equip a full set of Stone Cuirass armor",
       "effect.morebosses.heavy": "Heavy",
       "effect.morebosses.panic": "Panic",
       "enchantment.morebosses.moocher": "Moocher",
       "item.morebosses.magmatic_champion_spawn_egg": "Magmatic Champion Spawn Egg",
       "subtitles.piglinboulusscream": "Piglin Boulus screams",
       "advancements.the_underground_workshop.descr": "Locate the Engineers\u0027 Workshop.",
+      "item.morebosses.copper_disc": "Music Disc",
       "death.attack.magma.player": "%1$s tried to swim in magma trying to escape %2$s",
       "effect.morebosses.hellish_burn": "Hellish Burn",
+      "item.morebosses.boss_remover.description_0": "§7Right-click on a boss or a mini boss to erase it from the existance",
       "item.morebosses.raw_magma_bucket": "Raw Magma Bucket",
       "item.morebosses.green_magma_bucket": "Green Magma Bucket",
+      "item.minecraft.splash_potion.effect.hard_skin_potion": "Splash Potion of Hard Skin",
       "effect.morebosses.sticky": "Sticky",
+      "item.morebosses.old_steel_smithing_upgrade.description_4": "Old Steel Ingot",
+      "item.morebosses.old_steel_smithing_upgrade.description_3": "Ingredients:",
       "advancements.knockout_2.title": "The New Challenger!",
+      "item.morebosses.old_steel_smithing_upgrade.description_2": "Netherit Equipment",
+      "item.morebosses.old_steel_smithing_upgrade.description_1": "Applies to:",
+      "item.morebosses.old_steel_smithing_upgrade.description_0": "Old Steel Upgrade",
+      "block.morebosses.stroke_grass": "Stroke Grass",
+      "fluid.morebosses.bob": "Bob",
       "item_group.morebosses.lmb_itens": "LMB Itens",
       "block.morebosses.green_magma": "Green Magma",
       "item.morebosses.cuirlass_glove": "Cuirlass Glove",
+      "block.morebosses.opal_ore_in_corium": "Opal Ore in Corium",
+      "item.morebosses.broken_sword": "Broken Sword",
       "item.morebosses.tank_of_fury": "Tank Of Fury",
       "advancements.its_blue.title": "It\u0027s Blue",
       "block.morebosses.seat": "Seat",
+      "block.morebosses.cobbled_doom_rock": "Cobbled DOOM Rock",
       "block.morebosses.blue_soul_light": "Blue Soul Light",
       "effect.morebosses.flaming_ignition": "Flaming Ignition",
+      "block.morebosses.colosseum_bricks_slab": "Colosseum Bricks Slab",
       "advancements.who_authorized_this.title": "Who Authorized This ?",
       "item.morebosses.poison_ring": "Poison Ring",
+      "block.morebosses.colosseum_bricks": "Colosseum Bricks",
       "advancements.knockout.descr": "Chalenge and defeat Dry Bones",
       "entity.morebosses.dry_bones": "Dry Bones",
       "item.morebosses.archduke_lytherion_spawn_egg": "Archduke Lytherion Spawn Egg",
       "item.minecraft.potion.effect.oil": "Oil Bottle",
+      "item.morebosses.blomi_berry": "Blomi Berry",
+      "block.morebosses.shining_colosseum_bricks": "Shining Colosseum Bricks",
       "entity.morebosses.oil_engineer": "Oil Engineer",
       "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
       "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
+      "block.morebosses.stroke_nest": "Stroke Nest",
       "advancements.mega_isnt_juts_a_name_now.descr": "Craft and place a Mega Forge",
+      "effect.morebosses.bleeding": "Bleeding",
       "death.attack.magma": "%1$s tried to swim in magma",
+      "item.minecraft.potion.effect.hard_skin_potion": "Potion of Hard Skin",
       "item.morebosses.cooked_shrimp": "Cooked Shrimp",
       "item.morebosses.copper_monstrosity_spawn_egg": "Copper Monstrosity Spawn Egg",
+      "advancements.nostalgia.title": "Nostalgia",
       "block.morebosses.copper_fall": "Copper Trap",
+      "entity.morebosses.slagtio_the_mighty": "Slagtio The Mighty",
       "advancements.fight_night.descr": "Locate the MMA Arena.",
       "item.morebosses.copper_soup": "Copper Soup",
+      "advancements.nostalgia.descr": "From one last fight to Slagtio",
       "item.morebosses.empty_tank": "Empty Tank",
       "block.morebosses.hellish_tungsten_block": "Hellish Tungsten Block",
+      "block.morebosses.bob": "Bob",
+      "block.morebosses.colosseum_bricks_stairs": "Colosseum Bricks Stairs",
+      "key.morebosses.taunt": "Taunt",
+      "item.morebosses.netherite_long_sword": "Netherite Long Sword",
       "effect.morebosses.shrimped": "Shrimped",
       "block.morebosses.blolium": "Blolium",
+      "item.morebosses.the_life_ender": "§2The Life Ender",
       "item.morebosses.stone_cuirlass": "Stone Cuirlass",
       "block.morebosses.copper_grates": "Copper Grates",
       "death.attack.shock": "%1$s was hit by a shockwave",
       "block.morebosses.opal_ore_in_doom_rock": "Opal Ore in DOOM-Rock",
       "block.morebosses.raw_magma_block": "Raw Magma Block",
       "death.attack.burn": "%1$s got burned",
+      "item.morebosses.broken_sword.description_0": "Damaged by time, made of a material forgotten by time.",
       "item.morebosses.oxidation_dust": "Oxidation Dust",
       "block.morebosses.polished_cracked_blackstone_block": "Polished Cracked Blackstone Block",
       "item.morebosses.cuirlass_armor_boots": "Cuirlass Boots",
@@ -4885,7 +6432,9 @@
       "item.minecraft.splash_potion.effect.grease": "Splash Grease Bottle",
       "advancements.the_underground_workshop.title": "The Underground Workshop",
       "advancements.the_inner_light.title": "The Inner Light",
-      "block.morebosses.indestructible_block": "Dungeon Block",
+      "block.morebosses.carved_stroke_melon": "Carved Stroke Melon",
+      "block.morebosses.blomi_berry_bush": "Blomi Berry Bush",
+      "block.morebosses.indestructible_block": "Indestructible Block",
       "block.morebosses.gong": "Gong",
       "entity.morebosses.minilotl": "Minilotl",
       "item.morebosses.hellish_tungsten_ingot": "Hellish Tungsten Ingot",
@@ -4894,31 +6443,47 @@
       "item.morebosses.robot_glove": "Robot Glove",
       "item.morebosses.copper_wires": "Copper Wires",
       "item.morebosses.monstrosity_eye": "Monstrosity Eye",
+      "item.morebosses.slagtio_the_mighty_spawn_egg": "Slagtio The Mighty Spawn Egg",
       "painting.morebosses.monstrous.author": "That LucaTube",
       "death.attack.burn.player": "%1$s got burned whilst trying to escape %2$s",
+      "block.morebosses.stroke": "Stroke",
+      "item.morebosses.cuirlass_smithing_upgrade.description_1": "§7Applies to:",
       "item.morebosses.mma_glove": "MMA Glove",
+      "item.morebosses.cuirlass_smithing_upgrade.description_2": "§9Netherite Equipment",
+      "item.morebosses.cuirlass_smithing_upgrade.description_3": "§7Ingredients:",
       "advancements.knockout.title": "Knockout",
+      "item.morebosses.cuirlass_smithing_upgrade.description_4": "§9Stone Cuirlass",
       "advancements.its_spooky_season.title": "It\u0027s Spooky Season",
+      "block.morebosses.jack_o_stroke": "Jack\u0027o Stroke Melon",
       "item.morebosses.dry_bones_spawn_egg": "Dry Bones Spawn Egg",
+      "item.morebosses.cuirlass_smithing_upgrade.description_0": "§7Cuirlass Upgrade",
+      "death.attack.bleed": "%1$s bleed to death",
       "block.morebosses.corium": "Corium",
       "item.morebosses.bone_carver": "Bone Carver",
+      "item.morebosses.lush_eye": "Lush Eye",
       "item.morebosses.piglin_boxer_spawn_egg": "Piglin Boxer Spawn Egg",
+      "effect.morebosses.armor_breach": "Armor Breach",
       "block.morebosses.withered_bone_block": "Withered Bone Block",
+      "subtitles.taunt": "Someone challenges something to a fight.",
       "entity.morebosses.beggar_wolf": "Beggar Wolf",
       "item.morebosses.engineer_spawn_egg": "Engineer Spawn Egg",
-      "effect.morebosses.sample": "Sample",
+      "item.morebosses.boss_remover": "Boss Remover [DEV ITEM]",
       "entity.morebosses.magmatic_champion": "Magmatic Champion",
       "item.morebosses.cuirlass_armor_helmet": "Cuirlass Helmet",
       "advancements.im_the_stone_now.title": "Im The Stone Now!!!",
+      "biome.morebosses.grand_pallace": "Grand Pallace",
       "block.morebosses.carved_withered_bone_block": "Carved Withered Bone Block",
+      "item.morebosses.broken_idol": "Broken Idol",
       "entity.morebosses.robot_whale": "Robot Whale",
       "death.attack.shock.item": "%1$s was hit by a shockwave by %2$s using %3$s",
       "advancements.download_the_mod.title": "Lu\u0027s More Bosses",
+      "item.minecraft.tipped_arrow.effect.hard_skin_potion": "Arrow of Hard Skin",
       "entity.morebosses.brute_engineer": "Brute Engineer",
       "item.morebosses.ring": "Ring",
       "block.morebosses.copper_pressure_plate": "Copper Pressure Plate",
       "item.morebosses.mma_eye": "MMA Eye",
       "entity.morebosses.shock_wave": "Shock Wave",
+      "item.morebosses.basaltic_shield": "Basaltic Shield",
       "item.minecraft.lingering_potion.effect.grease": "Lingering Grease Bottle",
       "item.morebosses.brute_engineer_spawn_egg": "Brute Engineer Spawn Egg",
       "fluid.morebosses.raw_magma": "Raw Magma",
@@ -4926,156 +6491,216 @@
       "entity.morebosses.archduke_lytherion": "Archduke Lytherion",
       "item.morebosses.tall_engineer_spawn_egg": "Tall Engineer Spawn Egg",
       "item.morebosses.raw_shrimp": "Raw Shrimp",
+      "block.morebosses.colosseum_bricks_fence": "Colosseum Bricks Fence",
+      "item.morebosses.old_steel_smithing_upgrade": "Smithing Template",
       "entity.morebosses.engineer": "Engineer",
       "advancements.death_advancement.title": "First Time?",
       "item_group.morebosses.lmb_mobs": "LMB Mobs"
     },
     "pt_br": {
       "entity.morebosses.soul_dionaea": "Planta Carnívora das Almas",
-      "item.morebosses.shrimp_death": "Shrimp",
+      "item.morebosses.old_eye": "Olho Antigo",
+      "block.morebosses.strike": "Strike",
+      "item.morebosses.shrimp_death": "Camarão",
       "subtitles.wind_charge": "Carga de Vento",
       "advancements.is_this_safe.descr": "Descubra por sua conta e risco",
       "advancements.the_inner_light.descr": "Crie e coloque uma Luz das Almas",
-      "entity.morebosses.copper_grabler": "Pegador de Cobre",
       "effect.morebosses.engine_boost": "Melhorias no Motor",
-      "block.morebosses.mega_forge": "Mega Forge",
+      "entity.morebosses.copper_grabler": "Pegador de Cobre",
+      "advancements.sanctuary.descr": "Localize o Santuário Antigo",
+      "block.morebosses.mega_forge": "Mega Forja",
       "item.morebosses.monstrousfootwear_boots.description_0": "Aperte R para pisar e desencadear uma onda de choque",
       "item.morebosses.pipe_wrench": "Chave de Grifo",
-      "item.morebosses.fire_ring": "Fire Ring",
+      "item.morebosses.fire_ring": "Anel de Fogo",
+      "item.morebosses.woodrite_ingot": "Lingote de Maderite",
       "effect.morebosses.frenzy": "Frenesi",
       "key.morebosses.boots_hability": "Habilidade das botas LMB",
-      "item.morebosses.shrimp_spawn_egg": "Shrimp Spawn Egg",
+      "item.morebosses.shrimp_spawn_egg": "Ovo Gerador de Camarão",
       "entity.morebosses.copper_monstrosity": "Monstruosidade de Cobre, a máquina de guerra do Owerworld",
+      "item.morebosses.blomi_berry_seeds": "Sementes de Baga Blomi",
       "advancements.definitely_no.descr": "Gosto Amargo",
       "advancements.skin_thief.title": "Rouba Peles",
-      "item.morebosses.wither_ring": "Wither Ring",
+      "item.morebosses.wither_ring": "Anel Decomposto",
+      "effect.morebosses.stun": "Stunado",
+      "item.morebosses.robot_whale_spawn_egg": "Ovo Gerador de Orca Robô",
       "block.morebosses.raw_magma": "Magma Bruto",
-      "item.morebosses.robot_whale_spawn_egg": "Robot Whale Spawn Egg",
-      "effect.morebosses.stun": "Stun",
       "item.minecraft.tipped_arrow.effect.oil": "Flecha de Óleo",
       "block.morebosses.copper_structure_detect": "Detector de estrutura [COBRE]",
+      "effect.morebosses.hard_skin": "Pele Dura",
       "advancements.giveme.title": "MIM DÊÊÊ!!!!!!!",
-      "item.morebosses.cuirlass_smithing_upgrade": "Melhoria de Ferrareria de Couraça",
+      "item.morebosses.cuirlass_smithing_upgrade": "Molde de Ferraria",
       "fluid.morebosses.green_magma": "Magma Verde",
       "item.morebosses.withered_bone": "Osso Decomposto",
-      "subtitles.copper_placeholder": "Theme of the Copper Monstrosity",
+      "subtitles.copper_placeholder": "Tema da Monstruosidade de Cobre",
+      "item.morebosses.netherite_long_sword.description_0": "§8Restaurada, mas não com o material original",
+      "block.morebosses.doom_rock": "Pedra DOOM",
       "item.minecraft.potion.effect.grease": "Garrafa de Graxa",
       "item.morebosses.pot": "Cumbuca",
       "painting.morebosses.monstrous.title": "Monstrouso",
-      "entity.morebosses.shrimp": "Shrimp",
+      "item.morebosses.the_life_ender.description_2": "§a\tInimigos acertados ganham o efeito de Brecha na Armadura",
+      "item.morebosses.the_life_ender.description_1": "§a\tRecarga de 6 segundos",
+      "item.morebosses.the_life_ender.description_0": "§a\tCarregue por dois segundos para uma estocada",
+      "entity.morebosses.shrimp": "Camarão",
       "item.morebosses.flour": "Farinha",
+      "entity.morebosses.magma_pit": "Poça de Magma",
       "block.morebosses.copper_booom": "Armadilha de Cobre Explosiva",
-      "entity.morebosses.magma_pit": "Magma Pit",
+      "effect.morebosses.disguised": "Disfarçado",
+      "item.morebosses.basaltic_shard": "Fragmento Bassáltico",
       "advancements.its_blue.descr": "Crie e coloque uma Luz das Almas Azul",
       "item.minecraft.lingering_potion.effect.oil": "Garrafa de Óleo em Área",
-      "entity.morebosses.piglin_boxer": "Piglin Boxer",
+      "entity.morebosses.piglin_boxer": "Piglin Boxeador",
+      "item.morebosses.armagedom": "Chave do Fim do Mundo",
+      "death.attack.bleed.item": "%2$s fez %1$s sangrou até a morte usando %3$s",
       "item.morebosses.opal": "Opal",
       "gamerule.permaTurrets.description": "Se verdadeiro as torretas não irão sumir",
       "item.morebosses.flesh": "Carne de Procedência Duvidosa",
-      "jei.morebosses.eyesinformation": "The eyes will guide you to the corresponding structure, like an ender eye",
+      "item.morebosses.jungle_essence": "Essência da Selva",
+      "jei.morebosses.eyesinformation": "Os olhos irão levar você a estrutura correspondente, como um Olho do FIm",
       "item.minecraft.tipped_arrow.effect.grease": "Flecha de Graxa",
+      "advancements.netherite_is_a_lie.descr": "Consiga um Lingote de Netherita, vai ser bem comum daqui pra frente.",
+      "item.morebosses.diamonded_blomi_berry": "Baga Blomi Diamantada",
       "advancements.its_spooky_season.descr": "Consiga os 3 blocos talhados",
       "advancements.flour_advancement.title": "Alguém Tem Um Pouco De Farinha?",
-      "item.morebosses.fried_egg": "Ovo Frito",
       "advancements.definitely_no.title": "Definitivamente Não!",
+      "item.morebosses.fried_egg": "Ovo Frito",
       "gamerule.permaTurrets": "Torretas Permanentes",
+      "advancements.netherite_is_a_lie.title": "Netheria é uma Piada!",
       "item.morebosses.fuse": "Fusível",
       "item.morebosses.fried_chayote": "Chuchu Frito",
       "item.morebosses.minilotl_spawn_egg": "Ovo Gerador de Minilote",
       "item.morebosses.pot_with_flour": "Cumbuca com Farinha",
       "item.minecraft.splash_potion.effect.oil": "Garrafa de Óleo Arremessável",
+      "item.morebosses.bob_bucket": "Balde com Bob",
       "item.morebosses.green_magma_cream": "Creme de Magma Verde",
+      "advancements.sanctuary.title": "Memórias Antigas",
       "item.morebosses.shield_beater": "O Quebra Escudos",
       "item.morebosses.monstrousfootwear_boots": "PISANTES MONSTRUOSOS",
-      "item.morebosses.piglin_boulus_spawn_egg": "Piglin Boulus Spawn Egg",
+      "item.morebosses.piglin_boulus_spawn_egg": "Ovo Gerador de Piglin Boulus",
+      "death.attack.bleed.player": "%1$s sangrou até a morte tentando escapar de %2$s",
       "advancements.who_authorized_this.descr": "Derrote a Monstruosidade de Cobre",
       "block.morebosses.soul_light": "Luz das Almas",
+      "item.minecraft.lingering_potion.effect.hard_skin_potion": "Poção de Pele Dura em Área",
       "enchantment.morebosses.show_off": "Amostradinho",
       "entity.morebosses.piglin_boulus": "Piglin Boulus",
+      "block.morebosses.colosseum_bricks_wall": "Muro de Tijolos do Coliseu",
       "item.morebosses.turret_spawn_egg": "Ovo Gerador de Torreta",
-      "death.attack.burn.item": "%1$s got burned by %2$s using %3$s",
+      "death.attack.burn.item": "%1$s foi carbonizado por %2$s usando %3$s",
       "item.morebosses.gerador_de_waves": "Gerador de Ondas de Choque [ITEM DE DEV]",
       "advancements.is_this_safe.title": "Isso é seguro?",
       "item.morebosses.motherboard": "Placa-mãe",
-      "advancements.fight_night.title": "Fight Night",
+      "advancements.fight_night.title": "Noite da Luta!",
       "entity.morebosses.tall_engineer": "Engenheiro Alto",
       "item.morebosses.gear": "Engrenagem",
       "advancements.flour_advancement.descr": "Pegue um pouco de farinha e coma, não é a melhor comida, mas serve",
       "item.morebosses.macabre_scythe": "Foice Macabra",
-      "item.morebosses.soul_dionaea_spawn_egg": "Ovo Gerador de Planta Carnívor adas Almas",
-      "gui.morebosses.workshop_gui.button_merge": "Merge",
-      "advancements.death_advancement.descr": "Die to a boss for the first time.",
+      "item.morebosses.old_steel_ingot": "Lingote de Metal Antigo",
+      "item.morebosses.soul_dionaea_spawn_egg": "Ovo Gerador de Planta Carnívora das Almas",
+      "gui.morebosses.workshop_gui.button_merge": "Fundir",
+      "advancements.death_advancement.descr": "Morra para um chefe pela primeira vez",
       "block.morebosses.green_magma_block": "Bloco de Magma Verde",
       "item.morebosses.gong_stick": "Tocador de Gongo",
       "item.morebosses.cuirlass_armor_leggings": "Calças de Couraça",
       "item.morebosses.cuirlass_armor_chestplate": "Peitoral de Couraça",
       "entity.morebosses.turret": "Torreta",
-      "item.morebosses.netherite_scimitar": "Netherite Scimitar",
-      "gui.morebosses.workshop_gui.label_workshop": "Workshop",
+      "item.morebosses.netherite_scimitar": "Espada Comicamente Torta de Netherita",
+      "gui.morebosses.workshop_gui.label_workshop": "Mega Forja",
+      "item.morebosses.copper_disc.desc": "Monstruosidade de Cobre ~ PlaceHolder",
       "item_group.morebosses.lmb_blocks": "LMB Blocos",
       "effect.morebosses.flammable": "Inflamável",
-      "advancements.mega_isnt_juts_a_name_now.title": "Mega Isn\u0027t Just A Name Now",
+      "advancements.mega_isnt_juts_a_name_now.title": "Mega, Não É Só Um Nome Agora!",
       "death.attack.shock.player": "%1$s foi atingido por uma onda de choque tentando escapar de %2$s",
       "advancements.giveme.descr": "Encontre o Lobo Pidão",
+      "block.morebosses.stroke_melon": "Melão Stroke",
       "item.morebosses.copper_hammer": "Marreta de Cobre",
+      "block.morebosses.sdb": "Detector de Estrutura[SLAGTIO]",
       "item.morebosses.boiled_egg": "Ovo Cozido",
       "item.morebosses.copper_grabler_spawn_egg": "Ovo Gerador de Pegador de Cobre",
       "item.morebosses.beggar_wolf_spawn_egg": "Ovo Gerador de Lobo Pidão",
       "advancements.download_the_mod.descr": "Baixe o mod, Obrigado!!! \u003c3",
-      "attribute.morebosses.shrimp_metter": "Shrimp Metter",
-      "block.morebosses.carved_bone_block": "Bloco de Osso Talhado",
-      "item.morebosses.shield_beater.description_0": "O nome é MUITO auto explicativo",
+      "attribute.morebosses.shrimp_metter": "Medidor de Camarão",
       "entity.morebosses.maxolot": "Macholote, o Terror dos 7 tanquinhos",
+      "item.morebosses.shield_beater.description_0": "O nome é MUITO auto explicativo",
+      "block.morebosses.carved_bone_block": "Bloco de Osso Talhado",
+      "block.morebosses.coarse": "Seujeira",
       "item.morebosses.oil_engineer_spawn_egg": "Ovo Gerador de Engenheiro Grudento",
-      "item.morebosses.copper_glove": "Copper Glove",
-      "item.morebosses.nether_bricks_stick": "Graveto de Tijolos do Nether",
+      "item.morebosses.copper_glove": "Luva Mosntruosa",
       "advancements.im_the_stone_now.descr": "Equipe uma armadura completa de couraça",
+      "item.morebosses.nether_bricks_stick": "Graveto de Tijolos do Nether",
       "effect.morebosses.heavy": "Pesado",
       "effect.morebosses.panic": "Pânico",
       "enchantment.morebosses.moocher": "Pidão",
-      "item.morebosses.magmatic_champion_spawn_egg": "Magmatic Champion Spawn Egg",
-      "subtitles.piglinboulusscream": "Piglin Boulus screams",
+      "item.morebosses.magmatic_champion_spawn_egg": "Ovo Gerador de Campeão Magmático",
+      "subtitles.piglinboulusscream": "Piglin Boulus Grita",
       "advancements.the_underground_workshop.descr": "Encontre a oficina dos engenheiros",
+      "item.morebosses.copper_disc": "Disco de Música",
       "death.attack.magma.player": "%1$s tentou nadar no magma enquanto tentava escapar de %2$s",
-      "effect.morebosses.hellish_burn": "Hellish Burn",
+      "effect.morebosses.hellish_burn": "Queimadura Infernal",
+      "item.morebosses.boss_remover.description_0": "§7RMB em um boss ou miniboss para apaga-lo da existência",
       "item.morebosses.raw_magma_bucket": "Balde de Magma Bruto",
       "item.morebosses.green_magma_bucket": "Balde de Magma Verde",
+      "item.minecraft.splash_potion.effect.hard_skin_potion": "Poção Arremesável de Pele Dura",
       "effect.morebosses.sticky": "Grudento",
-      "advancements.knockout_2.title": "The New Challenger!",
+      "item.morebosses.old_steel_smithing_upgrade.description_4": "§9Lingote de Metal Antigo",
+      "item.morebosses.old_steel_smithing_upgrade.description_3": "§7Ingredientes",
+      "advancements.knockout_2.title": "O Novo Desafiante!!",
+      "item.morebosses.old_steel_smithing_upgrade.description_2": "§9Equipamento de Netherita",
+      "item.morebosses.old_steel_smithing_upgrade.description_1": "§7Aplicável em:",
+      "item.morebosses.old_steel_smithing_upgrade.description_0": "§7Melhoria de Metal Antigo",
+      "block.morebosses.stroke_grass": "Grama Stroke",
+      "fluid.morebosses.bob": "Bob",
       "item_group.morebosses.lmb_itens": "LMB Itens",
       "block.morebosses.green_magma": "Magma Verde",
-      "item.morebosses.cuirlass_glove": "Cuirlass Glove",
+      "item.morebosses.cuirlass_glove": "Luva Encouraçada",
+      "block.morebosses.opal_ore_in_corium": "Minério de Opala em Corium",
+      "item.morebosses.broken_sword": "Espada Quebrada",
       "item.morebosses.tank_of_fury": "Tanque da Fúria",
       "advancements.its_blue.title": "É Azul!!",
       "block.morebosses.seat": "Assento",
+      "block.morebosses.cobbled_doom_rock": "Pedregulho de Pedra DOOM",
       "effect.morebosses.flaming_ignition": "Ignição Flamejante",
       "block.morebosses.blue_soul_light": "Luz das Almas Azul",
+      "block.morebosses.colosseum_bricks_slab": "Laje de Tijolos do Coliseu",
       "advancements.who_authorized_this.title": "Quem Autorizou Isso ?",
-      "item.morebosses.poison_ring": "Poison Ring",
-      "advancements.knockout.descr": "Chalenge and defeat Dry Bones",
+      "item.morebosses.poison_ring": "Anel de Veneno",
+      "block.morebosses.colosseum_bricks": "Tijolos do Coliseu",
+      "advancements.knockout.descr": "Desafie e ganhe de Dry Bones",
       "entity.morebosses.dry_bones": "Dry Bones, o da Couraça de Pedra",
-      "item.morebosses.archduke_lytherion_spawn_egg": "Archduke Lytherion Spawn Egg",
+      "item.morebosses.archduke_lytherion_spawn_egg": "Ovo Gerador de Arqueduke Lytherion",
       "item.minecraft.potion.effect.oil": "Garrada de Óleo",
+      "item.morebosses.blomi_berry": "Baga Blomi",
+      "block.morebosses.shining_colosseum_bricks": "Tijolos Brilhantes do Coliseu",
       "entity.morebosses.oil_engineer": "Engenheiro Grudento",
       "item.morebosses.maxolot_spawn_egg": "Ovo Gerador de Macholote",
       "death.attack.magma.item": "%2$s forçou %1$s a nadar no magma",
-      "advancements.mega_isnt_juts_a_name_now.descr": "Craft and place a Mega Forge",
+      "block.morebosses.stroke_nest": "Ninho de Insetos Stroke",
+      "advancements.mega_isnt_juts_a_name_now.descr": "Crie e coloque uma Mega Forja",
+      "effect.morebosses.bleeding": "Sangramento",
       "death.attack.magma": "%1$s tentou nadar no magma",
-      "item.morebosses.cooked_shrimp": "Cooked Shrimp",
+      "item.minecraft.potion.effect.hard_skin_potion": "Poção de Pele Dura",
+      "item.morebosses.cooked_shrimp": "Camarão Cozido",
       "item.morebosses.copper_monstrosity_spawn_egg": "Ovo Gerador de Monstruosidade de Cobre",
+      "advancements.nostalgia.title": "Nostalgia",
       "block.morebosses.copper_fall": "Armadilha de Cobre de Queda",
-      "advancements.fight_night.descr": "Locate the MMA Arena.",
+      "entity.morebosses.slagtio_the_mighty": "Slagtio O Poderoso",
+      "advancements.fight_night.descr": "Localize a Arena MMA",
       "item.morebosses.copper_soup": "Sopa de Cobre",
+      "advancements.nostalgia.descr": "Dê uma última luta a Slagtio",
       "item.morebosses.empty_tank": "Tanque Vazio",
-      "block.morebosses.hellish_tungsten_block": "Hellish Tungsten Block",
-      "effect.morebosses.shrimped": "Shrimped",
+      "block.morebosses.hellish_tungsten_block": "Bloco de Tungstênio Infernal",
+      "block.morebosses.bob": "Bob",
+      "block.morebosses.colosseum_bricks_stairs": "Escadas de Tijolos do Coliseu",
+      "key.morebosses.taunt": "Provocar",
+      "item.morebosses.netherite_long_sword": "Espada Longa de Netherite",
+      "effect.morebosses.shrimped": "Encamarãozado",
       "block.morebosses.blolium": "Blolium",
+      "item.morebosses.the_life_ender": "§2O Finalizador Vidas",
       "item.morebosses.stone_cuirlass": "Couraça de Pedra",
       "block.morebosses.copper_grates": "Grades de Cobre",
       "death.attack.shock": "%1$s foi atingido por uma onda de choque",
-      "block.morebosses.opal_ore_in_doom_rock": "Opal Ore in DOOM-Rock",
+      "block.morebosses.opal_ore_in_doom_rock": "Minério de Opala em Pedra DOOM",
       "block.morebosses.raw_magma_block": "Bloco de Magma Bruto",
-      "death.attack.burn": "%1$s got burned",
+      "death.attack.burn": "%1$s foi carbonizado",
+      "item.morebosses.broken_sword.description_0": "§8Danificada pelo tempo, feita de um material bem resistente",
       "item.morebosses.oxidation_dust": "Pó Oxidado",
       "block.morebosses.polished_cracked_blackstone_block": "Pedra Negra polida Rachada",
       "item.morebosses.cuirlass_armor_boots": "Botas de Couraça",
@@ -5084,49 +6709,69 @@
       "item.minecraft.splash_potion.effect.grease": "Garrafa de Graxa Arremessável",
       "advancements.the_underground_workshop.title": "A Oficina Subterrânea",
       "advancements.the_inner_light.title": "A Luz interior",
+      "block.morebosses.carved_stroke_melon": "Melão de Stroke",
+      "block.morebosses.blomi_berry_bush": "Arbusto de Baga Blomi",
       "block.morebosses.indestructible_block": "Bloco de Masmorra",
       "block.morebosses.gong": "Gongo",
       "entity.morebosses.minilotl": "Minilote",
-      "item.morebosses.hellish_tungsten_ingot": "Hellish Tungsten Ingot",
+      "item.morebosses.hellish_tungsten_ingot": "Lingote de Tungsênio Infernal",
       "block.morebosses.chayote": "Chuchu",
-      "advancements.knockout_2.descr": "Chalenge and defeat Piglin Boulus",
-      "item.morebosses.robot_glove": "Robot Glove",
+      "advancements.knockout_2.descr": "Deasfie e ganhe de PiglinBoulus",
+      "item.morebosses.robot_glove": "Luva Robótica",
       "item.morebosses.copper_wires": "Cabos de Cobre",
       "item.morebosses.monstrosity_eye": "Olho da Monstruosidade",
+      "item.morebosses.slagtio_the_mighty_spawn_egg": "Ovo Gerador de Slagtio O Poderoso",
       "painting.morebosses.monstrous.author": "Aquele Lucatube",
-      "death.attack.burn.player": "%1$s got burned whilst trying to escape %2$s",
+      "death.attack.burn.player": "%1$s foi carbonizado tentando escapar de %2$s",
+      "block.morebosses.stroke": "Stroke",
+      "item.morebosses.cuirlass_smithing_upgrade.description_1": "§7Aplicável em:",
       "item.morebosses.mma_glove": "MMA Glove",
-      "advancements.knockout.title": "Knockout",
+      "item.morebosses.cuirlass_smithing_upgrade.description_2": "§9Equipamentos de Netherita",
+      "item.morebosses.cuirlass_smithing_upgrade.description_3": "§7Ingredientes:",
+      "advancements.knockout.title": "Nocaute",
+      "item.morebosses.cuirlass_smithing_upgrade.description_4": "§9Couraça de Pedra ",
       "advancements.its_spooky_season.title": "É HALLOWEN!!!",
+      "block.morebosses.jack_o_stroke": "Lanterna de Melão Stroke",
       "item.morebosses.dry_bones_spawn_egg": "Ovo Gerador de Dry Bones",
+      "item.morebosses.cuirlass_smithing_upgrade.description_0": "§7Melhoria de Couraça",
+      "death.attack.bleed": "%1$s sangrou até a morte",
       "block.morebosses.corium": "Corium",
       "item.morebosses.bone_carver": "Entalhador de Ossos",
-      "item.morebosses.piglin_boxer_spawn_egg": "Piglin Boxer Spawn Egg",
+      "item.morebosses.lush_eye": "Olho Verdejante",
+      "item.morebosses.piglin_boxer_spawn_egg": "Ovo Gerador de Piglin Boxeador",
+      "effect.morebosses.armor_breach": "Brecha na Armadura",
       "block.morebosses.withered_bone_block": "Bloco de Osso Decomposto",
+      "subtitles.taunt": "Algúem desafia outro alguém para uma batalha",
       "entity.morebosses.beggar_wolf": "Lobo Pidão",
       "item.morebosses.engineer_spawn_egg": "Ovo Gerador de Engenheiro",
-      "effect.morebosses.sample": "Exposto",
-      "entity.morebosses.magmatic_champion": "Magmatic Champion",
+      "item.morebosses.boss_remover": "Raquete Eléltrica [ITEM DE DEV]",
+      "entity.morebosses.magmatic_champion": "Campeão Magmático, o Enviado do Inferno",
       "item.morebosses.cuirlass_armor_helmet": "Capacete de Couraça",
       "advancements.im_the_stone_now.title": "Eu Sou a Pedra Agora!!",
+      "biome.morebosses.grand_pallace": "Grand Palace",
       "block.morebosses.carved_withered_bone_block": "Bloco de Osso Decomposto Talhado",
-      "entity.morebosses.robot_whale": "Robot Whale",
+      "item.morebosses.broken_idol": "Idólo Quebrado",
+      "entity.morebosses.robot_whale": "Orca Robô, O Terror dos Oceanos",
       "death.attack.shock.item": "%1$s foi atingido por uma onda de choque gerada por %2$s usando %3$s",
       "advancements.download_the_mod.title": "Lu\u0027s More Bosses",
+      "item.minecraft.tipped_arrow.effect.hard_skin_potion": "Flecha de Pele Dura",
       "entity.morebosses.brute_engineer": "Engenheiro Bruto",
-      "item.morebosses.ring": "Ring",
+      "item.morebosses.ring": "Anel",
       "block.morebosses.copper_pressure_plate": "Placa de Pressão de Cobre",
       "item.morebosses.mma_eye": "Olho do MMA",
       "entity.morebosses.shock_wave": "Onda de Choque",
+      "item.morebosses.basaltic_shield": "Escudo Bassáltico",
       "item.minecraft.lingering_potion.effect.grease": "Garrafa de Graxa em Área",
       "item.morebosses.brute_engineer_spawn_egg": "Ovo Gerador de Engenheiro",
       "fluid.morebosses.raw_magma": "Magma Bruto",
       "block.morebosses.copper_lava": "Armadilha de Cobre Quente",
-      "entity.morebosses.archduke_lytherion": "Archduke Lytherion",
+      "entity.morebosses.archduke_lytherion": "Arqueduke Lytherion, o Finado Rei de Grand Palace",
       "item.morebosses.tall_engineer_spawn_egg": "Ovo Gerador de Engenheiro Alto",
-      "item.morebosses.raw_shrimp": "Raw Shrimp",
+      "item.morebosses.raw_shrimp": "Camarão Cru",
+      "block.morebosses.colosseum_bricks_fence": "Cerca de Tijolos do Coliseu",
+      "item.morebosses.old_steel_smithing_upgrade": "Molde de Ferraria ",
       "entity.morebosses.engineer": "Engenheiro",
-      "advancements.death_advancement.title": "First Time?",
+      "advancements.death_advancement.title": "Primeira Vez?",
       "item_group.morebosses.lmb_mobs": "LMB Mobs"
     }
   },
@@ -5207,13 +6852,17 @@
       {
         "name": "GUI",
         "children": []
+      },
+      {
+        "name": "ArmageDOOM",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "morebosses",
     "modName": "Lu\u0027s More Bosses and Mobs",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "U want more bosses? We have more bosses",
     "author": "That Lucatube, JorginhoAMM",
     "websiteURL": "https://mcreator.net",

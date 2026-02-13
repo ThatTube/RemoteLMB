@@ -1,0 +1,10 @@
+{
+  "type": "morebosses:morebosses_loot_modifier",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "chests/bastion_holgin_stable"
+    }
+  ],
+  "lootTable": "morebosses:chests/broken_sword"
+}

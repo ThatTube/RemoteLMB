@@ -10,7 +10,7 @@ import net.minecraft.core.BlockPos;
 
 public class OpalOreInDOOMRockBlock extends Block {
 	public OpalOreInDOOMRockBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.BASALT).strength(1f, 22f).requiresCorrectToolForDrops());
+		super(BlockBehaviour.Properties.of().sound(SoundType.BASALT).strength(2f, 22f).requiresCorrectToolForDrops());
 	}
 
 	@Override

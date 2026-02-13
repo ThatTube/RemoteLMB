@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "morebosses:grand_pallace",
+  "features": "morebosses:opal_ore_in_corium",
+  "step": "underground_ores"
+}

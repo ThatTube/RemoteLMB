@@ -1,0 +1,10 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "particle": "morebosses:block/coloseum_bricks",
+    "bottom": "morebosses:block/coloseum_bricks",
+    "top": "morebosses:block/coloseum_bricks",
+    "side": "morebosses:block/coloseum_bricks"
+  },
+  "render_type": "solid"
+}

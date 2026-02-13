@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "morebosses:stroke_nest",
     "morebosses:mega_forge"
   ]
 }

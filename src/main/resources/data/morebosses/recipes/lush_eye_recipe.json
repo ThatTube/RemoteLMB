@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdc",
+    "eee"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:moss_block"
+    },
+    "b": {
+      "item": "minecraft:moss_carpet"
+    },
+    "c": {
+      "item": "minecraft:clay_ball"
+    },
+    "d": {
+      "item": "minecraft:ender_eye"
+    },
+    "e": {
+      "item": "minecraft:clay"
+    }
+  },
+  "result": {
+    "item": "morebosses:lush_eye",
+    "count": 1
+  }
+}

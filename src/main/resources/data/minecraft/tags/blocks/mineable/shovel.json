@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "morebosses:strike",
+    "morebosses:stroke",
     "morebosses:blolium",
     "morebosses:corium",
     "morebosses:raw_magma_block"

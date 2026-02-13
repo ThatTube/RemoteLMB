@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "morebosses:block/coloseum_shyning_bricks",
+    "particle": "morebosses:block/coloseum_shyning_bricks"
+  },
+  "render_type": "solid"
+}

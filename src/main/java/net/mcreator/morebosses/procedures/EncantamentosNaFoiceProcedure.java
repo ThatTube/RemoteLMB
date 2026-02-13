@@ -38,7 +38,7 @@ public class EncantamentosNaFoiceProcedure {
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 120, 1));
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MorebossesModMobEffects.SAMPLE.get(), 120, 1));
+				_entity.addEffect(new MobEffectInstance(MorebossesModMobEffects.ARMOR_BREACH.get(), 120, 1));
 		}
 	}
 }

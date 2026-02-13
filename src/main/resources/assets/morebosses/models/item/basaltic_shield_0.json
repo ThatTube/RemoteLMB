@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/basalt_shield_blocking2",
+  "textures": {
+    "0": "morebosses:block/basalticshield",
+    "particle": "morebosses:item/basaltic_shard"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "_fv": 73,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Potion of Hard Skin",
+    "splashName": "Splash Potion of Hard Skin",
+    "lingeringName": "Lingering Potion of Hard Skin",
+    "arrowName": "Arrow of Hard Skin",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:HardSkin"
+        },
+        "duration": 3600,
+        "infinite": false,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

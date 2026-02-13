@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "morebosses:block/blomi_berry_bush"
+    },
+    "blockstate=1": {
+      "model": "morebosses:block/full_blomi_blockstate_0"
+    },
+    "blockstate=2": {
+      "model": "morebosses:block/full_blomi_blockstate_1"
+    }
+  }
+}

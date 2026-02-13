@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/stroke_melon_bottom",
+    "up": "morebosses:block/stroke_melon_top",
+    "north": "morebosses:block/jack_o_stroke",
+    "east": "morebosses:block/stroke_melon",
+    "south": "morebosses:block/stroke_melon",
+    "west": "morebosses:block/stroke_melon",
+    "particle": "morebosses:block/stroke_melon_bottom"
+  },
+  "render_type": "solid"
+}
