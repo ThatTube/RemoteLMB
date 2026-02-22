@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "morebosses:block/endrock",
+    "particle": "morebosses:block/endrock"
+  },
+  "render_type": "solid"
+}

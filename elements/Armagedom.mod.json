@@ -5,6 +5,9 @@
     "biomesInDimension": [
       {
         "value": "CUSTOM:GrandPallace"
+      },
+      {
+        "value": "CUSTOM:StrokeWoods"
       }
     ],
     "worldGenType": "Normal world gen",
@@ -15,7 +18,7 @@
       "value": "CUSTOM:Bob"
     },
     "seaLevel": 63,
-    "generateOreVeins": true,
+    "generateOreVeins": false,
     "generateAquifers": true,
     "horizontalNoiseSize": 1,
     "verticalNoiseSize": 2,
@@ -45,11 +48,11 @@
       "value": "Blocks.CRYING_OBSIDIAN"
     },
     "portalParticles": {
-      "value": "LANDING_OBSIDIAN_TEAR"
+      "value": "FALLING_OBSIDIAN_TEAR"
     },
     "portalLuminance": 0,
     "portalSound": {
-      "value": "block.portal.ambient"
+      "value": ""
     },
     "enableIgniter": true,
     "igniterName": "ArmageDOOM Key",
@@ -62,8 +65,8 @@
         "value": "CUSTOM:LMBItens"
       }
     ],
-    "texture": "minecraft:clock_63",
-    "portalTexture": "minecraft:chorus_plant",
+    "texture": "armagedoom_key",
+    "portalTexture": "armagedoom_portal",
     "enablePortal": true
   }
 }

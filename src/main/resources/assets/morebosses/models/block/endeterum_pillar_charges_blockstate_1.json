@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/cept",
+    "up": "morebosses:block/cept",
+    "north": "morebosses:block/cep",
+    "east": "morebosses:block/cep",
+    "south": "morebosses:block/cep",
+    "west": "morebosses:block/cep",
+    "particle": "morebosses:block/cept"
+  },
+  "render_type": "solid"
+}

@@ -5,7 +5,8 @@
     "morebosses:bsiii",
     "morebosses:bsiv",
     "morebosses:bsv",
-    "morebosses:bi_found"
+    "morebosses:bi_found",
+    "morebosses:doom_key_drops"
   ],
   "replace": false
 }

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "morebosses:metalix_block"
+    }
+  ],
+  "result": {
+    "item": "morebosses:metalix_ingot",
+    "count": 9
+  }
+}

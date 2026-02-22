@@ -10,7 +10,7 @@ import net.minecraft.core.BlockPos;
 
 public class StrokeBlock extends Block {
 	public StrokeBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.WET_GRASS).strength(1f, 22f).requiresCorrectToolForDrops());
+		super(BlockBehaviour.Properties.of().sound(SoundType.WET_GRASS).strength(1f, 22f).requiresCorrectToolForDrops().jumpFactor(0.9f));
 	}
 
 	@Override

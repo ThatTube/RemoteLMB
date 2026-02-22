@@ -16,20 +16,16 @@
 					"pivot": [0, 33, 1]
 				},
 				{
-					"name": "head",
+					"name": "body",
 					"parent": "all",
+					"pivot": [0, 33, 1]
+				},
+				{
+					"name": "head",
+					"parent": "body",
 					"pivot": [0, 33, 2],
 					"cubes": [
 						{"origin": [-4, 33, -4], "size": [8, 8, 8], "uv": [0, 60]}
-					]
-				},
-				{
-					"name": "body",
-					"parent": "all",
-					"pivot": [0, 33, 1],
-					"cubes": [
-						{"origin": [-4, 26.25, -3], "size": [8, 7, 7], "inflate": -0.25, "uv": [32, 60]},
-						{"origin": [-1, 20.25, 1.75], "size": [2, 13, 2], "inflate": -0.01, "uv": [32, 90]}
 					]
 				},
 				{
@@ -82,26 +78,16 @@
 					]
 				},
 				{
-					"name": "leg",
-					"parent": "waist",
-					"pivot": [2, 19, 1],
+					"name": "torso",
+					"parent": "body",
+					"pivot": [0, 33, 1],
 					"cubes": [
-						{"origin": [2, 15, -3], "size": [2, 4, 7], "uv": [80, 0]},
-						{"origin": [4, 12.25, -2.5], "size": [2, 7, 6], "uv": [80, 24]},
-						{"origin": [0, 9, -2], "size": [5, 10, 5], "uv": [58, 76]}
-					]
-				},
-				{
-					"name": "subleg",
-					"parent": "leg",
-					"pivot": [2, 9, 0],
-					"cubes": [
-						{"origin": [0, 0, -3], "size": [6, 9, 7], "uv": [62, 60]}
+						{"origin": [-4, 26.25, -3], "size": [8, 7, 7], "inflate": -0.25, "uv": [32, 60]},
+						{"origin": [-1, 20.25, 1.75], "size": [2, 13, 2], "inflate": -0.01, "uv": [32, 90]}
 					]
 				},
 				{
 					"name": "leg2",
-					"parent": "waist",
 					"pivot": [-2, 19, 1],
 					"cubes": [
 						{"origin": [-6, 12.25, -2.5], "size": [2, 7, 6], "uv": [80, 11]},
@@ -115,6 +101,23 @@
 					"pivot": [-2, 9, 0],
 					"cubes": [
 						{"origin": [-6, 0, -3], "size": [6, 9, 7], "uv": [32, 74]}
+					]
+				},
+				{
+					"name": "leg",
+					"pivot": [2, 19, 1],
+					"cubes": [
+						{"origin": [2, 15, -3], "size": [2, 4, 7], "uv": [80, 0]},
+						{"origin": [4, 12.25, -2.5], "size": [2, 7, 6], "uv": [80, 24]},
+						{"origin": [0, 9, -2], "size": [5, 10, 5], "uv": [58, 76]}
+					]
+				},
+				{
+					"name": "subleg",
+					"parent": "leg",
+					"pivot": [2, 9, 0],
+					"cubes": [
+						{"origin": [0, 0, -3], "size": [6, 9, 7], "uv": [62, 60]}
 					]
 				}
 			]

@@ -79,7 +79,7 @@
     "isLadder": false,
     "slipperiness": 0.6,
     "speedFactor": 1.0,
-    "jumpFactor": 1.0,
+    "jumpFactor": 0.9,
     "reactionToPushing": "NORMAL",
     "isNotColidable": false,
     "isCustomSoundType": false,

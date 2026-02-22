@@ -1,7 +1,7 @@
 {
   "textures": {
-    "particle": "minecraft:block/chorus_plant",
-    "portal": "minecraft:block/chorus_plant"
+    "particle": "morebosses:block/armagedoom_portal",
+    "portal": "morebosses:block/armagedoom_portal"
   },
   "elements": [
     {

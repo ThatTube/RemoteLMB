@@ -34,5 +34,50 @@
         "stream": false
       }
     ]
+  },
+  "endertp": {
+    "subtitle": "subtitles.endertp",
+    "sounds": [
+      {
+        "name": "morebosses:trading_nation-transition-futuristic-teleport-121420",
+        "stream": false
+      }
+    ]
+  },
+  "enderbombshoot": {
+    "subtitle": "subtitles.enderbombshoot",
+    "sounds": [
+      {
+        "name": "morebosses:universfield-animated-cartoon-explosion-impact-352744",
+        "stream": false
+      }
+    ]
+  },
+  "enderslam": {
+    "subtitle": "subtitles.enderslam",
+    "sounds": [
+      {
+        "name": "morebosses:freesound_community-medium-explosion-40472",
+        "stream": false
+      }
+    ]
+  },
+  "enderblock": {
+    "subtitle": "subtitles.enderblock",
+    "sounds": [
+      {
+        "name": "morebosses:enderblock",
+        "stream": false
+      }
+    ]
+  },
+  "endhurts": {
+    "subtitle": "subtitles.endhurts",
+    "sounds": [
+      {
+        "name": "morebosses:freesound_community-glass-ting-89283_1",
+        "stream": false
+      }
+    ]
   }
 }

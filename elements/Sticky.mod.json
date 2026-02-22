@@ -20,14 +20,14 @@
         "attribute": {
           "value": "ATTACK_SPEED"
         },
-        "amount": -0.75,
+        "amount": -0.25,
         "operation": "ADD_VALUE"
       },
       {
         "attribute": {
-          "value": "MOVEMENT_SPEED"
+          "value": "CUSTOM:ShrimpMetter"
         },
-        "amount": -0.25,
+        "amount": -500.0,
         "operation": "ADD_VALUE"
       },
       {

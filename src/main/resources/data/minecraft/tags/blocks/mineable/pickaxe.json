@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
+    "morebosses:curved_endeterium_block",
+    "morebosses:cut_endeterium",
+    "morebosses:carved_endeterium_block",
+    "morebosses:end_rock",
+    "morebosses:endeterium_pillar",
+    "morebosses:endeterium_block",
+    "morebosses:metalix_block",
     "morebosses:shining_colosseum_bricks",
     "morebosses:colosseum_bricks_stairs",
     "morebosses:colosseum_bricks_slab",

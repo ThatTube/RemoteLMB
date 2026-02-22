@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "morebosses:blocks/endeterium_pillar",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "morebosses:endeterium_pillar"
+        }
+      ]
+    }
+  ]
+}

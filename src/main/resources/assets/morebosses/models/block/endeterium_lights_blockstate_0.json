@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/midcutendeterium",
+    "up": "morebosses:block/midcutendeterium",
+    "north": "morebosses:block/endeterium",
+    "east": "morebosses:block/endeterium",
+    "south": "morebosses:block/endeterium",
+    "west": "morebosses:block/endeterium",
+    "particle": "morebosses:block/endeterium"
+  },
+  "render_type": "solid"
+}

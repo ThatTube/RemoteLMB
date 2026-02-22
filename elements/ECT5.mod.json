@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "BUILDING",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:EndeteriumBlock"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:EndeteriumBlock"
+      },
+      {
+        "value": "Items.ENDER_EYE"
+      },
+      {
+        "value": "CUSTOM:EndeteriumBlock"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:EndeteriumBlock"
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:CarvedEndeteriumBlock"
+    },
+    "name": "ect_5",
+    "namespace": "mod"
+  }
+}

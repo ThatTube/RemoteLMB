@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/cebcharge",
+    "up": "morebosses:block/cebcharge",
+    "north": "morebosses:block/endeterium",
+    "east": "morebosses:block/endeterium",
+    "south": "morebosses:block/endeterium",
+    "west": "morebosses:block/endeterium",
+    "particle": "morebosses:block/cebcharge"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "morebosses:endeterium_block",
+    "morebosses:endeterium_pillar",
+    "morebosses:end_rock",
+    "morebosses:carved_endeterium_block",
+    "morebosses:cut_endeterium",
+    "morebosses:curved_endeterium_block"
+  ]
+}

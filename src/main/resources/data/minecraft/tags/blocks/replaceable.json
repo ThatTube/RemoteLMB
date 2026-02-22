@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "morebosses:energy_block",
     "morebosses:bob",
     "morebosses:raw_magma",
     "morebosses:green_magma"

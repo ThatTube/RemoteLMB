@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/energyblocktop",
+    "up": "morebosses:block/energyblocktop",
+    "north": "morebosses:block/energyblock",
+    "east": "morebosses:block/energyblock",
+    "south": "morebosses:block/energyblock",
+    "west": "morebosses:block/energyblock",
+    "particle": "morebosses:block/energyblocktop"
+  },
+  "render_type": "solid"
+}

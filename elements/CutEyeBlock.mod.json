@@ -1,0 +1,35 @@
+{
+  "_fv": 73,
+  "_type": "blockstates",
+  "definition": {
+    "block": "CarvedEndeteriumBlock",
+    "blockstateList": [
+      {
+        "texture": "endeterium",
+        "textureTop": "endeterium",
+        "textureLeft": "eb",
+        "textureFront": "eb",
+        "textureRight": "eb",
+        "textureBack": "eb",
+        "particleTexture": "endeterium",
+        "renderType": 0,
+        "customModelName": "Normal",
+        "luminance": 0,
+        "boundingBoxes": []
+      },
+      {
+        "texture": "endeterium",
+        "textureTop": "endeterium",
+        "textureLeft": "eyeblock5",
+        "textureFront": "eyeblock5",
+        "textureRight": "eyeblock5",
+        "textureBack": "eyeblock5",
+        "particleTexture": "eyeblock5",
+        "renderType": 0,
+        "customModelName": "Normal",
+        "luminance": 1,
+        "boundingBoxes": []
+      }
+    ]
+  }
+}

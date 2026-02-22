@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "blockstate=0": {
+      "model": "morebosses:block/endeterium_pillar"
+    },
+    "blockstate=1": {
+      "model": "morebosses:block/endeterum_pillar_charges_blockstate_0"
+    },
+    "blockstate=2": {
+      "model": "morebosses:block/endeterum_pillar_charges_blockstate_1"
+    }
+  }
+}

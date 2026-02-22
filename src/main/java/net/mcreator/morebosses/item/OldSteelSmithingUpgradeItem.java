@@ -33,5 +33,7 @@ public class OldSteelSmithingUpgradeItem extends Item {
 		list.add(Component.translatable("item.morebosses.old_steel_smithing_upgrade.description_2"));
 		list.add(Component.translatable("item.morebosses.old_steel_smithing_upgrade.description_3"));
 		list.add(Component.translatable("item.morebosses.old_steel_smithing_upgrade.description_4"));
+		list.add(Component.translatable("item.morebosses.old_steel_smithing_upgrade.description_5"));
+		list.add(Component.translatable("item.morebosses.old_steel_smithing_upgrade.description_6"));
 	}
 }

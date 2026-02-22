@@ -8,12 +8,6 @@
       "sound": "ambient.underwater.loop.additions.ultra_rare",
       "tick_chance": 0.0111
     },
-    "particle": {
-      "options": {
-        "type": "soul"
-      },
-      "probability": 0.005
-    },
     "foliage_color": -1,
     "grass_color": -1,
     "sky_color": -3342337,

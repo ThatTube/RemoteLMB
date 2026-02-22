@@ -62,6 +62,14 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.STROKE_NEST.get().asItem());
 				tabData.accept(MorebossesModBlocks.STROKE_GRASS.get().asItem());
 				tabData.accept(MorebossesModBlocks.BLOMI_BERRY_BUSH.get().asItem());
+				tabData.accept(MorebossesModBlocks.METALIX_BLOCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.ENDETERIUM_BLOCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.ENDETERIUM_PILLAR.get().asItem());
+				tabData.accept(MorebossesModBlocks.END_ROCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.CARVED_ENDETERIUM_BLOCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.CUT_ENDETERIUM.get().asItem());
+				tabData.accept(MorebossesModBlocks.CURVED_ENDETERIUM_BLOCK.get().asItem());
+				tabData.accept(MorebossesModBlocks.ENERGY_BLOCK.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -133,6 +141,16 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.THE_LIFE_ENDER.get());
 				tabData.accept(MorebossesModItems.OLD_STEEL_SMITHING_UPGRADE.get());
 				tabData.accept(MorebossesModItems.BOSS_REMOVER.get());
+				tabData.accept(MorebossesModItems.METALIX_INGOT.get());
+				tabData.accept(MorebossesModItems.GREAT_EYE.get());
+				tabData.accept(MorebossesModItems.ENDER_EYE.get());
+				tabData.accept(MorebossesModItems.SCALES.get());
+				tabData.accept(MorebossesModItems.BIG_BOTTLE.get());
+				tabData.accept(MorebossesModItems.SEA_VODKA.get());
+				tabData.accept(MorebossesModItems.STRIKER_EYE.get());
+				tabData.accept(MorebossesModItems.REVERSE_PEARL.get());
+				tabData.accept(MorebossesModItems.METALIX_CHESTPLATE.get());
+				tabData.accept(MorebossesModItems.METALIX_TEMPLATE.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {
@@ -154,6 +172,9 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.ARCHDUKE_LYTHERION_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.MAGMATIC_CHAMPION_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.SLAGTIO_THE_MIGHTY_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.GUARDIANO_OF_THE_EYES_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.STRIKER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.EYE_SENTINEL_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 
 	@SubscribeEvent

@@ -19,7 +19,7 @@ public class MagmaPitRenderer extends MobRenderer<MagmaPitEntity, Modelmagma_pit
 	public MagmaPitRenderer(EntityRendererProvider.Context context) {
 		super(context, new Modelmagma_pit<MagmaPitEntity>(context.bakeLayer(Modelmagma_pit.LAYER_LOCATION)), 0f);
 		this.addLayer(new RenderLayer<MagmaPitEntity, Modelmagma_pit<MagmaPitEntity>>(this) {
-			final ResourceLocation LAYER_TEXTURE = new ResourceLocation("morebosses:textures/entities/magma_pit.png");
+			final ResourceLocation LAYER_TEXTURE = new ResourceLocation("morebosses:textures/entities/mp1.png");
 
 			@Override
 			public void render(PoseStack poseStack, MultiBufferSource bufferSource, int light, MagmaPitEntity entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
@@ -36,6 +36,6 @@ public class MagmaPitRenderer extends MobRenderer<MagmaPitEntity, Modelmagma_pit
 
 	@Override
 	public ResourceLocation getTextureLocation(MagmaPitEntity entity) {
-		return new ResourceLocation("morebosses:textures/entities/magma_pit.png");
+		return new ResourceLocation("morebosses:textures/entities/mp2.png");
 	}
 }

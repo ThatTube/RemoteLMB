@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "morebosses:block/enderpillartop",
+    "up": "morebosses:block/enderpillartop",
+    "north": "morebosses:block/endepillar",
+    "east": "morebosses:block/endepillar",
+    "south": "morebosses:block/endepillar",
+    "west": "morebosses:block/endepillar",
+    "particle": "morebosses:block/enderpillartop"
+  },
+  "render_type": "solid"
+}

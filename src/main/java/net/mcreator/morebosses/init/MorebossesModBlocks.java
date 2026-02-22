@@ -25,6 +25,7 @@ import net.mcreator.morebosses.block.RawMagmaBlock;
 import net.mcreator.morebosses.block.PolishedCrackedBlackstoneBlockBlock;
 import net.mcreator.morebosses.block.OpalOreInDOOMRockBlock;
 import net.mcreator.morebosses.block.OpalOreInCoriumBlock;
+import net.mcreator.morebosses.block.MetalixBlockBlock;
 import net.mcreator.morebosses.block.MegaForgeBlock;
 import net.mcreator.morebosses.block.JackOStrokeBlock;
 import net.mcreator.morebosses.block.IndestructibleBlockBlock;
@@ -32,7 +33,13 @@ import net.mcreator.morebosses.block.HellishTungstenBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlock;
 import net.mcreator.morebosses.block.GongBlock;
+import net.mcreator.morebosses.block.EnergyBlockBlock;
+import net.mcreator.morebosses.block.EndeteriumPillarBlock;
+import net.mcreator.morebosses.block.EndeteriumBlockBlock;
+import net.mcreator.morebosses.block.EndRockBlock;
 import net.mcreator.morebosses.block.DOOMRockBlock;
+import net.mcreator.morebosses.block.CutEndeteriumBlock;
+import net.mcreator.morebosses.block.CurvedEndeteriumBlockBlock;
 import net.mcreator.morebosses.block.CoriumBlock;
 import net.mcreator.morebosses.block.CopperStructureDetectBlock;
 import net.mcreator.morebosses.block.CopperPressurePlateBlock;
@@ -50,6 +57,7 @@ import net.mcreator.morebosses.block.CoarseBlock;
 import net.mcreator.morebosses.block.ChayoteBlock;
 import net.mcreator.morebosses.block.CarvedWitheredBoneBlockBlock;
 import net.mcreator.morebosses.block.CarvedStrokeMelonBlock;
+import net.mcreator.morebosses.block.CarvedEndeteriumBlockBlock;
 import net.mcreator.morebosses.block.CarvedBoneBlockBlock;
 import net.mcreator.morebosses.block.BobBlock;
 import net.mcreator.morebosses.block.BlueSoulLightBlock;
@@ -106,6 +114,14 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> STROKE_GRASS = REGISTRY.register("stroke_grass", () -> new StrokeGrassBlock());
 	public static final RegistryObject<Block> BLOMI_BERRY_BUSH = REGISTRY.register("blomi_berry_bush", () -> new BlomiBerryBushBlock());
 	public static final RegistryObject<Block> SDB = REGISTRY.register("sdb", () -> new SDBBlock());
+	public static final RegistryObject<Block> METALIX_BLOCK = REGISTRY.register("metalix_block", () -> new MetalixBlockBlock());
+	public static final RegistryObject<Block> ENDETERIUM_BLOCK = REGISTRY.register("endeterium_block", () -> new EndeteriumBlockBlock());
+	public static final RegistryObject<Block> ENDETERIUM_PILLAR = REGISTRY.register("endeterium_pillar", () -> new EndeteriumPillarBlock());
+	public static final RegistryObject<Block> END_ROCK = REGISTRY.register("end_rock", () -> new EndRockBlock());
+	public static final RegistryObject<Block> CARVED_ENDETERIUM_BLOCK = REGISTRY.register("carved_endeterium_block", () -> new CarvedEndeteriumBlockBlock());
+	public static final RegistryObject<Block> CUT_ENDETERIUM = REGISTRY.register("cut_endeterium", () -> new CutEndeteriumBlock());
+	public static final RegistryObject<Block> CURVED_ENDETERIUM_BLOCK = REGISTRY.register("curved_endeterium_block", () -> new CurvedEndeteriumBlockBlock());
+	public static final RegistryObject<Block> ENERGY_BLOCK = REGISTRY.register("energy_block", () -> new EnergyBlockBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

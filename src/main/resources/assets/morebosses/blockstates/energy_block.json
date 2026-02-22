@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "morebosses:block/energy_block"
+    },
+    "facing=east": {
+      "model": "morebosses:block/energy_block",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "morebosses:block/energy_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "morebosses:block/energy_block",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "morebosses:block/energy_block",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "morebosses:block/energy_block",
+      "x": 90
+    }
+  }
+}

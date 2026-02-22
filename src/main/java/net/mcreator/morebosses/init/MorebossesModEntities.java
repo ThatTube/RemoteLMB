@@ -21,11 +21,13 @@ import net.mcreator.morebosses.entity.WindBurstEntity;
 import net.mcreator.morebosses.entity.TurretEntityProjectile;
 import net.mcreator.morebosses.entity.TurretEntity;
 import net.mcreator.morebosses.entity.TallEngineerEntity;
+import net.mcreator.morebosses.entity.StrikerEntity;
 import net.mcreator.morebosses.entity.SoulDionaeaEntity;
 import net.mcreator.morebosses.entity.SlagtioTheMightyEntity;
 import net.mcreator.morebosses.entity.ShrimpEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
 import net.mcreator.morebosses.entity.RobotWhaleEntity;
+import net.mcreator.morebosses.entity.ReversePearlProjectileEntity;
 import net.mcreator.morebosses.entity.PiglinBoxerEntity;
 import net.mcreator.morebosses.entity.PiglinBoulusEntity;
 import net.mcreator.morebosses.entity.OilEngineerEntity;
@@ -37,8 +39,13 @@ import net.mcreator.morebosses.entity.MagmaticChampionEntity;
 import net.mcreator.morebosses.entity.MagmaPitEntity;
 import net.mcreator.morebosses.entity.LaserEntity;
 import net.mcreator.morebosses.entity.LamentBombEntity;
+import net.mcreator.morebosses.entity.GuardianoOfTheEyesEntity;
+import net.mcreator.morebosses.entity.EyeSentinelEntity;
 import net.mcreator.morebosses.entity.EyeOldEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
+import net.mcreator.morebosses.entity.EnderLaserEntity;
+import net.mcreator.morebosses.entity.EnderLaserBeamEntity;
+import net.mcreator.morebosses.entity.EnderBombEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
 import net.mcreator.morebosses.entity.CopperGrablerEntity;
@@ -143,6 +150,26 @@ public class MorebossesModEntities {
 					.sized(1.5f, 3f));
 	public static final RegistryObject<EntityType<EyeOldEntity>> EYE_OLD = register("eye_old",
 			EntityType.Builder.<EyeOldEntity>of(EyeOldEntity::new, MobCategory.MISC).setCustomClientFactory(EyeOldEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<GuardianoOfTheEyesEntity>> GUARDIANO_OF_THE_EYES = register("guardiano_of_the_eyes",
+			EntityType.Builder.<GuardianoOfTheEyesEntity>of(GuardianoOfTheEyesEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(GuardianoOfTheEyesEntity::new)
+
+					.sized(2.4f, 7.4f));
+	public static final RegistryObject<EntityType<EnderBombEntity>> ENDER_BOMB = register("ender_bomb",
+			EntityType.Builder.<EnderBombEntity>of(EnderBombEntity::new, MobCategory.MISC).setCustomClientFactory(EnderBombEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(1f, 1f));
+	public static final RegistryObject<EntityType<ReversePearlProjectileEntity>> REVERSE_PEARL_PROJECTILE = register("reverse_pearl_projectile", EntityType.Builder.<ReversePearlProjectileEntity>of(ReversePearlProjectileEntity::new, MobCategory.MISC)
+			.setCustomClientFactory(ReversePearlProjectileEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<StrikerEntity>> STRIKER = register("striker",
+			EntityType.Builder.<StrikerEntity>of(StrikerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(StrikerEntity::new)
+
+					.sized(0.6f, 1.3f));
+	public static final RegistryObject<EntityType<EnderLaserEntity>> ENDER_LASER = register("ender_laser",
+			EntityType.Builder.<EnderLaserEntity>of(EnderLaserEntity::new, MobCategory.MISC).setCustomClientFactory(EnderLaserEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<EnderLaserBeamEntity>> ENDER_LASER_BEAM = register("ender_laser_beam",
+			EntityType.Builder.<EnderLaserBeamEntity>of(EnderLaserBeamEntity::new, MobCategory.MISC).setCustomClientFactory(EnderLaserBeamEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<EyeSentinelEntity>> EYE_SENTINEL = register("eye_sentinel",
+			EntityType.Builder.<EyeSentinelEntity>of(EyeSentinelEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EyeSentinelEntity::new)
+
+					.sized(0.6f, 2f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -174,6 +201,9 @@ public class MorebossesModEntities {
 			MagmaticChampionEntity.init();
 			MagmaPitEntity.init();
 			SlagtioTheMightyEntity.init();
+			GuardianoOfTheEyesEntity.init();
+			StrikerEntity.init();
+			EyeSentinelEntity.init();
 		});
 	}
 
@@ -200,5 +230,8 @@ public class MorebossesModEntities {
 		event.put(MAGMATIC_CHAMPION.get(), MagmaticChampionEntity.createAttributes().build());
 		event.put(MAGMA_PIT.get(), MagmaPitEntity.createAttributes().build());
 		event.put(SLAGTIO_THE_MIGHTY.get(), SlagtioTheMightyEntity.createAttributes().build());
+		event.put(GUARDIANO_OF_THE_EYES.get(), GuardianoOfTheEyesEntity.createAttributes().build());
+		event.put(STRIKER.get(), StrikerEntity.createAttributes().build());
+		event.put(EYE_SENTINEL.get(), EyeSentinelEntity.createAttributes().build());
 	}
 }

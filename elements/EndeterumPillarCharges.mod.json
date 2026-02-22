@@ -1,0 +1,35 @@
+{
+  "_fv": 73,
+  "_type": "blockstates",
+  "definition": {
+    "block": "EndeteriumPillar",
+    "blockstateList": [
+      {
+        "texture": "enderpillartop",
+        "textureTop": "enderpillartop",
+        "textureLeft": "endepillar",
+        "textureFront": "endepillar",
+        "textureRight": "endepillar",
+        "textureBack": "endepillar",
+        "particleTexture": "endepillar",
+        "renderType": 0,
+        "customModelName": "Normal",
+        "luminance": 0,
+        "boundingBoxes": []
+      },
+      {
+        "texture": "cept",
+        "textureTop": "cept",
+        "textureLeft": "cep",
+        "textureFront": "cep",
+        "textureRight": "cep",
+        "textureBack": "cep",
+        "particleTexture": "cept",
+        "renderType": 0,
+        "customModelName": "Normal",
+        "luminance": 6,
+        "boundingBoxes": []
+      }
+    ]
+  }
+}

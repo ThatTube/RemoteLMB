@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/bigeye",
+  "textures": {
+    "0": "morebosses:block/eyebig",
+    "particle": "minecraft:item/ender_eye"
+  }
+}

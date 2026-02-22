@@ -10,7 +10,7 @@ import net.minecraft.core.BlockPos;
 
 public class CoarseBlock extends Block {
 	public CoarseBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.FUNGUS).strength(1f, 22f));
+		super(BlockBehaviour.Properties.of().sound(SoundType.FUNGUS).strength(1f, 22f).speedFactor(0.8f));
 	}
 
 	@Override

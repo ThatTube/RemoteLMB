@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "morebosses:metalix_block",
     "morebosses:hellish_tungsten_block"
   ]
 }

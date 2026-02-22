@@ -123,7 +123,7 @@
       }
     ],
     "generationType": "Grass",
-    "patchSize": 64,
+    "patchSize": 22,
     "generateAtAnyHeight": false
   }
 }

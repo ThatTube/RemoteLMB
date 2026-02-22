@@ -1,7 +1,6 @@
 {
-  "parent": "morebosses:custom/pisantes",
+  "parent": "item/generated",
   "textures": {
-    "0": "morebosses:block/pisantes",
-    "particle": "minecraft:item/chainmail_boots"
+    "layer0": "morebosses:item/monstruous_feet"
   }
 }

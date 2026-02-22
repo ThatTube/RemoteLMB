@@ -6,6 +6,8 @@ package net.mcreator.morebosses.init;
 
 import org.lwjgl.glfw.GLFW;
 
+import org.checkerframework.checker.units.qual.C;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
@@ -16,6 +18,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.KeyMapping;
 
 import net.mcreator.morebosses.network.TauntMessage;
+import net.mcreator.morebosses.network.CMessage;
 import net.mcreator.morebosses.network.BootsHabilityMessage;
 import net.mcreator.morebosses.MorebossesMod;
 
@@ -34,7 +37,7 @@ public class MorebossesModKeyMappings {
 			isDownOld = isDown;
 		}
 	};
-	public static final KeyMapping TAUNT = new KeyMapping("key.morebosses.taunt", GLFW.GLFW_KEY_G, "key.categories.misc") {
+	public static final KeyMapping TAUNT = new KeyMapping("key.morebosses.taunt", GLFW.GLFW_KEY_G, "key.categories.lmb") {
 		private boolean isDownOld = false;
 
 		@Override
@@ -47,11 +50,25 @@ public class MorebossesModKeyMappings {
 			isDownOld = isDown;
 		}
 	};
+	public static final KeyMapping C = new KeyMapping("key.morebosses.c", GLFW.GLFW_KEY_C, "key.categories.lmb") {
+		private boolean isDownOld = false;
+
+		@Override
+		public void setDown(boolean isDown) {
+			super.setDown(isDown);
+			if (isDownOld != isDown && isDown) {
+				MorebossesMod.PACKET_HANDLER.sendToServer(new CMessage(0, 0));
+				CMessage.pressAction(Minecraft.getInstance().player, 0, 0);
+			}
+			isDownOld = isDown;
+		}
+	};
 
 	@SubscribeEvent
 	public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
 		event.register(BOOTS_HABILITY);
 		event.register(TAUNT);
+		event.register(C);
 	}
 
 	@Mod.EventBusSubscriber({Dist.CLIENT})
@@ -61,6 +78,7 @@ public class MorebossesModKeyMappings {
 			if (Minecraft.getInstance().screen == null) {
 				BOOTS_HABILITY.consumeClick();
 				TAUNT.consumeClick();
+				C.consumeClick();
 			}
 		}
 	}

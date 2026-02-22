@@ -15,6 +15,7 @@ import net.mcreator.morebosses.client.renderer.WitherMissileRenderer;
 import net.mcreator.morebosses.client.renderer.WindBurstRenderer;
 import net.mcreator.morebosses.client.renderer.TurretRenderer;
 import net.mcreator.morebosses.client.renderer.TallEngineerRenderer;
+import net.mcreator.morebosses.client.renderer.StrikerRenderer;
 import net.mcreator.morebosses.client.renderer.SoulDionaeaRenderer;
 import net.mcreator.morebosses.client.renderer.SlagtioTheMightyRenderer;
 import net.mcreator.morebosses.client.renderer.ShrimpRenderer;
@@ -29,7 +30,11 @@ import net.mcreator.morebosses.client.renderer.MaxolotRenderer;
 import net.mcreator.morebosses.client.renderer.MagmaticChampionRenderer;
 import net.mcreator.morebosses.client.renderer.MagmaPitRenderer;
 import net.mcreator.morebosses.client.renderer.LamentBombRenderer;
+import net.mcreator.morebosses.client.renderer.GuardianoOfTheEyesRenderer;
+import net.mcreator.morebosses.client.renderer.EyeSentinelRenderer;
 import net.mcreator.morebosses.client.renderer.EngineerRenderer;
+import net.mcreator.morebosses.client.renderer.EnderLaserBeamRenderer;
+import net.mcreator.morebosses.client.renderer.EnderBombRenderer;
 import net.mcreator.morebosses.client.renderer.DryBonesRenderer;
 import net.mcreator.morebosses.client.renderer.CopperMonstrosityRenderer;
 import net.mcreator.morebosses.client.renderer.CopperGrablerRenderer;
@@ -71,5 +76,12 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.MAGMA_PIT.get(), MagmaPitRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.SLAGTIO_THE_MIGHTY.get(), SlagtioTheMightyRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.EYE_OLD.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.GUARDIANO_OF_THE_EYES.get(), GuardianoOfTheEyesRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.ENDER_BOMB.get(), EnderBombRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.REVERSE_PEARL_PROJECTILE.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.STRIKER.get(), StrikerRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.ENDER_LASER.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.ENDER_LASER_BEAM.get(), EnderLaserBeamRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.EYE_SENTINEL.get(), EyeSentinelRenderer::new);
 	}
 }

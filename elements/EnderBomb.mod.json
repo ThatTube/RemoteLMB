@@ -1,0 +1,24 @@
+{
+  "_fv": 73,
+  "_type": "projectile",
+  "definition": {
+    "projectileItem": {
+      "value": "Blocks.ACACIA_BUTTON"
+    },
+    "showParticles": false,
+    "actionSound": {
+      "value": "block.beacon.ambient"
+    },
+    "igniteFire": false,
+    "power": 1.0,
+    "damage": 3.0,
+    "knockback": 0,
+    "entityModel": "Modellaser_beam",
+    "customModelTexture": "laser_bomb.png",
+    "modelWidth": 1.0,
+    "modelHeight": 1.0,
+    "onHitsBlock": {
+      "name": "EnderBombProjectileHitsBlock"
+    }
+  }
+}

@@ -16,7 +16,7 @@
         "value": "#minecraft:is_overworld"
       }
     ],
-    "terrainAdaptation": "none",
+    "terrainAdaptation": "encapsulate",
     "generationStep": "UNDERGROUND_STRUCTURES",
     "surfaceDetectionType": "WORLD_SURFACE_WG",
     "useStartHeight": true,

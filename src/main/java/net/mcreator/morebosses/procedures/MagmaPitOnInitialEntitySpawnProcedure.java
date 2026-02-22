@@ -10,6 +10,7 @@ public class MagmaPitOnInitialEntitySpawnProcedure {
 		if (entity == null)
 			return;
 		MorebossesMod.queueServerWork(160, () -> {
+			entity.kill();
 			if (!entity.level().isClientSide())
 				entity.discard();
 		});

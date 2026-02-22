@@ -20,6 +20,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.mcreator.morebosses.init.MorebossesModTabs;
 import net.mcreator.morebosses.init.MorebossesModSounds;
 import net.mcreator.morebosses.init.MorebossesModPotions;
+import net.mcreator.morebosses.init.MorebossesModParticleTypes;
 import net.mcreator.morebosses.init.MorebossesModPaintings;
 import net.mcreator.morebosses.init.MorebossesModMobEffects;
 import net.mcreator.morebosses.init.MorebossesModMenus;
@@ -62,6 +63,7 @@ public class MorebossesMod {
 		MorebossesModMobEffects.REGISTRY.register(bus);
 		MorebossesModPotions.REGISTRY.register(bus);
 		MorebossesModPaintings.REGISTRY.register(bus);
+		MorebossesModParticleTypes.REGISTRY.register(bus);
 
 		MorebossesModMenus.REGISTRY.register(bus);
 		MorebossesModFluids.REGISTRY.register(bus);

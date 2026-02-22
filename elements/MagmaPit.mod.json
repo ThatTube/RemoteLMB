@@ -5,7 +5,7 @@
     "mobName": "Magma Pit",
     "mobLabel": "",
     "mobModelName": "Modelmagma_pit",
-    "mobModelTexture": "magma_pit.png",
+    "mobModelTexture": "mp2.png",
     "transparentModelCondition": {
       "fixedValue": false
     },
@@ -24,7 +24,7 @@
     "modelLayers": [
       {
         "model": "Default",
-        "texture": "magma_pit.png",
+        "texture": "mp1.png",
         "disableHurtOverlay": true,
         "glow": true
       }
