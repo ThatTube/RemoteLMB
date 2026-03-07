@@ -28,6 +28,7 @@ import net.mcreator.morebosses.item.TankOfFuryItem;
 import net.mcreator.morebosses.item.StrokeCakeItem;
 import net.mcreator.morebosses.item.StrikerEyeItem;
 import net.mcreator.morebosses.item.StoneCuirlassItem;
+import net.mcreator.morebosses.item.SparkOfTheSoulItem;
 import net.mcreator.morebosses.item.ShrimpDeathItem;
 import net.mcreator.morebosses.item.ShieldBeaterItem;
 import net.mcreator.morebosses.item.SeaVodkaItem;
@@ -257,6 +258,10 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> STRIKER_SPAWN_EGG = REGISTRY.register("striker_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.STRIKER, -1, -1, new Item.Properties()));
 	public static final RegistryObject<Item> ENERGY_BLOCK = block(MorebossesModBlocks.ENERGY_BLOCK);
 	public static final RegistryObject<Item> EYE_SENTINEL_SPAWN_EGG = REGISTRY.register("eye_sentinel_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.EYE_SENTINEL, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> SOULSPER_SPAWN_EGG = REGISTRY.register("soulsper_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.SOULSPER, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> SOUL_WOOD = block(MorebossesModBlocks.SOUL_WOOD);
+	public static final RegistryObject<Item> SOUL_WOOD_FACE = block(MorebossesModBlocks.SOUL_WOOD_FACE);
+	public static final RegistryObject<Item> SPARK_OF_THE_SOUL = REGISTRY.register("spark_of_the_soul", () -> new SparkOfTheSoulItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

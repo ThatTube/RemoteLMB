@@ -16,6 +16,8 @@ import net.mcreator.morebosses.block.StrokeMelonBlock;
 import net.mcreator.morebosses.block.StrokeGrassBlock;
 import net.mcreator.morebosses.block.StrokeBlock;
 import net.mcreator.morebosses.block.StrikeBlock;
+import net.mcreator.morebosses.block.SoulWoodFaceBlock;
+import net.mcreator.morebosses.block.SoulWoodBlock;
 import net.mcreator.morebosses.block.SoulLightBlock;
 import net.mcreator.morebosses.block.ShiningColosseumBricksBlock;
 import net.mcreator.morebosses.block.SeatBlock;
@@ -122,6 +124,8 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> CUT_ENDETERIUM = REGISTRY.register("cut_endeterium", () -> new CutEndeteriumBlock());
 	public static final RegistryObject<Block> CURVED_ENDETERIUM_BLOCK = REGISTRY.register("curved_endeterium_block", () -> new CurvedEndeteriumBlockBlock());
 	public static final RegistryObject<Block> ENERGY_BLOCK = REGISTRY.register("energy_block", () -> new EnergyBlockBlock());
+	public static final RegistryObject<Block> SOUL_WOOD = REGISTRY.register("soul_wood", () -> new SoulWoodBlock());
+	public static final RegistryObject<Block> SOUL_WOOD_FACE = REGISTRY.register("soul_wood_face", () -> new SoulWoodFaceBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

@@ -78,6 +78,14 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
     private float headPitch = 0;
     private float prevHeadYaw = 0;
     private float prevHeadPitch = 0;
+
+    // Constantes do Death Laser (baseadas no Harbinger)
+private static final int DEATH_LASER_FIRE_TICK = 18;       // Tick da animação de carga em que o laser é disparado
+private static final int DEATH_LASER_BEAM_DURATION = 60;   // Duração do feixe em ticks
+private static final int DEATH_LASER_COOLDOWN = 120;       // Cooldown após o ataque
+
+// Campo para controlar o fim do laser (tempo em ticks do mundo)
+private int deathLaserEndTick = 0;
     
     public String animationprocedure = "empty";
     String prevAnim = "empty";
@@ -198,7 +206,7 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
         if (target != null) {
             // Calcular ângulos para a cabeça olhar para o alvo
             double d0 = target.getX() - this.getX();
-            double d1 = target.getY() + target.getEyeHeight() - (this.getY() + 7.2); // Altura do laser
+            double d1 = target.getY() + target.getEyeHeight() - (this.getY() + 6.2); // Altura do laser
             double d2 = target.getZ() - this.getZ();
             
             double horizontalDistance = Math.sqrt(d0 * d0 + d2 * d2);
@@ -278,31 +286,33 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
                 if (attackTimer >= 30) resetAttack(40);
                 break;
 
-            case 4: // Laser Charge
-                if (attackTimer >= 25) {
-                    startLaserActive();
-                }
-                break;
+            case 4: // Laser Charge (agora usando a temporização do Harbinger)
+    // No tick 18, dispara o feixe
+    if (attackTimer == DEATH_LASER_FIRE_TICK) {
+        spawnDeathLaserBeam();   // ← novo método que cria o laser
+        // Toca o som de disparo (igual ao Harbinger)
+        this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:enderbombshoot")), 4.0f, 0.75f);
+    }
+    // Quando a animação de carga termina (25 ticks), entra no loop do laser
+    if (attackTimer >= 25) {
+        attackState = 5;
+        attackTimer = 0;
+        animationprocedure = "laserloop";   // animação em loop
+        setAnimation("laserloop");
+    }
+    break;
 
-            case 5: // Laser Active
+case 5: // Laser Active (feixe ativo)
+    
+    // A cabeça segue o alvo durante toda a fase ativa (igual ao Harbinger)
     if (target != null) {
-        // Forçar a cabeça a olhar para o alvo
-        this.lookAt(target, 30f, 30f);
-        
-        // Atualizar o laser com a nova rotação
-        if (activeLaser != null) {
-            // A rotação do laser é atualizada automaticamente no tick do EnderLaserBeamEntity
-            // porque ele pega a rotação do caster
-        }
+        this.getLookControl().setLookAt(target.getX(), target.getY() + target.getBbHeight() / 2, target.getZ(), 6, 90);
+        this.lookAt(target, 30, 30);
     }
     
-    // Verificar se o laser ainda existe, se não, recriar
-    if (activeLaser == null && target != null) {
-        spawnLaserBeam();
-    }
-    
-    if (attackTimer >= 80) {
-        resetAttack(60);
+    // Verifica se o tempo de vida do laser acabou ou se ele foi destruído
+    if (this.tickCount >= deathLaserEndTick || activeLaser == null) {
+        resetAttack(DEATH_LASER_COOLDOWN);
     }
     break;
                 
@@ -354,7 +364,7 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
         setAnimation("laserloop");
         
         // Spawn do laser
-        spawnLaserBeam();
+        spawnDeathLaserBeam();
     }
 
     private void startTeleport() {
@@ -387,28 +397,24 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
 
     // --- MÉTODO DO LASER BEAM ---
     
-    private void spawnLaserBeam() {
+    private void spawnDeathLaserBeam() {
     if (this.level().isClientSide) return;
     
-    // Remover laser anterior se existir
+    // Remove o laser anterior se existir
     if (activeLaser != null) {
         activeLaser.on = false;
         activeLaser = null;
     }
     
-    // Parâmetros do laser
-    float baseDamage = 3.0f; // Dano por tick
-    float hpDamagePercentage = 5.0f;
+    // Parâmetros do Death Laser (dano mais alto, duração de 60 ticks)
+    float baseDamage = 8.0f;                // Ajuste conforme necessário
+    float hpDamagePercentage = 10.0f;        // Dano percentual de vida
+    int duration = DEATH_LASER_BEAM_DURATION; // 60 ticks
+    double laserHeight = 7.2;                 // Altura do feixe
     
-    // Posição do laser - altura fixa de 7.2
-    double laserHeight = 7.2;
-    
-    // USAR A ROTAÇÃO DA CABEÇA DIRETO DO JOGO
-    // yHeadRot é a rotação da cabeça que o Minecraft já calcula
+    // Usa a rotação da cabeça para apontar
     float headYaw = this.yHeadRot;
     float headPitch = this.getXRot();
-    
-    // Converter para radianos para o laser
     float laserYaw = (float) Math.toRadians(headYaw + 90);
     float laserPitch = (float) Math.toRadians(-headPitch);
     
@@ -420,19 +426,16 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
         this.getZ(),
         laserYaw,
         laserPitch,
-        80, // Duração de 80 ticks
+        duration,
         baseDamage,
         hpDamagePercentage
     );
     
+    // Registra o tick em que o laser deve acabar
+    deathLaserEndTick = this.tickCount + duration;
+    
     this.level().addFreshEntity(laser);
     activeLaser = laser;
-    
-    // Debug
-    System.out.println("Laser spawned - HeadYaw: " + headYaw + " HeadPitch: " + headPitch);
-    
-    // Som de ativação do laser
-    this.playSound(SoundEvents.BEACON_ACTIVATE, 2.0f, 0.5f);
 }
 
     // --- LÓGICA DE DANO ---
@@ -488,48 +491,55 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
     }
 
     private void performTeleport() {
-        if (this.level().isClientSide) return;
+    if (this.level().isClientSide) return;
 
-        LivingEntity target = this.getTarget();
-        Vec3 teleportPos = null;
-        
-        if (this.level() instanceof ServerLevel serverLevel) {
-            serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.PORTAL, 
-                this.getX(), this.getY() + 1, this.getZ(), 30, 0.5, 1, 0.5, 0.5);
+    LivingEntity target = this.getTarget();
+    Vec3 teleportPos = null;
+    final double MIN_TELEPORT_DISTANCE = 5.0; // distância mínima para evitar teleporte no mesmo lugar
+
+    if (this.level() instanceof ServerLevel serverLevel) {
+        serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.PORTAL,
+            this.getX(), this.getY() + 1, this.getZ(), 30, 0.5, 1, 0.5, 0.5);
+    }
+
+    for (int i = 0; i < 15; i++) {
+        double x, y, z;
+        if (target != null && this.random.nextDouble() < 0.6) {
+            Vec3 back = target.getLookAngle().scale(-4);
+            x = target.getX() + back.x + (this.random.nextDouble() - 0.5) * 3;
+            z = target.getZ() + back.z + (this.random.nextDouble() - 0.5) * 3;
+            y = target.getY();
+        } else {
+            double range = 20;
+            x = this.getX() + (this.random.nextDouble() - 0.5) * range * 2;
+            z = this.getZ() + (this.random.nextDouble() - 0.5) * range * 2;
+            y = this.getY() + (this.random.nextInt(4) - 2);
         }
 
-        for (int i = 0; i < 15; i++) {
-            double x, y, z;
-            if (target != null && this.random.nextDouble() < 0.6) {
-                Vec3 back = target.getLookAngle().scale(-4);
-                x = target.getX() + back.x + (this.random.nextDouble() - 0.5) * 3;
-                z = target.getZ() + back.z + (this.random.nextDouble() - 0.5) * 3;
-                y = target.getY();
-            } else {
-                double range = 20;
-                x = this.getX() + (this.random.nextDouble() - 0.5) * range * 2;
-                z = this.getZ() + (this.random.nextDouble() - 0.5) * range * 2;
-                y = this.getY() + (this.random.nextInt(4) - 2);
-            }
-
-            BlockPos pos = BlockPos.containing(x, y, z);
-            if (this.level().getBlockState(pos.below()).isSolid() && 
-                this.level().noCollision(this, this.getBoundingBox().move(x - this.getX(), y - this.getY(), z - this.getZ()))) {
-                teleportPos = new Vec3(x, y, z);
-                break;
-            }
+        // Verifica se a distância até a posição atual é maior que o mínimo
+        double distSq = this.distanceToSqr(x, y, z);
+        if (distSq < MIN_TELEPORT_DISTANCE * MIN_TELEPORT_DISTANCE) {
+            continue; // muito perto, tenta novamente
         }
 
-        if (teleportPos != null) {
-            this.teleportTo(teleportPos.x, teleportPos.y, teleportPos.z);
-            this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:endertp")), 1.0f, 1.0f);
-
-            if (this.level() instanceof ServerLevel serverLevel) {
-                serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.PORTAL, 
-                    teleportPos.x, teleportPos.y + 1, teleportPos.z, 30, 0.5, 1, 0.5, 0.5);
-            }
+        BlockPos pos = BlockPos.containing(x, y, z);
+        if (this.level().getBlockState(pos.below()).isSolid() &&
+            this.level().noCollision(this, this.getBoundingBox().move(x - this.getX(), y - this.getY(), z - this.getZ()))) {
+            teleportPos = new Vec3(x, y, z);
+            break;
         }
     }
+
+    if (teleportPos != null) {
+        this.teleportTo(teleportPos.x, teleportPos.y, teleportPos.z);
+        this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:endertp")), 1.0f, 1.0f);
+
+        if (this.level() instanceof ServerLevel serverLevel) {
+            serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.PORTAL,
+                teleportPos.x, teleportPos.y + 1, teleportPos.z, 30, 0.5, 1, 0.5, 0.5);
+        }
+    }
+}
 
     // --- SISTEMA DE BLOQUEIO ---
 

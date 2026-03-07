@@ -3,12 +3,12 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "metalix_upgrade",
+    "texture": "soul_cinder",
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],
-    "name": "Smithing Upgrade",
-    "rarity": "COMMON",
+    "name": "Spark Of The Soul",
+    "rarity": "RARE",
     "creativeTabs": [
       {
         "value": "CUSTOM:LMBItens"
@@ -24,20 +24,12 @@
     },
     "destroyAnyBlock": false,
     "immuneToFire": false,
-    "stayInGridWhenCrafting": true,
+    "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInformation": {
-      "fixedValue": [
-        "LMB Itens",
-        "Metalix Upgrade",
-        "",
-        "Applies to:",
-        "Netherit Equipment",
-        "Ingredients:",
-        "Metalix Ingots"
-      ]
+      "fixedValue": []
     },
     "glowCondition": {
       "fixedValue": false

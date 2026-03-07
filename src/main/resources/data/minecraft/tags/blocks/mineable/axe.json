@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "morebosses:soul_wood_face",
+    "morebosses:soul_wood",
     "morebosses:stroke_nest",
     "morebosses:mega_forge"
   ]

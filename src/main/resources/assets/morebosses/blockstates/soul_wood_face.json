@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "morebosses:block/soul_wood_face",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "morebosses:block/soul_wood_face"
+    },
+    "axis=z": {
+      "model": "morebosses:block/soul_wood_face",
+      "x": 90
+    }
+  }
+}

@@ -6925,7 +6925,7 @@
     {
       "name": "EnderLaserBeam",
       "type": "projectile",
-      "compiles": false,
+      "compiles": true,
       "locked_code": true,
       "registry_name": "ender_laser_beam",
       "metadata": {
@@ -6951,6 +6951,134 @@
         ]
       },
       "path": "~/Mobs"
+    },
+    {
+      "name": "SoulSandSwamp",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soul_sand_swamp",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/worldgen/biome/soul_sand_swamp.json",
+          "src/main/resources/data/morebosses/worldgen/placed_feature/soul_sand_swamp_tree.json",
+          "src/main/resources/data/morebosses/worldgen/configured_feature/soul_sand_swamp_tree.json"
+        ]
+      }
+    },
+    {
+      "name": "Soulsper",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "soulsper",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/client/renderer/SoulsperRenderer.java",
+          "src/main/java/net/mcreator/morebosses/entity/layer/SoulsperLayer.java",
+          "src/main/java/net/mcreator/morebosses/entity/SoulsperEntity.java",
+          "src/main/java/net/mcreator/morebosses/entity/model/SoulsperModel.java",
+          "src/main/resources/data/morebosses/forge/biome_modifier/soulsper_biome_modifier.json",
+          "src/main/resources/assets/morebosses/models/item/soulsper_spawn_egg.json"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "SoulWood",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soul_wood",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/blocks/soul_wood.json",
+          "src/main/resources/assets/morebosses/blockstates/soul_wood.json",
+          "src/main/java/net/mcreator/morebosses/block/SoulWoodBlock.java",
+          "src/main/resources/assets/morebosses/models/block/soul_wood.json",
+          "src/main/resources/assets/morebosses/models/item/soul_wood.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "SoulWoodFace",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soul_wood_face",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/soul_wood_face.json",
+          "src/main/resources/assets/morebosses/models/block/soul_wood_face.json",
+          "src/main/java/net/mcreator/morebosses/block/SoulWoodFaceBlock.java",
+          "src/main/resources/data/morebosses/loot_tables/blocks/soul_wood_face.json",
+          "src/main/resources/assets/morebosses/blockstates/soul_wood_face.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "SoulWoodOnBlockRightClicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soul_wood_on_block_right_clicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/SoulWoodOnBlockRightClickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "SoulsperDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soulsper_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/soulsper.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "SparkOfTheSoul",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spark_of_the_soul",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/spark_of_the_soul.json",
+          "src/main/java/net/mcreator/morebosses/item/SparkOfTheSoulItem.java"
+        ]
+      },
+      "path": "~/Items"
     }
   ],
   "variable_elements": [],
@@ -7029,12 +7157,12 @@
     }
   ],
   "tag_elements": {
+    "ENTITIES:mod:miniboss": [
+      "CUSTOM:SlagtioTheMighty"
+    ],
     "ENTITIES:lmb:immunetoshockwave": [
       "CUSTOM:ShockWave",
       "CUSTOM:CopperMonstrosity"
-    ],
-    "ENTITIES:mod:miniboss": [
-      "CUSTOM:SlagtioTheMighty"
     ],
     "BLOCKS:minecraft:replaceable": [
       "~CUSTOM:EnergyBlock",
@@ -7218,6 +7346,8 @@
       "~CUSTOM:PolishedCrackedBlackstoneBlock"
     ],
     "BLOCKS:minecraft:mineable/axe": [
+      "~CUSTOM:SoulWoodFace",
+      "~CUSTOM:SoulWood",
       "~CUSTOM:StrokeNest",
       "~CUSTOM:MegaForge"
     ],
@@ -7316,6 +7446,7 @@
       "item.morebosses.flour": "Flour",
       "entity.morebosses.magma_pit": "Magma Pit",
       "block.morebosses.copper_booom": "Copper Trap",
+      "block.morebosses.soul_wood": "Soul Wood",
       "effect.morebosses.disguised": "Disguised",
       "item.morebosses.basaltic_shard": "Basaltic Shard",
       "advancements.its_blue.descr": "Craft and place a Blue Soul Light",
@@ -7325,6 +7456,7 @@
       "death.attack.bleed.item": "%1$s bleed to death by %2$s using %3$s",
       "item.morebosses.opal": "Opal",
       "gamerule.permaTurrets.description": "If true, the turrets will not despawn.",
+      "item.morebosses.spark_of_the_soul": "Spark Of The Soul",
       "item.morebosses.flesh": "Flesh of Questionable Origin",
       "entity.morebosses.guardiano_of_the_eyes": "Ender, the Eye of the Chaos",
       "item.morebosses.jungle_essence": "Jungle Essence",
@@ -7348,6 +7480,7 @@
       "item.morebosses.bob_bucket": "Bob Bucket",
       "item.morebosses.green_magma_cream": "Green Magma Cream",
       "advancements.sanctuary.title": "Old Memories",
+      "item.morebosses.soulsper_spawn_egg": "Soulsper Spawn Egg",
       "item.morebosses.shield_beater": "The Shield Breaker",
       "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
       "item.morebosses.metalix_template": "Smithing Upgrade",
@@ -7389,6 +7522,7 @@
       "death.attack.shock.player": "%1$s was hit by a shockwavewhilst trying to escape %2$s",
       "advancements.giveme.descr": "Find the Beggar Wolf",
       "item.morebosses.big_bottle": "Big Bottle",
+      "entity.morebosses.soulsper": "Soulsper",
       "block.morebosses.stroke_melon": "Stroke Melon",
       "item.morebosses.copper_hammer": "Copper Hammer",
       "block.morebosses.sdb": "SDB",
@@ -7401,6 +7535,7 @@
       "entity.morebosses.maxolot": "Maxolotl",
       "item.morebosses.shield_beater.description_0": "The name is really self-explanatory.",
       "block.morebosses.carved_bone_block": "Carved Bone Block",
+      "biome.morebosses.soul_sand_swamp": "Soul Sand Swamp",
       "block.morebosses.coarse": "Coarse",
       "item.morebosses.oil_engineer_spawn_egg": "Oil Engineer Spawn Egg",
       "item.morebosses.copper_glove": "Copper Glove",
@@ -7497,6 +7632,7 @@
       "death.attack.shock": "%1$s was hit by a shockwave",
       "block.morebosses.opal_ore_in_doom_rock": "Opal Ore in DOOM-Rock",
       "entity.morebosses.striker": "Striker",
+      "block.morebosses.soul_wood_face": "Soul Wood",
       "block.morebosses.raw_magma_block": "Raw Magma Block",
       "death.attack.burn": "%1$s got burned",
       "item.morebosses.broken_sword.description_0": "Damaged by time, made of a material forgotten by time.",
@@ -7589,15 +7725,15 @@
       "block.morebosses.carved_endeterium_block": "Bloco de Endeterium Talhado",
       "block.morebosses.strike": "Strike",
       "item.morebosses.reverse_pearl": "Reverse Pearl",
-      "item.morebosses.shrimp_death": "Camarão",
       "item.morebosses.ender_eye": "Olho do Caos",
+      "item.morebosses.shrimp_death": "Camarão",
       "subtitles.wind_charge": "Carga de Vento",
       "block.morebosses.curved_endeterium_block": "Bloco de Endeterium Curvo",
       "block.morebosses.energy_block": "Energy Block",
       "advancements.is_this_safe.descr": "Descubra por sua conta e risco",
       "advancements.the_inner_light.descr": "Crie e coloque uma Luz das Almas",
-      "effect.morebosses.engine_boost": "Melhorias no Motor",
       "entity.morebosses.copper_grabler": "Pegador de Cobre",
+      "effect.morebosses.engine_boost": "Melhorias no Motor",
       "advancements.sanctuary.descr": "Localize o Santuário Antigo",
       "biome.morebosses.stroke_woods": "Florestas Stroke",
       "block.morebosses.mega_forge": "Mega Forja",
@@ -7640,6 +7776,7 @@
       "item.morebosses.flour": "Farinha",
       "entity.morebosses.magma_pit": "Poça de Magma",
       "block.morebosses.copper_booom": "Armadilha de Cobre Explosiva",
+      "block.morebosses.soul_wood": "Soul Wood",
       "effect.morebosses.disguised": "Disfarçado",
       "item.morebosses.basaltic_shard": "Fragmento Bassáltico",
       "advancements.its_blue.descr": "Crie e coloque uma Luz das Almas Azul",
@@ -7649,6 +7786,7 @@
       "death.attack.bleed.item": "%2$s fez %1$s sangrou até a morte usando %3$s",
       "item.morebosses.opal": "Opala",
       "gamerule.permaTurrets.description": "Se verdadeiro as torretas não irão sumir",
+      "item.morebosses.spark_of_the_soul": "Spark Of The Soul",
       "item.morebosses.flesh": "Carne de Procedência Duvidosa",
       "entity.morebosses.guardiano_of_the_eyes": "Ender, o Olho do Caos",
       "item.morebosses.jungle_essence": "Essência da Selva",
@@ -7672,6 +7810,7 @@
       "item.morebosses.bob_bucket": "Balde com Bob",
       "item.morebosses.green_magma_cream": "Creme de Magma Verde",
       "advancements.sanctuary.title": "Memórias Antigas",
+      "item.morebosses.soulsper_spawn_egg": "Soulsper Spawn Egg",
       "item.morebosses.shield_beater": "O Quebra Escudos",
       "item.morebosses.monstrousfootwear_boots": "PISANTES MONSTRUOSOS",
       "item.morebosses.metalix_template": "Molde de Ferraria",
@@ -7713,6 +7852,7 @@
       "death.attack.shock.player": "%1$s foi atingido por uma onda de choque tentando escapar de %2$s",
       "advancements.giveme.descr": "Encontre o Lobo Pidão",
       "item.morebosses.big_bottle": "Garrafa Grande",
+      "entity.morebosses.soulsper": "Soulsper",
       "block.morebosses.stroke_melon": "Melão Stroke",
       "item.morebosses.copper_hammer": "Marreta de Cobre",
       "block.morebosses.sdb": "Detector de Estrutura[SLAGTIO]",
@@ -7725,6 +7865,7 @@
       "entity.morebosses.maxolot": "Macholote, o Terror dos 7 tanquinhos",
       "item.morebosses.shield_beater.description_0": "§7O nome é MUITO auto explicativo",
       "block.morebosses.carved_bone_block": "Bloco de Osso Talhado",
+      "biome.morebosses.soul_sand_swamp": "Soul Sand Swamp",
       "block.morebosses.coarse": "Seujeira",
       "item.morebosses.oil_engineer_spawn_egg": "Ovo Gerador de Engenheiro Grudento",
       "item.morebosses.copper_glove": "Luva Mosntruosa",
@@ -7821,6 +7962,7 @@
       "death.attack.shock": "%1$s foi atingido por uma onda de choque",
       "block.morebosses.opal_ore_in_doom_rock": "Minério de Opala em Pedra DOOM",
       "entity.morebosses.striker": "Striker",
+      "block.morebosses.soul_wood_face": "Soul Wood",
       "block.morebosses.raw_magma_block": "Bloco de Magma Bruto",
       "death.attack.burn": "%1$s foi carbonizado",
       "item.morebosses.broken_sword.description_0": "§8Danificada pelo tempo, feita de um material bem resistente",
@@ -7999,7 +8141,7 @@
   "workspaceSettings": {
     "modid": "morebosses",
     "modName": "Lu\u0027s More Bosses and Mobs",
-    "version": "1.2.1",
+    "version": "1.2.404",
     "description": "U want more bosses? We have more bosses",
     "author": "That Lucatube, JorginhoAMM",
     "websiteURL": "https://mcreator.net",

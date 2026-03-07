@@ -25,6 +25,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
+import net.minecraft.server.level.ServerLevel; // IMPORTANTE: Adicionar este import
 import net.mcreator.morebosses.init.MorebossesModEntities;
 
 public class EnderLaserBeamEntity extends Entity {
@@ -85,73 +86,89 @@ public class EnderLaserBeamEntity extends Entity {
     }
 
     @Override
-public void tick() {
-    super.tick();
-    prevCollidePosX = collidePosX;
-    prevCollidePosY = collidePosY;
-    prevCollidePosZ = collidePosZ;
-    prevYaw = renderYaw;
-    prevPitch = renderPitch;
-    xo = getX();
-    yo = getY();
-    zo = getZ();
-    
-    if (tickCount == 1 && level().isClientSide) {
-        caster = (LivingEntity) level().getEntity(getCasterID());
-    }
-
-    if (caster != null) {
-        // Usar a rotação da cabeça do caster
-        float headYaw = caster.yHeadRot;
-        float headPitch = caster.getXRot();
+    public void tick() {
+        super.tick();
+        prevCollidePosX = collidePosX;
+        prevCollidePosY = collidePosY;
+        prevCollidePosZ = collidePosZ;
+        prevYaw = renderYaw;
+        prevPitch = renderPitch;
+        xo = getX();
+        yo = getY();
+        zo = getZ();
         
-        renderYaw = (float) ((headYaw + 90.0d) * Math.PI / 180.0d);
-        renderPitch = (float) (-headPitch * Math.PI / 180.0d);
-        
-        // Também atualizar os dados sincronizados
-        if (!level().isClientSide) {
-            this.setYaw(renderYaw);
-            this.setPitch(renderPitch);
+        if (tickCount == 1 && level().isClientSide) {
+            caster = (LivingEntity) level().getEntity(getCasterID());
         }
-        
-        // Atualizar posição para seguir o caster na altura correta
-        this.setPos(caster.getX(), caster.getY() + 7.2, caster.getZ());
-    }
 
-    // ... resto do código ...
+        if (caster != null) {
+            // Usar a rotação da cabeça do caster
+            float headYaw = caster.yHeadRot;
+            float headPitch = caster.getXRot();
+            
+            renderYaw = (float) ((headYaw + 90.0d) * Math.PI / 180.0d);
+            renderPitch = (float) (-headPitch * Math.PI / 180.0d);
+            
+            // Também atualizar os dados sincronizados
+            if (!level().isClientSide) {
+                this.setYaw(renderYaw);
+                this.setPitch(renderPitch);
+            }
+            
+            // Atualizar posição para seguir o caster na altura correta
+            this.setPos(caster.getX(), caster.getY() + 6.2, caster.getZ());
+        }
 
-       // Na parte do dano, dentro do tick():
-if (!level().isClientSide) {
-    for (LivingEntity target : hitResult.entities) {
-        System.out.println("Laser checking target: " + target.getName().getString());
-        
-        if (caster != null && !caster.isAlliedTo(target) && target != caster && 
-            !damagedEntitiesThisTick.contains(target.getId())) {
+        if (!on && tickCount > 20) {
+            this.discard();
+        }
+
+        if (caster != null && !caster.isAlive()) {
+            discard();
+        }
+
+        if (tickCount > 10) {
+            this.calculateEndPos();
             
-            float baseDamage = this.getDamage();
-            float hpPercentDamage = (float) (target.getMaxHealth() * this.getHpDamage() * 0.01);
-            float totalDamage = baseDamage + Math.min(baseDamage, hpPercentDamage);
+            // Limpar lista de entidades danificadas a cada tick
+            damagedEntitiesThisTick.clear();
             
-            System.out.println("Attempting to deal " + totalDamage + " damage to " + target.getName().getString());
+            // Raycast para encontrar entidades no caminho do laser
+            LaserbeamHitResult hitResult = raytraceEntities(level(), new Vec3(getX(), getY(), getZ()), 
+                new Vec3(endPosX, endPosY, endPosZ));
             
-            boolean damaged = target.hurt(target.damageSources().indirectMagic(this, caster), totalDamage);
-            
-            if (damaged) {
-                damagedEntitiesThisTick.add(target.getId());
-                System.out.println("Damage dealt successfully!");
-                
-                // Efeitos visuais
-                if (level() instanceof ServerLevel serverLevel) {
-                    serverLevel.sendParticles(
-                        net.minecraft.core.particles.ParticleTypes.SONIC_BOOM,
-                        target.getX(), target.getY() + target.getBbHeight() / 2, target.getZ(),
-                        5, 0.2, 0.2, 0.2, 0.1
-                    );
+            // DANO - AGORA DENTRO DO BLOCO CORRETO
+            if (!level().isClientSide) {
+                for (LivingEntity target : hitResult.entities) {
+                    System.out.println("Laser checking target: " + target.getName().getString());
+                    
+                    if (caster != null && !caster.isAlliedTo(target) && target != caster && 
+                        !damagedEntitiesThisTick.contains(target.getId())) {
+                        
+                        float baseDamage = this.getDamage();
+                        float hpPercentDamage = (float) (target.getMaxHealth() * this.getHpDamage() * 0.01);
+                        float totalDamage = baseDamage + Math.min(baseDamage, hpPercentDamage);
+                        
+                        System.out.println("Attempting to deal " + totalDamage + " damage to " + target.getName().getString());
+                        
+                        boolean damaged = target.hurt(target.damageSources().indirectMagic(this, caster), totalDamage);
+                        
+                        if (damaged) {
+                            damagedEntitiesThisTick.add(target.getId());
+                            System.out.println("Damage dealt successfully!");
+                            
+                            // Efeitos visuais
+                            
+                        }
+                    }
                 }
             }
         }
+        
+        if (tickCount - 20 > getDuration()) {
+            on = false;
+        }
     }
-}}
 
     @Override
     protected void defineSynchedData() {
@@ -235,71 +252,71 @@ if (!level().isClientSide) {
     }
 
     public LaserbeamHitResult raytraceEntities(Level world, Vec3 from, Vec3 to) {
-    LaserbeamHitResult result = new LaserbeamHitResult();
-    result.setBlockHit(world.clip(new ClipContext(from, to, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this)));
-    
-    if (result.blockHit != null) {
-        Vec3 hitVec = result.blockHit.getLocation();
-        collidePosX = hitVec.x;
-        collidePosY = hitVec.y;
-        collidePosZ = hitVec.z;
-        blockSide = result.blockHit.getDirection();
-    } else {
-        collidePosX = endPosX;
-        collidePosY = endPosY;
-        collidePosZ = endPosZ;
-        blockSide = null;
-    }
-    
-    // AUMENTAR A ÁREA DE BUSCA
-    AABB searchBox = new AABB(
-        Math.min(from.x, to.x) - 2.0, 
-        Math.min(from.y, to.y) - 2.0, 
-        Math.min(from.z, to.z) - 2.0,
-        Math.max(from.x, to.x) + 2.0, 
-        Math.max(from.y, to.y) + 2.0, 
-        Math.max(from.z, to.z) + 2.0
-    );
-    
-    List<LivingEntity> entities = world.getEntitiesOfClass(LivingEntity.class, searchBox);
-    System.out.println("Found " + entities.size() + " entities in search box");
-    
-    for (LivingEntity entity : entities) {
-        if (entity == caster) continue;
+        LaserbeamHitResult result = new LaserbeamHitResult();
+        result.setBlockHit(world.clip(new ClipContext(from, to, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this)));
         
-        // Verificar se a entidade está perto da linha do laser
-        AABB entityBox = entity.getBoundingBox().inflate(1.0);
-        Optional<Vec3> hit = entityBox.clip(from, to);
-        
-        if (hit.isPresent()) {
-            result.addEntityHit(entity);
-            System.out.println("Entity hit by laser: " + entity.getName().getString());
+        if (result.blockHit != null) {
+            Vec3 hitVec = result.blockHit.getLocation();
+            collidePosX = hitVec.x;
+            collidePosY = hitVec.y;
+            collidePosZ = hitVec.z;
+            blockSide = result.blockHit.getDirection();
         } else {
-            // Verificar também se a entidade está muito perto da linha
-            double distanceToLine = distanceToLine(from, to, entity.position());
-            if (distanceToLine < 2.0) {
+            collidePosX = endPosX;
+            collidePosY = endPosY;
+            collidePosZ = endPosZ;
+            blockSide = null;
+        }
+        
+        // AUMENTAR A ÁREA DE BUSCA
+        AABB searchBox = new AABB(
+            Math.min(from.x, to.x) - 2.0, 
+            Math.min(from.y, to.y) - 2.0, 
+            Math.min(from.z, to.z) - 2.0,
+            Math.max(from.x, to.x) + 2.0, 
+            Math.max(from.y, to.y) + 2.0, 
+            Math.max(from.z, to.z) + 2.0
+        );
+        
+        List<LivingEntity> entities = world.getEntitiesOfClass(LivingEntity.class, searchBox);
+        System.out.println("Found " + entities.size() + " entities in search box");
+        
+        for (LivingEntity entity : entities) {
+            if (entity == caster) continue;
+            
+            // Verificar se a entidade está perto da linha do laser
+            AABB entityBox = entity.getBoundingBox().inflate(1.0);
+            Optional<Vec3> hit = entityBox.clip(from, to);
+            
+            if (hit.isPresent()) {
                 result.addEntityHit(entity);
-                System.out.println("Entity close to laser line: " + entity.getName().getString());
+                System.out.println("Entity hit by laser: " + entity.getName().getString());
+            } else {
+                // Verificar também se a entidade está muito perto da linha
+                double distanceToLine = distanceToLine(from, to, entity.position());
+                if (distanceToLine < 2.0) {
+                    result.addEntityHit(entity);
+                    System.out.println("Entity close to laser line: " + entity.getName().getString());
+                }
             }
         }
+        return result;
     }
-    return result;
-}
 
-// Método auxiliar para calcular distância de um ponto a uma linha
-private double distanceToLine(Vec3 lineStart, Vec3 lineEnd, Vec3 point) {
-    Vec3 lineDir = lineEnd.subtract(lineStart);
-    Vec3 pointDir = point.subtract(lineStart);
-    
-    double lineLength = lineDir.length();
-    if (lineLength < 0.0001) return pointDir.length();
-    
-    double t = pointDir.dot(lineDir) / lineLength;
-    t = Mth.clamp(t, 0, lineLength);
-    
-    Vec3 projection = lineStart.add(lineDir.scale(t / lineLength));
-    return point.distanceTo(projection);
-}
+    // Método auxiliar para calcular distância de um ponto a uma linha
+    private double distanceToLine(Vec3 lineStart, Vec3 lineEnd, Vec3 point) {
+        Vec3 lineDir = lineEnd.subtract(lineStart);
+        Vec3 pointDir = point.subtract(lineStart);
+        
+        double lineLength = lineDir.length();
+        if (lineLength < 0.0001) return pointDir.length();
+        
+        double t = pointDir.dot(lineDir) / lineLength;
+        t = Mth.clamp(t, 0, lineLength);
+        
+        Vec3 projection = lineStart.add(lineDir.scale(t / lineLength));
+        return point.distanceTo(projection);
+    }
 
     @Override
     public void push(Entity entityIn) {}

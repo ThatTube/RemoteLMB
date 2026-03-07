@@ -16,6 +16,7 @@ import net.mcreator.morebosses.client.renderer.WindBurstRenderer;
 import net.mcreator.morebosses.client.renderer.TurretRenderer;
 import net.mcreator.morebosses.client.renderer.TallEngineerRenderer;
 import net.mcreator.morebosses.client.renderer.StrikerRenderer;
+import net.mcreator.morebosses.client.renderer.SoulsperRenderer;
 import net.mcreator.morebosses.client.renderer.SoulDionaeaRenderer;
 import net.mcreator.morebosses.client.renderer.SlagtioTheMightyRenderer;
 import net.mcreator.morebosses.client.renderer.ShrimpRenderer;
@@ -83,5 +84,6 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.ENDER_LASER.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.ENDER_LASER_BEAM.get(), EnderLaserBeamRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.EYE_SENTINEL.get(), EyeSentinelRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.SOULSPER.get(), SoulsperRenderer::new);
 	}
 }

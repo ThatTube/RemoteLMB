@@ -7,6 +7,7 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.mcreator.morebosses.entity.TurretEntity;
 import net.mcreator.morebosses.entity.TallEngineerEntity;
 import net.mcreator.morebosses.entity.StrikerEntity;
+import net.mcreator.morebosses.entity.SoulsperEntity;
 import net.mcreator.morebosses.entity.SoulDionaeaEntity;
 import net.mcreator.morebosses.entity.SlagtioTheMightyEntity;
 import net.mcreator.morebosses.entity.RobotWhaleEntity;
@@ -172,6 +173,13 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof EyeSentinelEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof SoulsperEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");

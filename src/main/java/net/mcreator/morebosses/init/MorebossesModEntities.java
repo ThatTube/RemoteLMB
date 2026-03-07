@@ -22,6 +22,7 @@ import net.mcreator.morebosses.entity.TurretEntityProjectile;
 import net.mcreator.morebosses.entity.TurretEntity;
 import net.mcreator.morebosses.entity.TallEngineerEntity;
 import net.mcreator.morebosses.entity.StrikerEntity;
+import net.mcreator.morebosses.entity.SoulsperEntity;
 import net.mcreator.morebosses.entity.SoulDionaeaEntity;
 import net.mcreator.morebosses.entity.SlagtioTheMightyEntity;
 import net.mcreator.morebosses.entity.ShrimpEntity;
@@ -170,6 +171,8 @@ public class MorebossesModEntities {
 			EntityType.Builder.<EyeSentinelEntity>of(EyeSentinelEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EyeSentinelEntity::new)
 
 					.sized(0.6f, 2f));
+	public static final RegistryObject<EntityType<SoulsperEntity>> SOULSPER = register("soulsper",
+			EntityType.Builder.<SoulsperEntity>of(SoulsperEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(SoulsperEntity::new).fireImmune().sized(0.6f, 1.5f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -204,6 +207,7 @@ public class MorebossesModEntities {
 			GuardianoOfTheEyesEntity.init();
 			StrikerEntity.init();
 			EyeSentinelEntity.init();
+			SoulsperEntity.init();
 		});
 	}
 
@@ -233,5 +237,6 @@ public class MorebossesModEntities {
 		event.put(GUARDIANO_OF_THE_EYES.get(), GuardianoOfTheEyesEntity.createAttributes().build());
 		event.put(STRIKER.get(), StrikerEntity.createAttributes().build());
 		event.put(EYE_SENTINEL.get(), EyeSentinelEntity.createAttributes().build());
+		event.put(SOULSPER.get(), SoulsperEntity.createAttributes().build());
 	}
 }
