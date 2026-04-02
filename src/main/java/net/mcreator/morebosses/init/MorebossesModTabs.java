@@ -72,6 +72,8 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.ENERGY_BLOCK.get().asItem());
 				tabData.accept(MorebossesModBlocks.SOUL_WOOD.get().asItem());
 				tabData.accept(MorebossesModBlocks.SOUL_WOOD_FACE.get().asItem());
+				tabData.accept(MorebossesModBlocks.ENERGY_ALTAR.get().asItem());
+				tabData.accept(MorebossesModBlocks.THE_EYEOF_THE_CHAOS.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -154,6 +156,9 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.METALIX_CHESTPLATE.get());
 				tabData.accept(MorebossesModItems.METALIX_TEMPLATE.get());
 				tabData.accept(MorebossesModItems.SPARK_OF_THE_SOUL.get());
+				tabData.accept(MorebossesModItems.END_DUST.get());
+				tabData.accept(MorebossesModItems.LENS.get());
+				tabData.accept(MorebossesModItems.END_SCALES.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {
@@ -179,6 +184,7 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.STRIKER_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.EYE_SENTINEL_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.SOULSPER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.ENDER_SNAKE_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 
 	@SubscribeEvent

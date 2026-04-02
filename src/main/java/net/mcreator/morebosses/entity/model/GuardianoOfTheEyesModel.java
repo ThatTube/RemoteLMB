@@ -14,12 +14,12 @@ import net.mcreator.morebosses.entity.GuardianoOfTheEyesEntity;
 public class GuardianoOfTheEyesModel extends GeoModel<GuardianoOfTheEyesEntity> {
 	@Override
 	public ResourceLocation getAnimationResource(GuardianoOfTheEyesEntity entity) {
-		return new ResourceLocation("morebosses", "animations/guardian_eyes.animation.json");
+		return new ResourceLocation("morebosses", "animations/enders.animation.json");
 	}
 
 	@Override
 	public ResourceLocation getModelResource(GuardianoOfTheEyesEntity entity) {
-		return new ResourceLocation("morebosses", "geo/guardian_eyes.geo.json");
+		return new ResourceLocation("morebosses", "geo/enders.geo.json");
 	}
 
 	@Override

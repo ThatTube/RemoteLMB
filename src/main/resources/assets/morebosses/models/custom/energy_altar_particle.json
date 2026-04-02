@@ -1,0 +1,7 @@
+
+{
+  "parent": "morebosses:displaysettings/ealtar",
+  "textures": {
+    "particle": "morebosses:block/endeterium"
+  }
+}

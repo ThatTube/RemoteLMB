@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "aaa",
+    "bcb",
+    "dbd"
+  ],
+  "key": {
+    "a": {
+      "item": "morebosses:end_dust"
+    },
+    "b": {
+      "item": "minecraft:end_stone"
+    },
+    "c": {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    },
+    "d": {
+      "item": "morebosses:end_scales"
+    }
+  },
+  "result": {
+    "item": "morebosses:metalix_template",
+    "count": 1
+  }
+}

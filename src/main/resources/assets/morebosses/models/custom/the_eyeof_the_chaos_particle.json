@@ -1,0 +1,7 @@
+
+{
+  "parent": "morebosses:displaysettings/eye_block",
+  "textures": {
+    "particle": "morebosses:block/eyebigblock"
+  }
+}

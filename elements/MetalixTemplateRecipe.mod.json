@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "EQUIPMENT",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:EndDust"
+      },
+      {
+        "value": "CUSTOM:EndDust"
+      },
+      {
+        "value": "CUSTOM:EndDust"
+      },
+      {
+        "value": "Blocks.END_STONE"
+      },
+      {
+        "value": "Items.NETHERITE_UPGRADE"
+      },
+      {
+        "value": "Blocks.END_STONE"
+      },
+      {
+        "value": "CUSTOM:EndScales"
+      },
+      {
+        "value": "Blocks.END_STONE"
+      },
+      {
+        "value": "CUSTOM:EndScales"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:MetalixTemplate"
+    },
+    "name": "metalix_template_recipe",
+    "namespace": "mod"
+  }
+}

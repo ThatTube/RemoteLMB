@@ -11,6 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraft.world.level.block.Block;
 
 import net.mcreator.morebosses.block.WitheredBoneBlockBlock;
+import net.mcreator.morebosses.block.TheEyeofTheChaosBlock;
 import net.mcreator.morebosses.block.StrokeNestBlock;
 import net.mcreator.morebosses.block.StrokeMelonBlock;
 import net.mcreator.morebosses.block.StrokeGrassBlock;
@@ -36,6 +37,7 @@ import net.mcreator.morebosses.block.GreenMagmaBlockBlock;
 import net.mcreator.morebosses.block.GreenMagmaBlock;
 import net.mcreator.morebosses.block.GongBlock;
 import net.mcreator.morebosses.block.EnergyBlockBlock;
+import net.mcreator.morebosses.block.EnergyAltarBlock;
 import net.mcreator.morebosses.block.EndeteriumPillarBlock;
 import net.mcreator.morebosses.block.EndeteriumBlockBlock;
 import net.mcreator.morebosses.block.EndRockBlock;
@@ -126,6 +128,8 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> ENERGY_BLOCK = REGISTRY.register("energy_block", () -> new EnergyBlockBlock());
 	public static final RegistryObject<Block> SOUL_WOOD = REGISTRY.register("soul_wood", () -> new SoulWoodBlock());
 	public static final RegistryObject<Block> SOUL_WOOD_FACE = REGISTRY.register("soul_wood_face", () -> new SoulWoodFaceBlock());
+	public static final RegistryObject<Block> ENERGY_ALTAR = REGISTRY.register("energy_altar", () -> new EnergyAltarBlock());
+	public static final RegistryObject<Block> THE_EYEOF_THE_CHAOS = REGISTRY.register("the_eyeof_the_chaos", () -> new TheEyeofTheChaosBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

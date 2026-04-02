@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "morebosses:energy_altar",
     "morebosses:curved_endeterium_block",
     "morebosses:cut_endeterium",
     "morebosses:carved_endeterium_block",

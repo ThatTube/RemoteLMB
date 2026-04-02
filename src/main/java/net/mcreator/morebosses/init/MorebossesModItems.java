@@ -61,6 +61,7 @@ import net.mcreator.morebosses.item.MONSTROUSFOOTWEARItem;
 import net.mcreator.morebosses.item.MMAGloveItem;
 import net.mcreator.morebosses.item.MMAEyeItem;
 import net.mcreator.morebosses.item.LushEyeItem;
+import net.mcreator.morebosses.item.LensItem;
 import net.mcreator.morebosses.item.JungleEssenceItem;
 import net.mcreator.morebosses.item.HellishTungstenIngotItem;
 import net.mcreator.morebosses.item.GreenMagmaItem;
@@ -76,6 +77,8 @@ import net.mcreator.morebosses.item.FlourItem;
 import net.mcreator.morebosses.item.FleshItem;
 import net.mcreator.morebosses.item.FireRingItem;
 import net.mcreator.morebosses.item.EnderEyeItem;
+import net.mcreator.morebosses.item.EndScalesItem;
+import net.mcreator.morebosses.item.EndDustItem;
 import net.mcreator.morebosses.item.EmptyTankItem;
 import net.mcreator.morebosses.item.DiamondedBlomiBerryItem;
 import net.mcreator.morebosses.item.CuirlassSmithingUpgradeItem;
@@ -99,7 +102,9 @@ import net.mcreator.morebosses.item.BigBottleItem;
 import net.mcreator.morebosses.item.BasalticShieldItem;
 import net.mcreator.morebosses.item.BasalticShardItem;
 import net.mcreator.morebosses.item.ArmagedomItem;
+import net.mcreator.morebosses.block.display.TheEyeofTheChaosDisplayItem;
 import net.mcreator.morebosses.block.display.GongDisplayItem;
+import net.mcreator.morebosses.block.display.EnergyAltarDisplayItem;
 import net.mcreator.morebosses.MorebossesMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -262,6 +267,13 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> SOUL_WOOD = block(MorebossesModBlocks.SOUL_WOOD);
 	public static final RegistryObject<Item> SOUL_WOOD_FACE = block(MorebossesModBlocks.SOUL_WOOD_FACE);
 	public static final RegistryObject<Item> SPARK_OF_THE_SOUL = REGISTRY.register("spark_of_the_soul", () -> new SparkOfTheSoulItem());
+	public static final RegistryObject<Item> ENDER_SNAKE_SPAWN_EGG = REGISTRY.register("ender_snake_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.ENDER_SNAKE, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> END_DUST = REGISTRY.register("end_dust", () -> new EndDustItem());
+	public static final RegistryObject<Item> LENS = REGISTRY.register("lens", () -> new LensItem());
+	public static final RegistryObject<Item> END_SCALES = REGISTRY.register("end_scales", () -> new EndScalesItem());
+	public static final RegistryObject<Item> ENERGY_ALTAR = REGISTRY.register(MorebossesModBlocks.ENERGY_ALTAR.getId().getPath(), () -> new EnergyAltarDisplayItem(MorebossesModBlocks.ENERGY_ALTAR.get(), new Item.Properties()));
+	public static final RegistryObject<Item> THE_EYEOF_THE_CHAOS = REGISTRY.register(MorebossesModBlocks.THE_EYEOF_THE_CHAOS.getId().getPath(),
+			() -> new TheEyeofTheChaosDisplayItem(MorebossesModBlocks.THE_EYEOF_THE_CHAOS.get(), new Item.Properties()));
 
 	// Start of user code block custom items
 	// End of user code block custom items

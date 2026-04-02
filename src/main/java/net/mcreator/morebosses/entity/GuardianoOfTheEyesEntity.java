@@ -663,7 +663,7 @@ case 5: // Laser Active (feixe ativo)
                 return event.setAndContinue(RawAnimation.begin().thenPlay("death"));
             }
             if (this.isAggressive() && event.isMoving()) {
-                return event.setAndContinue(RawAnimation.begin().thenLoop("run"));
+                return event.setAndContinue(RawAnimation.begin().thenLoop("walk"));
             }
             return event.setAndContinue(RawAnimation.begin().thenLoop("idle"));
         }

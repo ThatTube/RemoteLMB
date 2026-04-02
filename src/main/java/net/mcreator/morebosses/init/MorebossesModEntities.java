@@ -44,6 +44,7 @@ import net.mcreator.morebosses.entity.GuardianoOfTheEyesEntity;
 import net.mcreator.morebosses.entity.EyeSentinelEntity;
 import net.mcreator.morebosses.entity.EyeOldEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
+import net.mcreator.morebosses.entity.EnderSnakeEntity;
 import net.mcreator.morebosses.entity.EnderLaserEntity;
 import net.mcreator.morebosses.entity.EnderLaserBeamEntity;
 import net.mcreator.morebosses.entity.EnderBombEntity;
@@ -173,6 +174,10 @@ public class MorebossesModEntities {
 					.sized(0.6f, 2f));
 	public static final RegistryObject<EntityType<SoulsperEntity>> SOULSPER = register("soulsper",
 			EntityType.Builder.<SoulsperEntity>of(SoulsperEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(SoulsperEntity::new).fireImmune().sized(0.6f, 1.5f));
+	public static final RegistryObject<EntityType<EnderSnakeEntity>> ENDER_SNAKE = register("ender_snake",
+			EntityType.Builder.<EnderSnakeEntity>of(EnderSnakeEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EnderSnakeEntity::new)
+
+					.sized(1.1f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -208,6 +213,7 @@ public class MorebossesModEntities {
 			StrikerEntity.init();
 			EyeSentinelEntity.init();
 			SoulsperEntity.init();
+			EnderSnakeEntity.init();
 		});
 	}
 
@@ -238,5 +244,6 @@ public class MorebossesModEntities {
 		event.put(STRIKER.get(), StrikerEntity.createAttributes().build());
 		event.put(EYE_SENTINEL.get(), EyeSentinelEntity.createAttributes().build());
 		event.put(SOULSPER.get(), SoulsperEntity.createAttributes().build());
+		event.put(ENDER_SNAKE.get(), EnderSnakeEntity.createAttributes().build());
 	}
 }

@@ -7079,6 +7079,192 @@
         ]
       },
       "path": "~/Items"
+    },
+    {
+      "name": "EnderSnake",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ender_snake",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/model/EnderSnakeModel.java",
+          "src/main/resources/assets/morebosses/models/item/ender_snake_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/EnderSnakeEntity.java",
+          "src/main/resources/data/morebosses/forge/biome_modifier/ender_snake_biome_modifier.json",
+          "src/main/java/net/mcreator/morebosses/client/renderer/EnderSnakeRenderer.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "EndDust",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "end_dust",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/end_dust.json",
+          "src/main/java/net/mcreator/morebosses/item/EndDustItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Lens",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lens",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/lens.json",
+          "src/main/java/net/mcreator/morebosses/item/LensItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "EndScales",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "end_scales",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/end_scales.json",
+          "src/main/java/net/mcreator/morebosses/item/EndScalesItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "EndDustRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "end_dust_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/end_dust_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "MetalixTemplateRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "metalix_template_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/metalix_template_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "LensBrew",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lens_brew",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/recipes/brewing/LensBrewBrewingRecipe.java"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "EnergyAltarBlockAdded",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energy_altar_block_added",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/EnergyAltarBlockAddedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "EnergyAltar",
+      "type": "animatedblock",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energy_altar",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/block/renderer/EnergyAltarDisplayItemRenderer.java",
+          "src/main/resources/assets/morebosses/models/custom/energy_altar_particle.json",
+          "src/main/resources/assets/morebosses/models/item/energy_altar.json",
+          "src/main/java/net/mcreator/morebosses/block/renderer/EnergyAltarTileRenderer.java",
+          "src/main/java/net/mcreator/morebosses/block/model/EnergyAltarDisplayModel.java",
+          "src/main/java/net/mcreator/morebosses/block/EnergyAltarBlock.java",
+          "src/main/java/net/mcreator/morebosses/block/model/EnergyAltarBlockModel.java",
+          "src/main/resources/assets/morebosses/blockstates/energy_altar.json",
+          "src/main/java/net/mcreator/morebosses/block/entity/EnergyAltarTileEntity.java",
+          "src/main/java/net/mcreator/morebosses/block/display/EnergyAltarDisplayItem.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "TheEyeofTheChaosOnBlockRightClicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "the_eyeof_the_chaos_on_block_right_clicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/TheEyeofTheChaosOnBlockRightClickedProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "TheEyeofTheChaos",
+      "type": "animatedblock",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "the_eyeof_the_chaos",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/the_eyeof_the_chaos.json",
+          "src/main/java/net/mcreator/morebosses/block/renderer/TheEyeofTheChaosTileRenderer.java",
+          "src/main/java/net/mcreator/morebosses/block/entity/TheEyeofTheChaosTileEntity.java",
+          "src/main/resources/assets/morebosses/models/custom/the_eyeof_the_chaos_particle.json",
+          "src/main/resources/assets/morebosses/blockstates/the_eyeof_the_chaos.json",
+          "src/main/java/net/mcreator/morebosses/block/TheEyeofTheChaosBlock.java",
+          "src/main/java/net/mcreator/morebosses/block/model/TheEyeofTheChaosDisplayModel.java",
+          "src/main/java/net/mcreator/morebosses/block/model/TheEyeofTheChaosBlockModel.java",
+          "src/main/java/net/mcreator/morebosses/block/display/TheEyeofTheChaosDisplayItem.java",
+          "src/main/java/net/mcreator/morebosses/block/renderer/TheEyeofTheChaosDisplayItemRenderer.java"
+        ]
+      },
+      "path": "~/Blocks"
     }
   ],
   "variable_elements": [],
@@ -7157,12 +7343,12 @@
     }
   ],
   "tag_elements": {
-    "ENTITIES:mod:miniboss": [
-      "CUSTOM:SlagtioTheMighty"
-    ],
     "ENTITIES:lmb:immunetoshockwave": [
       "CUSTOM:ShockWave",
       "CUSTOM:CopperMonstrosity"
+    ],
+    "ENTITIES:mod:miniboss": [
+      "CUSTOM:SlagtioTheMighty"
     ],
     "BLOCKS:minecraft:replaceable": [
       "~CUSTOM:EnergyBlock",
@@ -7184,7 +7370,8 @@
       "CUSTOM:CuirlassArmor.body",
       "CUSTOM:CuirlassArmor.legs",
       "CUSTOM:CuirlassArmor.boots",
-      "CUSTOM:MONSTROUSFOOTWEAR.boots"
+      "CUSTOM:MONSTROUSFOOTWEAR.boots",
+      "CUSTOM:Metalix.body"
     ],
     "ENTITIES:lmb:boss": [
       "CUSTOM:CopperMonstrosity",
@@ -7316,6 +7503,7 @@
       "~CUSTOM:DOOMRock"
     ],
     "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:EnergyAltar",
       "~CUSTOM:CurvedEndeteriumBlock",
       "~CUSTOM:CutEndeterium",
       "~CUSTOM:CarvedEndeteriumBlock",
@@ -7395,15 +7583,15 @@
       "block.morebosses.strike": "Strike",
       "block.morebosses.carved_endeterium_block": "Carved Endeterium Block",
       "item.morebosses.reverse_pearl": "Reverse Pearl",
-      "item.morebosses.ender_eye": "Eye of the Chaos",
       "item.morebosses.shrimp_death": "Shrimp",
+      "item.morebosses.ender_eye": "Ender\u0027s Eye",
       "subtitles.wind_charge": "Wind Burst",
       "block.morebosses.curved_endeterium_block": "Curved Endeterium Block",
       "block.morebosses.energy_block": "Energy Block",
       "advancements.is_this_safe.descr": "Discover at your own risk.",
       "advancements.the_inner_light.descr": "Craft and place a Soul Light.",
-      "entity.morebosses.copper_grabler": "Copper Grabler",
       "effect.morebosses.engine_boost": "Engine Boost",
+      "entity.morebosses.copper_grabler": "Copper Grabler",
       "advancements.sanctuary.descr": "Locate the Old Sanctuary",
       "biome.morebosses.stroke_woods": "Stroke Woods",
       "block.morebosses.mega_forge": "Mega Forge",
@@ -7429,6 +7617,7 @@
       "block.morebosses.endeterium_pillar": "Endeterium Pillar",
       "advancements.giveme.title": "GIVE ME!!!!!!",
       "item.morebosses.cuirlass_smithing_upgrade": "Smithing Template",
+      "entity.morebosses.ender_snake": "Ender Snake",
       "fluid.morebosses.green_magma": "Green Magma",
       "subtitles.copper_placeholder": "Copper Monstrosity music",
       "item.morebosses.withered_bone": "Withered Bone",
@@ -7588,6 +7777,7 @@
       "entity.morebosses.dry_bones": "Dry Bones",
       "item.morebosses.old_steel_smithing_upgrade.description_6": "§9Old Steel Ingot",
       "item.morebosses.archduke_lytherion_spawn_egg": "Archduke Lytherion Spawn Egg",
+      "item.morebosses.lens": "Lens",
       "item.minecraft.potion.effect.oil": "Oil Bottle",
       "item.morebosses.blomi_berry": "Blomi Berry",
       "subtitles.enderblock": "An attack is blocked",
@@ -7620,6 +7810,7 @@
       "item.morebosses.metalix_template.description_1": "§7Metalix Upgrade",
       "block.morebosses.bob": "Bob",
       "item.morebosses.metalix_template.description_0": "§9LMB Itens",
+      "block.morebosses.the_eyeof_the_chaos": "The Eye of The Chaos",
       "block.morebosses.colosseum_bricks_stairs": "Colosseum Bricks Stairs",
       "key.morebosses.taunt": "Taunt",
       "subtitles.enderbombshoot": "Ender Bomb is fired",
@@ -7633,6 +7824,7 @@
       "block.morebosses.opal_ore_in_doom_rock": "Opal Ore in DOOM-Rock",
       "entity.morebosses.striker": "Striker",
       "block.morebosses.soul_wood_face": "Soul Wood",
+      "item.morebosses.ender_snake_spawn_egg": "Ender Snake Spawn Egg",
       "block.morebosses.raw_magma_block": "Raw Magma Block",
       "death.attack.burn": "%1$s got burned",
       "item.morebosses.broken_sword.description_0": "Damaged by time, made of a material forgotten by time.",
@@ -7686,7 +7878,9 @@
       "subtitles.taunt": "Someone challenges something to a fight.",
       "item.morebosses.metalix_chestplate.description_0": "§7 Press C to block attacks.",
       "entity.morebosses.beggar_wolf": "Beggar Wolf",
+      "item.morebosses.end_dust": "End Dust",
       "item.morebosses.engineer_spawn_egg": "Engineer Spawn Egg",
+      "item.morebosses.end_scales": "End Scales",
       "item.morebosses.boss_remover": "Boss Remover {Dev Item}",
       "entity.morebosses.magmatic_champion": "Magmatic Champion",
       "item.morebosses.cuirlass_armor_helmet": "Cuirlass Helmet",
@@ -7708,6 +7902,7 @@
       "item.minecraft.lingering_potion.effect.grease": "Lingering Grease Bottle",
       "item.morebosses.brute_engineer_spawn_egg": "Brute Engineer Spawn Egg",
       "item.morebosses.striker_spawn_egg": "Striker Spawn Egg",
+      "block.morebosses.energy_altar": "Energy Altar",
       "fluid.morebosses.raw_magma": "Raw Magma",
       "block.morebosses.copper_lava": "Copper Trap",
       "entity.morebosses.archduke_lytherion": "Archduke Lytherion",
@@ -7725,15 +7920,15 @@
       "block.morebosses.carved_endeterium_block": "Bloco de Endeterium Talhado",
       "block.morebosses.strike": "Strike",
       "item.morebosses.reverse_pearl": "Reverse Pearl",
-      "item.morebosses.ender_eye": "Olho do Caos",
       "item.morebosses.shrimp_death": "Camarão",
+      "item.morebosses.ender_eye": "Olho do Caos",
       "subtitles.wind_charge": "Carga de Vento",
       "block.morebosses.curved_endeterium_block": "Bloco de Endeterium Curvo",
       "block.morebosses.energy_block": "Energy Block",
       "advancements.is_this_safe.descr": "Descubra por sua conta e risco",
       "advancements.the_inner_light.descr": "Crie e coloque uma Luz das Almas",
-      "entity.morebosses.copper_grabler": "Pegador de Cobre",
       "effect.morebosses.engine_boost": "Melhorias no Motor",
+      "entity.morebosses.copper_grabler": "Pegador de Cobre",
       "advancements.sanctuary.descr": "Localize o Santuário Antigo",
       "biome.morebosses.stroke_woods": "Florestas Stroke",
       "block.morebosses.mega_forge": "Mega Forja",
@@ -7759,6 +7954,7 @@
       "block.morebosses.endeterium_pillar": "Pilar de Endeterium",
       "advancements.giveme.title": "MIM DÊÊÊ!!!!!!!",
       "item.morebosses.cuirlass_smithing_upgrade": "Molde de Ferraria",
+      "entity.morebosses.ender_snake": "Ender Snake",
       "fluid.morebosses.green_magma": "Magma Verde",
       "subtitles.copper_placeholder": "Tema da Monstruosidade de Cobre",
       "item.morebosses.withered_bone": "Osso Decomposto",
@@ -7918,6 +8114,7 @@
       "entity.morebosses.dry_bones": "Dry Bones, o da Couraça de Pedra",
       "item.morebosses.old_steel_smithing_upgrade.description_6": "§9Lingote de Metal Antigo",
       "item.morebosses.archduke_lytherion_spawn_egg": "Ovo Gerador de Arqueduke Lytherion",
+      "item.morebosses.lens": "Lens",
       "item.minecraft.potion.effect.oil": "Garrada de Óleo",
       "item.morebosses.blomi_berry": "Baga Blomi",
       "subtitles.enderblock": "Um ataque é bloqueado",
@@ -7950,6 +8147,7 @@
       "item.morebosses.metalix_template.description_1": "§7Melhoria de Metalix",
       "block.morebosses.bob": "Bob",
       "item.morebosses.metalix_template.description_0": "§9LMB Itens",
+      "block.morebosses.the_eyeof_the_chaos": "The Eye of The Chaos",
       "block.morebosses.colosseum_bricks_stairs": "Escadas de Tijolos do Coliseu",
       "key.morebosses.taunt": "Provocar",
       "subtitles.enderbombshoot": "Ender dispara uma bola de energia",
@@ -7963,6 +8161,7 @@
       "block.morebosses.opal_ore_in_doom_rock": "Minério de Opala em Pedra DOOM",
       "entity.morebosses.striker": "Striker",
       "block.morebosses.soul_wood_face": "Soul Wood",
+      "item.morebosses.ender_snake_spawn_egg": "Ender Snake Spawn Egg",
       "block.morebosses.raw_magma_block": "Bloco de Magma Bruto",
       "death.attack.burn": "%1$s foi carbonizado",
       "item.morebosses.broken_sword.description_0": "§8Danificada pelo tempo, feita de um material bem resistente",
@@ -8016,7 +8215,9 @@
       "subtitles.taunt": "Algúem desafia outro alguém para uma batalha",
       "item.morebosses.metalix_chestplate.description_0": "§7 Press C to block attacks.",
       "entity.morebosses.beggar_wolf": "Lobo Pidão",
+      "item.morebosses.end_dust": "End Dust",
       "item.morebosses.engineer_spawn_egg": "Ovo Gerador de Engenheiro",
+      "item.morebosses.end_scales": "End Scales",
       "item.morebosses.boss_remover": "Raquete Eléltrica [ITEM DE DEV]",
       "entity.morebosses.magmatic_champion": "Campeão Magmático, o Enviado do Inferno",
       "item.morebosses.cuirlass_armor_helmet": "Capacete de Couraça",
@@ -8038,6 +8239,7 @@
       "item.minecraft.lingering_potion.effect.grease": "Garrafa de Graxa em Área",
       "item.morebosses.brute_engineer_spawn_egg": "Ovo Gerador de Engenheiro",
       "item.morebosses.striker_spawn_egg": "Striker Spawn Egg",
+      "block.morebosses.energy_altar": "Energy Altar",
       "fluid.morebosses.raw_magma": "Magma Bruto",
       "block.morebosses.copper_lava": "Armadilha de Cobre Quente",
       "entity.morebosses.archduke_lytherion": "Arqueduke Lytherion, o Finado Rei de Grand Palace",

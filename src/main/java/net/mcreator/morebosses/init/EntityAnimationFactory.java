@@ -20,6 +20,7 @@ import net.mcreator.morebosses.entity.MagmaticChampionEntity;
 import net.mcreator.morebosses.entity.GuardianoOfTheEyesEntity;
 import net.mcreator.morebosses.entity.EyeSentinelEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
+import net.mcreator.morebosses.entity.EnderSnakeEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
 import net.mcreator.morebosses.entity.CopperGrablerEntity;
@@ -180,6 +181,13 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof SoulsperEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof EnderSnakeEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");
