@@ -4,19 +4,23 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
+import net.mcreator.morebosses.entity.YakEntity;
+import net.mcreator.morebosses.entity.WaterStriderEntity;
 import net.mcreator.morebosses.entity.TurretEntity;
 import net.mcreator.morebosses.entity.TallEngineerEntity;
 import net.mcreator.morebosses.entity.StrikerEntity;
 import net.mcreator.morebosses.entity.SoulsperEntity;
 import net.mcreator.morebosses.entity.SoulDionaeaEntity;
+import net.mcreator.morebosses.entity.SmagmarEntity;
 import net.mcreator.morebosses.entity.SlagtioTheMightyEntity;
 import net.mcreator.morebosses.entity.RobotWhaleEntity;
 import net.mcreator.morebosses.entity.PiglinBoxerEntity;
 import net.mcreator.morebosses.entity.PiglinBoulusEntity;
 import net.mcreator.morebosses.entity.OilEngineerEntity;
+import net.mcreator.morebosses.entity.MunaeaBetaEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
-import net.mcreator.morebosses.entity.MagmaticChampionEntity;
+import net.mcreator.morebosses.entity.LesserAnteaterEntity;
 import net.mcreator.morebosses.entity.GuardianoOfTheEyesEntity;
 import net.mcreator.morebosses.entity.EyeSentinelEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
@@ -145,13 +149,6 @@ public class EntityAnimationFactory {
 					syncable.animationprocedure = animation;
 				}
 			}
-			if (event.getEntity() instanceof MagmaticChampionEntity syncable) {
-				String animation = syncable.getSyncedAnimation();
-				if (!animation.equals("undefined")) {
-					syncable.setAnimation("undefined");
-					syncable.animationprocedure = animation;
-				}
-			}
 			if (event.getEntity() instanceof SlagtioTheMightyEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
@@ -188,6 +185,41 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof EnderSnakeEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof WaterStriderEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof MunaeaBetaEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof LesserAnteaterEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof YakEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof SmagmarEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");

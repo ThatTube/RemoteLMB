@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "morebosses:ant_eater_nails"
+    },
+    "title": {
+      "translate": "advancements.ant_eater_nails_ad.title"
+    },
+    "description": {
+      "translate": "advancements.ant_eater_nails_ad.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ant_eater_nails_ad_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "morebosses:ant_eater_nails"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "morebosses:download_the_mod"
+}

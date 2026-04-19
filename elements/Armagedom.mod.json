@@ -67,6 +67,6 @@
     ],
     "texture": "armagedoom_key",
     "portalTexture": "armagedoom_portal",
-    "enablePortal": true
+    "enablePortal": false
   }
 }

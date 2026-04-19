@@ -265,9 +265,10 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
 
 	@Override
 	public boolean hurt(DamageSource source, float amount) {
-		// NOVA CONDIÇÃO: Se estiver atacando corpo a corpo, cancela o dano
+		// MODIFICAÇÃO: Se estiver atacando corpo a corpo, o dano é reduzido, não anulado
 		if (this.isAttacking()) {
-			return false; // Imune durante ataques corpo a corpo
+			amount *= 0.5f; // reduz o dano em 50% durante o ataque
+			// Continua o processamento normal do dano
 		}
 		
 		var damageTypeKey = net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DAMAGE_TYPE, new ResourceLocation("morebosses", "shock"));
@@ -555,13 +556,22 @@ public class CopperMonstrosityEntity extends Monster implements GeoEntity {
 	}
 
 	@Override
-	protected void tickDeath() {
-		++this.deathTime;
-		if (this.deathTime == 40) {
-			this.remove(CopperMonstrosityEntity.RemovalReason.KILLED);
-			this.dropExperience();
-		}
-	}
+protected void tickDeath() {
+    ++this.deathTime;
+    if (this.deathTime == 40) {
+        // Remove a barra de boss antes de remover a entidade
+        this.bossInfo.removeAllPlayers();
+        this.remove(CopperMonstrosityEntity.RemovalReason.KILLED);
+        this.dropExperience();
+    }
+}
+
+@Override
+public void remove(RemovalReason reason) {
+    // Sempre remove a barra quando a entidade for removida por qualquer motivo
+    this.bossInfo.removeAllPlayers();
+    super.remove(reason);
+}
 
 	public String getSyncedAnimation() {
 		return this.entityData.get(ANIMATION);

@@ -14,7 +14,7 @@
           {
             "type": "item",
             "item": {
-              "value": "CUSTOM:Armagedom"
+              "value": "CUSTOM:ArmageDOOMKey"
             },
             "weight": 100,
             "minCount": 1,

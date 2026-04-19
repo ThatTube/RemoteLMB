@@ -129,7 +129,6 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.BOB_BUCKET.get());
 				tabData.accept(MorebossesModItems.COPPER_DISC.get());
 				tabData.accept(MorebossesModItems.JUNGLE_ESSENCE.get());
-				tabData.accept(MorebossesModItems.ARMAGEDOM.get());
 				tabData.accept(MorebossesModItems.BASALTIC_SHARD.get());
 				tabData.accept(MorebossesModItems.BASALTIC_SHIELD.get());
 				tabData.accept(MorebossesModItems.BROKEN_SWORD.get());
@@ -159,6 +158,17 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.END_DUST.get());
 				tabData.accept(MorebossesModItems.LENS.get());
 				tabData.accept(MorebossesModItems.END_SCALES.get());
+				tabData.accept(MorebossesModItems.BUG.get());
+				tabData.accept(MorebossesModItems.ANT_EATER_NAILS.get());
+				tabData.accept(MorebossesModItems.CHOCOLATE_BOX.get());
+				tabData.accept(MorebossesModItems.NAIL_SWORD.get());
+				tabData.accept(MorebossesModItems.HELLISH_TUNGSTEN_HELMET.get());
+				tabData.accept(MorebossesModItems.HELLISH_TUNGSTEN_CHESTPLATE.get());
+				tabData.accept(MorebossesModItems.HELLISH_TUNGSTEN_LEGGINGS.get());
+				tabData.accept(MorebossesModItems.HELLISH_TUNGSTEN_BOOTS.get());
+				tabData.accept(MorebossesModItems.COLOSSEUM_EYE.get());
+				tabData.accept(MorebossesModItems.COLOSSEUM_UPGRADE.get());
+				tabData.accept(MorebossesModItems.ARMAGE_DOOM_KEY.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {
@@ -178,13 +188,18 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.PIGLIN_BOULUS_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.PIGLIN_BOXER_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.ARCHDUKE_LYTHERION_SPAWN_EGG.get());
-				tabData.accept(MorebossesModItems.MAGMATIC_CHAMPION_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.SLAGTIO_THE_MIGHTY_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.GUARDIANO_OF_THE_EYES_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.STRIKER_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.EYE_SENTINEL_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.SOULSPER_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.ENDER_SNAKE_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.WATER_STRIDER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.MUNAEA_BETA_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.LESSER_ANTEATER_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.BUGS_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.YAK_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.SMAGMAR_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 
 	@SubscribeEvent

@@ -142,7 +142,7 @@ public class SlagtioTheMightyEntity extends Monster implements GeoEntity {
 
     @Override
     public SoundEvent getHurtSound(DamageSource ds) {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.place"));
+        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:slagtioarmor"));
     }
 
     @Override

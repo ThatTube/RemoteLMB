@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "morebosses:armagedom",
+          "name": "morebosses:armage_doom_key",
           "weight": 100,
           "functions": [
             {

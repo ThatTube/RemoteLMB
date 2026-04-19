@@ -11,10 +11,12 @@ import net.minecraftforge.common.extensions.IForgeMenuType;
 
 import net.minecraft.world.inventory.MenuType;
 
+import net.mcreator.morebosses.world.inventory.YakGuyMenu;
 import net.mcreator.morebosses.world.inventory.WorkshopGUIMenu;
 import net.mcreator.morebosses.MorebossesMod;
 
 public class MorebossesModMenus {
 	public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MorebossesMod.MODID);
 	public static final RegistryObject<MenuType<WorkshopGUIMenu>> WORKSHOP_GUI = REGISTRY.register("workshop_gui", () -> IForgeMenuType.create(WorkshopGUIMenu::new));
+	public static final RegistryObject<MenuType<YakGuyMenu>> YAK_GUY = REGISTRY.register("yak_guy", () -> IForgeMenuType.create(YakGuyMenu::new));
 }

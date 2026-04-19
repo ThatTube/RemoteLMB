@@ -15,7 +15,7 @@
     "displayFluidOverlay": false,
     "animateBlockItem": true,
     "itemTexture": "eyebig",
-    "particleTexture": "",
+    "particleTexture": "energyblocktop",
     "tintType": "No tint",
     "isItemTinted": false,
     "hasTransparency": true,

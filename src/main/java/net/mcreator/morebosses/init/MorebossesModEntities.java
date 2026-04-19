@@ -16,14 +16,17 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.morebosses.entity.YakEntity;
 import net.mcreator.morebosses.entity.WitherMissileEntity;
 import net.mcreator.morebosses.entity.WindBurstEntity;
+import net.mcreator.morebosses.entity.WaterStriderEntity;
 import net.mcreator.morebosses.entity.TurretEntityProjectile;
 import net.mcreator.morebosses.entity.TurretEntity;
 import net.mcreator.morebosses.entity.TallEngineerEntity;
 import net.mcreator.morebosses.entity.StrikerEntity;
 import net.mcreator.morebosses.entity.SoulsperEntity;
 import net.mcreator.morebosses.entity.SoulDionaeaEntity;
+import net.mcreator.morebosses.entity.SmagmarEntity;
 import net.mcreator.morebosses.entity.SlagtioTheMightyEntity;
 import net.mcreator.morebosses.entity.ShrimpEntity;
 import net.mcreator.morebosses.entity.ShockWaveEntity;
@@ -33,11 +36,12 @@ import net.mcreator.morebosses.entity.PiglinBoxerEntity;
 import net.mcreator.morebosses.entity.PiglinBoulusEntity;
 import net.mcreator.morebosses.entity.OilEngineerEntity;
 import net.mcreator.morebosses.entity.OilDropEntity;
+import net.mcreator.morebosses.entity.MunaeaBetaEntity;
 import net.mcreator.morebosses.entity.MissileEntity;
 import net.mcreator.morebosses.entity.MinilotlEntity;
 import net.mcreator.morebosses.entity.MaxolotEntity;
-import net.mcreator.morebosses.entity.MagmaticChampionEntity;
 import net.mcreator.morebosses.entity.MagmaPitEntity;
+import net.mcreator.morebosses.entity.LesserAnteaterEntity;
 import net.mcreator.morebosses.entity.LaserEntity;
 import net.mcreator.morebosses.entity.LamentBombEntity;
 import net.mcreator.morebosses.entity.GuardianoOfTheEyesEntity;
@@ -52,6 +56,7 @@ import net.mcreator.morebosses.entity.DryBonesEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
 import net.mcreator.morebosses.entity.CopperGrablerEntity;
 import net.mcreator.morebosses.entity.CopperEyeEntity;
+import net.mcreator.morebosses.entity.BugsEntity;
 import net.mcreator.morebosses.entity.BruteEngineerEntity;
 import net.mcreator.morebosses.entity.BeggarWolfEntity;
 import net.mcreator.morebosses.entity.ArchdukeLytherionEntity;
@@ -142,8 +147,6 @@ public class MorebossesModEntities {
 					.sized(1.6f, 2f));
 	public static final RegistryObject<EntityType<LamentBombEntity>> LAMENT_BOMB = register("lament_bomb",
 			EntityType.Builder.<LamentBombEntity>of(LamentBombEntity::new, MobCategory.MISC).setCustomClientFactory(LamentBombEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
-	public static final RegistryObject<EntityType<MagmaticChampionEntity>> MAGMATIC_CHAMPION = register("magmatic_champion", EntityType.Builder.<MagmaticChampionEntity>of(MagmaticChampionEntity::new, MobCategory.MONSTER)
-			.setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(MagmaticChampionEntity::new).fireImmune().sized(1f, 2.5f));
 	public static final RegistryObject<EntityType<MagmaPitEntity>> MAGMA_PIT = register("magma_pit",
 			EntityType.Builder.<MagmaPitEntity>of(MagmaPitEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MagmaPitEntity::new).fireImmune().sized(1f, 0.1f));
 	public static final RegistryObject<EntityType<SlagtioTheMightyEntity>> SLAGTIO_THE_MIGHTY = register("slagtio_the_mighty",
@@ -178,6 +181,28 @@ public class MorebossesModEntities {
 			EntityType.Builder.<EnderSnakeEntity>of(EnderSnakeEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EnderSnakeEntity::new)
 
 					.sized(1.1f, 1.8f));
+	public static final RegistryObject<EntityType<WaterStriderEntity>> WATER_STRIDER = register("water_strider",
+			EntityType.Builder.<WaterStriderEntity>of(WaterStriderEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(WaterStriderEntity::new)
+
+					.sized(1f, 0.4f));
+	public static final RegistryObject<EntityType<MunaeaBetaEntity>> MUNAEA_BETA = register("munaea_beta",
+			EntityType.Builder.<MunaeaBetaEntity>of(MunaeaBetaEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(MunaeaBetaEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<LesserAnteaterEntity>> LESSER_ANTEATER = register("lesser_anteater",
+			EntityType.Builder.<LesserAnteaterEntity>of(LesserAnteaterEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(LesserAnteaterEntity::new)
+
+					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<BugsEntity>> BUGS = register("bugs",
+			EntityType.Builder.<BugsEntity>of(BugsEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(BugsEntity::new)
+
+					.sized(0.5f, 0.2f));
+	public static final RegistryObject<EntityType<YakEntity>> YAK = register("yak",
+			EntityType.Builder.<YakEntity>of(YakEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(YakEntity::new)
+
+					.sized(1f, 2f));
+	public static final RegistryObject<EntityType<SmagmarEntity>> SMAGMAR = register("smagmar",
+			EntityType.Builder.<SmagmarEntity>of(SmagmarEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(SmagmarEntity::new).fireImmune().sized(1.2f, 3f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -206,7 +231,6 @@ public class MorebossesModEntities {
 			PiglinBoulusEntity.init();
 			PiglinBoxerEntity.init();
 			ArchdukeLytherionEntity.init();
-			MagmaticChampionEntity.init();
 			MagmaPitEntity.init();
 			SlagtioTheMightyEntity.init();
 			GuardianoOfTheEyesEntity.init();
@@ -214,6 +238,12 @@ public class MorebossesModEntities {
 			EyeSentinelEntity.init();
 			SoulsperEntity.init();
 			EnderSnakeEntity.init();
+			WaterStriderEntity.init();
+			MunaeaBetaEntity.init();
+			LesserAnteaterEntity.init();
+			BugsEntity.init();
+			YakEntity.init();
+			SmagmarEntity.init();
 		});
 	}
 
@@ -237,7 +267,6 @@ public class MorebossesModEntities {
 		event.put(PIGLIN_BOULUS.get(), PiglinBoulusEntity.createAttributes().build());
 		event.put(PIGLIN_BOXER.get(), PiglinBoxerEntity.createAttributes().build());
 		event.put(ARCHDUKE_LYTHERION.get(), ArchdukeLytherionEntity.createAttributes().build());
-		event.put(MAGMATIC_CHAMPION.get(), MagmaticChampionEntity.createAttributes().build());
 		event.put(MAGMA_PIT.get(), MagmaPitEntity.createAttributes().build());
 		event.put(SLAGTIO_THE_MIGHTY.get(), SlagtioTheMightyEntity.createAttributes().build());
 		event.put(GUARDIANO_OF_THE_EYES.get(), GuardianoOfTheEyesEntity.createAttributes().build());
@@ -245,5 +274,11 @@ public class MorebossesModEntities {
 		event.put(EYE_SENTINEL.get(), EyeSentinelEntity.createAttributes().build());
 		event.put(SOULSPER.get(), SoulsperEntity.createAttributes().build());
 		event.put(ENDER_SNAKE.get(), EnderSnakeEntity.createAttributes().build());
+		event.put(WATER_STRIDER.get(), WaterStriderEntity.createAttributes().build());
+		event.put(MUNAEA_BETA.get(), MunaeaBetaEntity.createAttributes().build());
+		event.put(LESSER_ANTEATER.get(), LesserAnteaterEntity.createAttributes().build());
+		event.put(BUGS.get(), BugsEntity.createAttributes().build());
+		event.put(YAK.get(), YakEntity.createAttributes().build());
+		event.put(SMAGMAR.get(), SmagmarEntity.createAttributes().build());
 	}
 }

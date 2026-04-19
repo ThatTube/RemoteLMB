@@ -23,9 +23,6 @@
         "amount": -1.0,
         "operation": "ADD_VALUE"
       }
-    ],
-    "onActiveTick": {
-      "name": "HellishBurnOnEffectActiveTick"
-    }
+    ]
   }
 }

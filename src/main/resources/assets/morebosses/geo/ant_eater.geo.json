@@ -1,0 +1,84 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ant_eater",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "all",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "leg",
+					"parent": "all",
+					"pivot": [-4, 7, 6],
+					"cubes": [
+						{"origin": [-4, 0, 4], "size": [3, 8, 4], "uv": [34, 22]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "all",
+					"pivot": [3, 7, 6],
+					"cubes": [
+						{"origin": [1, 0, 4], "size": [3, 8, 4], "uv": [34, 34]}
+					]
+				},
+				{
+					"name": "body",
+					"parent": "all",
+					"pivot": [0, 8, 6]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 13, -8],
+					"cubes": [
+						{"origin": [-1, 4, -9], "size": [2, 10, 2], "pivot": [0, 13, -8], "rotation": [-65, 0, 0], "uv": [24, 39]},
+						{"origin": [1, 14, -9], "size": [0, 3, 2], "pivot": [0, 23, -9], "rotation": [7.5, 10, 0], "uv": [32, 46]},
+						{"origin": [-1, 14, -9], "size": [0, 3, 2], "pivot": [0, 23, -9], "rotation": [7.5, -10, 0], "uv": [36, 46]}
+					]
+				},
+				{
+					"name": "arm",
+					"parent": "body",
+					"pivot": [-3, 8, -7],
+					"cubes": [
+						{"origin": [-4, 0, -7.5], "size": [3, 8, 3], "uv": [0, 39]}
+					]
+				},
+				{
+					"name": "arm2",
+					"parent": "body",
+					"pivot": [3, 8, -7],
+					"cubes": [
+						{"origin": [1, 0, -7.5], "size": [3, 8, 3], "uv": [12, 39]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "body",
+					"pivot": [0, 13, 8],
+					"cubes": [
+						{"origin": [-1, 11, 8], "size": [2, 2, 15], "inflate": 0.25, "uv": [0, 22]}
+					]
+				},
+				{
+					"name": "torso",
+					"parent": "body",
+					"pivot": [0, 11, 0],
+					"cubes": [
+						{"origin": [-4, 8, -8], "size": [8, 6, 16], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

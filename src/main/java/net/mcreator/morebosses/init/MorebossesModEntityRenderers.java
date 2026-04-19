@@ -11,13 +11,16 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 
+import net.mcreator.morebosses.client.renderer.YakRenderer;
 import net.mcreator.morebosses.client.renderer.WitherMissileRenderer;
 import net.mcreator.morebosses.client.renderer.WindBurstRenderer;
+import net.mcreator.morebosses.client.renderer.WaterStriderRenderer;
 import net.mcreator.morebosses.client.renderer.TurretRenderer;
 import net.mcreator.morebosses.client.renderer.TallEngineerRenderer;
 import net.mcreator.morebosses.client.renderer.StrikerRenderer;
 import net.mcreator.morebosses.client.renderer.SoulsperRenderer;
 import net.mcreator.morebosses.client.renderer.SoulDionaeaRenderer;
+import net.mcreator.morebosses.client.renderer.SmagmarRenderer;
 import net.mcreator.morebosses.client.renderer.SlagtioTheMightyRenderer;
 import net.mcreator.morebosses.client.renderer.ShrimpRenderer;
 import net.mcreator.morebosses.client.renderer.ShockWaveRenderer;
@@ -25,11 +28,12 @@ import net.mcreator.morebosses.client.renderer.RobotWhaleRenderer;
 import net.mcreator.morebosses.client.renderer.PiglinBoxerRenderer;
 import net.mcreator.morebosses.client.renderer.PiglinBoulusRenderer;
 import net.mcreator.morebosses.client.renderer.OilEngineerRenderer;
+import net.mcreator.morebosses.client.renderer.MunaeaBetaRenderer;
 import net.mcreator.morebosses.client.renderer.MissileRenderer;
 import net.mcreator.morebosses.client.renderer.MinilotlRenderer;
 import net.mcreator.morebosses.client.renderer.MaxolotRenderer;
-import net.mcreator.morebosses.client.renderer.MagmaticChampionRenderer;
 import net.mcreator.morebosses.client.renderer.MagmaPitRenderer;
+import net.mcreator.morebosses.client.renderer.LesserAnteaterRenderer;
 import net.mcreator.morebosses.client.renderer.LamentBombRenderer;
 import net.mcreator.morebosses.client.renderer.GuardianoOfTheEyesRenderer;
 import net.mcreator.morebosses.client.renderer.EyeSentinelRenderer;
@@ -40,6 +44,7 @@ import net.mcreator.morebosses.client.renderer.EnderBombRenderer;
 import net.mcreator.morebosses.client.renderer.DryBonesRenderer;
 import net.mcreator.morebosses.client.renderer.CopperMonstrosityRenderer;
 import net.mcreator.morebosses.client.renderer.CopperGrablerRenderer;
+import net.mcreator.morebosses.client.renderer.BugsRenderer;
 import net.mcreator.morebosses.client.renderer.BruteEngineerRenderer;
 import net.mcreator.morebosses.client.renderer.BeggarWolfRenderer;
 import net.mcreator.morebosses.client.renderer.ArchdukeLytherionRenderer;
@@ -74,7 +79,6 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.PIGLIN_BOXER.get(), PiglinBoxerRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.ARCHDUKE_LYTHERION.get(), ArchdukeLytherionRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.LAMENT_BOMB.get(), LamentBombRenderer::new);
-		event.registerEntityRenderer(MorebossesModEntities.MAGMATIC_CHAMPION.get(), MagmaticChampionRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.MAGMA_PIT.get(), MagmaPitRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.SLAGTIO_THE_MIGHTY.get(), SlagtioTheMightyRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.EYE_OLD.get(), ThrownItemRenderer::new);
@@ -87,5 +91,11 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.EYE_SENTINEL.get(), EyeSentinelRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.SOULSPER.get(), SoulsperRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.ENDER_SNAKE.get(), EnderSnakeRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.WATER_STRIDER.get(), WaterStriderRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.MUNAEA_BETA.get(), MunaeaBetaRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.LESSER_ANTEATER.get(), LesserAnteaterRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.BUGS.get(), BugsRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.YAK.get(), YakRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.SMAGMAR.get(), SmagmarRenderer::new);
 	}
 }

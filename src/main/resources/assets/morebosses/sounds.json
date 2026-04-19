@@ -79,5 +79,41 @@
         "stream": false
       }
     ]
+  },
+  "swing1": {
+    "subtitle": "subtitles.swing1",
+    "sounds": [
+      {
+        "name": "morebosses:daviddumaisaudio-sword-slash-and-swing-185432",
+        "stream": false
+      }
+    ]
+  },
+  "swing2": {
+    "subtitle": "subtitles.swing2",
+    "sounds": [
+      {
+        "name": "morebosses:dragon-studio-sword-slice-393847",
+        "stream": false
+      }
+    ]
+  },
+  "armorbroke": {
+    "subtitle": "subtitles.armorbroke",
+    "sounds": [
+      {
+        "name": "morebosses:yodguard-a-massive-axe-impact-hitting-metal-2-450253",
+        "stream": false
+      }
+    ]
+  },
+  "slagtioarmor": {
+    "subtitle": "subtitles.slagtioarmor",
+    "sounds": [
+      {
+        "name": "morebosses:dragon-studio-armor-impact-from-sword-393843",
+        "stream": false
+      }
+    ]
   }
 }

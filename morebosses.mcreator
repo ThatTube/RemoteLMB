@@ -4378,23 +4378,6 @@
       "path": "~/Drops"
     },
     {
-      "name": "MagmaticChampion",
-      "type": "animatedentity",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "magmatic_champion",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/morebosses/client/renderer/MagmaticChampionRenderer.java",
-          "src/main/java/net/mcreator/morebosses/entity/model/MagmaticChampionModel.java",
-          "src/main/resources/assets/morebosses/models/item/magmatic_champion_spawn_egg.json",
-          "src/main/java/net/mcreator/morebosses/entity/MagmaticChampionEntity.java",
-          "src/main/java/net/mcreator/morebosses/entity/layer/MagmaticChampionLayer.java"
-        ]
-      },
-      "path": "~/Mobs"
-    },
-    {
       "name": "MagmaPitOnInitialEntitySpawn",
       "type": "procedure",
       "compiles": true,
@@ -4421,7 +4404,7 @@
       "name": "HellishBurn",
       "type": "potioneffect",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "hellish_burn",
       "metadata": {
         "files": [
@@ -4475,29 +4458,6 @@
         ]
       },
       "path": "~/Danos"
-    },
-    {
-      "name": "HellishBurnOnEffectActiveTick",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "hellish_burn_on_effect_active_tick",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/morebosses/procedures/HellishBurnOnEffectActiveTickProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Procedures"
     },
     {
       "name": "Stun",
@@ -4749,16 +4709,8 @@
       "registry_name": "armagedom",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/morebosses/world/teleporter/ArmagedomPortalShape.java",
           "src/main/resources/data/morebosses/dimension_type/armagedom.json",
-          "src/main/resources/assets/morebosses/models/block/armagedom_portal_ns.json",
-          "src/main/java/net/mcreator/morebosses/item/ArmagedomItem.java",
-          "src/main/java/net/mcreator/morebosses/world/teleporter/ArmagedomTeleporter.java",
-          "src/main/java/net/mcreator/morebosses/block/ArmagedomPortalBlock.java",
-          "src/main/resources/assets/morebosses/models/item/armagedom.json",
-          "src/main/resources/assets/morebosses/models/block/armagedom_portal_ew.json",
-          "src/main/resources/data/morebosses/dimension/armagedom.json",
-          "src/main/resources/assets/morebosses/blockstates/armagedom_portal.json"
+          "src/main/resources/data/morebosses/dimension/armagedom.json"
         ]
       },
       "path": "~/ArmageDOOM"
@@ -7265,6 +7217,327 @@
         ]
       },
       "path": "~/Blocks"
+    },
+    {
+      "name": "WaterStrider",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "water_strider",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/client/renderer/WaterStriderRenderer.java",
+          "src/main/resources/assets/morebosses/models/item/water_strider_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/WaterStriderEntity.java",
+          "src/main/java/net/mcreator/morebosses/entity/model/WaterStriderModel.java",
+          "src/main/resources/data/morebosses/forge/biome_modifier/water_strider_biome_modifier.json"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "MunaeaBeta",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "munaea_beta",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/munaea_beta_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/model/MunaeaBetaModel.java",
+          "src/main/java/net/mcreator/morebosses/entity/MunaeaBetaEntity.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/MunaeaBetaRenderer.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "Bug",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bug",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/BugItem.java",
+          "src/main/resources/assets/morebosses/models/item/bug.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "LesserAnteater",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lesser_anteater",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/entity/model/LesserAnteaterModel.java",
+          "src/main/resources/data/morebosses/forge/biome_modifier/lesser_anteater_biome_modifier.json",
+          "src/main/resources/assets/morebosses/models/item/lesser_anteater_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/LesserAnteaterEntity.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/LesserAnteaterRenderer.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "Bugs",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bugs",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/forge/biome_modifier/bugs_biome_modifier.json",
+          "src/main/java/net/mcreator/morebosses/client/renderer/BugsRenderer.java",
+          "src/main/resources/assets/morebosses/models/item/bugs_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/BugsEntity.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "BUGSDROPS",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bugsdrops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/bugs.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "AntEaterNails",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ant_eater_nails",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/ant_eater_nails.json",
+          "src/main/java/net/mcreator/morebosses/item/AntEaterNailsItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "EATER",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "eater",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/lesser_anteater.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "AntEaterNailsAd",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ant_eater_nails_ad",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/advancements/ant_eater_nails_ad.json"
+        ]
+      },
+      "path": "~/Conquistas"
+    },
+    {
+      "name": "ChocolateBox",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolate_box",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/chocolate_box.json",
+          "src/main/java/net/mcreator/morebosses/item/ChocolateBoxItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "NailSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nail_sword",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/NailSwordItem.java",
+          "src/main/resources/assets/morebosses/models/item/nail_sword.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AnteaterNailSwordRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "anteater_nail_sword_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/recipes/anteater_nail_sword_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "YakGuy",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yak_guy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/world/inventory/YakGuyMenu.java",
+          "src/main/java/net/mcreator/morebosses/client/gui/YakGuyScreen.java"
+        ]
+      },
+      "path": "~/GUI"
+    },
+    {
+      "name": "Yak",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yak",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/forge/biome_modifier/yak_biome_modifier.json",
+          "src/main/java/net/mcreator/morebosses/entity/YakEntity.java",
+          "src/main/java/net/mcreator/morebosses/client/renderer/YakRenderer.java",
+          "src/main/resources/assets/morebosses/models/item/yak_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/model/YakModel.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "Returnyak",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "returnyak",
+      "metadata": {
+        "return_type": "entity",
+        "files": [
+          "src/main/java/net/mcreator/morebosses/procedures/ReturnyakProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "Smagmar",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "smagmar",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/client/renderer/SmagmarRenderer.java",
+          "src/main/java/net/mcreator/morebosses/entity/SmagmarEntity.java",
+          "src/main/java/net/mcreator/morebosses/entity/layer/SmagmarLayer.java",
+          "src/main/resources/assets/morebosses/models/item/smagmar_spawn_egg.json",
+          "src/main/java/net/mcreator/morebosses/entity/model/SmagmarModel.java"
+        ]
+      },
+      "path": "~/Mobs"
+    },
+    {
+      "name": "SmagmarDrops",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smagmar_drops",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/morebosses/loot_tables/entities/smagmar.json"
+        ]
+      },
+      "path": "~/Drops"
+    },
+    {
+      "name": "HellishTungsten",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hellish_tungsten",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/hellish_tungsten_chestplate.json",
+          "src/main/java/net/mcreator/morebosses/item/HellishTungstenItem.java",
+          "src/main/resources/assets/morebosses/models/item/hellish_tungsten_helmet.json",
+          "src/main/resources/assets/morebosses/models/item/hellish_tungsten_leggings.json",
+          "src/main/resources/assets/morebosses/models/item/hellish_tungsten_boots.json"
+        ]
+      },
+      "path": "~/Items/Armaduras"
+    },
+    {
+      "name": "ColosseumEye",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "colosseum_eye",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/colosseum_eye.json",
+          "src/main/java/net/mcreator/morebosses/item/ColosseumEyeItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "ColosseumUpgrade",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "colosseum_upgrade",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/item/ColosseumUpgradeItem.java",
+          "src/main/resources/assets/morebosses/models/item/colosseum_upgrade.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "HellishBurnEvents",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hellish_burn_events",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/HellishBurnEvents.java"
+        ]
+      }
+    },
+    {
+      "name": "ArmageDOOMKey",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "armage_doom_key",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/morebosses/models/item/armage_doom_key.json",
+          "src/main/java/net/mcreator/morebosses/item/ArmageDOOMKeyItem.java"
+        ]
+      },
+      "path": "~/Items"
     }
   ],
   "variable_elements": [],
@@ -7340,15 +7613,47 @@
       ],
       "category": "hostile",
       "subtitle": "Ender is attacked"
+    },
+    {
+      "name": "swing1",
+      "files": [
+        "daviddumaisaudio-sword-slash-and-swing-185432"
+      ],
+      "category": "neutral",
+      "subtitle": "Weapon Swing"
+    },
+    {
+      "name": "swing2",
+      "files": [
+        "dragon-studio-sword-slice-393847"
+      ],
+      "category": "neutral",
+      "subtitle": "Weapon Swing"
+    },
+    {
+      "name": "armorbroke",
+      "files": [
+        "yodguard-a-massive-axe-impact-hitting-metal-2-450253"
+      ],
+      "category": "hostile",
+      "subtitle": "Smagmar\u0027s armor breaks"
+    },
+    {
+      "name": "slagtioarmor",
+      "files": [
+        "dragon-studio-armor-impact-from-sword-393843"
+      ],
+      "category": "hostile",
+      "subtitle": "Slagtio is attacked"
     }
   ],
   "tag_elements": {
+    "ENTITIES:mod:miniboss": [
+      "CUSTOM:SlagtioTheMighty"
+    ],
     "ENTITIES:lmb:immunetoshockwave": [
       "CUSTOM:ShockWave",
       "CUSTOM:CopperMonstrosity"
-    ],
-    "ENTITIES:mod:miniboss": [
-      "CUSTOM:SlagtioTheMighty"
     ],
     "BLOCKS:minecraft:replaceable": [
       "~CUSTOM:EnergyBlock",
@@ -7380,8 +7685,8 @@
       "CUSTOM:RobotWhale",
       "CUSTOM:PiglinBoulus",
       "CUSTOM:ArchdukeLytherion",
-      "CUSTOM:MagmaticChampion",
-      "CUSTOM:GuardianoOfTheEyes"
+      "CUSTOM:GuardianoOfTheEyes",
+      "CUSTOM:Smagmar"
     ],
     "BLOCKS:mod:lytherion_ignores": [
       "Blocks.TALLGRASS#1",
@@ -7433,6 +7738,7 @@
       "TAG:minecraft:shields"
     ],
     "ITEMS:minecraft:swords": [
+      "~CUSTOM:NailSword",
       "~CUSTOM:TheLifeEnder",
       "~CUSTOM:NetheriteLongSword",
       "~CUSTOM:BrokenSword",
@@ -7555,6 +7861,11 @@
     "ITEMS:minecraft:enchantable/weapon": [
       "CUSTOM:MacabreScythe"
     ],
+    "ENTITIES:mod:bugs": [
+      "EntityCaveSpider",
+      "EntitySpider",
+      "CUSTOM:Bugs"
+    ],
     "BLOCKS:minecraft:infiniburn_armagedoom": [
       "Blocks.GRASS",
       "TAG:minecraft:dirt"
@@ -7580,8 +7891,9 @@
     "en_us": {
       "entity.morebosses.soul_dionaea": "Soul Dionaea",
       "item.morebosses.old_eye": "Old Eye",
-      "block.morebosses.strike": "Strike",
+      "advancements.ant_eater_nails_ad.title": "Yuck!! Cut your nails, please!!",
       "block.morebosses.carved_endeterium_block": "Carved Endeterium Block",
+      "block.morebosses.strike": "Strike",
       "item.morebosses.reverse_pearl": "Reverse Pearl",
       "item.morebosses.shrimp_death": "Shrimp",
       "item.morebosses.ender_eye": "Ender\u0027s Eye",
@@ -7590,12 +7902,13 @@
       "block.morebosses.energy_block": "Energy Block",
       "advancements.is_this_safe.descr": "Discover at your own risk.",
       "advancements.the_inner_light.descr": "Craft and place a Soul Light.",
-      "effect.morebosses.engine_boost": "Engine Boost",
       "entity.morebosses.copper_grabler": "Copper Grabler",
+      "effect.morebosses.engine_boost": "Engine Boost",
       "advancements.sanctuary.descr": "Locate the Old Sanctuary",
       "biome.morebosses.stroke_woods": "Stroke Woods",
       "block.morebosses.mega_forge": "Mega Forge",
       "item.morebosses.monstrousfootwear_boots.description_0": "Press R to stomp and generate a shockwave.",
+      "item.morebosses.hellish_tungsten_chestplate": "Hellish Tungsten Chestplate",
       "item.morebosses.pipe_wrench": "Pipe Wrench",
       "item.morebosses.fire_ring": "Fire Ring",
       "subtitles.endertp": "Ender Teleports",
@@ -7614,6 +7927,7 @@
       "item.minecraft.tipped_arrow.effect.oil": "Arrow of Oil",
       "block.morebosses.copper_structure_detect": "CSD",
       "effect.morebosses.hard_skin": "Hard Skin",
+      "entity.morebosses.lesser_anteater": "Lesser Anteater",
       "block.morebosses.endeterium_pillar": "Endeterium Pillar",
       "advancements.giveme.title": "GIVE ME!!!!!!",
       "item.morebosses.cuirlass_smithing_upgrade": "Smithing Template",
@@ -7641,8 +7955,8 @@
       "advancements.its_blue.descr": "Craft and place a Blue Soul Light",
       "item.minecraft.lingering_potion.effect.oil": "Lingering Oil Bottle",
       "entity.morebosses.piglin_boxer": "Piglin Boxer",
-      "item.morebosses.armagedom": "ArmageDOOM Key",
       "death.attack.bleed.item": "%1$s bleed to death by %2$s using %3$s",
+      "item.morebosses.water_strider_spawn_egg": "Water Strider Spawn Egg",
       "item.morebosses.opal": "Opal",
       "gamerule.permaTurrets.description": "If true, the turrets will not despawn.",
       "item.morebosses.spark_of_the_soul": "Spark Of The Soul",
@@ -7650,21 +7964,25 @@
       "entity.morebosses.guardiano_of_the_eyes": "Ender, the Eye of the Chaos",
       "item.morebosses.jungle_essence": "Jungle Essence",
       "jei.morebosses.eyesinformation": "The eyes will guide you to the corresponding structure, like an ender eye",
+      "item.morebosses.bug": "Bug",
       "item.minecraft.tipped_arrow.effect.grease": "Arrow of Grease",
       "advancements.netherite_is_a_lie.descr": "Obtain a Netherite ingot, which will be very common from now on.",
       "item.morebosses.diamonded_blomi_berry": "Diamonded Blomi Berry",
       "item.morebosses.stroke_cake": "Stroke Cake",
       "advancements.its_spooky_season.descr": "Obtain all 3 carved blocks.",
       "advancements.flour_advancement.title": "Does anyone have flour?",
+      "entity.morebosses.munaea_beta": "Munaea Beta",
       "item.morebosses.fried_egg": "Fried Egg",
       "advancements.definitely_no.title": "Definitely No",
       "gamerule.permaTurrets": "Perma Turrets",
       "advancements.netherite_is_a_lie.title": "Netherite Is A Lie",
+      "item.morebosses.armage_doom_key": "Armage DOOM Key",
       "item.morebosses.fuse": "Fuse",
       "block.morebosses.cut_endeterium": "Cut Endeterium",
       "item.morebosses.fried_chayote": "Fried Chayote",
       "item.morebosses.minilotl_spawn_egg": "Minilotl Spawn Egg",
       "item.morebosses.pot_with_flour": "Pot With Flour",
+      "item.morebosses.hellish_tungsten_leggings": "Hellish Tungsten Leggings",
       "item.minecraft.splash_potion.effect.oil": "Splash Oil Bottle",
       "item.morebosses.bob_bucket": "Bob Bucket",
       "item.morebosses.green_magma_cream": "Green Magma Cream",
@@ -7673,17 +7991,31 @@
       "item.morebosses.shield_beater": "The Shield Breaker",
       "item.morebosses.monstrousfootwear_boots": "MONSTROUS FOOTWEAR",
       "item.morebosses.metalix_template": "Smithing Upgrade",
+      "item.morebosses.chocolate_box": "Chocolate Box",
       "item.morebosses.piglin_boulus_spawn_egg": "Piglin Boulus Spawn Egg",
+      "item.morebosses.munaea_beta_spawn_egg": "Munaea Beta Spawn Egg",
+      "subtitles.slagtioarmor": "Slagtio is attacked",
       "death.attack.bleed.player": "%1$s bleed to death whilst trying to escape %2$s",
+      "item.morebosses.armage_doom_key.description_0": "§7 Maybe this can open a new realm",
       "advancements.who_authorized_this.descr": "Defeat the Copper Monstrosity",
+      "item.morebosses.colosseum_upgrade.description_5": "§7Ingredients:",
+      "item.morebosses.yak_spawn_egg": "Yak Spawn Egg",
+      "item.morebosses.colosseum_upgrade.description_6": "§9Hellish Tungsten or Spark of the Soul, ",
       "block.morebosses.soul_light": "Soul Light",
       "item.minecraft.lingering_potion.effect.hard_skin_potion": "Lingering Potion of Hard Skin",
+      "item.morebosses.colosseum_upgrade.description_3": "§7Applies to:",
       "enchantment.morebosses.show_off": "Show-Off",
       "entity.morebosses.piglin_boulus": "Piglin Boulus",
       "key.morebosses.c": "Chestplate Hability",
+      "item.morebosses.colosseum_upgrade.description_4": "§9Netherite Equipment",
+      "item.morebosses.colosseum_upgrade.description_1": "§7Colosseum Upgrade",
+      "item.morebosses.colosseum_upgrade.description_2": "",
       "block.morebosses.colosseum_bricks_wall": "Colosseum Bricks Wall",
+      "item.morebosses.ant_eater_nails": "Ant Eater Nails",
       "block.morebosses.end_rock": "End Rock",
+      "item.morebosses.colosseum_upgrade.description_0": "§9LMB Itens",
       "item.morebosses.turret_spawn_egg": "Turret Spawn Egg",
+      "item.morebosses.lesser_anteater_spawn_egg": "Lesser Anteater Spawn Egg",
       "death.attack.burn.item": "%1$s got burned by %2$s using %3$s",
       "item.morebosses.gerador_de_waves": "Gerador De Waves",
       "advancements.is_this_safe.title": "Is This Safe?",
@@ -7698,6 +8030,7 @@
       "gui.morebosses.workshop_gui.button_merge": "Merge",
       "advancements.death_advancement.descr": "Die to a boss for the first time.",
       "block.morebosses.green_magma_block": "Green Magma Block",
+      "entity.morebosses.water_strider": "Water Strider",
       "item.morebosses.gong_stick": "Gong Stick",
       "item.morebosses.cuirlass_armor_leggings": "Cuirlass Leggings",
       "item.morebosses.cuirlass_armor_chestplate": "Cuirlass Chestplate",
@@ -7713,6 +8046,7 @@
       "item.morebosses.big_bottle": "Big Bottle",
       "entity.morebosses.soulsper": "Soulsper",
       "block.morebosses.stroke_melon": "Stroke Melon",
+      "item.morebosses.smagmar_spawn_egg": "Smagmar Spawn Egg",
       "item.morebosses.copper_hammer": "Copper Hammer",
       "block.morebosses.sdb": "SDB",
       "entity.morebosses.eye_sentinel": "Eye Sentinel",
@@ -7733,8 +8067,10 @@
       "effect.morebosses.heavy": "Heavy",
       "effect.morebosses.panic": "Panic",
       "subtitles.endhurts": "Ender is attacked",
+      "subtitles.swing2": "Weapon Swing",
+      "subtitles.swing1": "Weapon Swing",
+      "entity.morebosses.smagmar": "Smagmar",
       "enchantment.morebosses.moocher": "Moocher",
-      "item.morebosses.magmatic_champion_spawn_egg": "Magmatic Champion Spawn Egg",
       "subtitles.piglinboulusscream": "Piglin Boulus screams",
       "advancements.the_underground_workshop.descr": "Locate the Engineers\u0027 Workshop.",
       "item.morebosses.copper_disc": "Music Disc",
@@ -7753,6 +8089,7 @@
       "item.morebosses.old_steel_smithing_upgrade.description_3": "§7Applies to:",
       "advancements.knockout_2.title": "The New Challenger!",
       "item.morebosses.old_steel_smithing_upgrade.description_2": "",
+      "item.morebosses.nail_sword": "Nail Sword",
       "item.morebosses.old_steel_smithing_upgrade.description_1": "§7Old Steel Upgrade",
       "item.morebosses.old_steel_smithing_upgrade.description_0": "§9LMB Itens",
       "block.morebosses.stroke_grass": "Stroke Grass",
@@ -7776,16 +8113,19 @@
       "advancements.knockout.descr": "Chalenge and defeat Dry Bones",
       "entity.morebosses.dry_bones": "Dry Bones",
       "item.morebosses.old_steel_smithing_upgrade.description_6": "§9Old Steel Ingot",
+      "gui.morebosses.yak_guy.label_yaks_fur": "Yak\u0027s fur",
       "item.morebosses.archduke_lytherion_spawn_egg": "Archduke Lytherion Spawn Egg",
       "item.morebosses.lens": "Lens",
       "item.minecraft.potion.effect.oil": "Oil Bottle",
       "item.morebosses.blomi_berry": "Blomi Berry",
       "subtitles.enderblock": "An attack is blocked",
+      "item.morebosses.hellish_tungsten_helmet": "Hellish Tungsten Helmet",
       "block.morebosses.shining_colosseum_bricks": "Shining Colosseum Bricks",
       "entity.morebosses.oil_engineer": "Oil Engineer",
       "item.morebosses.maxolot_spawn_egg": "Maxolot Spawn Egg",
       "death.attack.magma.item": "%2$s forced %1$s to swim in magma",
       "block.morebosses.endeterium_block": "Endeterium Block",
+      "item.morebosses.colosseum_upgrade": "Smithing Upgrade",
       "block.morebosses.stroke_nest": "Stroke Nest",
       "advancements.mega_isnt_juts_a_name_now.descr": "Craft and place a Mega Forge",
       "effect.morebosses.bleeding": "Bleeding",
@@ -7799,12 +8139,15 @@
       "advancements.fight_night.descr": "Locate the MMA Arena.",
       "item.morebosses.copper_soup": "Copper Soup",
       "advancements.nostalgia.descr": "From one last fight to Slagtio",
+      "item.morebosses.colosseum_eye": "Colosseum Eye",
       "item.morebosses.empty_tank": "Empty Tank",
       "item.morebosses.metalix_ingot": "Metalix Ingot",
       "item.morebosses.metalix_template.description_6": "§9Metalix Ingots",
+      "entity.morebosses.bugs": "Bugs",
       "item.morebosses.metalix_template.description_5": "§7Ingredients:",
       "item.morebosses.metalix_template.description_4": "§9Netherit Equipment",
       "item.morebosses.metalix_template.description_3": "§7Applies to:",
+      "item.morebosses.bugs_spawn_egg": "Bugs Spawn Egg",
       "block.morebosses.hellish_tungsten_block": "Hellish Tungsten Block",
       "item.morebosses.metalix_template.description_2": "",
       "item.morebosses.metalix_template.description_1": "§7Metalix Upgrade",
@@ -7857,6 +8200,7 @@
       "subtitles.enderslam": "Ender hits the ground",
       "item.morebosses.cuirlass_smithing_upgrade.description_5": "§7Ingredients:",
       "item.morebosses.cuirlass_smithing_upgrade.description_6": "§9Stone Cuirlass",
+      "subtitles.armorbroke": "Smagmar\u0027s armor breaks",
       "item.morebosses.cuirlass_smithing_upgrade.description_1": "§7Cuirlass Upgrade",
       "item.morebosses.mma_glove": "MMA Glove",
       "item.morebosses.cuirlass_smithing_upgrade.description_2": "",
@@ -7867,12 +8211,15 @@
       "block.morebosses.jack_o_stroke": "Jack\u0027o Stroke Melon",
       "item.morebosses.dry_bones_spawn_egg": "Dry Bones Spawn Egg",
       "item.morebosses.cuirlass_smithing_upgrade.description_0": "§9LMB Itens",
+      "entity.morebosses.yak": "Yak",
       "death.attack.bleed": "%1$s bleed to death",
       "block.morebosses.corium": "Corium",
       "item.morebosses.bone_carver": "Bone Carver",
+      "item.morebosses.hellish_tungsten_boots": "Hellish Tungsten Boots",
       "item.morebosses.guardiano_of_the_eyes_spawn_egg": "Ender Spawn Egg",
       "item.morebosses.lush_eye": "Lush Eye",
       "item.morebosses.piglin_boxer_spawn_egg": "Piglin Boxer Spawn Egg",
+      "advancements.ant_eater_nails_ad.descr": "Kill a Lesser Anteater",
       "effect.morebosses.armor_breach": "Armor Breach",
       "block.morebosses.withered_bone_block": "Withered Bone Block",
       "subtitles.taunt": "Someone challenges something to a fight.",
@@ -7882,7 +8229,6 @@
       "item.morebosses.engineer_spawn_egg": "Engineer Spawn Egg",
       "item.morebosses.end_scales": "End Scales",
       "item.morebosses.boss_remover": "Boss Remover {Dev Item}",
-      "entity.morebosses.magmatic_champion": "Magmatic Champion",
       "item.morebosses.cuirlass_armor_helmet": "Cuirlass Helmet",
       "advancements.im_the_stone_now.title": "Im The Stone Now!!!",
       "biome.morebosses.grand_pallace": "Grand Pallace",
@@ -7917,8 +8263,9 @@
     "pt_br": {
       "entity.morebosses.soul_dionaea": "Planta Carnívora das Almas",
       "item.morebosses.old_eye": "Olho Antigo",
-      "block.morebosses.carved_endeterium_block": "Bloco de Endeterium Talhado",
+      "advancements.ant_eater_nails_ad.title": "Yuck!! Cut your nails, please!!",
       "block.morebosses.strike": "Strike",
+      "block.morebosses.carved_endeterium_block": "Bloco de Endeterium Talhado",
       "item.morebosses.reverse_pearl": "Reverse Pearl",
       "item.morebosses.shrimp_death": "Camarão",
       "item.morebosses.ender_eye": "Olho do Caos",
@@ -7927,12 +8274,13 @@
       "block.morebosses.energy_block": "Energy Block",
       "advancements.is_this_safe.descr": "Descubra por sua conta e risco",
       "advancements.the_inner_light.descr": "Crie e coloque uma Luz das Almas",
-      "effect.morebosses.engine_boost": "Melhorias no Motor",
       "entity.morebosses.copper_grabler": "Pegador de Cobre",
+      "effect.morebosses.engine_boost": "Melhorias no Motor",
       "advancements.sanctuary.descr": "Localize o Santuário Antigo",
       "biome.morebosses.stroke_woods": "Florestas Stroke",
       "block.morebosses.mega_forge": "Mega Forja",
       "item.morebosses.monstrousfootwear_boots.description_0": "Aperte R para pisar e desencadear uma onda de choque",
+      "item.morebosses.hellish_tungsten_chestplate": "Hellish Tungsten Chestplate",
       "item.morebosses.fire_ring": "Anel de Fogo",
       "item.morebosses.pipe_wrench": "Chave de Grifo",
       "subtitles.endertp": "Ender teleporta",
@@ -7951,6 +8299,7 @@
       "item.minecraft.tipped_arrow.effect.oil": "Flecha de Óleo",
       "block.morebosses.copper_structure_detect": "Detector de estrutura [COBRE]",
       "effect.morebosses.hard_skin": "Pele Dura",
+      "entity.morebosses.lesser_anteater": "Lesser Anteater",
       "block.morebosses.endeterium_pillar": "Pilar de Endeterium",
       "advancements.giveme.title": "MIM DÊÊÊ!!!!!!!",
       "item.morebosses.cuirlass_smithing_upgrade": "Molde de Ferraria",
@@ -7978,8 +8327,8 @@
       "advancements.its_blue.descr": "Crie e coloque uma Luz das Almas Azul",
       "item.minecraft.lingering_potion.effect.oil": "Garrafa de Óleo em Área",
       "entity.morebosses.piglin_boxer": "Piglin Boxeador",
-      "item.morebosses.armagedom": "Chave do Fim do Mundo",
       "death.attack.bleed.item": "%2$s fez %1$s sangrou até a morte usando %3$s",
+      "item.morebosses.water_strider_spawn_egg": "Water Strider Spawn Egg",
       "item.morebosses.opal": "Opala",
       "gamerule.permaTurrets.description": "Se verdadeiro as torretas não irão sumir",
       "item.morebosses.spark_of_the_soul": "Spark Of The Soul",
@@ -7987,21 +8336,25 @@
       "entity.morebosses.guardiano_of_the_eyes": "Ender, o Olho do Caos",
       "item.morebosses.jungle_essence": "Essência da Selva",
       "jei.morebosses.eyesinformation": "Os olhos irão levar você a estrutura correspondente, como um Olho do FIm",
+      "item.morebosses.bug": "Bug",
       "item.minecraft.tipped_arrow.effect.grease": "Flecha de Graxa",
       "advancements.netherite_is_a_lie.descr": "Consiga um Lingote de Netherita, vai ser bem comum daqui pra frente.",
       "item.morebosses.diamonded_blomi_berry": "Baga Blomi Diamantada",
       "item.morebosses.stroke_cake": "Bolo de Stroke",
       "advancements.its_spooky_season.descr": "Consiga os 3 blocos talhados",
       "advancements.flour_advancement.title": "Alguém Tem Um Pouco De Farinha?",
+      "entity.morebosses.munaea_beta": "Munaea Beta",
       "advancements.definitely_no.title": "Definitivamente Não!",
       "item.morebosses.fried_egg": "Ovo Frito",
       "gamerule.permaTurrets": "Torretas Permanentes",
       "advancements.netherite_is_a_lie.title": "Netheria é uma Piada!",
+      "item.morebosses.armage_doom_key": "Armage DOOM Key",
       "item.morebosses.fuse": "Fusível",
       "block.morebosses.cut_endeterium": "Bloco de Endeterium Cortado",
       "item.morebosses.fried_chayote": "Chuchu Frito",
       "item.morebosses.minilotl_spawn_egg": "Ovo Gerador de Minilote",
       "item.morebosses.pot_with_flour": "Cumbuca com Farinha",
+      "item.morebosses.hellish_tungsten_leggings": "Hellish Tungsten Leggings",
       "item.minecraft.splash_potion.effect.oil": "Garrafa de Óleo Arremessável",
       "item.morebosses.bob_bucket": "Balde com Bob",
       "item.morebosses.green_magma_cream": "Creme de Magma Verde",
@@ -8010,17 +8363,31 @@
       "item.morebosses.shield_beater": "O Quebra Escudos",
       "item.morebosses.monstrousfootwear_boots": "PISANTES MONSTRUOSOS",
       "item.morebosses.metalix_template": "Molde de Ferraria",
+      "item.morebosses.chocolate_box": "Chocolate Box",
       "item.morebosses.piglin_boulus_spawn_egg": "Ovo Gerador de Piglin Boulus",
+      "item.morebosses.munaea_beta_spawn_egg": "Munaea Beta Spawn Egg",
+      "subtitles.slagtioarmor": "Slagtio is attacked",
       "death.attack.bleed.player": "%1$s sangrou até a morte tentando escapar de %2$s",
+      "item.morebosses.armage_doom_key.description_0": "§7 Maybe this can open a new realm",
       "advancements.who_authorized_this.descr": "Derrote a Monstruosidade de Cobre",
+      "item.morebosses.colosseum_upgrade.description_5": "§7Ingredients:",
+      "item.morebosses.yak_spawn_egg": "Yak Spawn Egg",
+      "item.morebosses.colosseum_upgrade.description_6": "§9Hellish Tungsten or Spark of the Soul, ",
       "block.morebosses.soul_light": "Luz das Almas",
       "item.minecraft.lingering_potion.effect.hard_skin_potion": "Poção de Pele Dura em Área",
+      "item.morebosses.colosseum_upgrade.description_3": "§7Applies to:",
       "enchantment.morebosses.show_off": "Amostradinho",
       "entity.morebosses.piglin_boulus": "Piglin Boulus",
       "key.morebosses.c": "Chestplate Hability",
+      "item.morebosses.colosseum_upgrade.description_4": "§9Netherite Equipment",
+      "item.morebosses.colosseum_upgrade.description_1": "§9Colosseum Upgrade",
+      "item.morebosses.colosseum_upgrade.description_2": "",
       "block.morebosses.colosseum_bricks_wall": "Muro de Tijolos do Coliseu",
+      "item.morebosses.ant_eater_nails": "Ant Eater Nails",
       "block.morebosses.end_rock": "Rocha do Fim",
+      "item.morebosses.colosseum_upgrade.description_0": "§9LMB Itens",
       "item.morebosses.turret_spawn_egg": "Ovo Gerador de Torreta",
+      "item.morebosses.lesser_anteater_spawn_egg": "Lesser Anteater Spawn Egg",
       "death.attack.burn.item": "%1$s foi carbonizado por %2$s usando %3$s",
       "item.morebosses.gerador_de_waves": "Gerador de Ondas de Choque [ITEM DE DEV]",
       "advancements.is_this_safe.title": "Isso é seguro?",
@@ -8035,6 +8402,7 @@
       "gui.morebosses.workshop_gui.button_merge": "Fundir",
       "advancements.death_advancement.descr": "Morra para um chefe pela primeira vez",
       "block.morebosses.green_magma_block": "Bloco de Magma Verde",
+      "entity.morebosses.water_strider": "Water Strider",
       "item.morebosses.gong_stick": "Tocador de Gongo",
       "item.morebosses.cuirlass_armor_leggings": "Calças de Couraça",
       "item.morebosses.cuirlass_armor_chestplate": "Peitoral de Couraça",
@@ -8050,6 +8418,7 @@
       "item.morebosses.big_bottle": "Garrafa Grande",
       "entity.morebosses.soulsper": "Soulsper",
       "block.morebosses.stroke_melon": "Melão Stroke",
+      "item.morebosses.smagmar_spawn_egg": "Smagmar Spawn Egg",
       "item.morebosses.copper_hammer": "Marreta de Cobre",
       "block.morebosses.sdb": "Detector de Estrutura[SLAGTIO]",
       "entity.morebosses.eye_sentinel": "Eye Sentinel",
@@ -8070,8 +8439,10 @@
       "effect.morebosses.heavy": "Pesado",
       "effect.morebosses.panic": "Pânico",
       "subtitles.endhurts": "Ender é atacado",
+      "subtitles.swing2": "Weapon Swing",
+      "subtitles.swing1": "Weapon Swing",
+      "entity.morebosses.smagmar": "Smagmar",
       "enchantment.morebosses.moocher": "Pidão",
-      "item.morebosses.magmatic_champion_spawn_egg": "Ovo Gerador de Campeão Magmático",
       "subtitles.piglinboulusscream": "Piglin Boulus Grita",
       "advancements.the_underground_workshop.descr": "Encontre a oficina dos engenheiros",
       "item.morebosses.copper_disc": "Disco de Música",
@@ -8090,6 +8461,7 @@
       "item.morebosses.old_steel_smithing_upgrade.description_3": "§7Aplicável em:",
       "advancements.knockout_2.title": "O Novo Desafiante!!",
       "item.morebosses.old_steel_smithing_upgrade.description_2": "",
+      "item.morebosses.nail_sword": "Nail Sword",
       "item.morebosses.old_steel_smithing_upgrade.description_1": "§7Melhoria de Metal Antigo",
       "item.morebosses.old_steel_smithing_upgrade.description_0": "§9LMB Itens",
       "block.morebosses.stroke_grass": "Grama Stroke",
@@ -8113,16 +8485,19 @@
       "advancements.knockout.descr": "Desafie e ganhe de Dry Bones",
       "entity.morebosses.dry_bones": "Dry Bones, o da Couraça de Pedra",
       "item.morebosses.old_steel_smithing_upgrade.description_6": "§9Lingote de Metal Antigo",
+      "gui.morebosses.yak_guy.label_yaks_fur": "Yak\u0027s fur",
       "item.morebosses.archduke_lytherion_spawn_egg": "Ovo Gerador de Arqueduke Lytherion",
       "item.morebosses.lens": "Lens",
       "item.minecraft.potion.effect.oil": "Garrada de Óleo",
       "item.morebosses.blomi_berry": "Baga Blomi",
       "subtitles.enderblock": "Um ataque é bloqueado",
+      "item.morebosses.hellish_tungsten_helmet": "Hellish Tungsten Helmet",
       "block.morebosses.shining_colosseum_bricks": "Tijolos Brilhantes do Coliseu",
       "entity.morebosses.oil_engineer": "Engenheiro Grudento",
       "item.morebosses.maxolot_spawn_egg": "Ovo Gerador de Macholote",
       "death.attack.magma.item": "%2$s forçou %1$s a nadar no magma",
       "block.morebosses.endeterium_block": "Bloco de Endeterium",
+      "item.morebosses.colosseum_upgrade": "Smithing Upgrade",
       "block.morebosses.stroke_nest": "Ninho de Insetos Stroke",
       "advancements.mega_isnt_juts_a_name_now.descr": "Crie e coloque uma Mega Forja",
       "effect.morebosses.bleeding": "Sangramento",
@@ -8136,12 +8511,15 @@
       "advancements.fight_night.descr": "Localize a Arena MMA",
       "item.morebosses.copper_soup": "Sopa de Cobre",
       "advancements.nostalgia.descr": "Dê uma última luta a Slagtio",
+      "item.morebosses.colosseum_eye": "Colosseum Eye",
       "item.morebosses.empty_tank": "Tanque Vazio",
       "item.morebosses.metalix_ingot": "Lingote de Metalix",
       "item.morebosses.metalix_template.description_6": "§9Lingote de Metalix",
+      "entity.morebosses.bugs": "Bugs",
       "item.morebosses.metalix_template.description_5": "§7Ingredientes:",
       "item.morebosses.metalix_template.description_4": "§9Equipamentos de Netherita",
       "item.morebosses.metalix_template.description_3": "§7Aplicável em:",
+      "item.morebosses.bugs_spawn_egg": "Bugs Spawn Egg",
       "block.morebosses.hellish_tungsten_block": "Bloco de Tungstênio Infernal",
       "item.morebosses.metalix_template.description_2": "",
       "item.morebosses.metalix_template.description_1": "§7Melhoria de Metalix",
@@ -8194,6 +8572,7 @@
       "subtitles.enderslam": "Ender esmaga o solo",
       "item.morebosses.cuirlass_smithing_upgrade.description_5": "§7Ingredientes:",
       "item.morebosses.cuirlass_smithing_upgrade.description_6": "§9Couraça de Pedra ",
+      "subtitles.armorbroke": "Smagmar\u0027s armor breaks",
       "item.morebosses.cuirlass_smithing_upgrade.description_1": "§7Melhoria de Couraça",
       "item.morebosses.mma_glove": "Luva de MMA",
       "item.morebosses.cuirlass_smithing_upgrade.description_2": "",
@@ -8204,12 +8583,15 @@
       "block.morebosses.jack_o_stroke": "Lanterna de Melão Stroke",
       "item.morebosses.dry_bones_spawn_egg": "Ovo Gerador de Dry Bones",
       "item.morebosses.cuirlass_smithing_upgrade.description_0": "§9LMB Itens",
+      "entity.morebosses.yak": "Yak",
       "death.attack.bleed": "%1$s sangrou até a morte",
       "block.morebosses.corium": "Corium",
       "item.morebosses.bone_carver": "Entalhador de Ossos",
+      "item.morebosses.hellish_tungsten_boots": "Hellish Tungsten Boots",
       "item.morebosses.guardiano_of_the_eyes_spawn_egg": "Ovo Gerador de Ender",
       "item.morebosses.lush_eye": "Olho Verdejante",
       "item.morebosses.piglin_boxer_spawn_egg": "Ovo Gerador de Piglin Boxeador",
+      "advancements.ant_eater_nails_ad.descr": "Kill a Lesser Anteater",
       "effect.morebosses.armor_breach": "Brecha na Armadura",
       "block.morebosses.withered_bone_block": "Bloco de Osso Decomposto",
       "subtitles.taunt": "Algúem desafia outro alguém para uma batalha",
@@ -8219,7 +8601,6 @@
       "item.morebosses.engineer_spawn_egg": "Ovo Gerador de Engenheiro",
       "item.morebosses.end_scales": "End Scales",
       "item.morebosses.boss_remover": "Raquete Eléltrica [ITEM DE DEV]",
-      "entity.morebosses.magmatic_champion": "Campeão Magmático, o Enviado do Inferno",
       "item.morebosses.cuirlass_armor_helmet": "Capacete de Couraça",
       "advancements.im_the_stone_now.title": "Eu Sou a Pedra Agora!!",
       "biome.morebosses.grand_pallace": "Grand Palace",
@@ -8343,9 +8724,9 @@
   "workspaceSettings": {
     "modid": "morebosses",
     "modName": "Lu\u0027s More Bosses and Mobs",
-    "version": "1.2.404",
+    "version": "1.3.0",
     "description": "U want more bosses? We have more bosses",
-    "author": "That Lucatube, JorginhoAMM",
+    "author": "That LucaTube, JorginhoAMM",
     "websiteURL": "https://mcreator.net",
     "license": "All Rights Reserved",
     "serverSideOnly": false,

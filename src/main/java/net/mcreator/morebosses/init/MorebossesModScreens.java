@@ -11,6 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.client.gui.screens.MenuScreens;
 
+import net.mcreator.morebosses.client.gui.YakGuyScreen;
 import net.mcreator.morebosses.client.gui.WorkshopGUIScreen;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -19,6 +20,7 @@ public class MorebossesModScreens {
 	public static void clientLoad(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
 			MenuScreens.register(MorebossesModMenus.WORKSHOP_GUI.get(), WorkshopGUIScreen::new);
+			MenuScreens.register(MorebossesModMenus.YAK_GUY.get(), YakGuyScreen::new);
 		});
 	}
 }

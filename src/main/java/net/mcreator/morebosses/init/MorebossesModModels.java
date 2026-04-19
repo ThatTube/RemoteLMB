@@ -14,6 +14,7 @@ import net.mcreator.morebosses.client.model.Modelshockwave;
 import net.mcreator.morebosses.client.model.Modelmetalix_chestplate;
 import net.mcreator.morebosses.client.model.Modelmagma_pit;
 import net.mcreator.morebosses.client.model.Modellaser_beam;
+import net.mcreator.morebosses.client.model.Modelbugs;
 import net.mcreator.morebosses.client.model.Modelbracadeira;
 import net.mcreator.morebosses.client.model.ModelShrimp;
 import net.mcreator.morebosses.client.model.ModelLamentBomb;
@@ -33,6 +34,7 @@ public class MorebossesModModels {
 		event.registerLayerDefinition(Modelshockwave.LAYER_LOCATION, Modelshockwave::createBodyLayer);
 		event.registerLayerDefinition(Modelbracadeira.LAYER_LOCATION, Modelbracadeira::createBodyLayer);
 		event.registerLayerDefinition(ModelLamentBomb.LAYER_LOCATION, ModelLamentBomb::createBodyLayer);
+		event.registerLayerDefinition(Modelbugs.LAYER_LOCATION, Modelbugs::createBodyLayer);
 		event.registerLayerDefinition(ModelShrimp.LAYER_LOCATION, ModelShrimp::createBodyLayer);
 	}
 }

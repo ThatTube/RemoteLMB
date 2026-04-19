@@ -80,12 +80,12 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
     private float prevHeadPitch = 0;
 
     // Constantes do Death Laser (baseadas no Harbinger)
-private static final int DEATH_LASER_FIRE_TICK = 18;       // Tick da animação de carga em que o laser é disparado
-private static final int DEATH_LASER_BEAM_DURATION = 60;   // Duração do feixe em ticks
-private static final int DEATH_LASER_COOLDOWN = 120;       // Cooldown após o ataque
-
-// Campo para controlar o fim do laser (tempo em ticks do mundo)
-private int deathLaserEndTick = 0;
+    private static final int DEATH_LASER_FIRE_TICK = 18;       // Tick da animação de carga em que o laser é disparado
+    private static final int DEATH_LASER_BEAM_DURATION = 60;   // Duração do feixe em ticks
+    private static final int DEATH_LASER_COOLDOWN = 120;       // Cooldown após o ataque
+    
+    // Campo para controlar o fim do laser (tempo em ticks do mundo)
+    private int deathLaserEndTick = 0;
     
     public String animationprocedure = "empty";
     String prevAnim = "empty";
@@ -239,7 +239,8 @@ private int deathLaserEndTick = 0;
         double random = this.random.nextDouble();
 
         if (distanceSq <= 25.0) {
-            if (random < 0.6) startPunchA();
+            // Aumentada chance de soco (antes 0.6, agora 0.85)
+            if (random < 0.85) startPunchA();
             else startSlam();
         } 
         else if (distanceSq > 25.0 && distanceSq < 256.0) {
@@ -258,23 +259,25 @@ private int deathLaserEndTick = 0;
         switch (attackState) {
             case 1: // Punch A
                 if (attackTimer == 8) { 
-                    performConeDamage(6.0f, 70f, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+                    // Aumentado alcance e ângulo para facilitar acerto
+                    performConeDamage(7.0f, 90f, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
                 }
                 if (attackTimer >= 25) { 
-                    if (target != null && this.distanceToSqr(target) <= 36.0 && Math.random() < 0.7) {
+                    if (target != null && this.distanceToSqr(target) <= 36.0 && Math.random() < 0.9) { // Aumentada chance de combo
                         startPunchB();
                     } else {
-                        resetAttack(10);
+                        resetAttack(5); // Reduzido cooldown
                     }
                 }
                 break;
 
             case 2: // Punch B
                 if (attackTimer == 8) {
-                    performConeDamage(6.5f, 75f, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE) + 4f);
+                    // Aumentado alcance e ângulo para facilitar acerto
+                    performConeDamage(7.5f, 90f, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE) + 4f);
                 }
                 if (attackTimer >= 25) {
-                    resetAttack(20);
+                    resetAttack(10); // Reduzido cooldown
                 }
                 break;
 
@@ -286,35 +289,28 @@ private int deathLaserEndTick = 0;
                 if (attackTimer >= 30) resetAttack(40);
                 break;
 
-            case 4: // Laser Charge (agora usando a temporização do Harbinger)
-    // No tick 18, dispara o feixe
-    if (attackTimer == DEATH_LASER_FIRE_TICK) {
-        spawnDeathLaserBeam();   // ← novo método que cria o laser
-        // Toca o som de disparo (igual ao Harbinger)
-        this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:enderbombshoot")), 4.0f, 0.75f);
-    }
-    // Quando a animação de carga termina (25 ticks), entra no loop do laser
-    if (attackTimer >= 25) {
-        attackState = 5;
-        attackTimer = 0;
-        animationprocedure = "laserloop";   // animação em loop
-        setAnimation("laserloop");
-    }
-    break;
+            case 4: // Laser Charge
+                if (attackTimer == DEATH_LASER_FIRE_TICK) {
+                    spawnDeathLaserBeam();
+                    this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:enderbombshoot")), 4.0f, 0.75f);
+                }
+                if (attackTimer >= 25) {
+                    attackState = 5;
+                    attackTimer = 0;
+                    animationprocedure = "laserloop";
+                    setAnimation("laserloop");
+                }
+                break;
 
-case 5: // Laser Active (feixe ativo)
-    
-    // A cabeça segue o alvo durante toda a fase ativa (igual ao Harbinger)
-    if (target != null) {
-        this.getLookControl().setLookAt(target.getX(), target.getY() + target.getBbHeight() / 2, target.getZ(), 6, 90);
-        this.lookAt(target, 30, 30);
-    }
-    
-    // Verifica se o tempo de vida do laser acabou ou se ele foi destruído
-    if (this.tickCount >= deathLaserEndTick || activeLaser == null) {
-        resetAttack(DEATH_LASER_COOLDOWN);
-    }
-    break;
+            case 5: // Laser Active
+                if (target != null) {
+                    this.getLookControl().setLookAt(target.getX(), target.getY() + target.getBbHeight() / 2, target.getZ(), 6, 90);
+                    this.lookAt(target, 30, 30);
+                }
+                if (this.tickCount >= deathLaserEndTick || activeLaser == null) {
+                    resetAttack(DEATH_LASER_COOLDOWN);
+                }
+                break;
                 
             case 6: // Teleport
                 if (attackTimer == 10) performTeleport();
@@ -398,45 +394,44 @@ case 5: // Laser Active (feixe ativo)
     // --- MÉTODO DO LASER BEAM ---
     
     private void spawnDeathLaserBeam() {
-    if (this.level().isClientSide) return;
-    
-    // Remove o laser anterior se existir
-    if (activeLaser != null) {
-        activeLaser.on = false;
-        activeLaser = null;
+        if (this.level().isClientSide) return;
+        
+        // Remove o laser anterior se existir
+        if (activeLaser != null) {
+            activeLaser.on = false;
+            activeLaser = null;
+        }
+        
+        // Parâmetros do Death Laser
+        float baseDamage = 8.0f;
+        float hpDamagePercentage = 10.0f;
+        int duration = DEATH_LASER_BEAM_DURATION;
+        double laserHeight = 7.2;
+        
+        // Usa a rotação da cabeça para apontar
+        float headYaw = this.yHeadRot;
+        float headPitch = this.getXRot();
+        float laserYaw = (float) Math.toRadians(headYaw + 90);
+        float laserPitch = (float) Math.toRadians(-headPitch);
+        
+        EnderLaserBeamEntity laser = new EnderLaserBeamEntity(
+            this.level(),
+            this,
+            this.getX(),
+            this.getY() + laserHeight,
+            this.getZ(),
+            laserYaw,
+            laserPitch,
+            duration,
+            baseDamage,
+            hpDamagePercentage
+        );
+        
+        deathLaserEndTick = this.tickCount + duration;
+        
+        this.level().addFreshEntity(laser);
+        activeLaser = laser;
     }
-    
-    // Parâmetros do Death Laser (dano mais alto, duração de 60 ticks)
-    float baseDamage = 8.0f;                // Ajuste conforme necessário
-    float hpDamagePercentage = 10.0f;        // Dano percentual de vida
-    int duration = DEATH_LASER_BEAM_DURATION; // 60 ticks
-    double laserHeight = 7.2;                 // Altura do feixe
-    
-    // Usa a rotação da cabeça para apontar
-    float headYaw = this.yHeadRot;
-    float headPitch = this.getXRot();
-    float laserYaw = (float) Math.toRadians(headYaw + 90);
-    float laserPitch = (float) Math.toRadians(-headPitch);
-    
-    EnderLaserBeamEntity laser = new EnderLaserBeamEntity(
-        this.level(),
-        this,
-        this.getX(),
-        this.getY() + laserHeight,
-        this.getZ(),
-        laserYaw,
-        laserPitch,
-        duration,
-        baseDamage,
-        hpDamagePercentage
-    );
-    
-    // Registra o tick em que o laser deve acabar
-    deathLaserEndTick = this.tickCount + duration;
-    
-    this.level().addFreshEntity(laser);
-    activeLaser = laser;
-}
 
     // --- LÓGICA DE DANO ---
 
@@ -491,81 +486,109 @@ case 5: // Laser Active (feixe ativo)
     }
 
     private void performTeleport() {
-    if (this.level().isClientSide) return;
+        if (this.level().isClientSide) return;
 
-    LivingEntity target = this.getTarget();
-    Vec3 teleportPos = null;
-    final double MIN_TELEPORT_DISTANCE = 5.0; // distância mínima para evitar teleporte no mesmo lugar
-
-    if (this.level() instanceof ServerLevel serverLevel) {
-        serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.PORTAL,
-            this.getX(), this.getY() + 1, this.getZ(), 30, 0.5, 1, 0.5, 0.5);
-    }
-
-    for (int i = 0; i < 15; i++) {
-        double x, y, z;
-        if (target != null && this.random.nextDouble() < 0.6) {
-            Vec3 back = target.getLookAngle().scale(-4);
-            x = target.getX() + back.x + (this.random.nextDouble() - 0.5) * 3;
-            z = target.getZ() + back.z + (this.random.nextDouble() - 0.5) * 3;
-            y = target.getY();
-        } else {
-            double range = 20;
-            x = this.getX() + (this.random.nextDouble() - 0.5) * range * 2;
-            z = this.getZ() + (this.random.nextDouble() - 0.5) * range * 2;
-            y = this.getY() + (this.random.nextInt(4) - 2);
-        }
-
-        // Verifica se a distância até a posição atual é maior que o mínimo
-        double distSq = this.distanceToSqr(x, y, z);
-        if (distSq < MIN_TELEPORT_DISTANCE * MIN_TELEPORT_DISTANCE) {
-            continue; // muito perto, tenta novamente
-        }
-
-        BlockPos pos = BlockPos.containing(x, y, z);
-        if (this.level().getBlockState(pos.below()).isSolid() &&
-            this.level().noCollision(this, this.getBoundingBox().move(x - this.getX(), y - this.getY(), z - this.getZ()))) {
-            teleportPos = new Vec3(x, y, z);
-            break;
-        }
-    }
-
-    if (teleportPos != null) {
-        this.teleportTo(teleportPos.x, teleportPos.y, teleportPos.z);
-        this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:endertp")), 1.0f, 1.0f);
+        LivingEntity target = this.getTarget();
+        Vec3 teleportPos = null;
+        final double MIN_TELEPORT_DISTANCE = 5.0;
 
         if (this.level() instanceof ServerLevel serverLevel) {
             serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.PORTAL,
-                teleportPos.x, teleportPos.y + 1, teleportPos.z, 30, 0.5, 1, 0.5, 0.5);
+                this.getX(), this.getY() + 1, this.getZ(), 30, 0.5, 1, 0.5, 0.5);
+        }
+
+        for (int i = 0; i < 15; i++) {
+            double x, y, z;
+            if (target != null && this.random.nextDouble() < 0.6) {
+                Vec3 back = target.getLookAngle().scale(-4);
+                x = target.getX() + back.x + (this.random.nextDouble() - 0.5) * 3;
+                z = target.getZ() + back.z + (this.random.nextDouble() - 0.5) * 3;
+                y = target.getY();
+            } else {
+                double range = 20;
+                x = this.getX() + (this.random.nextDouble() - 0.5) * range * 2;
+                z = this.getZ() + (this.random.nextDouble() - 0.5) * range * 2;
+                y = this.getY() + (this.random.nextInt(4) - 2);
+            }
+
+            double distSq = this.distanceToSqr(x, y, z);
+            if (distSq < MIN_TELEPORT_DISTANCE * MIN_TELEPORT_DISTANCE) {
+                continue;
+            }
+
+            BlockPos pos = BlockPos.containing(x, y, z);
+            if (this.level().getBlockState(pos.below()).isSolid() &&
+                this.level().noCollision(this, this.getBoundingBox().move(x - this.getX(), y - this.getY(), z - this.getZ()))) {
+                teleportPos = new Vec3(x, y, z);
+                break;
+            }
+        }
+
+        if (teleportPos != null) {
+            this.teleportTo(teleportPos.x, teleportPos.y, teleportPos.z);
+            this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:endertp")), 1.0f, 1.0f);
+
+            if (this.level() instanceof ServerLevel serverLevel) {
+                serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.PORTAL,
+                    teleportPos.x, teleportPos.y + 1, teleportPos.z, 30, 0.5, 1, 0.5, 0.5);
+            }
         }
     }
-}
 
-    // --- SISTEMA DE BLOQUEIO ---
+    // --- SISTEMA DE DANO RECEBIDO ---
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
+        // Imunidades absolutas (sempre negam dano)
         if (source.is(DamageTypes.FALL) || source.is(DamageTypes.DRAGON_BREATH) || 
             source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION))
             return false;
 
-        if (this.attackState != 0 && this.attackState != 4 && this.attackState != 5) {
+        // Verifica se o dano é causado por uma entidade (mob, player ou projétil)
+        boolean isEntityDamage = source.getEntity() != null;
+
+        // Danos não causados por entidades (ambientais: fogo, lava, afogamento, etc.) passam direto
+        if (!isEntityDamage) {
+            return super.hurt(source, amount);
+        }
+
+        // A partir daqui, só lidamos com danos vindos de entidades
+
+        // Durante o ataque de laser (estados 4 e 5) – NENHUMA redução ou bloqueio
+        if (attackState == 4 || attackState == 5) {
+            return super.hurt(source, amount);
+        }
+
+        // Estados de ataque corpo a corpo (1,2,3) e teleporte (6) – redução de 50%
+        if (attackState >= 1 && attackState <= 6) {
+            amount *= 0.5f; // reduz dano pela metade
+            // Som de impacto para indicar resistência
+            if (this.tickCount % 5 == 0) {
+                this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:enderblock")), 1.5f, 1.5f);
+            }
+            return super.hurt(source, amount);
+        }
+
+        // Estado de bloqueio dedicado (7) – nega completamente o dano de entidades
+        if (attackState == 7) {
             if (this.tickCount % 5 == 0) {
                 this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:enderblock")), 1.5f, 1.5f);
             }
             return false;
         }
 
-        if (this.attackState == 0 && amount > 0) {
-            if (this.random.nextFloat() < 0.15f) {
-                triggerBlock();
+        // Estado idle (0) – chance de ativar bloqueio (8%) apenas contra dano de entidades
+        if (attackState == 0 && amount > 0) {
+            if (this.random.nextFloat() < 0.08f) {
+                triggerBlock(); // ativa animação de block
                 this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:enderblock")), 1.0f, 1.0f);
-                return false;
+                return false; // bloqueou, não toma dano
             }
         }
 
+        // Qualquer outro caso (ex.: estado idle sem block) – dano normal
         return super.hurt(source, amount);
-    }   
+    }
     
     // --- GECKOLIB / ANIMAÇÕES ---
 
@@ -644,7 +667,8 @@ case 5: // Laser Active (feixe ativo)
 
     public static AttributeSupplier.Builder createAttributes() {
         AttributeSupplier.Builder builder = Mob.createMobAttributes();
-        builder = builder.add(Attributes.MOVEMENT_SPEED, 0.25);
+        // Velocidade de movimento reduzida (antes 0.25, agora 0.18)
+        builder = builder.add(Attributes.MOVEMENT_SPEED, 0.18);
         builder = builder.add(Attributes.MAX_HEALTH, 450);
         builder = builder.add(Attributes.ARMOR, 20);
         builder = builder.add(Attributes.ATTACK_DAMAGE, 12);
@@ -663,7 +687,7 @@ case 5: // Laser Active (feixe ativo)
                 return event.setAndContinue(RawAnimation.begin().thenPlay("death"));
             }
             if (this.isAggressive() && event.isMoving()) {
-                return event.setAndContinue(RawAnimation.begin().thenLoop("walk"));
+                return event.setAndContinue(RawAnimation.begin().thenLoop("run"));
             }
             return event.setAndContinue(RawAnimation.begin().thenLoop("idle"));
         }
@@ -690,7 +714,6 @@ case 5: // Laser Active (feixe ativo)
     protected void tickDeath() {
         ++this.deathTime;
         if (this.deathTime == 20) {
-            // Remover o laser se existir ao morrer
             if (activeLaser != null) {
                 activeLaser.on = false;
                 activeLaser = null;

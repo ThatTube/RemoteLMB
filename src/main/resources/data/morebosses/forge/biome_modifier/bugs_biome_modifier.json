@@ -1,0 +1,14 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "jungle",
+    "sparse_jungle",
+    "savanna"
+  ],
+  "spawners": {
+    "type": "morebosses:bugs",
+    "weight": 20,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

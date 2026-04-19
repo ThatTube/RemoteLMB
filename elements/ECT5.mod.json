@@ -12,13 +12,13 @@
     "recipeShapeless": false,
     "recipeSlots": [
       {
-        "value": ""
+        "value": "CUSTOM:EndDust"
       },
       {
         "value": "CUSTOM:EndeteriumBlock"
       },
       {
-        "value": ""
+        "value": "CUSTOM:EndDust"
       },
       {
         "value": "CUSTOM:EndeteriumBlock"
@@ -30,13 +30,13 @@
         "value": "CUSTOM:EndeteriumBlock"
       },
       {
-        "value": ""
+        "value": "CUSTOM:EndDust"
       },
       {
         "value": "CUSTOM:EndeteriumBlock"
       },
       {
-        "value": ""
+        "value": "CUSTOM:EndDust"
       }
     ],
     "recipeReturnStack": {

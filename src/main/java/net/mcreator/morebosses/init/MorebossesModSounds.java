@@ -24,4 +24,8 @@ public class MorebossesModSounds {
 	public static final RegistryObject<SoundEvent> ENDERSLAM = REGISTRY.register("enderslam", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "enderslam")));
 	public static final RegistryObject<SoundEvent> ENDERBLOCK = REGISTRY.register("enderblock", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "enderblock")));
 	public static final RegistryObject<SoundEvent> ENDHURTS = REGISTRY.register("endhurts", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "endhurts")));
+	public static final RegistryObject<SoundEvent> SWING1 = REGISTRY.register("swing1", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "swing1")));
+	public static final RegistryObject<SoundEvent> SWING2 = REGISTRY.register("swing2", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "swing2")));
+	public static final RegistryObject<SoundEvent> ARMORBROKE = REGISTRY.register("armorbroke", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "armorbroke")));
+	public static final RegistryObject<SoundEvent> SLAGTIOARMOR = REGISTRY.register("slagtioarmor", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("morebosses", "slagtioarmor")));
 }

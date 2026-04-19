@@ -2,15 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "pattern": [
-    " a ",
     "aba",
-    " a "
+    "bcb",
+    "aba"
   ],
   "key": {
     "a": {
-      "item": "morebosses:endeterium_block"
+      "item": "morebosses:end_dust"
     },
     "b": {
+      "item": "morebosses:endeterium_block"
+    },
+    "c": {
       "item": "minecraft:ender_eye"
     }
   },

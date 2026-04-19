@@ -51,6 +51,7 @@ import net.mcreator.morebosses.item.OldEyeItem;
 import net.mcreator.morebosses.item.NetheriteScimitarItem;
 import net.mcreator.morebosses.item.NetheriteLongSwordItem;
 import net.mcreator.morebosses.item.NetherBricksStickItem;
+import net.mcreator.morebosses.item.NailSwordItem;
 import net.mcreator.morebosses.item.MotherboardItem;
 import net.mcreator.morebosses.item.MonstrosityEyeItem;
 import net.mcreator.morebosses.item.MetalixTemplateItem;
@@ -63,6 +64,7 @@ import net.mcreator.morebosses.item.MMAEyeItem;
 import net.mcreator.morebosses.item.LushEyeItem;
 import net.mcreator.morebosses.item.LensItem;
 import net.mcreator.morebosses.item.JungleEssenceItem;
+import net.mcreator.morebosses.item.HellishTungstenItem;
 import net.mcreator.morebosses.item.HellishTungstenIngotItem;
 import net.mcreator.morebosses.item.GreenMagmaItem;
 import net.mcreator.morebosses.item.GreenMagmaCreamItem;
@@ -90,6 +92,10 @@ import net.mcreator.morebosses.item.CopperHammerItem;
 import net.mcreator.morebosses.item.CopperGloveItem;
 import net.mcreator.morebosses.item.CopperDiscItem;
 import net.mcreator.morebosses.item.CookedShrimpItem;
+import net.mcreator.morebosses.item.ColosseumUpgradeItem;
+import net.mcreator.morebosses.item.ColosseumEyeItem;
+import net.mcreator.morebosses.item.ChocolateBoxItem;
+import net.mcreator.morebosses.item.BugItem;
 import net.mcreator.morebosses.item.BrokenSwordItem;
 import net.mcreator.morebosses.item.BrokenIdolItem;
 import net.mcreator.morebosses.item.BossRemoverItem;
@@ -101,7 +107,8 @@ import net.mcreator.morebosses.item.BlomiBerryItem;
 import net.mcreator.morebosses.item.BigBottleItem;
 import net.mcreator.morebosses.item.BasalticShieldItem;
 import net.mcreator.morebosses.item.BasalticShardItem;
-import net.mcreator.morebosses.item.ArmagedomItem;
+import net.mcreator.morebosses.item.ArmageDOOMKeyItem;
+import net.mcreator.morebosses.item.AntEaterNailsItem;
 import net.mcreator.morebosses.block.display.TheEyeofTheChaosDisplayItem;
 import net.mcreator.morebosses.block.display.GongDisplayItem;
 import net.mcreator.morebosses.block.display.EnergyAltarDisplayItem;
@@ -199,7 +206,6 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> BLOLIUM = block(MorebossesModBlocks.BLOLIUM);
 	public static final RegistryObject<Item> OPAL_ORE_IN_DOOM_ROCK = block(MorebossesModBlocks.OPAL_ORE_IN_DOOM_ROCK);
 	public static final RegistryObject<Item> OPAL = REGISTRY.register("opal", () -> new OpalItem());
-	public static final RegistryObject<Item> MAGMATIC_CHAMPION_SPAWN_EGG = REGISTRY.register("magmatic_champion_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.MAGMATIC_CHAMPION, -1, -1, new Item.Properties()));
 	public static final RegistryObject<Item> HELLISH_TUNGSTEN_INGOT = REGISTRY.register("hellish_tungsten_ingot", () -> new HellishTungstenIngotItem());
 	public static final RegistryObject<Item> HELLISH_TUNGSTEN_BLOCK = block(MorebossesModBlocks.HELLISH_TUNGSTEN_BLOCK);
 	public static final RegistryObject<Item> DOOM_ROCK = block(MorebossesModBlocks.DOOM_ROCK);
@@ -208,7 +214,6 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> BOB_BUCKET = REGISTRY.register("bob_bucket", () -> new BobItem());
 	public static final RegistryObject<Item> COPPER_DISC = REGISTRY.register("copper_disc", () -> new CopperDiscItem());
 	public static final RegistryObject<Item> JUNGLE_ESSENCE = REGISTRY.register("jungle_essence", () -> new JungleEssenceItem());
-	public static final RegistryObject<Item> ARMAGEDOM = REGISTRY.register("armagedom", () -> new ArmagedomItem());
 	public static final RegistryObject<Item> BASALTIC_SHARD = REGISTRY.register("basaltic_shard", () -> new BasalticShardItem());
 	public static final RegistryObject<Item> COLOSSEUM_BRICKS = block(MorebossesModBlocks.COLOSSEUM_BRICKS);
 	public static final RegistryObject<Item> COLOSSEUM_BRICKS_FENCE = block(MorebossesModBlocks.COLOSSEUM_BRICKS_FENCE);
@@ -274,6 +279,23 @@ public class MorebossesModItems {
 	public static final RegistryObject<Item> ENERGY_ALTAR = REGISTRY.register(MorebossesModBlocks.ENERGY_ALTAR.getId().getPath(), () -> new EnergyAltarDisplayItem(MorebossesModBlocks.ENERGY_ALTAR.get(), new Item.Properties()));
 	public static final RegistryObject<Item> THE_EYEOF_THE_CHAOS = REGISTRY.register(MorebossesModBlocks.THE_EYEOF_THE_CHAOS.getId().getPath(),
 			() -> new TheEyeofTheChaosDisplayItem(MorebossesModBlocks.THE_EYEOF_THE_CHAOS.get(), new Item.Properties()));
+	public static final RegistryObject<Item> WATER_STRIDER_SPAWN_EGG = REGISTRY.register("water_strider_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.WATER_STRIDER, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> MUNAEA_BETA_SPAWN_EGG = REGISTRY.register("munaea_beta_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.MUNAEA_BETA, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> BUG = REGISTRY.register("bug", () -> new BugItem());
+	public static final RegistryObject<Item> LESSER_ANTEATER_SPAWN_EGG = REGISTRY.register("lesser_anteater_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.LESSER_ANTEATER, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> BUGS_SPAWN_EGG = REGISTRY.register("bugs_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.BUGS, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> ANT_EATER_NAILS = REGISTRY.register("ant_eater_nails", () -> new AntEaterNailsItem());
+	public static final RegistryObject<Item> CHOCOLATE_BOX = REGISTRY.register("chocolate_box", () -> new ChocolateBoxItem());
+	public static final RegistryObject<Item> NAIL_SWORD = REGISTRY.register("nail_sword", () -> new NailSwordItem());
+	public static final RegistryObject<Item> YAK_SPAWN_EGG = REGISTRY.register("yak_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.YAK, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> SMAGMAR_SPAWN_EGG = REGISTRY.register("smagmar_spawn_egg", () -> new ForgeSpawnEggItem(MorebossesModEntities.SMAGMAR, -1, -1, new Item.Properties()));
+	public static final RegistryObject<Item> HELLISH_TUNGSTEN_HELMET = REGISTRY.register("hellish_tungsten_helmet", () -> new HellishTungstenItem.Helmet());
+	public static final RegistryObject<Item> HELLISH_TUNGSTEN_CHESTPLATE = REGISTRY.register("hellish_tungsten_chestplate", () -> new HellishTungstenItem.Chestplate());
+	public static final RegistryObject<Item> HELLISH_TUNGSTEN_LEGGINGS = REGISTRY.register("hellish_tungsten_leggings", () -> new HellishTungstenItem.Leggings());
+	public static final RegistryObject<Item> HELLISH_TUNGSTEN_BOOTS = REGISTRY.register("hellish_tungsten_boots", () -> new HellishTungstenItem.Boots());
+	public static final RegistryObject<Item> COLOSSEUM_EYE = REGISTRY.register("colosseum_eye", () -> new ColosseumEyeItem());
+	public static final RegistryObject<Item> COLOSSEUM_UPGRADE = REGISTRY.register("colosseum_upgrade", () -> new ColosseumUpgradeItem());
+	public static final RegistryObject<Item> ARMAGE_DOOM_KEY = REGISTRY.register("armage_doom_key", () -> new ArmageDOOMKeyItem());
 
 	// Start of user code block custom items
 	// End of user code block custom items

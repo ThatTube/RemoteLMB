@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "hellish_tungsten_ingot",
+    "texture": "hellish_tungsten",
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],

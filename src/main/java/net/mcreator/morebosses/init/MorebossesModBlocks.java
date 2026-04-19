@@ -67,7 +67,6 @@ import net.mcreator.morebosses.block.BobBlock;
 import net.mcreator.morebosses.block.BlueSoulLightBlock;
 import net.mcreator.morebosses.block.BlomiBerryBushBlock;
 import net.mcreator.morebosses.block.BloliumBlock;
-import net.mcreator.morebosses.block.ArmagedomPortalBlock;
 import net.mcreator.morebosses.MorebossesMod;
 
 public class MorebossesModBlocks {
@@ -101,7 +100,6 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> OPAL_ORE_IN_CORIUM = REGISTRY.register("opal_ore_in_corium", () -> new OpalOreInCoriumBlock());
 	public static final RegistryObject<Block> COBBLED_DOOM_ROCK = REGISTRY.register("cobbled_doom_rock", () -> new CobbledDOOMRockBlock());
 	public static final RegistryObject<Block> BOB = REGISTRY.register("bob", () -> new BobBlock());
-	public static final RegistryObject<Block> ARMAGEDOM_PORTAL = REGISTRY.register("armagedom_portal", () -> new ArmagedomPortalBlock());
 	public static final RegistryObject<Block> COLOSSEUM_BRICKS = REGISTRY.register("colosseum_bricks", () -> new ColosseumBricksBlock());
 	public static final RegistryObject<Block> COLOSSEUM_BRICKS_FENCE = REGISTRY.register("colosseum_bricks_fence", () -> new ColosseumBricksFenceBlock());
 	public static final RegistryObject<Block> COLOSSEUM_BRICKS_WALL = REGISTRY.register("colosseum_bricks_wall", () -> new ColosseumBricksWallBlock());
