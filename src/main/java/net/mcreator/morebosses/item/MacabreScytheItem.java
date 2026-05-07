@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.entity.LivingEntity;
 
+import net.mcreator.morebosses.procedures.TwoHeadedMaceEntitySwingsItemProcedure;
 import net.mcreator.morebosses.procedures.EncantamentosNaFoiceProcedure;
 
 public class MacabreScytheItem extends HoeItem {
@@ -43,6 +44,13 @@ public class MacabreScytheItem extends HoeItem {
 	public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
 		boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
 		EncantamentosNaFoiceProcedure.execute(entity.level(), entity, sourceentity);
+		return retval;
+	}
+
+	@Override
+	public boolean onEntitySwing(ItemStack itemstack, LivingEntity entity) {
+		boolean retval = super.onEntitySwing(itemstack, entity);
+		TwoHeadedMaceEntitySwingsItemProcedure.execute(entity.level(), entity);
 		return retval;
 	}
 }

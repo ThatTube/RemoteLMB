@@ -33,6 +33,9 @@
     "damageOnCrafting": false,
     "onEntityHitWith": {
       "name": "EncantamentosNaFoice"
+    },
+    "onEntitySwing": {
+      "name": "TwoHeadedMaceEntitySwingsItem"
     }
   }
 }

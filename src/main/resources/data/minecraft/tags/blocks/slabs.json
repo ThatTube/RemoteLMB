@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "morebosses:statue_stand",
     "morebosses:colosseum_bricks_slab"
   ]
 }

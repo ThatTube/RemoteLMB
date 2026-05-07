@@ -208,72 +208,83 @@ public class YakEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
-	public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {
-		ItemStack itemstack = sourceentity.getItemInHand(hand);
-		InteractionResult retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-		if (sourceentity.isSecondaryUseActive()) {
-			if (sourceentity instanceof ServerPlayer serverPlayer) {
-				NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
-					@Override
-					public Component getDisplayName() {
-						return Component.literal("Yak");
-					}
+    public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {
+        ItemStack itemstack = sourceentity.getItemInHand(hand);
+        InteractionResult retval = InteractionResult.sidedSuccess(this.level().isClientSide());
 
-					@Override
-					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						FriendlyByteBuf packetBuffer = new FriendlyByteBuf(Unpooled.buffer());
-						packetBuffer.writeBlockPos(sourceentity.blockPosition());
-						packetBuffer.writeByte(0);
-						packetBuffer.writeVarInt(YakEntity.this.getId());
-						return new YakGuyMenu(id, inventory, packetBuffer);
-					}
-				}, buf -> {
-					buf.writeBlockPos(sourceentity.blockPosition());
-					buf.writeByte(0);
-					buf.writeVarInt(this.getId());
-				});
-			}
-			return InteractionResult.sidedSuccess(this.level().isClientSide());
-		}
-		Item item = itemstack.getItem();
-		if (itemstack.getItem() instanceof SpawnEggItem) {
-			retval = super.mobInteract(sourceentity, hand);
-		} else if (this.level().isClientSide()) {
-			retval = (this.isTame() && this.isOwnedBy(sourceentity) || this.isFood(itemstack)) ? InteractionResult.sidedSuccess(this.level().isClientSide()) : InteractionResult.PASS;
-		} else {
-			if (this.isTame()) {
-				if (this.isOwnedBy(sourceentity)) {
-					if (item.isEdible() && this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-						this.usePlayerItem(sourceentity, hand, itemstack);
-						this.heal((float) item.getFoodProperties().getNutrition());
-						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-					} else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-						this.usePlayerItem(sourceentity, hand, itemstack);
-						this.heal(4);
-						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-					} else {
-						retval = super.mobInteract(sourceentity, hand);
-					}
-				}
-			} else if (this.isFood(itemstack)) {
-				this.usePlayerItem(sourceentity, hand, itemstack);
-				if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, sourceentity)) {
-					this.tame(sourceentity);
-					this.level().broadcastEntityEvent(this, (byte) 7);
-				} else {
-					this.level().broadcastEntityEvent(this, (byte) 6);
-				}
-				this.setPersistenceRequired();
-				retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-			} else {
-				retval = super.mobInteract(sourceentity, hand);
-				if (retval == InteractionResult.SUCCESS || retval == InteractionResult.CONSUME)
-					this.setPersistenceRequired();
-			}
-		}
-		sourceentity.startRiding(this);
-		return retval;
-	}
+        // Lógica do Inventário (Shift + Clique)
+        if (sourceentity.isSecondaryUseActive()) {
+            // Só permite abrir se estiver domado e o jogador for o dono
+            if (this.isTame() && this.isOwnedBy(sourceentity)) {
+                if (sourceentity instanceof ServerPlayer serverPlayer) {
+                    NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
+                        @Override
+                        public Component getDisplayName() {
+                            return Component.literal("Yak");
+                        }
+
+                        @Override
+                        public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+                            FriendlyByteBuf packetBuffer = new FriendlyByteBuf(Unpooled.buffer());
+                            packetBuffer.writeBlockPos(sourceentity.blockPosition());
+                            packetBuffer.writeByte(0);
+                            packetBuffer.writeVarInt(YakEntity.this.getId());
+                            return new YakGuyMenu(id, inventory, packetBuffer);
+                        }
+                    }, buf -> {
+                        buf.writeBlockPos(sourceentity.blockPosition());
+                        buf.writeByte(0);
+                        buf.writeVarInt(this.getId());
+                    });
+                }
+                return InteractionResult.sidedSuccess(this.level().isClientSide());
+            } else {
+                // Se tentar abrir o inventário sem estar domado, não faz nada
+                return InteractionResult.PASS;
+            }
+        }
+
+        Item item = itemstack.getItem();
+        if (itemstack.getItem() instanceof SpawnEggItem) {
+            retval = super.mobInteract(sourceentity, hand);
+        } else if (this.level().isClientSide()) {
+            retval = (this.isTame() && this.isOwnedBy(sourceentity) || this.isFood(itemstack)) ? InteractionResult.sidedSuccess(this.level().isClientSide()) : InteractionResult.PASS;
+        } else {
+            if (this.isTame()) {
+                if (this.isOwnedBy(sourceentity)) {
+                    if (item.isEdible() && this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
+                        this.usePlayerItem(sourceentity, hand, itemstack);
+                        this.heal((float) item.getFoodProperties().getNutrition());
+                        retval = InteractionResult.sidedSuccess(this.level().isClientSide());
+                    } else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
+                        this.usePlayerItem(sourceentity, hand, itemstack);
+                        this.heal(4);
+                        retval = InteractionResult.sidedSuccess(this.level().isClientSide());
+                    } else {
+                        // Se estiver domado e não for comida, o jogador monta
+                        sourceentity.startRiding(this);
+                        retval = InteractionResult.sidedSuccess(this.level().isClientSide());
+                    }
+                }
+            } else if (this.isFood(itemstack)) {
+                this.usePlayerItem(sourceentity, hand, itemstack);
+                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, sourceentity)) {
+                    this.tame(sourceentity);
+                    this.level().broadcastEntityEvent(this, (byte) 7);
+                } else {
+                    this.level().broadcastEntityEvent(this, (byte) 6);
+                }
+                this.setPersistenceRequired();
+                retval = InteractionResult.sidedSuccess(this.level().isClientSide());
+            } else {
+                retval = super.mobInteract(sourceentity, hand);
+                if (retval == InteractionResult.SUCCESS || retval == InteractionResult.CONSUME)
+                    this.setPersistenceRequired();
+            }
+        }
+        // Removida a linha startRiding daqui de baixo para evitar montaria sem domar
+        return retval;
+    }
 
 	@Override
 	public void baseTick() {

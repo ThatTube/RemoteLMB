@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "morebosses:block/petaled_sandstone",
+    "particle": "morebosses:block/base_danstone"
+  },
+  "render_type": "solid"
+}

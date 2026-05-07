@@ -25,7 +25,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
-import net.minecraft.server.level.ServerLevel; // IMPORTANTE: Adicionar este import
+import net.minecraft.server.level.ServerLevel; 
 import net.mcreator.morebosses.init.MorebossesModEntities;
 
 public class EnderLaserBeamEntity extends Entity {
@@ -145,8 +145,10 @@ public class EnderLaserBeamEntity extends Entity {
                     if (caster != null && !caster.isAlliedTo(target) && target != caster && 
                         !damagedEntitiesThisTick.contains(target.getId())) {
                         
-                        float baseDamage = this.getDamage();
-                        float hpPercentDamage = (float) (target.getMaxHealth() * this.getHpDamage() * 0.01);
+                        // DANO REDUZIDO AQUI (Multiplicado por 0.5 para cortar pela metade)
+                        // Ajuste os valores 0.5f e 0.005 se quiser diminuir ainda mais.
+                        float baseDamage = this.getDamage() * 0.5f; 
+                        float hpPercentDamage = (float) (target.getMaxHealth() * this.getHpDamage() * 0.005); 
                         float totalDamage = baseDamage + Math.min(baseDamage, hpPercentDamage);
                         
                         System.out.println("Attempting to deal " + totalDamage + " damage to " + target.getName().getString());

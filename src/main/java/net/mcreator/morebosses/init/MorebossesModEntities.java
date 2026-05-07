@@ -44,15 +44,19 @@ import net.mcreator.morebosses.entity.MagmaPitEntity;
 import net.mcreator.morebosses.entity.LesserAnteaterEntity;
 import net.mcreator.morebosses.entity.LaserEntity;
 import net.mcreator.morebosses.entity.LamentBombEntity;
+import net.mcreator.morebosses.entity.IronDaggeEntity;
 import net.mcreator.morebosses.entity.GuardianoOfTheEyesEntity;
 import net.mcreator.morebosses.entity.EyeSentinelEntity;
 import net.mcreator.morebosses.entity.EyeOldEntity;
 import net.mcreator.morebosses.entity.EngineerEntity;
+import net.mcreator.morebosses.entity.EnergyDaggeEntity;
 import net.mcreator.morebosses.entity.EnderSnakeEntity;
 import net.mcreator.morebosses.entity.EnderLaserEntity;
 import net.mcreator.morebosses.entity.EnderLaserBeamEntity;
 import net.mcreator.morebosses.entity.EnderBombEntity;
+import net.mcreator.morebosses.entity.EightPetaledGeneralEntity;
 import net.mcreator.morebosses.entity.DryBonesEntity;
+import net.mcreator.morebosses.entity.CurveSickleOldEntity;
 import net.mcreator.morebosses.entity.CopperMonstrosityEntity;
 import net.mcreator.morebosses.entity.CopperGrablerEntity;
 import net.mcreator.morebosses.entity.CopperEyeEntity;
@@ -203,6 +207,16 @@ public class MorebossesModEntities {
 					.sized(1f, 2f));
 	public static final RegistryObject<EntityType<SmagmarEntity>> SMAGMAR = register("smagmar",
 			EntityType.Builder.<SmagmarEntity>of(SmagmarEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(SmagmarEntity::new).fireImmune().sized(1.2f, 3f));
+	public static final RegistryObject<EntityType<EightPetaledGeneralEntity>> EIGHT_PETALED_GENERAL = register("eight_petaled_general",
+			EntityType.Builder.<EightPetaledGeneralEntity>of(EightPetaledGeneralEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(EightPetaledGeneralEntity::new)
+
+					.sized(1.6f, 4.2f));
+	public static final RegistryObject<EntityType<EnergyDaggeEntity>> ENERGY_DAGGE = register("energy_dagge",
+			EntityType.Builder.<EnergyDaggeEntity>of(EnergyDaggeEntity::new, MobCategory.MISC).setCustomClientFactory(EnergyDaggeEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<IronDaggeEntity>> IRON_DAGGE = register("iron_dagge",
+			EntityType.Builder.<IronDaggeEntity>of(IronDaggeEntity::new, MobCategory.MISC).setCustomClientFactory(IronDaggeEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final RegistryObject<EntityType<CurveSickleOldEntity>> CURVE_SICKLE_OLD = register("curve_sickle_old",
+			EntityType.Builder.<CurveSickleOldEntity>of(CurveSickleOldEntity::new, MobCategory.MISC).setCustomClientFactory(CurveSickleOldEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -244,6 +258,7 @@ public class MorebossesModEntities {
 			BugsEntity.init();
 			YakEntity.init();
 			SmagmarEntity.init();
+			EightPetaledGeneralEntity.init();
 		});
 	}
 
@@ -280,5 +295,6 @@ public class MorebossesModEntities {
 		event.put(BUGS.get(), BugsEntity.createAttributes().build());
 		event.put(YAK.get(), YakEntity.createAttributes().build());
 		event.put(SMAGMAR.get(), SmagmarEntity.createAttributes().build());
+		event.put(EIGHT_PETALED_GENERAL.get(), EightPetaledGeneralEntity.createAttributes().build());
 	}
 }

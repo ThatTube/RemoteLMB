@@ -2,9 +2,9 @@
   "_fv": 73,
   "_type": "item",
   "definition": {
-    "renderType": 1,
-    "texture": "minecraft:ender_eye",
-    "customModelName": "bigeye:default",
+    "renderType": 0,
+    "texture": "ender_shyni_inter",
+    "customModelName": "Normal",
     "customProperties": {},
     "states": [],
     "name": "Ender's Eye",

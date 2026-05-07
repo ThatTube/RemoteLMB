@@ -35,6 +35,6 @@ public class NailSwordItem extends SwordItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(MorebossesModItems.ANT_EATER_NAILS.get()));
 			}
-		}, 3, -2f, new Item.Properties());
+		}, 3, -2.2f, new Item.Properties());
 	}
 }

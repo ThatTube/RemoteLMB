@@ -1,6 +1,8 @@
 
 package net.mcreator.morebosses.block;
 
+import org.checkerframework.checker.units.qual.s;
+
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -42,7 +44,7 @@ public class TheEyeofTheChaosBlock extends BaseEntityBlock implements EntityBloc
 	public TheEyeofTheChaosBlock() {
 		super(BlockBehaviour.Properties.of()
 
-				.sound(SoundType.EMPTY).strength(-1, 3600000).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
+				.sound(SoundType.EMPTY).strength(-1, 3600000).lightLevel(s -> 15).noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 
@@ -63,13 +65,8 @@ public class TheEyeofTheChaosBlock extends BaseEntityBlock implements EntityBloc
 	}
 
 	@Override
-	public boolean propagatesSkylightDown(BlockState state, BlockGetter reader, BlockPos pos) {
-		return true;
-	}
-
-	@Override
 	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		return 0;
+		return 15;
 	}
 
 	@Override

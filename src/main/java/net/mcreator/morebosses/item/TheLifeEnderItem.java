@@ -17,6 +17,8 @@ import net.minecraft.network.chat.Component;
 import net.mcreator.morebosses.procedures.DashLifeEnderProcedure;
 import net.mcreator.morebosses.init.MorebossesModItems;
 
+
+
 import java.util.List;
 
 public class TheLifeEnderItem extends SwordItem {
@@ -80,4 +82,5 @@ public class TheLifeEnderItem extends SwordItem {
         DashLifeEnderProcedure.execute(world, x, y, z, entity);
         return retval;
     }
+
 }

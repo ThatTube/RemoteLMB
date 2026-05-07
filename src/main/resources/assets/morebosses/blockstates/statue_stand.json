@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "morebosses:block/statue_stand"
+    },
+    "type=top": {
+      "model": "morebosses:block/statue_stand_top"
+    },
+    "type=double": {
+      "model": "morebosses:block/statue_stand_full"
+    }
+  }
+}

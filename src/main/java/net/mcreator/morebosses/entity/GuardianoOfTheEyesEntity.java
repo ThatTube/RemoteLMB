@@ -15,6 +15,7 @@ import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
+import net.mcreator.morebosses.init.MorebossesModMobEffects;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -82,7 +83,7 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
     // Constantes do Death Laser (baseadas no Harbinger)
     private static final int DEATH_LASER_FIRE_TICK = 18;       // Tick da animação de carga em que o laser é disparado
     private static final int DEATH_LASER_BEAM_DURATION = 60;   // Duração do feixe em ticks
-    private static final int DEATH_LASER_COOLDOWN = 120;       // Cooldown após o ataque
+    private static final int DEATH_LASER_COOLDOWN = 240;       // Cooldown após o ataque AUMENTADO (antes 120) para diminuir a taxa
     
     // Campo para controlar o fim do laser (tempo em ticks do mundo)
     private int deathLaserEndTick = 0;
@@ -239,12 +240,13 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
         double random = this.random.nextDouble();
 
         if (distanceSq <= 25.0) {
-            // Aumentada chance de soco (antes 0.6, agora 0.85)
-            if (random < 0.85) startPunchA();
+            // Reduzida chance de soco (antes 0.85, agora 0.4) para AUMENTAR a chance do Slam
+            if (random < 0.4) startPunchA();
             else startSlam();
         } 
         else if (distanceSq > 25.0 && distanceSq < 256.0) {
-            if (random < 0.5) startLaserAttack();
+            // Reduzida chance do raio/laser (antes 0.5, agora 0.2)
+            if (random < 0.2) startLaserAttack();
             else if (random < 0.8) startTeleport();
         }
         else {
@@ -259,25 +261,23 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
         switch (attackState) {
             case 1: // Punch A
                 if (attackTimer == 8) { 
-                    // Aumentado alcance e ângulo para facilitar acerto
                     performConeDamage(7.0f, 90f, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
                 }
                 if (attackTimer >= 25) { 
-                    if (target != null && this.distanceToSqr(target) <= 36.0 && Math.random() < 0.9) { // Aumentada chance de combo
+                    if (target != null && this.distanceToSqr(target) <= 36.0 && Math.random() < 0.9) { 
                         startPunchB();
                     } else {
-                        resetAttack(5); // Reduzido cooldown
+                        resetAttack(5); 
                     }
                 }
                 break;
 
             case 2: // Punch B
                 if (attackTimer == 8) {
-                    // Aumentado alcance e ângulo para facilitar acerto
                     performConeDamage(7.5f, 90f, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE) + 4f);
                 }
                 if (attackTimer >= 25) {
-                    resetAttack(10); // Reduzido cooldown
+                    resetAttack(10); 
                 }
                 break;
 
@@ -286,7 +286,8 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
                     performLineDamage(7, 3, 25f);
                     this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("morebosses:enderslam")), 1.0f, 1.0f);
                 }
-                if (attackTimer >= 30) resetAttack(40);
+                // Cooldown do Slam reduzido (antes 40, agora 20) para aumentar a frequência
+                if (attackTimer >= 30) resetAttack(20);
                 break;
 
             case 4: // Laser Charge
@@ -463,6 +464,7 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
 
     private void performLineDamage(double distance, double width, float damage) {
         if (this.level().isClientSide) return;
+        
         Vec3 viewVector = this.getViewVector(1.0F);
         Vec3 startPos = this.position().add(0, 1, 0);
         Vec3 endPos = startPos.add(viewVector.scale(distance));
@@ -472,7 +474,13 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
         List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, damageBox);
         for (LivingEntity e : list) {
             if (e != this && e.isAlive()) {
+                // Aplica o dano de ataque do mob
                 e.hurt(this.damageSources().mobAttack(this), damage);
+                
+                // APLICAÇÃO DO EFEITO CUSTOMIZADO CORRIGIDA
+                e.addEffect(new net.minecraft.world.effect.MobEffectInstance(MorebossesModMobEffects.WATCHED.get(), 100, 0));
+
+                // Mantém o lentidão original se desejar, ou remova se o custom já for suficiente
                 e.addEffect(new net.minecraft.world.effect.MobEffectInstance(
                     net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 60, 3));
                 
@@ -482,7 +490,6 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
                 }
             }
         }
-        this.playSound(SoundEvents.GENERIC_EXPLODE, 1.5f, 1.0f);
     }
 
     private void performTeleport() {
@@ -667,7 +674,6 @@ public class GuardianoOfTheEyesEntity extends Monster implements GeoEntity {
 
     public static AttributeSupplier.Builder createAttributes() {
         AttributeSupplier.Builder builder = Mob.createMobAttributes();
-        // Velocidade de movimento reduzida (antes 0.25, agora 0.18)
         builder = builder.add(Attributes.MOVEMENT_SPEED, 0.18);
         builder = builder.add(Attributes.MAX_HEALTH, 450);
         builder = builder.add(Attributes.ARMOR, 20);

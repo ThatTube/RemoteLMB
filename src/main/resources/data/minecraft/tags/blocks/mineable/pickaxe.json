@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "morebosses:statue_stand",
+    "morebosses:petaled_sanstone",
     "morebosses:energy_altar",
     "morebosses:curved_endeterium_block",
     "morebosses:cut_endeterium",

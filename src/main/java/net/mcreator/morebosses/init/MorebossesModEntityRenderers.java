@@ -35,12 +35,15 @@ import net.mcreator.morebosses.client.renderer.MaxolotRenderer;
 import net.mcreator.morebosses.client.renderer.MagmaPitRenderer;
 import net.mcreator.morebosses.client.renderer.LesserAnteaterRenderer;
 import net.mcreator.morebosses.client.renderer.LamentBombRenderer;
+import net.mcreator.morebosses.client.renderer.IronDaggeRenderer;
 import net.mcreator.morebosses.client.renderer.GuardianoOfTheEyesRenderer;
 import net.mcreator.morebosses.client.renderer.EyeSentinelRenderer;
 import net.mcreator.morebosses.client.renderer.EngineerRenderer;
+import net.mcreator.morebosses.client.renderer.EnergyDaggeRenderer;
 import net.mcreator.morebosses.client.renderer.EnderSnakeRenderer;
 import net.mcreator.morebosses.client.renderer.EnderLaserBeamRenderer;
 import net.mcreator.morebosses.client.renderer.EnderBombRenderer;
+import net.mcreator.morebosses.client.renderer.EightPetaledGeneralRenderer;
 import net.mcreator.morebosses.client.renderer.DryBonesRenderer;
 import net.mcreator.morebosses.client.renderer.CopperMonstrosityRenderer;
 import net.mcreator.morebosses.client.renderer.CopperGrablerRenderer;
@@ -97,5 +100,9 @@ public class MorebossesModEntityRenderers {
 		event.registerEntityRenderer(MorebossesModEntities.BUGS.get(), BugsRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.YAK.get(), YakRenderer::new);
 		event.registerEntityRenderer(MorebossesModEntities.SMAGMAR.get(), SmagmarRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.EIGHT_PETALED_GENERAL.get(), EightPetaledGeneralRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.ENERGY_DAGGE.get(), EnergyDaggeRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.IRON_DAGGE.get(), IronDaggeRenderer::new);
+		event.registerEntityRenderer(MorebossesModEntities.CURVE_SICKLE_OLD.get(), ThrownItemRenderer::new);
 	}
 }

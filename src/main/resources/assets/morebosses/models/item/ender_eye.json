@@ -1,7 +1,6 @@
 {
-  "parent": "morebosses:custom/bigeye",
+  "parent": "item/generated",
   "textures": {
-    "0": "morebosses:block/eyebig",
-    "particle": "minecraft:item/ender_eye"
+    "layer0": "morebosses:item/ender_shyni_inter"
   }
 }

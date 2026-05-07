@@ -17,6 +17,7 @@ import net.mcreator.morebosses.block.StrokeMelonBlock;
 import net.mcreator.morebosses.block.StrokeGrassBlock;
 import net.mcreator.morebosses.block.StrokeBlock;
 import net.mcreator.morebosses.block.StrikeBlock;
+import net.mcreator.morebosses.block.StatueStandBlock;
 import net.mcreator.morebosses.block.SoulWoodFaceBlock;
 import net.mcreator.morebosses.block.SoulWoodBlock;
 import net.mcreator.morebosses.block.SoulLightBlock;
@@ -26,6 +27,7 @@ import net.mcreator.morebosses.block.SDBBlock;
 import net.mcreator.morebosses.block.RawMagmaBlockBlock;
 import net.mcreator.morebosses.block.RawMagmaBlock;
 import net.mcreator.morebosses.block.PolishedCrackedBlackstoneBlockBlock;
+import net.mcreator.morebosses.block.PetaledSanstoneBlock;
 import net.mcreator.morebosses.block.OpalOreInDOOMRockBlock;
 import net.mcreator.morebosses.block.OpalOreInCoriumBlock;
 import net.mcreator.morebosses.block.MetalixBlockBlock;
@@ -128,6 +130,8 @@ public class MorebossesModBlocks {
 	public static final RegistryObject<Block> SOUL_WOOD_FACE = REGISTRY.register("soul_wood_face", () -> new SoulWoodFaceBlock());
 	public static final RegistryObject<Block> ENERGY_ALTAR = REGISTRY.register("energy_altar", () -> new EnergyAltarBlock());
 	public static final RegistryObject<Block> THE_EYEOF_THE_CHAOS = REGISTRY.register("the_eyeof_the_chaos", () -> new TheEyeofTheChaosBlock());
+	public static final RegistryObject<Block> PETALED_SANSTONE = REGISTRY.register("petaled_sanstone", () -> new PetaledSanstoneBlock());
+	public static final RegistryObject<Block> STATUE_STAND = REGISTRY.register("statue_stand", () -> new StatueStandBlock());
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

@@ -41,7 +41,7 @@ public class EnergyAltarBlock extends BaseEntityBlock implements EntityBlock {
 	public EnergyAltarBlock() {
 		super(BlockBehaviour.Properties.of()
 
-				.sound(SoundType.STONE).strength(1.5f, 11f).lightLevel(s -> 14).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
+				.sound(SoundType.STONE).strength(1.5f, 11f).lightLevel(s -> 14).requiresCorrectToolForDrops().noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 

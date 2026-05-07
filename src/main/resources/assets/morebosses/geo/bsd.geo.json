@@ -1,0 +1,79 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.bsd",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "all",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [16, 16, 16], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "jaw",
+					"parent": "all",
+					"pivot": [0, 0, -8],
+					"cubes": [
+						{
+							"origin": [-7, 0, -9.1],
+							"size": [14, 15, 1],
+							"uv": {
+								"north": {"uv": [50, 32], "uv_size": [14, 15]},
+								"east": {"uv": [50, 32], "uv_size": [1, 15]},
+								"south": {"uv": [64, 32], "uv_size": [14, 15]},
+								"west": {"uv": [64, 32], "uv_size": [1, 15]},
+								"up": {"uv": [50, 32], "uv_size": [14, 1]},
+								"down": {"uv": [66, 33], "uv_size": [10, -1]}
+							}
+						},
+						{"origin": [-7, 0, -8.59], "size": [14, 15, 11], "inflate": -0.5, "uv": [0, 32]}
+					]
+				},
+				{
+					"name": "stick",
+					"parent": "all",
+					"pivot": [0, 16, -8],
+					"cubes": [
+						{"origin": [-1, 16, -8], "size": [2, 9, 0], "uv": [44, 58]},
+						{"origin": [-1, 16, -17], "size": [2, 9, 0], "uv": [44, 58]},
+						{"origin": [-3, 10, -17], "size": [6, 6, 0], "uv": [62, 56]},
+						{"origin": [-1, 25, -17], "size": [2, 0, 9], "uv": [35, 58]}
+					]
+				},
+				{
+					"name": "fin",
+					"parent": "all",
+					"pivot": [-8, 4, 0],
+					"cubes": [
+						{"origin": [-13, 4, -3], "size": [5, 0, 6], "uv": [0, 58]}
+					]
+				},
+				{
+					"name": "fin2",
+					"parent": "all",
+					"pivot": [8, 4, 0],
+					"cubes": [
+						{"origin": [8, 4, -3], "size": [5, 0, 6], "uv": [22, 58]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "all",
+					"pivot": [0, 6, 8],
+					"cubes": [
+						{"origin": [0, 1, 8], "size": [0, 13, 6], "uv": [50, 56]}
+					]
+				}
+			]
+		}
+	]
+}

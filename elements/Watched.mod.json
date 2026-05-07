@@ -1,0 +1,28 @@
+{
+  "_fv": 73,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Watched",
+    "icon": "watched",
+    "color": {
+      "value": -13145554,
+      "falpha": 0.0
+    },
+    "isInstant": true,
+    "mobEffectCategory": "HARMFUL",
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": true,
+    "isCuredByMilk": true,
+    "isProtectedByTotem": true,
+    "isCuredbyHoney": false,
+    "modifiers": [
+      {
+        "attribute": {
+          "value": "LUCK"
+        },
+        "amount": -2.0,
+        "operation": "ADD_VALUE"
+      }
+    ]
+  }
+}

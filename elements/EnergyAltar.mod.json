@@ -11,7 +11,7 @@
     "renderType": 0,
     "rotationMode": 1,
     "enablePitch": false,
-    "emissiveRendering": false,
+    "emissiveRendering": true,
     "displayFluidOverlay": false,
     "animateBlockItem": true,
     "itemTexture": "",

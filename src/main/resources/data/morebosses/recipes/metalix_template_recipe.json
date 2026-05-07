@@ -2,21 +2,24 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-    "aaa",
-    "bcb",
-    "dbd"
+    "aba",
+    "cdc",
+    "ece"
   ],
   "key": {
     "a": {
       "item": "morebosses:end_dust"
     },
     "b": {
-      "item": "minecraft:end_stone"
+      "item": "morebosses:energy_shard"
     },
     "c": {
-      "item": "minecraft:netherite_upgrade_smithing_template"
+      "item": "minecraft:end_stone"
     },
     "d": {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    },
+    "e": {
       "item": "morebosses:end_scales"
     }
   },

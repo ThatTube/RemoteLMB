@@ -18,6 +18,7 @@ import net.mcreator.morebosses.client.model.Modelbugs;
 import net.mcreator.morebosses.client.model.Modelbracadeira;
 import net.mcreator.morebosses.client.model.ModelShrimp;
 import net.mcreator.morebosses.client.model.ModelLamentBomb;
+import net.mcreator.morebosses.client.model.ModelDagger;
 import net.mcreator.morebosses.client.model.ModelCustomModel;
 import net.mcreator.morebosses.client.model.ModelCustomArmor;
 
@@ -25,6 +26,7 @@ import net.mcreator.morebosses.client.model.ModelCustomArmor;
 public class MorebossesModModels {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(ModelDagger.LAYER_LOCATION, ModelDagger::createBodyLayer);
 		event.registerLayerDefinition(ModelCustomArmor.LAYER_LOCATION, ModelCustomArmor::createBodyLayer);
 		event.registerLayerDefinition(Modelmagma_pit.LAYER_LOCATION, Modelmagma_pit::createBodyLayer);
 		event.registerLayerDefinition(Modelwither_gloveproject.LAYER_LOCATION, Modelwither_gloveproject::createBodyLayer);

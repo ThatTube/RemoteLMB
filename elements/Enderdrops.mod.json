@@ -51,11 +51,11 @@
           {
             "type": "item",
             "item": {
-              "value": "Items.ENDER_EYE"
+              "value": "CUSTOM:EnergyShard"
             },
             "weight": 1,
-            "minCount": 1,
-            "maxCount": 3,
+            "minCount": 4,
+            "maxCount": 6,
             "minEnchantmentLevel": 0,
             "maxEnchantmentLevel": 0,
             "affectedByFortune": false,

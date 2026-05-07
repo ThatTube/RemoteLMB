@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "morebosses:monstrous"
+    "morebosses:monstrous",
+    "morebosses:petaled"
   ]
 }

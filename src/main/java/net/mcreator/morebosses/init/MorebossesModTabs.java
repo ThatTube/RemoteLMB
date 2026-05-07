@@ -74,6 +74,8 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModBlocks.SOUL_WOOD_FACE.get().asItem());
 				tabData.accept(MorebossesModBlocks.ENERGY_ALTAR.get().asItem());
 				tabData.accept(MorebossesModBlocks.THE_EYEOF_THE_CHAOS.get().asItem());
+				tabData.accept(MorebossesModBlocks.PETALED_SANSTONE.get().asItem());
+				tabData.accept(MorebossesModBlocks.STATUE_STAND.get().asItem());
 			}).withSearchBar().build());
 	public static final RegistryObject<CreativeModeTab> LMB_ITENS = REGISTRY.register("lmb_itens",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_itens")).icon(() -> new ItemStack(MorebossesModItems.GREEN_MAGMA_CREAM.get())).displayItems((parameters, tabData) -> {
@@ -169,6 +171,13 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.COLOSSEUM_EYE.get());
 				tabData.accept(MorebossesModItems.COLOSSEUM_UPGRADE.get());
 				tabData.accept(MorebossesModItems.ARMAGE_DOOM_KEY.get());
+				tabData.accept(MorebossesModItems.ENERGY_SHARD.get());
+				tabData.accept(MorebossesModItems.ENERGY_DAGGER.get());
+				tabData.accept(MorebossesModItems.IRON_DAGGER.get());
+				tabData.accept(MorebossesModItems.OLD_STEEL_CURVESICKLE.get());
+				tabData.accept(MorebossesModItems.HUNTERS_CLAW.get());
+				tabData.accept(MorebossesModItems.TWO_HEADED_MACE.get());
+				tabData.accept(MorebossesModItems.ENDER_DISC.get());
 			}).withSearchBar().withTabsBefore(LMB_BLOCKS.getId()).build());
 	public static final RegistryObject<CreativeModeTab> LMB_MOBS = REGISTRY.register("lmb_mobs",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.morebosses.lmb_mobs")).icon(() -> new ItemStack(MorebossesModItems.COPPER_MONSTROSITY_SPAWN_EGG.get())).displayItems((parameters, tabData) -> {
@@ -200,6 +209,7 @@ public class MorebossesModTabs {
 				tabData.accept(MorebossesModItems.BUGS_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.YAK_SPAWN_EGG.get());
 				tabData.accept(MorebossesModItems.SMAGMAR_SPAWN_EGG.get());
+				tabData.accept(MorebossesModItems.EIGHT_PETALED_GENERAL_SPAWN_EGG.get());
 			}).withSearchBar().withTabsBefore(LMB_ITENS.getId()).build());
 
 	@SubscribeEvent

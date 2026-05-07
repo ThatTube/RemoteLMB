@@ -1,0 +1,7 @@
+{
+  "parent": "morebosses:custom/carlinhos",
+  "textures": {
+    "1": "morebosses:block/spearhead",
+    "particle": "morebosses:item/withered_bone"
+  }
+}

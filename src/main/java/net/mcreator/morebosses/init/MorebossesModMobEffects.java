@@ -10,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.effect.MobEffect;
 
+import net.mcreator.morebosses.potion.WatchedMobEffect;
 import net.mcreator.morebosses.potion.StunMobEffect;
 import net.mcreator.morebosses.potion.StickyMobEffect;
 import net.mcreator.morebosses.potion.ShrimpedMobEffect;
@@ -42,4 +43,5 @@ public class MorebossesModMobEffects {
 	public static final RegistryObject<MobEffect> HARD_SKIN = REGISTRY.register("hard_skin", () -> new HardSkinMobEffect());
 	public static final RegistryObject<MobEffect> BLEEDING = REGISTRY.register("bleeding", () -> new BleedingMobEffect());
 	public static final RegistryObject<MobEffect> DISGUISED = REGISTRY.register("disguised", () -> new DisguisedMobEffect());
+	public static final RegistryObject<MobEffect> WATCHED = REGISTRY.register("watched", () -> new WatchedMobEffect());
 }
