@@ -10,11 +10,13 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.mcreator.morebosses.client.particle.DoomParticle;
+import net.mcreator.morebosses.client.particle.AfterImageParticleParticle;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class MorebossesModParticles {
 	@SubscribeEvent
 	public static void registerParticles(RegisterParticleProvidersEvent event) {
 		event.registerSpriteSet(MorebossesModParticleTypes.DOOM.get(), DoomParticle::provider);
+		event.registerSpriteSet(MorebossesModParticleTypes.AFTER_IMAGE_PARTICLE.get(), AfterImageParticleParticle::provider);
 	}
 }

@@ -7603,7 +7603,7 @@
       "name": "EightPetaledGeneral",
       "type": "animatedentity",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "eight_petaled_general",
       "metadata": {
         "files": [
@@ -7925,6 +7925,19 @@
         ]
       },
       "path": "~/Items"
+    },
+    {
+      "name": "AfterImageParticle",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "after_image_particle",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/morebosses/client/particle/AfterImageParticleParticle.java",
+          "src/main/resources/assets/morebosses/particles/after_image_particle.json"
+        ]
+      }
     }
   ],
   "variable_elements": [],
